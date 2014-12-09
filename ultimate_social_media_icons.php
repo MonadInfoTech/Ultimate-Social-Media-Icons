@@ -33,43 +33,24 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-//shortcode for the ultimate social icons
+//shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args, $content = null)
 {
-	$args = array("name" => "",
-    "id" => "",
-    "description" => "",
-	"class" => "",
-    "before_widget" => "<aside class='widget sfsi' id='sfsi-widget-2'>",
-    "after_widget" => "</aside>",
-    "before_title" => "<h3 class='widget-title'>",
-    "after_title" => "</h3>",
-    "widget_id" => "sfsi-widget-2",
-    "widget_name" => "Ultimate Social Media Icons"
-	);
-	if(isset($args['title']))
-	{
-		$title = $args['title'];
-	}
-	else
-	{
-		$title = "Please follow & like us :)";
-	}
-	$instance = array("showf" => 1, "title" => $title);
+	$instance = array("showf" => 1, "title" => '');
 
 	$return = '';
-	//return $sfsi_obj->widget($args, $instance);
-	extract( $args );
+	
 	/*Our variables from the widget settings. */
 	$title = apply_filters('widget_title', $instance['title'] );
 	$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
+	
 	global $is_floter;	      
 	$return.= $before_widget;
 		$return .= '<div class="sfsi_widget"><div id="sfsi_wDiv"></div>';
 	
-	/* Display the widget title */
-	if ( $title ) $return .= $before_title . $title . $after_title;
+		/* Display the widget title */
+		if ( $title ) $return .= $before_title . $title . $after_title;
 			/* Link the main icons function */
 			$return .= sfsi_check_visiblity(0);
 	   $return .= '<div style="clear: both;"></div></div>';

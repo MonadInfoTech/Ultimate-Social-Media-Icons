@@ -1,6 +1,7 @@
 jQuery(document).ready(function(e) {
     jQuery("#sfsi_floater").attr("data-top",jQuery(document).height());
 });
+
 function sfsi_update_index() {
     var s = 1;
     SFSI("ul.icn_listing li.custom").each(function() {
@@ -96,6 +97,76 @@ function CustomIConSectionsUpdate() {
     sfsi_section_Display("counter".ele, show);
 }
 
+// Upload Custom Skin {Monad}
+function sfsi_customskin_upload(s, ref)
+{
+	var ttl = jQuery(ref).attr("title");
+	var i = s, e = {
+        action:"UploadSkins",
+        custom_imgurl:i
+    };
+	
+	SFSI.ajax({
+        url:ajax_object.ajax_url,
+        type:"post",
+        data:e,
+        success:function(msg) {
+			 if (msg.res = "success")
+			 {
+				 var arr = s.split('=');
+				 jQuery(ref).prev('.imgskin').attr('src', arr[1]);
+				 jQuery(ref).prev('.imgskin').css("display","block");
+				 jQuery(ref).text("Update");
+				 jQuery(ref).next('.dlt_btn').css("display","block");
+			 }
+        }
+    });
+}
+
+// Delete Custom Skin {Monad}
+function deleteskin_icon(s)
+{
+	var iconname = jQuery(s).attr("title");
+	var i = iconname, e = {
+        action:"DeleteSkin",
+        iconname:i
+    };
+	
+	SFSI.ajax({
+        url:ajax_object.ajax_url,
+        type:"post",
+        data:e,
+        success:function(msg) {
+			 if (msg.res = "success")
+			 {
+				 SFSI(s).prev("a").text("Upload");
+				 SFSI(s).prev("a").prev("img").attr("src",'');
+				 SFSI(s).prev("a").prev("img").css("display","none");
+				 SFSI(s).css("display","none");
+			 }
+        }
+    });
+}
+
+// Save Custom Skin {Monad}
+function SFSI_done()
+{
+	e = { action:"Iamdone" };
+	
+	SFSI.ajax({
+        url:ajax_object.ajax_url,
+        type:"post",
+        data:e,
+        success:function(msg) {
+			  jQuery("li.cstomskins_upload").children(".icns_tab_3").html(msg);
+			  SFSI("input[name='sfsi_rss_display']").prop("checked") ? sfsi_section_Display("rss_section", "show") :sfsi_section_Display("rss_section", "hide"),SFSI("input[name='sfsi_email_display']").prop("checked") ? sfsi_section_Display("email_section", "show") :sfsi_section_Display("email_section", "hide"),SFSI("input[name='sfsi_facebook_display']").prop("checked") ? sfsi_section_Display("facebook_section", "show") :sfsi_section_Display("facebook_section", "hide"), SFSI("input[name='sfsi_twitter_display']").prop("checked") ? sfsi_section_Display("twitter_section", "show") :sfsi_section_Display("twitter_section", "hide"),SFSI("input[name='sfsi_google_display']").prop("checked") ? sfsi_section_Display("google_section", "show") :sfsi_section_Display("google_section", "hide"), SFSI("input[name='sfsi_share_display']").prop("checked") ? sfsi_section_Display("share_section", "show") :sfsi_section_Display("share_section", "hide"), SFSI("input[name='sfsi_youtube_display']").prop("checked") ? sfsi_section_Display("youtube_section", "show") :sfsi_section_Display("youtube_section", "hide"), SFSI("input[name='sfsi_pinterest_display']").prop("checked") ? sfsi_section_Display("pinterest_section", "show") :sfsi_section_Display("pinterest_section", "hide"), SFSI("input[name='sfsi_instagram_display']").prop("checked") ? sfsi_section_Display("instagram_section", "show") :sfsi_section_Display("instagram_section", "hide"), SFSI("input[name='sfsi_linkedin_display']").prop("checked") ? sfsi_section_Display("linkedin_section", "show") :sfsi_section_Display("linkedin_section", "hide"), SFSI("input[element-type='cusotm-icon']").prop("checked") ? sfsi_section_Display("custom_section", "show") :sfsi_section_Display("custom_section", "hide");
+        	  SFSI(".cstmskins-overlay").hide("slow");
+			  sfsi_update_step3() && sfsicollapse(this);
+		}
+    });
+}
+
+// Upload Custom Icons {Monad}
 function sfsi_newcustomicon_upload(s) {
     var i = s, e = {
         action:"UploadIcons",
@@ -633,7 +704,18 @@ window.onerror = function() {}, SFSI = jQuery.noConflict(), SFSI(window).load(fu
 var global_error = 0;
 
 SFSI(document).ready(function(s) {
-    function i() {
+    //changes done {Monad}
+	SFSI(".tab_3_icns").on("click", ".cstomskins_upload", function() {
+		SFSI(".cstmskins-overlay").show("slow", function() {
+            e = 0;
+        });
+	});
+	SFSI("#custmskin_clspop").live("click", function() {
+        SFSI(".cstmskins-overlay").hide("slow");
+    });
+	//changes done {Monad}
+	
+	function i() {
         SFSI(".uperror").html(""), afterLoad();
         var s = SFSI('input[name="' + SFSI("#upload_id").val() + '"]');
         s.removeAttr("checked");
@@ -711,6 +793,11 @@ SFSI(document).ready(function(s) {
     }), SFSI("div#facebook").find(".icon1").find("a").find("img").mouseover(function() {
         SFSI(this).css("opacity", "0.9");
     }), SFSI("div#facebook").find(".icon1").find("a").find("img").mouseleave(function() {
+        SFSI(this).css("opacity", "1");
+		/*{Monad}*/
+    }), SFSI("div#twitter").find(".cstmicon1").find("a").find("img").mouseover(function() {
+        SFSI(this).css("opacity", "0.9");
+    }), SFSI("div#twitter").find(".cstmicon1").find("a").find("img").mouseleave(function() {
         SFSI(this).css("opacity", "1");
     }), SFSI("#sfsiBackgroundColorPicker").ColorPicker({
         color:"#f80000",

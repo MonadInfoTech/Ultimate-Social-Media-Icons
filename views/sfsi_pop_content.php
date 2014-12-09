@@ -16,7 +16,8 @@ define('rss_readmore_text2', $rss_readmore_text2);
         <h4 id="readmore_text">Note: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h4>
 </div>
 </div>
-<!-- Custom icon upload  Pop-up-->
+
+<!-- Custom icon upload  Pop-up {Change by Monad}-->
 <div class="pop-overlay upload-overlay" >
      
     <form id="customIconFrm" method="post" action="<?php echo admin_url( 'admin-ajax.php?action=UploadIcons' ); ?>" enctype="multipart/form-data" >
@@ -26,11 +27,11 @@ define('rss_readmore_text2', $rss_readmore_text2);
             <div class="sfsi_popupcntnr">
             	<h3>Steps:</h3>
                 <ul class="flwstep">
-                	<li>Click on <span> << </span> <span> Upload </span> <span> >> </span> below</li>
-                    <li>Upload the icon into the media gallery</li>
-					<li>Click on  <span> << </span> <span> Insert into post </span> <span> >> </span> </li>
+                	<li>1. Click on <span> << </span> <span> Upload </span> <span> >> </span> below</li>
+                    <li>2. Upload the icon into the media gallery</li>
+					<li>3. Click on  <span> << </span> <span> Insert into post </span> <span> >> </span> </li>
                 </ul>    
-                <div class="upldbtn"><input name=""  type="button" value="Upload" class="upload_butt" onclick="upload_image(this)" /></div>
+                <div class="upldbtn"><input name=""  type="button" value="Upload" class="upload_butt" onclick="upload_image_icon(this)" /></div>
             </div>
         </div>
       
@@ -42,7 +43,7 @@ define('rss_readmore_text2', $rss_readmore_text2);
    </form>
    
    <script type="text/javascript">
-   function upload_image(ref)
+   function upload_image_icon(ref)
    {
 	    formfield = jQuery(ref).prev("input").attr('name');
 		tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
@@ -272,3 +273,244 @@ I want to see how it works</a></div>
         <a href="javascript:;" class="hidePop" title="Don’t review and exit">Don’t review and exit</a>
   </div>
 </div> <!-- END email deactivate pop-ups -->
+
+<!--Custom Skin popup {Monad}-->
+<div class="pop-overlay cstmskins-overlay" >
+    <div class="cstmskin_popup" >
+        <img src="<?php echo SFSI_PLUGURL; ?>images/close.jpg" id="custmskin_clspop" class="sfsicloseBtn" />
+        
+        <div class="cstomskins_wrpr">
+            <h3>Upload custom icons</h3>
+            <div class="custskinmsg">
+                Here you can upload custom icons which perform the same actions as the standard icons.
+                
+                <ul>
+                    <li>1. Click on <span> << </span> <span> Upload </span> <span> >> </span> below</li>
+                    <li>2. Upload the icon into the media gallery</li>
+                    <li>3. Click on  <span> << </span> <span> Insert into post </span> <span> >> </span> </li>
+                </ul>
+            </div>
+            
+            <ul class="cstmskin_iconlist">
+            	<li>
+                	<div class="cstm_icnname">RSS</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("rss_skin"))
+							{
+								$rss_skin = get_option("rss_skin");
+								echo "<img src='".$rss_skin."' width='30px' height='30px' class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="rss_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="rss_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="rss_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="rss_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Email</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("email_skin"))
+							{
+								$email_skin = get_option("email_skin");
+								echo "<img src='".$email_skin."' width='30px' height='30px' class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="email_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="email_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="email_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="email_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Facebook</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("facebook_skin"))
+							{
+								$facebook_skin = get_option("facebook_skin");
+								echo "<img src='".$facebook_skin."' width='30px' height='30px'  class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="facebook_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="facebook_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="facebook_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="facebook_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Twitter</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("twitter_skin"))
+							{
+								$twitter_skin = get_option("twitter_skin");
+								echo "<img src='".$twitter_skin."' width='30px' height='30px' class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="twitter_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="twitter_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="twitter_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="twitter_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Google+</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("google_skin"))
+							{
+								$google_skin = get_option("google_skin");
+								echo "<img src='".$google_skin."' width='30px' height='30px'  class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="google_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="google_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="google_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="google_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+				</li>
+                <li>
+                	<div class="cstm_icnname">Share</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("share_skin"))
+							{
+								$share_skin = get_option("share_skin");
+								echo "<img src='".$share_skin."' width='30px' height='30px' class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="share_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="share_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="share_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="share_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Youtube</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("youtube_skin"))
+							{
+								$youtube_skin = get_option("youtube_skin");
+								echo "<img src='".$youtube_skin."' width='30px' height='30px'  class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="youtube_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="youtube_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="youtube_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="youtube_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Linkedin</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("linkedin_skin"))
+							{
+								$linkedin_skin = get_option("linkedin_skin");
+								echo "<img src='".$linkedin_skin."' width='30px' height='30px'  class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="linkedin_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="linkedin_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="linkedin_skin" class="cstmskin_btn">Upload</a>';	
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="linkedin_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Pintrest</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("pintrest_skin"))
+							{
+								$pintrest_skin = get_option("pintrest_skin");
+								echo "<img src='".$pintrest_skin."' width='30px' height='30px' class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="pintrest_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="pintrest_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="pintrest_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="pintrest_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+							}
+						?>
+                    </div>
+                </li>
+                <li>
+                	<div class="cstm_icnname">Instagram</div>
+                    <div class="cstmskins_btn">
+                    	<?php 
+							if(get_option("instagram_skin"))
+							{
+								$instagram_skin = get_option("instagram_skin");
+								echo "<img src='".$instagram_skin."' width='30px' height='30px' class='imgskin'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="instagram_skin" class="cstmskin_btn">Update</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="instagram_skin" class="cstmskin_btn">Delete</a>';
+							}
+							else
+							{
+								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
+								echo '<a href="javascript:" onclick="upload_image(this);" title="instagram_skin" class="cstmskin_btn">Upload</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="instagram_skin" class="cstmskin_btn dlt_btn">Delete</a>';		
+							}
+						?>
+                    </div>
+                </li>
+                
+            </ul>
+            <div class="cstmskins_sbmt">
+            	<a href="javascript:" class="done_btn" onclick="SFSI_done();">I'm done!</a> 
+            </div>
+           
+        </div>
+    	<script type="text/javascript">
+		   function upload_image(ref)
+		   {
+				var title = jQuery(ref).attr('title');
+				tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+				window.send_to_editor = function(html) {
+					url = jQuery('img',html).attr('src');
+					sfsi_customskin_upload(title+'='+url, ref);
+					tb_remove();
+				}
+				return false;
+			}
+		 </script>
+    </div>    
+</div>        
