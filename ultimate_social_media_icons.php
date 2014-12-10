@@ -58,4 +58,30 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args, $content = null)
 	$return .= $after_widget;
 	return $return;
 }
+//adding some meta tags for facebook news feed {Monad}
+add_action('wp_head', 'ultimatefbmetatags');
+function ultimatefbmetatags()
+{
+       $post_id = get_the_ID();
+       $attachment_id = get_post_thumbnail_id($post_id);
+       if($attachment_id)
+       {
+               $feat_image = wp_get_attachment_url( $attachment_id );
+               if (preg_match('/https/',$feat_image))
+               {
+                       echo '<meta property="og:image:secure_url" content="'.$feat_image.'">';
+               }
+               else
+               {
+                       echo '<meta property="og:image" content="'.$feat_image.'">';
+               }
+               $metadata = wp_get_attachment_metadata( $attachment_id );
+               $image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
+               $width = $metadata['width'];
+               $height = $metadata['height'];
+               echo '<meta property="og:image:type" content="'.$image_type.'">';
+               echo '<meta property="og:image:width" content="'.$width.'">';
+               echo '<meta property="og:image:height" content="'.$height.'">';
+       }
+}
 ?>
