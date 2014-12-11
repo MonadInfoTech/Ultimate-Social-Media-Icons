@@ -38,23 +38,18 @@ add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args, $content = null)
 {
 	$instance = array("showf" => 1, "title" => '');
-
 	$return = '';
-	
 	/*Our variables from the widget settings. */
 	$title = apply_filters('widget_title', $instance['title'] );
 	$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
-	
 	global $is_floter;	      
 	$return.= $before_widget;
 		$return .= '<div class="sfsi_widget"><div id="sfsi_wDiv"></div>';
-	
 		/* Display the widget title */
 		if ( $title ) $return .= $before_title . $title . $after_title;
 			/* Link the main icons function */
 			$return .= sfsi_check_visiblity(0);
 	   $return .= '<div style="clear: both;"></div></div>';
-	  
 	$return .= $after_widget;
 	return $return;
 }
@@ -62,26 +57,26 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args, $content = null)
 add_action('wp_head', 'ultimatefbmetatags');
 function ultimatefbmetatags()
 {
-       $post_id = get_the_ID();
-       $attachment_id = get_post_thumbnail_id($post_id);
-       if($attachment_id)
-       {
-               $feat_image = wp_get_attachment_url( $attachment_id );
-               if (preg_match('/https/',$feat_image))
-               {
-                       echo '<meta property="og:image:secure_url" content="'.$feat_image.'">';
-               }
-               else
-               {
-                       echo '<meta property="og:image" content="'.$feat_image.'">';
-               }
-               $metadata = wp_get_attachment_metadata( $attachment_id );
-               $image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
-               $width = $metadata['width'];
-               $height = $metadata['height'];
-               echo '<meta property="og:image:type" content="'.$image_type.'">';
-               echo '<meta property="og:image:width" content="'.$width.'">';
-               echo '<meta property="og:image:height" content="'.$height.'">';
-       }
+   $post_id = get_the_ID();
+   $attachment_id = get_post_thumbnail_id($post_id);
+   if($attachment_id)
+   {
+	   $feat_image = wp_get_attachment_url( $attachment_id );
+	   if (preg_match('/https/',$feat_image))
+	   {
+			   echo '<meta property="og:image:secure_url" content="'.$feat_image.'">';
+	   }
+	   else
+	   {
+			   echo '<meta property="og:image" content="'.$feat_image.'">';
+	   }
+	   $metadata = wp_get_attachment_metadata( $attachment_id );
+	   $image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
+	   $width = $metadata['width'];
+	   $height = $metadata['height'];
+	   echo '<meta property="og:image:type" content="'.$image_type.'">';
+	   echo '<meta property="og:image:width" content="'.$width.'">';
+	   echo '<meta property="og:image:height" content="'.$height.'">';
+   }
 }
 ?>

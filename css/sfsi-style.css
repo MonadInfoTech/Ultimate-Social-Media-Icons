@@ -2880,6 +2880,21 @@ ul#adminmenu li.toplevel_page_sfsi-options a.wp-has-current-submenu, ul#adminmen
     border: 1px solid #EDEDED;
     box-shadow: 0 0 5px #CCC;
     margin: 20px;
+	position: relative;
+}
+.sfsi_FrntInner .sfsiclpupwpr
+{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 25px;
+	cursor: pointer;
+}
+.sfsi_FrntInner .sfsiclpupwpr img
+{
+	width: auto;
+	float: left;
+	border: medium none;
 }
 .tab7 .like_pop_box {
     width: 100%;
@@ -3112,11 +3127,52 @@ ul.cstmskin_iconlist {
 {
 	display: none;
 }
-.inside {
-    width: 100%;
-    float: left;
-	text-align: center;
+.cstmutbewpr
+{
+	width: 100%;
+	float: left;
+	margin-top: 10px;
 }
-.inside icon1, .inside icon2, .inside icon3 {
-    width: auto;
-}	
+.cstmutbewpr ul.enough_waffling li
+{
+	width: auto;
+	float: left;
+	margin-right: 20px;
+}
+.cstmutbewpr ul.enough_waffling li span
+{
+	float: left;
+}
+.cstmutbewpr ul.enough_waffling li label
+{
+	width: auto;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.cstmutbewpr .cstmutbtxtwpr
+{
+	width: 100%;
+	float: left;
+	padding-top: 10px;
+}
+.cstmutbewpr .cstmutbtxtwpr .cstmutbchnlnmewpr
+{
+	width: 100%;
+	float: left;
+	display: none;
+}
+#accordion .cstmutbewpr .cstmutbtxtwpr .cstmutbchnlnmewpr p, #accordion .cstmutbewpr .cstmutbtxtwpr .cstmutbchnlidwpr p
+{
+	margin-left: 0px;
+}
+.cstmutbewpr .cstmutbtxtwpr .cstmutbchnlidwpr
+{
+	width: 100%;
+	float: left;
+	display: none;
+}
+#accordion .cstmutbewpr .cstmutbtxtwpr .cstmutbchnlnmewpr p label, #accordion .cstmutbewpr .cstmutbtxtwpr .cstmutbchnlidwpr p label
+{
+	width: 120px;
+}

@@ -77,7 +77,9 @@ function sfsi_options_updater2()
     $sfsi_linkedin_recommendCompany = isset($_POST["sfsi_linkedin_recommendCompany"]) ? trim($_POST["sfsi_linkedin_recommendCompany"]) : '';
     $sfsi_linkedin_recommendProductId= isset($_POST["sfsi_linkedin_recommendProductId"]) ? trim($_POST["sfsi_linkedin_recommendProductId"]) : '';
     
+	$sfsi_youtubeusernameorid = isset($_POST["sfsi_youtubeusernameorid"]) ? trim($_POST["sfsi_youtubeusernameorid"]) : '';
     $sfsi_youtube_user              = ($_POST["sfsi_ytube_user"]) ? $_POST["sfsi_ytube_user"] : '';
+	$sfsi_ytube_chnlid              = isset($_POST["sfsi_ytube_chnlid"]) ? $_POST["sfsi_ytube_chnlid"] : '';
     
     $sfsi_CustomIcon_links          = isset($_POST["sfsi_custom_links"]) ? serialize($_POST["sfsi_custom_links"]) : '';
    
@@ -109,7 +111,7 @@ function sfsi_options_updater2()
                         'sfsi_youtube_pageUrl'=>$sfsi_youtube_pageUrl,
                         'sfsi_youtube_page'=>$sfsi_youtube_page,
                         'sfsi_youtube_follow'=>$sfsi_youtube_follow,
-                         /* pinterest options */
+						 /* pinterest options */
                         'sfsi_pinterest_page'=>$sfsi_pinterest_page,
                         'sfsi_pinterest_pageUrl'=>$sfsi_pinterest_pageUrl,
                         'sfsi_pinterest_pingBlog'=>$sfsi_pinterest_pingBlog,
@@ -130,6 +132,8 @@ function sfsi_options_updater2()
       update_option('sfsi_section2_options',serialize($up_option2));
       $option4=unserialize(get_option('sfsi_section4_options',false));     
       $option4['sfsi_youtube_user']=$sfsi_youtube_user;
+	  $option4['sfsi_youtubeusernameorid']=$sfsi_youtubeusernameorid;
+	  $option4['sfsi_ytube_chnlid']=$sfsi_ytube_chnlid;
       update_option('sfsi_section4_options',serialize($option4));
     header('Content-Type: application/json');
     echo  json_encode(array("success")); exit;

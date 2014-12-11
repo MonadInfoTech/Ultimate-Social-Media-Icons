@@ -1,6 +1,6 @@
 <?php
   /* unserialize all saved option for second section options */
-$option4=  unserialize(get_option('sfsi_section4_options',false));
+	$option4=  unserialize(get_option('sfsi_section4_options',false));
     $option2=  unserialize(get_option('sfsi_section2_options',false));
   
 ?>
@@ -81,7 +81,25 @@ $option4=  unserialize(get_option('sfsi_section4_options',false));
         <p>The youtube icon should allow users to... </p> 
         <p class="radio_section fb_url"><input name="sfsi_youtube_page" <?php echo ($option2['sfsi_youtube_page']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Visit my Youtube page at:</label><input name="sfsi_youtube_pageUrl" type="url" placeholder="http://" value="<?php echo ($option2['sfsi_youtube_pageUrl']!='') ?  $option2['sfsi_youtube_pageUrl'] : '' ;?>" class="add" /></p>
         <p class="radio_section fb_url"><input name="sfsi_youtube_follow" <?php echo ($option2['sfsi_youtube_follow']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Subscribe to me on Youtube <span>(allows people to subscribe to you directly, without leaving your blog)</span></label></p>
-        <p class="extra_pp"><label>Enter username:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>" placeholder="youtube_user_name" class="add" /></p>
+        <!--Adding Code for Channel Id and Channel Name-->
+        <div class="cstmutbewpr">
+            <ul class="enough_waffling">
+               <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='name') ?  'checked="true"' : '' ;?> type="radio" value="name" class="styled"  /><label>Channel Name</label></li>
+               <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='id') ?  'checked="true"' : '' ;?> type="radio" value="id" class="styled"  /><label>Channel Id</label></li>
+            </ul>
+            <div class="cstmutbtxtwpr">
+            	<?php
+                $sfsi_youtubeusernameorid = $option4['sfsi_youtubeusernameorid'];
+				?>
+            	<div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
+                	<p class="extra_pp"><label>ChannelName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>" placeholder="youtube_channel_name" class="add" /></p>
+                </div>
+                <div class="cstmutbchnlidwpr" <?php if($sfsi_youtubeusernameorid == 'id'){echo 'style="display: block;"';}?>>
+                	<p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option4['sfsi_ytube_chnlid']) && $option4['sfsi_ytube_chnlid']!='') ?  $option4['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
+                </div>
+            </div>
+       </div>
+        
         </div>
     </div><!-- END YOUTUBE ICON -->
     

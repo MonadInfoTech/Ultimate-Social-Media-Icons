@@ -230,8 +230,17 @@ public function sfsi_FBlike($permalink) {
 	} 
  /* create on page youtube subscribe icon */       
  public function sfsi_YouTubeSub($yuser) {
-		$youtube_html = '<div class="g-ytsubscribe" data-channel="'.$yuser.'" data-layout="default" data-count="hidden"></div>';
-		
+	 	$option4=  unserialize(get_option('sfsi_section4_options',false));
+		if($option4['sfsi_youtubeusernameorid'] == 'name')
+		{
+			$yuser = $option4['sfsi_youtube_user'];
+			$youtube_html = '<div class="g-ytsubscribe" data-channel="'.$yuser.'" data-layout="default" data-count="hidden"></div>';
+		}
+		else
+		{
+			$yuser = $option4['sfsi_ytube_chnlid'];
+			$youtube_html = '<div class="g-ytsubscribe" data-channelid="'.$yuser.'" data-layout="default" data-count="hidden"></div>';
+		}
 		return $youtube_html;
 	}  
  /* create on page pinit button icon */      

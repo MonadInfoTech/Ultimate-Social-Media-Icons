@@ -653,7 +653,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
                          } 
                          if($sfsi_section2_options['sfsi_youtube_follow']=="yes")
                          {
-                             $hoverdiv.="<div  class='icon2'>".$socialObj->sfsi_YouTubeSub($youtube_user)."</div>";
+							 $hoverdiv.="<div  class='icon2'>".$socialObj->sfsi_YouTubeSub($youtube_user)."</div>";
                          }    
                      }
                     /* fecth no of counts if active in admin section */  

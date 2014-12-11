@@ -189,6 +189,9 @@ function sfsi_FrontPopupDiv()
   endif;  
     ksort($icons_order);     /* short icons in order to display */
     $icons='<div class="sfsi_outr_div" > <div class="sfsi_FrntInner" style="'.$style.'">';
+	//adding close button
+	$icons.='<div class="sfsiclpupwpr" onclick="sfsihidemepopup();"><img src="'.SFSI_PLUGURL.'images/close.png" /></div>';
+	
 	 if(!empty($heading_text))
 	 {
 	 $icons.='<h2 style="'.$h_style.'">'.$heading_text.'</h2>';
