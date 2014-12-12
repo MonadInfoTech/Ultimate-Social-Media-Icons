@@ -55,7 +55,7 @@ function sfsi_admin_JS_CS()
 		wp_register_script('SFSICustomFormJs', SFSI_PLUGURL . 'js/custom-form-min.js', array('jquery'),'',true);
 		wp_enqueue_script("SFSICustomFormJs");
 		
-		wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom.js', array('jquery'));
+		wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom-min.js', array('jquery'));
 		wp_enqueue_script("SFSICustomJs");
 		
 		wp_register_script('SFSICustomValidateJs', SFSI_PLUGURL . 'js/customValidate-min.js', array('jquery'),'',true);
@@ -67,9 +67,8 @@ function sfsi_admin_JS_CS()
 		wp_localize_script( 'SFSICustomValidateJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
 	}    
     /* include CSS for front-end and backend  */
-    //wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style-min.css' );
-	wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
-    wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
+    wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style-min.css' );
+	wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
     wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
     wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
     

@@ -26,10 +26,13 @@ function sfsi_social_buttons_below($content) {
         $float= $sfsi_section6['sfsi_icons_alignment'];
         $icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:5px;'><span>".$txt."</span></div>";
         
-        $icons.="<div class='sf_fb' style='float:left;margin:5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
-	$icons.="<div class='sf_google'  style='float:left;margin:5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
-        $icons.="<div class='sf_addthis'  style='float:left;margin:8px 5px 5px 5px;'>".sfsi_Addthis($show_count)."</div>";
-      
+		//adding wrapper div
+		$icons.="<div class='sfsi_socialwpr'>";
+			$icons.="<div class='sf_fb' style='width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
+			$icons.="<div class='sf_google'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+			$icons.="<div class='sf_addthis'>".sfsi_Addthis($show_count)."</div>";
+      	$icons.="</div>";
+		//closing wrapper div
 	$icons.="</div>";
     if(!is_feed() && !is_home() && !is_page()) {
 		$content =   $content .$icons;

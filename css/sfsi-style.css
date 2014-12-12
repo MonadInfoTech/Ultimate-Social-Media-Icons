@@ -3176,3 +3176,33 @@ ul.cstmskin_iconlist {
 {
 	width: 120px;
 }
+.sfsi_widget .sfsi_wDiv .sfsi_wicons .inerCnt a
+{
+	padding: 0px;
+	margin: 0px;
+}
+.sfsi_socialwpr
+{
+	width: auto;
+	float: left;
+}
+.sfsi_socialwpr .sf_fb
+{
+	float:left;
+	margin:5px 5px 5px 5px;
+	min-height: 20px;	
+}
+.sfsi_socialwpr .sf_google
+{
+	float:left;
+	margin:5px 5px 5px 5px;
+	max-width:62px;
+	min-width:35px;
+	min-height: 20px;
+}
+.sfsi_socialwpr .sf_addthis
+{
+	float:left;
+	margin:5px 5px 5px 5px;
+	min-height: 20px;
+}
