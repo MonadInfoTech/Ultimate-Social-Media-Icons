@@ -2482,9 +2482,10 @@ h2.optional {
 }
 .fb_tool_bdr .inside .icon2 {
     margin: 9px 7px 0;
-    height: 25px;
+    height: 20px;
     width: 48px;
     display: inline-block;
+	overflow: hidden;
 }
 .fb_tool_bdr .inside .icon3 {
     margin: 9px 0 0;
@@ -2563,7 +2564,7 @@ h2.optional {
     margin: 9px 0 0!important;
     display: inline-block;
     float: none;
-    width: 59px;
+    width: 60px;
     overflow: hidden;
     height: 20px;
 }
@@ -3205,4 +3206,8 @@ ul.cstmskin_iconlist {
 	float:left;
 	margin:5px 5px 5px 5px;
 	min-height: 20px;
+}
+.icon2 ._56z-
+{
+	display: none;
 }

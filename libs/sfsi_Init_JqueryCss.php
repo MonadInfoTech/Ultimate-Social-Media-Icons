@@ -8,7 +8,9 @@ function sfsi_admin_JS_CS()
    if((is_admin() && $path['basename']=="admin.php?page=sfsi-options") || !is_admin())
    {
 		// include thickbox and media upload script and change static path of migrate script {Monad}
-		wp_enqueue_script('jquery');
+		wp_register_script('SFSIJquery', 'http://code.jquery.com/jquery-1.9.1.js', array('jquery'));
+   		wp_enqueue_script("SFSIJquery");
+		//wp_enqueue_script('jquery');
 	 
 		wp_register_script('SFSIMigrate',  SFSI_PLUGURL . 'js/jquery-migrate-1.1.0.min.js', array('jquery'),'',true);
 		wp_enqueue_script("SFSIMigrate");
