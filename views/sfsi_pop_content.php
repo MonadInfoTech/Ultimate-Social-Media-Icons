@@ -76,7 +76,7 @@ define('rss_readmore_text2', $rss_readmore_text2);
         <div class="adminTooltip" ><a alt="facebook"  href="<?php echo ($option2['sfsi_facebookPage_url']!='') ?  $option2['sfsi_facebookPage_url'] : 'https://www.facebook.com/SpecificFeeds'; ?>"  effect="" class=" " target="_new"><img width="51" class="sfsi_wicon" src="<?php echo SFSI_PLUGURL; ?>images/facebook.png" title="facebook" alt="facebook" /></a>
        <div class="sfsi_tool_tip_2 sfsi_tool_tip_2_inr fb_tool_bdr" style="width: 59px;margin-left: -48.5px;">
            <span class="bot_arow bot_fb_arow "></span>
-           <div class="inside fbb">
+           <div class="sfsi_inside fbb">
                <div class="fb_1"><a  href='<?php echo ($option2['sfsi_facebookPage_url']!='') ?  $option2['sfsi_facebookPage_url'] : 'https://www.facebook.com/SpecificFeeds'; ?>' target="_new" ><img src="<?php echo $visit_iconsUrl."facebook.png"; ?>" /></a></div>    
            <div class="fb_2"><?php echo $soicalObj->sfsi_FBlike(($option2['sfsi_facebookPage_url']!='') ?  $option2['sfsi_facebookPage_url'] : 'https://www.facebook.com/SpecificFeeds'); ?></div>
            <div class="fb_3"><?php echo $soicalObj->sfsiFB_Share(($option2['sfsi_facebookPage_url']!='') ?  $option2['sfsi_facebookPage_url'] : 'https://www.facebook.com/SpecificFeeds'); ?></div>
@@ -127,7 +127,7 @@ var addthis_config = {
         <div class="adminTooltip" ><a alt="twitter"  href="https://twitter.com/<?php echo $option2['sfsi_twitter_followUserName'];?>"  effect="" class=" " target="_new"><img width="51" class="sfsi_wicon" src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" title="Twitter" alt="facebook" /></a>
        <div class="sfsi_tool_tip_2 sfsi_tool_tip_2_inr twt_tool_bdr" style="width: 59px;margin-left: -48.5px;">
            <span class="bot_arow bot_twt_arow"></span>
-           <div class="inside" >
+           <div class="sfsi_inside" >
            <div class="twt_1"><?php echo $soicalObj->sfsi_twitterFollow(($option2['sfsi_twitter_followUserName']!='') ?  $option2['sfsi_twitter_followUserName'] : 'SpecificFeeds'); ?></div>
            <div class="twt_2"><?php echo $soicalObj->sfsi_twitterShare($twitetr_share,$twitter_text); ?></div>
            </div>    
@@ -149,7 +149,7 @@ $google_url=($option2['sfsi_google_pageURL']!='') ?  $option2['sfsi_google_pageU
         <div class="adminTooltip" ><a alt="google+"  href="<?php echo $google_url; ?>"  effect="" class=" " target="_new"><img width="51" class="sfsi_wicon" src="<?php echo SFSI_PLUGURL; ?>images/google_plus.png" title="google+" alt="google" /></a>
        <div class="sfsi_tool_tip_2 sfsi_tool_tip_2_inr gpls_tool_bdr" style="display: block;  margin-left: -76.5px; margin-left: -55.5px;">
            <span class="bot_arow bot_gpls_arow"></span>
-           <div class="inside">
+           <div class="sfsi_inside">
            <div class="gpls_visit"><a href='<?php echo $google_url; ?>' target="_new"><img src="<?php echo $visit_iconsUrl."google.png"; ?>" /></a></div>    
            <div class="gtalk_2"><?php echo $soicalObj->sfsi_Googlelike($google_url); ?></div>
            <div class="gtalk_3"><?php echo $soicalObj->sfsi_GoogleShare($google_url); ?></div>
@@ -173,7 +173,7 @@ $youtube_user=($option4['sfsi_youtube_user']!='' && isset($option4['sfsi_youtube
      <div class="adminTooltip" ><a alt="youtube"  href="<?php echo $youtube_url; ?>"  effect="" class=" " target="_new"><img width="51" class="sfsi_wicon" src="<?php echo SFSI_PLUGURL; ?>images/youtube.png" title="youtube" alt="youtube" /></a>
         <div class="sfsi_tool_tip_2 sfsi_tool_tip_2_inr utube_tool_bdr"  style=" margin-left: -67px; width: 96px;" >
            <span class="bot_arow bot_utube_arow"></span>
-           <div class="inside">
+           <div class="sfsi_inside">
                <div class="utub_visit"><a href='<?php echo $youtube_url; ?>' target="_new"><img src="<?php echo $visit_iconsUrl."youtube.png"; ?>" /></a></div>    
            <div class="utub_2"><?php echo $soicalObj->sfsi_YouTubeSub($youtube_user); ?></div>
            
@@ -196,7 +196,7 @@ $pin_url=($option2['sfsi_pinterest_pageUrl']!='') ?  $option2['sfsi_pinterest_pa
      <div class="adminTooltip" ><a alt="pinterest"  href="<?php echo $pin_url; ?>"  effect="" class=" " target="_new"><img width="51" class="sfsi_wicon" src="<?php echo SFSI_PLUGURL; ?>images/pinterest.png" title="pinterest" alt="pinterest" /></a>
         <div class="sfsi_tool_tip_2 sfsi_tool_tip_2_inr printst_tool_bdr"  style=" width: 73px; margin-left: -55.5px;" >
            <span class="bot_arow bot_pintst_arow"></span>
-           <div class="inside">
+           <div class="sfsi_inside">
                <div class="prints_visit"><a href='<?php echo $pin_url; ?>' target="_new"><img src="<?php echo $visit_iconsUrl."pinterest.png"; ?>" /></a></div>    
            <div class="prints_visit_1"><?php echo $soicalObj->sfsi_PinIt($pin_url); ?></div>
            
@@ -221,7 +221,7 @@ $ln_product=($option2['sfsi_linkedin_recommendProductId']!='') ?  $option2['sfsi
      <div class="adminTooltip" ><a alt="linkedIn"  href="<?php echo $linnked_share;?>"  effect="" class=" " target="_new"><img width="51" class="sfsi_wicon" src="<?php echo SFSI_PLUGURL; ?>images/linked_in.png" title="LinkedIn" alt="LinkedIn" /></a>
         <div class="sfsi_tool_tip_2 sfsi_tool_tip_2_inr linkedin_tool_bdr"  style=" width: 99px; margin-left: -68.5px;">
            <span class="bot_arow bot_linkedin_arow"></span>
-           <div class="inside">
+           <div class="sfsi_inside">
            <div style="margin:1px 5px;" class="linkin_1"><a href='<?php echo $linnked_share; ?>' target="_new"><img src="<?php echo $visit_iconsUrl."linkedIn.png"; ?>" /></a></div>    
            <div class="linkin_2"><?php echo $soicalObj->sfsi_LinkedInFollow($linkedIncom); ?></div>
            <div class="linkin_3"><?php echo $soicalObj->sfsi_LinkedInShare($linnked_share); ?></div>
