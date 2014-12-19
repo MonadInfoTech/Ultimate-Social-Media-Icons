@@ -970,7 +970,7 @@ ul.icn_listing li .tb_4_ck {
     float: left;
     margin: 10px 0 0;
 }
-.tab1 ul.icn_listing li .custom, .tab1 ul.icn_listing li .email, .tab1 ul.icn_listing li .facebook, .tab1 ul.icn_listing li .ggle_pls, .tab1 ul.icn_listing li .instagram, .tab1 ul.icn_listing li .linkdin, .tab1 ul.icn_listing li .pinterest, .tab1 ul.icn_listing li .rs_s, .tab1 ul.icn_listing li .share, .tab1 ul.icn_listing li .twt, .tab1 ul.icn_listing li .utube {
+.tab1 ul.icn_listing li .custom, .tab1 ul.icn_listing li .sfsicls_email, .tab1 ul.icn_listing li .sfsicls_facebook, .tab1 ul.icn_listing li .sfsicls_ggle_pls, .tab1 ul.icn_listing li .sfsicls_instagram, .tab1 ul.icn_listing li .sfsicls_linkdin, .tab1 ul.icn_listing li .sfsicls_pinterest, .tab1 ul.icn_listing li .sfsicls_rs_s, .tab1 ul.icn_listing li .sfsicls_share, .tab1 ul.icn_listing li .sfsicls_twt, .tab1 ul.icn_listing li .sfsicls_utube {
     background: url(../images/tab_1_icn_list.png) no-repeat;
     float: left;
     padding: 0 0 0 59px;
@@ -980,43 +980,43 @@ ul.icn_listing li .tb_4_ck {
     font-family: helveticaregular;
     font-size: 22px;
 }
-.tab1 ul.icn_listing li .rs_s {
+.tab1 ul.icn_listing li .sfsicls_rs_s {
     background-position: 0 0;
     color: #f7941d;
 }
-.tab1 ul.icn_listing li .email {
+.tab1 ul.icn_listing li .sfsicls_email {
     background-position: 0 -73px;
     color: #d1c800;
 }
-.tab1 ul.icn_listing li .facebook {
+.tab1 ul.icn_listing li .sfsicls_facebook {
     background-position: 0 -145px;
     color: #004088;
 }
-.tab1 ul.icn_listing li .twt {
+.tab1 ul.icn_listing li .sfsicls_twt {
     background-position: 0 -221px;
     color: #00abe3;
 }
-.tab1 ul.icn_listing li .ggle_pls {
+.tab1 ul.icn_listing li .sfsicls_ggle_pls {
     background-position: 0 -295px;
     color: #444749;
 }
-.tab1 ul.icn_listing li .share {
+.tab1 ul.icn_listing li .sfsicls_share {
     background-position: 0 -372px;
     color: #ef4746;
 }
-.tab1 ul.icn_listing li .utube {
+.tab1 ul.icn_listing li .sfsicls_utube {
     background-position: 0 -448px;
     color: #f07963;
 }
-.tab1 ul.icn_listing li .linkdin {
+.tab1 ul.icn_listing li .sfsicls_linkdin {
     background-position: 0 -548px;
     color: #1e88c9;
 }
-.tab1 ul.icn_listing li .pinterest {
+.tab1 ul.icn_listing li .sfsicls_pinterest {
     background-position: 0 -623px;
     color: #f15f5d;
 }
-.tab1 ul.icn_listing li .instagram {
+.tab1 ul.icn_listing li .sfsicls_instagram {
     background-position: 0 -781px;
     color: #369;
 }
@@ -1081,7 +1081,7 @@ ul.icn_listing li .right_info a {
 }
 .row ul.tab_2_email_sec:first-child {
     margin-right: 2%}
-.tab2 .row h2.email, .tab2 .row h2.facebook, .tab2 .row h2.ggle_pls, .tab2 .row h2.instagram, .tab2 .row h2.linkdin, .tab2 .row h2.pinterest, .tab2 .row h2.rs_s, .tab2 .row h2.share, .tab2 .row h2.twt, .tab2 .row h2.utube {
+.tab2 .row h2.sfsicls_email, .tab2 .row h2.sfsicls_facebook, .tab2 .row h2.sfsicls_ggle_pls, .tab2 .row h2.sfsicls_instagram, .tab2 .row h2.sfsicls_linkdin, .tab2 .row h2.sfsicls_pinterest, .tab2 .row h2.sfsicls_rs_s, .tab2 .row h2.sfsicls_share, .tab2 .row h2.sfsicls_twt, .tab2 .row h2.sfsicls_utube {
     background: url(../images/tab_1_icn_list.png) no-repeat;
     padding: 0 0 0 70px;
     margin: 15px 0 7px 21px;
@@ -1090,43 +1090,43 @@ ul.icn_listing li .right_info a {
     font-family: helveticaregular;
     font-size: 22px;
 }
-.tab2 .row h2.rs_s {
+.tab2 .row h2.sfsicls_rs_s {
     background-position: 0 0;
     color: #f7941d;
 }
-.tab2 .row h2.email {
+.tab2 .row h2.sfsicls_email {
     background-position: 0 -71px;
     color: #d1c800;
 }
-.tab2 .row h2.facebook {
+.tab2 .row h2.sfsicls_facebook {
     background-position: 0 -145px;
     color: #004088;
 }
-.tab2 .row h2.twt {
+.tab2 .row h2.sfsicls_twt {
     background-position: 0 -221px;
     color: #00abe3;
 }
-.tab2 .row h2.ggle_pls {
+.tab2 .row h2.sfsicls_ggle_pls {
     background-position: 0 -295px;
     color: #444749;
 }
-.tab2 .row h2.share {
+.tab2 .row h2.sfsicls_share {
     background-position: 0 -372px;
     color: #ef4746;
 }
-.tab2 .row h2.utube {
+.tab2 .row h2.sfsicls_utube {
     background-position: 0 -448px;
     color: #f07963;
 }
-.tab2 .row h2.linkdin {
+.tab2 .row h2.sfsicls_linkdin {
     background-position: 0 -548px;
     color: #1e88c9;
 }
-.tab2 .row h2.pinterest {
+.tab2 .row h2.sfsicls_pinterest {
     background-position: 0 -623px;
     color: #f15f5d;
 }
-.tab2 .row h2.instagram {
+.tab2 .row h2.sfsicls_instagram {
     background-position: 0 -781px;
     color: #369;
 }
@@ -3210,4 +3210,25 @@ ul.cstmskin_iconlist {
 .icon2 ._56z-
 {
 	display: none;
+}
+.sfsipyplfrm
+{
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.sfsipyplfrm input[type="submit"]
+{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #0074a2;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 10px;
+	text-decoration: underline;
+}
+.sfsipyplfrm input[type="submit"]:hover
+{
+	color: #2ea2cc
 }

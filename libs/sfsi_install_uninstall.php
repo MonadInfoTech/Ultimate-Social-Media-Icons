@@ -120,6 +120,7 @@ function sfsi_activate_plugin()
         'sfsi_icons_perRow'=>'5',
         'sfsi_icons_ClickPageOpen'=>'yes',
         'sfsi_icons_float'=>'no',
+		'sfsi_disable_floaticons'=>'no',
         'sfsi_icons_floatPosition'=>'center-right',
         'sfsi_icons_stick'=>'no',
         'sfsi_rssIcon_order'=>'1',

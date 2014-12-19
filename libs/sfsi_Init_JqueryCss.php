@@ -73,7 +73,13 @@ function sfsi_admin_JS_CS()
 	wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
     wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
     wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
-    
+	
+	//including floating option css
+	$option5=  unserialize(get_option('sfsi_section5_options',false));
+	if($option5['sfsi_disable_floaticons'] == 'yes')
+	{
+		wp_enqueue_style("disable_sfsi", SFSI_PLUGURL . 'css/disable_sfsi.css' );
+	}
 }
 
 
