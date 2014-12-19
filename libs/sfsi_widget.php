@@ -985,7 +985,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
    {	
     $icons.= '<div class="sfsi_tool_tip_2 '.$toolClass.' '.$toolT_cls.'" style="width:'.$width.'px ;opacity:0;z-index:-1;margin-left:-'.$twt_margin.'px;" id="'.$icon_name.'">';
     $icons.= '<span class="bot_arow '.$arrow_class.'"></span>';
-    $icons.= '<div class="inside">'.$hoverdiv."</div>";
+    $icons.= '<div class="sfsi_inside">'.$hoverdiv."</div>";
     $icons.= "</div>";
     }
     $icons.="</div>";
