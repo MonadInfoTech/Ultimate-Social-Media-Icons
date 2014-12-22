@@ -59,6 +59,7 @@ function ultimatefbmetatags()
 {
    $post_id = get_the_ID();
    $attachment_id = get_post_thumbnail_id($post_id);
+   echo ' <meta name="viewport" content="width=device-width, initial-scale=1">';
    if($attachment_id)
    {
 	   $feat_image = wp_get_attachment_url( $attachment_id );

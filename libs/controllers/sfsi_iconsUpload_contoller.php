@@ -217,8 +217,8 @@ function sfsi_UploadIcons()
 	
    if(!empty($custom_imgurl))
 	{
-		$sfsi_custom_files[] = $custom_imgurl;
-		
+		$sfsi_custom_files[] = $custom_imgurl;	
+			
 		list($CurWidth, $CurHeight) = getimagesize($custom_imgurl);
 	
 		$info = explode("/", $custom_imgurl);

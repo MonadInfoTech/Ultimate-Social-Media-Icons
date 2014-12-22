@@ -179,7 +179,7 @@ function sfsi_newcustomicon_upload(s) {
         dataType:"json",
         async:!0,
         success:function(s) {
-            afterIconSuccess(s);
+			afterIconSuccess(s);
         }
     });
 }
@@ -404,7 +404,7 @@ function sfsi_update_step5() {
     var s = sfsi_validationStep5();
     if (!s) return global_error = 1, !1;
     beForeLoad();
-    var i = SFSI("input[name='sfsi_icons_size']").val(), e = SFSI("input[name='sfsi_icons_perRow']").val(), t = SFSI("input[name='sfsi_icons_spacing']").val(), n = SFSI("#sfsi_icons_Alignment").val(), o = SFSI("input[name='sfsi_icons_ClickPageOpen']:checked").val(), a = SFSI("input[name='sfsi_icons_float']:checked").val(), r = SFSI("#sfsi_icons_floatPosition").val(), c = SFSI("input[name='sfsi_icons_stick']:checked").val(), p = SFSI("#sfsi_rssIcon_order").attr("data-index"), _ = SFSI("#sfsi_emailIcon_order").attr("data-index"), l = SFSI("#sfsi_googleIcon_order").attr("data-index"), S = SFSI("#sfsi_facebookIcon_order").attr("data-index"), u = SFSI("#sfsi_twitterIcon_order").attr("data-index"), f = SFSI("#sfsi_youtubeIcon_order").attr("data-index"), d = SFSI("#sfsi_pinterestIcon_order").attr("data-index"), I = SFSI("#sfsi_instagramIcon_order").attr("data-index"), m = SFSI("#sfsi_shareIcon_order").attr("data-index"), F = SFSI("#sfsi_linkedinIcon_order").attr("data-index"), h = new Array();
+    var i = SFSI("input[name='sfsi_icons_size']").val(), e = SFSI("input[name='sfsi_icons_perRow']").val(), t = SFSI("input[name='sfsi_icons_spacing']").val(), n = SFSI("#sfsi_icons_Alignment").val(), o = SFSI("input[name='sfsi_icons_ClickPageOpen']:checked").val(), a = SFSI("input[name='sfsi_icons_float']:checked").val(), dsb = SFSI("input[name='sfsi_disable_floaticons']:checked").val(), r = SFSI("#sfsi_icons_floatPosition").val(), c = SFSI("input[name='sfsi_icons_stick']:checked").val(), p = SFSI("#sfsi_rssIcon_order").attr("data-index"), _ = SFSI("#sfsi_emailIcon_order").attr("data-index"), l = SFSI("#sfsi_googleIcon_order").attr("data-index"), S = SFSI("#sfsi_facebookIcon_order").attr("data-index"), u = SFSI("#sfsi_twitterIcon_order").attr("data-index"), f = SFSI("#sfsi_youtubeIcon_order").attr("data-index"), d = SFSI("#sfsi_pinterestIcon_order").attr("data-index"), I = SFSI("#sfsi_instagramIcon_order").attr("data-index"), m = SFSI("#sfsi_shareIcon_order").attr("data-index"), F = SFSI("#sfsi_linkedinIcon_order").attr("data-index"), h = new Array();
     SFSI(".custom_iconOrder").each(function() {
         h.push({
             order:SFSI(this).attr("data-index"),
@@ -423,6 +423,7 @@ function sfsi_update_step5() {
         sfsi_icons_spacing:t,
         sfsi_icons_ClickPageOpen:o,
         sfsi_icons_float:a,
+		sfsi_disable_floaticons:dsb,
         sfsi_icons_floatPosition:r,
         sfsi_icons_stick:c,
         sfsi_rss_MouseOverText:v,
@@ -785,22 +786,22 @@ SFSI(document).ready(function(s) {
             SFSI("#sfsi_popup_fontColor").val("#" + i), SFSI("#sfsifontCloroPicker").css("background", "#" + i), 
             sfsi_make_popBox();
         }
-    }), SFSI("div#linkedin").find(".icon4").find("a").find("img").mouseover(function() {
+    }), SFSI("div#sfsiid_linkedin").find(".icon4").find("a").find("img").mouseover(function() {
         SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/linkedIn_hover.svg");
-    }), SFSI("div#linkedin").find(".icon4").find("a").find("img").mouseleave(function() {
+    }), SFSI("div#sfsiid_linkedin").find(".icon4").find("a").find("img").mouseleave(function() {
         SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/linkedIn.svg");
-    }), SFSI("div#youtube").find(".icon1").find("a").find("img").mouseover(function() {
+    }), SFSI("div#sfsiid_youtube").find(".icon1").find("a").find("img").mouseover(function() {
         SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/youtube_hover.svg");
-    }), SFSI("div#youtube").find(".icon1").find("a").find("img").mouseleave(function() {
+    }), SFSI("div#sfsiid_youtube").find(".icon1").find("a").find("img").mouseleave(function() {
         SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/youtube.svg");
-    }), SFSI("div#facebook").find(".icon1").find("a").find("img").mouseover(function() {
+    }), SFSI("div#sfsiid_facebook").find(".icon1").find("a").find("img").mouseover(function() {
         SFSI(this).css("opacity", "0.9");
-    }), SFSI("div#facebook").find(".icon1").find("a").find("img").mouseleave(function() {
+    }), SFSI("div#sfsiid_facebook").find(".icon1").find("a").find("img").mouseleave(function() {
         SFSI(this).css("opacity", "1");
 		/*{Monad}*/
-    }), SFSI("div#twitter").find(".cstmicon1").find("a").find("img").mouseover(function() {
+    }), SFSI("div#sfsiid_twitter").find(".cstmicon1").find("a").find("img").mouseover(function() {
         SFSI(this).css("opacity", "0.9");
-    }), SFSI("div#twitter").find(".cstmicon1").find("a").find("img").mouseleave(function() {
+    }), SFSI("div#sfsiid_twitter").find(".cstmicon1").find("a").find("img").mouseleave(function() {
         SFSI(this).css("opacity", "1");
     }), SFSI("#sfsiBackgroundColorPicker").ColorPicker({
         color:"#f80000",
