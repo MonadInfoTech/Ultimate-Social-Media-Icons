@@ -8,7 +8,7 @@
 <div class="tab2">
       <!-- RSS ICON -->
     <div class="row bdr_top rss_section">
-    <h2 class="rs_s">RSS</h2>
+    <h2 class="sfsicls_rs_s">RSS</h2>
         <div class="inr_cont">
             <p>When clicked on, users can subscribe via RSS</p>
             <div class="rss_url_row">
@@ -20,7 +20,7 @@
     <!-- EMAIL ICON -->
     <?php $feedId=get_option('sfsi_feed_id',false);?>
     <div class="row email_section">
-        <h2 class="email">Email</h2>
+        <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">
          <p>When people click on this icon, they will see <a href="http://www.specificfeeds.com/widget/emailsubscribe/<?php echo base64_encode($feedId); ?>/<?php echo base64_encode(8); ?>" target="_new">your subscription screen</a> where they can select which messages they want to receive from your RSS feed (by email).  The service is 100% FREE, fully automatic and also makes sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>. </p>
          <p>As this service is powered by SpecificFeeds we suggest to use the SpecificFeeds-icon, however you can also decide to show a regular email icon:</p>
@@ -33,7 +33,7 @@
     
      <!-- FACEBOOK ICON -->
     <div class="row facebook_section">
-    <h2 class="facebook">Facebook</h2>
+    <h2 class="sfsicls_facebook">Facebook</h2>
         <div class="inr_cont">
         <p>The facebook icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do <a class="rit_link pop-up" href="javascript:;"  data-id="fbex-s2">(see an example)</a>.</p>
         <p>The facebook icon should allow users to...</p> 
@@ -49,7 +49,7 @@
     
    <!-- TWITTER ICON -->
     <div class="row twitter_section">
-    <h2 class="twt">Twitter</h2>
+    <h2 class="sfsicls_twt">Twitter</h2>
         <div class="inr_cont twt_tab_2">
          <p>The Twitter icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do <a class="rit_link pop-up" href="javascript:;"  data-id="twex-s2">(see an example)</a>.</p> 
          <p>The Twitter icon should allow users to...</p> 
@@ -63,7 +63,7 @@
     
       <!-- GOOGLE ICON -->
     <div class="row google_section">
-    <h2 class="ggle_pls">Google+</h2>
+    <h2 class="sfsicls_ggle_pls">Google+</h2>
         <div class="inr_cont google_in">
         <p>The Google+ icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do <a class="rit_link pop-up" href="javascript:;"  data-id="googlex-s2">(see an example)</a>.</p> 
         <p>The Google+ icon should allow users to...</p> 
@@ -75,7 +75,7 @@
     
     <!-- YOUTUBE ICON -->
     <div class="row youtube_section">
-    <h2 class="utube">Youtube</h2>
+    <h2 class="sfsicls_utube">Youtube</h2>
         <div class="inr_cont utube_inn">
         <p>The Youtube icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do  <a class="rit_link pop-up" href="javascript:;"  data-id="ytex-s2">(see an example)</a>.</p> 
         <p>The youtube icon should allow users to... </p> 
@@ -84,7 +84,7 @@
         <!--Adding Code for Channel Id and Channel Name-->
         <div class="cstmutbewpr">
             <ul class="enough_waffling">
-               <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='name') ?  'checked="true"' : '' ;?> type="radio" value="name" class="styled"  /><label>Channel Name</label></li>
+               <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='name') ?  'checked="true"' : '' ;?> type="radio" value="name" class="styled"  /><label>User Name</label></li>
                <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='id') ?  'checked="true"' : '' ;?> type="radio" value="id" class="styled"  /><label>Channel Id</label></li>
             </ul>
             <div class="cstmutbtxtwpr">
@@ -92,7 +92,7 @@
                 $sfsi_youtubeusernameorid = $option4['sfsi_youtubeusernameorid'];
 				?>
             	<div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
-                	<p class="extra_pp"><label>ChannelName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>" placeholder="youtube_channel_name" class="add" /></p>
+                	<p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>" placeholder="youtube_channel_name" class="add" /></p>
                 </div>
                 <div class="cstmutbchnlidwpr" <?php if($sfsi_youtubeusernameorid == 'id'){echo 'style="display: block;"';}?>>
                 	<p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option4['sfsi_ytube_chnlid']) && $option4['sfsi_ytube_chnlid']!='') ?  $option4['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
@@ -105,7 +105,7 @@
     
      <!-- PINTEREST ICON -->
     <div class="row pinterest_section">
-    <h2 class="pinterest">Pinterest</h2>
+    <h2 class="sfsicls_pinterest">Pinterest</h2>
         <div class="inr_cont">
         <p>The Pinterest icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do   <a class="rit_link pop-up" href="javascript:;"  data-id="pinex-s2">(see an example)</a>.</p> 
         <p>The Pinterest icon should allow users to... </p> 
@@ -117,7 +117,7 @@
     
     <!-- INSTAGRAM ICON -->
     <div class="row instagram_section">
-    <h2 class="instagram">Instagram</h2>
+    <h2 class="sfsicls_instagram">Instagram</h2>
         <div class="inr_cont">
         <p>When clicked on, users will get directed to your Instagram page.</p> 
         <p class="radio_section fb_url  cus_link instagram_space" ><label>URL</label><input name="sfsi_instagram_pageUrl" type="text" value="<?php echo (isset($option2['sfsi_instagram_pageUrl']) && $option2['sfsi_instagram_pageUrl']!='') ?  $option2['sfsi_instagram_pageUrl'] : '' ;?>" placeholder="http://" class="add"  /></p>        
@@ -126,7 +126,7 @@
     
      <!-- LINKEDIN ICON -->
     <div class="row linkedin_section">
-    <h2 class="linkdin">LinkedIn</h2>
+    <h2 class="sfsicls_linkdin">LinkedIn</h2>
         <div class="inr_cont linked_tab_2 link_in">
         <p>The LinkedIn icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do <a class="rit_link pop-up" href="javascript:;"  data-id="linkex-s2">(see an example)</a>.</p> 
         <p>You find your ID in the link of your profile page, e.g. https://www.linkedin.com/profile/view?id=<b>8539887</b>&trk=nav_responsive_tab_profile_pic</p>
@@ -140,7 +140,7 @@
     
     <!-- share button -->
     <div class="row share_section">
-    <h2 class="share">Share</h2>
+    <h2 class="sfsicls_share">Share</h2>
         <div class="inr_cont">
         <p>Nothing needs to be done here – your visitors to share your site via «all the other» social media sites.  <a class="rit_link pop-up" href="javascript:;"  data-id="share-s2">(see an example).</a></p> 
         </div>

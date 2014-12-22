@@ -131,6 +131,15 @@
   </ul>
 
   </div>
+  <!--disable float icons-->
+  <div class="space">
+    <p class="list">Disable float icons on mobile devices</p>	
+    <ul class="enough_waffling">
+    <li><input name="sfsi_disable_floaticons" <?php echo ($option5['sfsi_disable_floaticons']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
+	<li><input name="sfsi_disable_floaticons" <?php echo ($option5['sfsi_disable_floaticons']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
+  </ul>
+  </div>
+  <!--disable float icons-->
 </div><!-- END icon's floating and stick section -->
  
  <!-- mouse over text section start here -->

@@ -975,7 +975,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
       }
     $icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='sfsi_wicons ".$cmcls."'>";
     $icons.= "<div class='inerCnt'>";
-    $icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' . $new_window.  href='".$url."' id='".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
+    $icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' . $new_window.  href='".$url."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
     $icons.= "<img alt='".$alt_text."' title='".$alt_text."' src='".$icon."' width='".$icons_size."' style='".$border_radius.$padding_top."' class='sfcm sfsi_wicon' effect='".$mouse_hover_effect."'   />"; 
     $icons.= '</a>';
    if(isset($counts) &&  $counts!=''){
@@ -983,7 +983,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
    }  
    if($hoverSHow && !empty($hoverdiv))
    {	
-    $icons.= '<div class="sfsi_tool_tip_2 '.$toolClass.' '.$toolT_cls.'" style="width:'.$width.'px ;opacity:0;z-index:-1;margin-left:-'.$twt_margin.'px;" id="'.$icon_name.'">';
+    $icons.= '<div class="sfsi_tool_tip_2 '.$toolClass.' '.$toolT_cls.'" style="width:'.$width.'px ;opacity:0;z-index:-1;margin-left:-'.$twt_margin.'px;" id="sfsiid_'.$icon_name.'">';
     $icons.= '<span class="bot_arow '.$arrow_class.'"></span>';
     $icons.= '<div class="inside">'.$hoverdiv."</div>";
     $icons.= "</div>";
