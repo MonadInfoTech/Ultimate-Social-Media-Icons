@@ -10,8 +10,8 @@ function sfsi_admin_JS_CS()
 		// include thickbox and media upload script and change static path of migrate script {Monad}
 		wp_register_script('SFSIJquery', 'http://code.jquery.com/jquery-1.9.1.js', array('jquery'));
    		wp_enqueue_script("SFSIJquery");
-		//wp_enqueue_script('jquery');
-	 
+	 	//wp_enqueue_script('jquery');
+		
 		wp_register_script('SFSIMigrate',  SFSI_PLUGURL . 'js/jquery-migrate-1.1.0.min.js', array('jquery'),'',true);
 		wp_enqueue_script("SFSIMigrate");
 		
@@ -75,11 +75,6 @@ function sfsi_admin_JS_CS()
     wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
     
 }
-
-
-
 add_action('admin_init', 'sfsi_admin_JS_CS');
 add_action('init', 'sfsi_admin_JS_CS');
-    	
-		
 ?>

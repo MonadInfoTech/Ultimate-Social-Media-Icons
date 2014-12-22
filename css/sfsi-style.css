@@ -2844,21 +2844,21 @@ h2.optional {
 ul#adminmenu li.toplevel_page_sfsi-options div.wp-menu-image {
     display: none;
 }
-#adminmenu li.toplevel_page_sfsi-options a.current {
+#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
     padding: 0 0 0 38px;
     font-family: helveticabold;
 }
-ul#adminmenu li.toplevel_page_sfsi-options a.current {
+ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
     color: #e12522;
     transition-duration: 0s;
     background: url(images/left_log_icn.png) 6px 15px no-repeat #000;
 }
-ul#adminmenu li.toplevel_page_sfsi-options a.current:hover {
+ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options:hover {
     background: url(images/left_log_icn.png) 6px -43px no-repeat #4b4b4b;
     color: #fafafa;
     transition-duration: 0s;
 }
-ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_page_sfsi-options a.current:hover {
+ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options, ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options:hover {
     background: url(images/left_log_icn.png) 6px -43px no-repeat #e12522;
     color: #fafafa;
 }
