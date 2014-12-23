@@ -237,8 +237,8 @@ function curl_enable_notice(){
 /* add admin menus */
 function sfsi_admin_menu() {
 add_menu_page('Ultimate Social Media Icons', 'Ultimate Social Media Icons', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
-add_submenu_page('sfsi-options', 'Subscription Options', 'Settings','administrator', 'sfsi-options', 'sfsi_options_page');
-add_submenu_page('sfsi-options', 'Specific About Us', 'About','administrator', 'sfsi-about', 'sfsi_about_page');
+//add_submenu_page('sfsi-options', 'Subscription Options', 'Settings','administrator', 'sfsi-options', 'sfsi_options_page');
+//add_submenu_page('sfsi-options', 'Specific About Us', 'About','administrator', 'sfsi-about', 'sfsi_about_page');
 }
 function sfsi_options_page(){ include SFSI_DOCROOT . '/views/sfsi_options_view.php';	} /* end function  */
 function sfsi_about_page(){ include SFSI_DOCROOT . '/views/sfsi_aboutus.php';	} /* end function  */
