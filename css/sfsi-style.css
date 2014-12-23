@@ -3058,7 +3058,8 @@ ul.SFSI_instructions li {
     font-family: helveticaregular;
     color: #5a6570;
     min-height: 550px;
-	position: relative;	
+	position: relative;
+	left: 35%;	
 }
 .cstomskins_wrpr {
     float: left;
