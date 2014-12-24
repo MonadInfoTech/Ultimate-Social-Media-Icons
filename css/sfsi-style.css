@@ -3052,11 +3052,12 @@ ul.SFSI_instructions li {
 	width: 500px;
     background: #FFF;
     box-shadow: 0 0 5px 3px #d8d8d8;
-    margin: 20px 0px auto;
-    padding: 20px 25px 60px;
+    margin: 40px 0px auto;
+    padding: 20px 25px 20px;
     font-family: helveticaregular;
     color: #5a6570;
-    min-height: 550px;
+    height: auto;
+	float: left;
 	position: relative;
 	left: 35%;	
 }
