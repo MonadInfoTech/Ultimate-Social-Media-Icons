@@ -9,7 +9,7 @@
      <!-- RSS ICON -->
     <li class="gary_bg">
 	<div class="radio_section tb_4_ck"><input name="sfsi_rss_display" <?php echo ($option1['sfsi_rss_display']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_rss_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="rs_s">RSS</span> 
+        <span class="sfsicls_rs_s">RSS</span> 
         <div class="right_info">
 	    <p><span>"Mandatory":</span> RSS is still popular, esp. among the tech-savvy crowd.
             <label class="expanded-area" >RSS stands for Really Simply Syndication and is an easy way for people to read your content. You can learn more about it <a href="http://en.wikipedia.org/wiki/RSS" target="_new" title="Syndication">here</a>. </label></p>
@@ -21,7 +21,7 @@
     <li class="gary_bg">
     <div class="radio_section tb_4_ck">
 	<input name="sfsi_email_display" <?php echo ($option1['sfsi_email_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_email_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="email">Email</span> 
+        <span class="sfsicls_email">Email</span> 
         <div class="right_info">
         <p><span>"Mandatory":</span> Email is the most effective tool to build up a followership.
 	    <span style="float: right;margin-right: 13px; margin-top: -3px;"><?php if(get_option('sfsi_footer_sec')=="yes") { ?> <a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" >Remove credit link</a> <?php } ?></span>
@@ -34,7 +34,7 @@
      <!-- FACEBOOK ICON -->
     <li class="gary_bg">
     <div class="radio_section tb_4_ck"><input name="sfsi_facebook_display" <?php echo ($option1['sfsi_facebook_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_facebook_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="facebook">Facebook</span> 
+        <span class="sfsicls_facebook">Facebook</span> 
         <div class="right_info">
         <p><span>Strongly recommended:</span> Facebook is crucial, esp. for sharing.
         
@@ -47,7 +47,7 @@
    <!-- TWITTER ICON -->
     <li class="gary_bg">
 	<div class="radio_section tb_4_ck"><input name="sfsi_twitter_display" <?php echo ($option1['sfsi_twitter_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_twitter_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="twt">Twitter</span> 
+        <span class="sfsicls_twt">Twitter</span> 
         <div class="right_info">
         <p><span>Strongly recommended:</span> Can have a strong promotional effect.
         <label class="expanded-area" >If you have a Twitter-account then adding this icon is a no-brainer. However, similar as with facebook, even if you don’t have one you should still show this icon so that Twitter-users can share your site.</label>
@@ -59,7 +59,7 @@
      <!-- GOOGLE ICON -->
     <li class="gary_bg">
         <div class="radio_section tb_4_ck"><input name="sfsi_google_display" <?php echo ($option1['sfsi_google_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_google_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="ggle_pls">Google+</span> 
+        <span class="sfsicls_ggle_pls">Google+</span> 
         <div class="right_info">
         <p><span>Strongly recommended:</span> Increasingly important and beneficial for SEO.
             <label class="expanded-area" ></label>
@@ -70,7 +70,7 @@
    <!-- SHARE ICON --> 
    <li class="gary_bg">
         <div class="radio_section tb_4_ck"><input name="sfsi_share_display" <?php echo ($option1['sfsi_share_display']=='yes') ?  'checked="true"' : '' ;?> id=="sfsi_share_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="share">Share</span> 
+        <span class="sfsicls_share">Share</span> 
         <div class="right_info">
         <p><span>Recommended:</span> With this button you can allow your visitors to share your site via «all the other» social media sites.
             <label class="expanded-area" >Everybody uses email – that’s why it’s <a href="http://www.entrepreneur.com/article/230949" target="_new">much more effective than social media </a> to make people follow you. Not offering an email subscription option means losing out on future traffic to your site.</label>
@@ -82,7 +82,7 @@
    <!-- YOUTUBE ICON -->
    <li>
         <div class="radio_section tb_4_ck"><input name="sfsi_youtube_display" <?php echo ($option1['sfsi_youtube_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_youtube_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="utube">Youtube</span> 
+        <span class="sfsicls_utube">Youtube</span> 
         <div class="right_info">
         <p><span>It depends:</span> Show this icon if you have a youtube account (and you should set up one if you have video content – that can increase your traffic significantly). </p>
         </div>
@@ -91,7 +91,7 @@
    <!-- LINKEDIN ICON -->
    <li>
         <div class="radio_section tb_4_ck"><input name="sfsi_linkedin_display" <?php echo ($option1['sfsi_linkedin_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_linkedin_display" type="checkbox" value="yes" class="styled"  /></div>
-        <span class="linkdin">LinkedIn</span> 
+        <span class="sfsicls_linkdin">LinkedIn</span> 
         <div class="right_info">
 	    <p><span>It depends:</span> No.1 network for business purposes. Use this icon if you’re a LinkedInner.</p>
         </div>
@@ -100,7 +100,7 @@
    <!-- PINTEREST ICON -->
    <li>
 	<div class="radio_section tb_4_ck"><input name="sfsi_pinterest_display" <?php echo ($option1['sfsi_pinterest_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_pinterest_display"  type="checkbox" value="yes" class="styled"  /></div>
-	<span class="pinterest">Pinterest</span> 
+	<span class="sfsicls_pinterest">Pinterest</span> 
 	<div class="right_info">
 	    <p><span>It depends:</span> Show this icon if you have a Pinterest account (and you should set up one if you have publish new pictures regularly – that can increase your traffic significantly).</p>
 	</div>
@@ -109,7 +109,7 @@
    <!-- INSTAGRAM ICON -->
    <li>
         <div class="radio_section tb_4_ck"><input name="sfsi_instagram_display" <?php echo ($option1['sfsi_instagram_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_instagram_display"  type="checkbox" value="yes" class="styled"  /></div>
-        <span class="instagram">Instagram</span> 
+        <span class="sfsicls_instagram">Instagram</span> 
         <div class="right_info">
 	    <p><span>It depends:</span> Show this icon if you have a Instagram account.</p>
         </div>
