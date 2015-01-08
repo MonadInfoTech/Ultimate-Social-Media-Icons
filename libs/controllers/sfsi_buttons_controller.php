@@ -310,7 +310,7 @@ function sfsi_options_updater4()
 add_action('wp_ajax_updateSrcn5','sfsi_options_updater5');        
 function sfsi_options_updater5()
 {
-    $sfsi_icons_size                = isset($_POST["sfsi_icons_size"]) ? $_POST["sfsi_icons_size"] : '51'; 
+	$sfsi_icons_size                = isset($_POST["sfsi_icons_size"]) ? $_POST["sfsi_icons_size"] : '51'; 
     $sfsi_icons_spacing             = isset($_POST["sfsi_icons_spacing"]) ? $_POST["sfsi_icons_spacing"] : '2'; 
     $sfsi_icons_Alignment           = isset($_POST["sfsi_icons_Alignment"]) ? $_POST["sfsi_icons_Alignment"] : 'center'; 
     

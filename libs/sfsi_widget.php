@@ -158,8 +158,11 @@ function sfsi_check_visiblity($isFloter=0)
     }
 	    
    /* magnage the icons in saved order in admin */ 
-   $custom_icons_order=unserialize($sfsi_section5['sfsi_CustomIcons_order']);
-   $icons_order=array($sfsi_section5['sfsi_rssIcon_order']=>'rss',
+   $custom_icons_order = unserialize($sfsi_section5['sfsi_CustomIcons_order']);
+   $icons=  unserialize($sfsi_section1_options['sfsi_custom_files']);
+   $icons_order = array(
+   					 '0' => '',
+					 $sfsi_section5['sfsi_rssIcon_order']=>'rss',
                      $sfsi_section5['sfsi_emailIcon_order']=>'email',
                      $sfsi_section5['sfsi_facebookIcon_order']=>'facebook',
                      $sfsi_section5['sfsi_googleIcon_order']=>'google',
@@ -169,54 +172,33 @@ function sfsi_check_visiblity($isFloter=0)
                      $sfsi_section5['sfsi_pinterestIcon_order']=>'pinterest',
                      $sfsi_section5['sfsi_linkedinIcon_order']=>'linkedin',
 		     		 $sfsi_section5['sfsi_instagramIcon_order']=>'instagram',) ;
-   
-   $icons=array();
-   $elements=array();
-   $icons=  unserialize($sfsi_section1_options['sfsi_custom_files']);
-   if(is_array($icons))  $elements=array_keys($icons);
-   $cnt=0;
-   $total=count($custom_icons_order);
-   
-   if(!empty($icons) && is_array($icons)) :
-      foreach($icons as $cn=>$c_icons)
-	   {    
-		  if(is_array($custom_icons_order) ) :
-			if(in_array($custom_icons_order[$cnt]['ele'],$elements)) :   
-				$key=key($elements);
-				unset($elements[$key]);
-				$icons_order[$custom_icons_order[$cnt]['order']]=array('ele'=>$cn,'img'=>$c_icons);
-			else :
-			$icons_order[]=array('ele'=>$cn,'img'=>$c_icons);
-		   endif;
-			
-		   $cnt++;
-		  else :
-		  $icons_order[]=array('ele'=>$cn,'img'=>$c_icons);
-		  endif;
-		 
+   if(is_array($custom_icons_order) ) 
+   {
+		foreach($custom_icons_order as $data)
+		{
+		   $icons_order[$data['order']] = $data;
 		}
-  	endif;  
-    
-	ksort($icons_order); /* sort their ordering of icons */
-    /* calculate the total width of widget according to icons  */
-    if(!empty($icons_per_row))
-    {
-		$width=((int)$icons_space+(int)$icons_size)*(int)$icons_per_row;
-		$main_width=$width=$width+$extra;
-		$main_width=$main_width."px";
-    }
-    else
-    {
+   }
+   ksort($icons_order);
+   
+   /* calculate the total width of widget according to icons  */
+   if(!empty($icons_per_row))
+   {
+		$width = ((int)$icons_space+(int)$icons_size)*(int)$icons_per_row;
+		$main_width = $width=$width+$extra;
+		$main_width = $main_width."px";
+   }
+   else
+   {
 		$main_width="35%";
-    }
+   }
 	
     /* built the main widget div */
     $icons_main='<div class="norm_row sfsi_wDiv"  style="width:'.$main_width.';text-align:'.$icons_alignment.';'.$position1.'">';
     $icons="";
     /* loop through icons and bulit the icons with all settings applied in admin */
-    foreach($icons_order  as $index=>$icn) :
-    
-    if(is_array($icn)) { $icon_arry=$icn; $icn="custom" ; } 
+	foreach($icons_order  as $index => $icn) :
+	if(is_array($icn)) { $icon_arry=$icn; $icn="custom" ; } 
     switch ($icn) :     
     case 'rss' :  if($sfsi_section1_options['sfsi_rss_display']=='yes')  $icons.= sfsi_prepairIcons('rss');  
     break;
@@ -228,8 +210,7 @@ function sfsi_check_visiblity($isFloter=0)
     break;
     case 'twitter' :  if($sfsi_section1_options['sfsi_twitter_display']=='yes')    $icons.= sfsi_prepairIcons('twitter'); 
     break;
-    case 'share' :  if($sfsi_section1_options['sfsi_share_display']=='yes')    $icons.= sfsi_prepairIcons('share');                                                                                                                                                                                         
-    break;
+    case 'share' :  if($sfsi_section1_options['sfsi_share_display']=='yes')    $icons.= sfsi_prepairIcons('share');    break;
     case 'youtube' :  if($sfsi_section1_options['sfsi_youtube_display']=='yes')     $icons.= sfsi_prepairIcons('youtube'); 
     break;
     case 'pinterest' :   if($sfsi_section1_options['sfsi_pinterest_display']=='yes')     $icons.= sfsi_prepairIcons('pinterest');
@@ -282,7 +263,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     $sfsi_section6_options=  unserialize(get_option('sfsi_section6_options',false));
     $sfsi_section7_options=  unserialize(get_option('sfsi_section7_options',false));
 
-     /* get active theme */
+	 /* get active theme */
      $border_radius='';
      $active_theme=$sfsi_section3_options['sfsi_actvite_theme'];
     
@@ -359,7 +340,8 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
         
 		case "email" :
 			   $socialObj = new sfsi_SocialHelper();  /* global object to access 3rd party icon's actions */	
-		       $hoverdiv = '';		
+		       $hoverdiv = '';
+			   $sfsi_section2_options['sfsi_email_url'];
 			   $url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'javascript:void(0);';
 			   $toolClass = "email_tool_bdr";
 		       $arrow_class = "bot_eamil_arow";
@@ -1033,6 +1015,14 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					//$border_radius="border-radius: 38%;";
 				}
 				
+				$custom_icon_urls = unserialize($sfsi_section2_options['sfsi_CustomIcon_links']);
+				$url = (isset($custom_icon_urls[$icon_n]) && !empty($custom_icon_urls[$icon_n])) ? $custom_icon_urls[$icon_n]:'javascript:void(0);'; 
+				$toolClass = "custom_lkn";
+				$arrow_class = "";
+				$custom_icons_hoverTxt = unserialize($sfsi_section5_options['sfsi_custom_MouseOverTexts']);
+				$icons = unserialize($sfsi_section1_options['sfsi_custom_files']);
+				$icon = $icons[$icon_n]; 
+				
 				//Giving alternative text to image
 				if(!empty($custom_icons_hoverTxt[$icon_n]))
 				{	
@@ -1042,14 +1032,6 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				{
 					 $alt_text = "SOCIALICON";
 				}
-				  
-				$custom_icon_urls = unserialize($sfsi_section2_options['sfsi_CustomIcon_links']);
-				$url = (isset($custom_icon_urls[$icon_n]) && !empty($custom_icon_urls[$icon_n])) ? $custom_icon_urls[$icon_n]:'javascript:void(0);'; 
-				$toolClass = "custom_lkn";
-				$arrow_class = "";
-				$custom_icons_hoverTxt = unserialize($sfsi_section5_options['sfsi_custom_MouseOverTexts']);
-				$icons = unserialize($sfsi_section1_options['sfsi_custom_files']);
-				$icon = $icons[$icon_n]; 
             break;    
     }
     $icons="";

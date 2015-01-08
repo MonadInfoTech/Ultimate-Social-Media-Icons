@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.1.1.5
+Version: 1.1.1.6
 License: GPLv2 or later
 
 */
@@ -39,6 +39,9 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args, $content = null)
 {
 	$instance = array("showf" => 1, "title" => '');
 	$return = '';
+	if(!isset($before_widget)): $before_widget =''; endif;
+	if(!isset($after_widget)): $after_widget =''; endif;
+	
 	/*Our variables from the widget settings. */
 	$title = apply_filters('widget_title', $instance['title'] );
 	$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
@@ -79,5 +82,17 @@ function ultimatefbmetatags()
 	   echo '<meta property="og:image:width" content="'.$width.'">';
 	   echo '<meta property="og:image:height" content="'.$height.'">';
    }
+}
+
+//checking for the youtube username and channel id option
+add_action('admin_init', 'check_sfsfiupdatedoptions');
+function check_sfsfiupdatedoptions()
+{
+	$option4=  unserialize(get_option('sfsi_section4_options',false));
+	if(!isset($option4['sfsi_youtubeusernameorid']) || $option4['sfsi_youtubeusernameorid'] == '')
+	{
+		$option4['sfsi_youtubeusernameorid']= 'name';
+    	update_option('sfsi_section4_options',serialize($option4));
+	}
 }
 ?>

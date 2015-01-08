@@ -831,7 +831,7 @@ body {
     min-height: 250px;
     position: relative;
 }
-.pop_up_box h4 {
+.pop_up_box h4, .pop_up_box_ex h4 {
     font-size: 20px;
     color: #5a6570;
     text-align: center;
@@ -839,7 +839,7 @@ body {
     padding: 0;
     line-height: 22px;
 }
-.pop_up_box p {
+.pop_up_box p, .pop_up_box_ex p {
     font-size: 17px;
     line-height: 28px;
     color: #5a6570;
@@ -893,9 +893,9 @@ ul.flwstep>li {
     box-shadow: none!important;
 }
 .pop_up_box .button a.activate {
-    padding: 28px 0;
+    padding: 0px 0;
 }
-.pop_up_box a {
+.pop_up_box a, .pop_up_box_ex a  {
     color: #a4a9ad;
     font-size: 20px;
     text-decoration: none;
@@ -952,7 +952,7 @@ ul.flwstep>li {
     font-family: helveticaregular;
     margin: 0 0 16px 140px;
 }
-.pop_up_box a:hover {
+.pop_up_box a:hover, .pop_up_box_ex a:hover {
     color: #a4a9ad;
 }
 .tab1 ul.icn_listing {
@@ -2477,7 +2477,7 @@ h2.optional {
 }
 .fb_tool_bdr .sfsi_inside .icon1 {
     margin: 2px 0 2px 0;
-    height: 24px;
+    height: 20px;
     display: inline-block;
     float: none;
     width: 62px;
@@ -2516,7 +2516,8 @@ h2.optional {
     height: 20px;
     display: inline-block;
     float: none;
-    width: 73px;
+    max-width: 73px;
+	width: auto;
 }
 .printst_tool_bdr .sfsi_inside .prints_visit, .printst_tool_bdr .sfsi_inside .prints_visit_1 {
     margin: 9px 0 0;
@@ -2545,7 +2546,7 @@ h2.optional {
     margin: 2px 0;
     display: inline-block;
     float: none;
-    height: 27px;
+    height: 24px;
     width: 76px;
 }
 .gpls_tool_bdr .sfsi_inside .icon2 {
@@ -2625,12 +2626,20 @@ h2.optional {
     width: 100%;
     float: left;
 }
-.utube_tool_bdr .sfsi_inside .icon1, .utube_tool_bdr .sfsi_inside .icon2 {
+.utube_tool_bdr .sfsi_inside .icon1{
     margin: 9px 0 0;
     height: 24px;
     display: inline-block;
     float: none;
     width: 96px;
+}
+.utube_tool_bdr .sfsi_inside .icon2 {
+    margin: 9px 0 0;
+    height: 24px;
+    display: inline-block;
+    float: none;
+    max-width: 96px;
+	width: 82px;
 }
 .utube_tool_bdr {
     width: 93px;
@@ -2718,7 +2727,7 @@ h2.optional {
     color: #5a6570!important;
 }
 .adminTooltip {
-    left: 255px;
+    left: 142px;
     position: absolute;
 }
 .adPopWidth {
@@ -3269,4 +3278,19 @@ ul.cstmskin_iconlist {
 .sfsipyplfrm input[type="submit"]:hover
 {
 	color: #2ea2cc
+}
+.pop_up_box_ex {
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: 0 0 5px 3px #d8d8d8;
+    color: #5a6570;
+    font-family: helveticaregular;
+    margin: 200px auto;
+    min-height: 150px;
+    padding: 20px 25px 0px;
+    position: relative;
+    width: 290px;
+}
+.pop_up_box_ex {
+    color: #5a6570;
+    font-family: helveticaregular;
 }

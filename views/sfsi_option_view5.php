@@ -1,6 +1,8 @@
 <?php
 /* unserialize all saved option for  section 5 options */
-  
+ 
+  $icons =  unserialize(get_option('sfsi_section1_options'));
+  $icons =  unserialize($icons['sfsi_custom_files']);	 
   $option5=  unserialize(get_option('sfsi_section5_options',false));
   $custom_icons_order=unserialize($option5['sfsi_CustomIcons_order']);
   $icons_order=array($option5['sfsi_rssIcon_order']=>'rss',
@@ -14,30 +16,16 @@
                      $option5['sfsi_linkedinIcon_order']=>'linkedin',
 		     $option5['sfsi_instagramIcon_order']=>'instagram'
                     ) ;
-  /* arrange the icons as per their stored order */
-  $elements=array_keys($icons);
-  $cnt=0;
-  $total=count($custom_icons_order);
-  foreach($icons as $cn=>$c_icons)
-  {    
-      if(is_array($custom_icons_order) ) :
-        if(in_array($custom_icons_order[$cnt]['ele'],$elements)) :   
-            $key=key($elements);
-            unset($elements[$key]);
-         
-            $icons_order[$custom_icons_order[$cnt]['order']]=array('ele'=>$cn,'img'=>$c_icons);
-        else :
-        $icons_order[]=array('ele'=>$cn,'img'=>$c_icons);
-       endif;
-        
-       $cnt++;
-      else :
-      $icons_order[]=array('ele'=>$cn,'img'=>$c_icons);
-      endif;
-     
-    }
- ksort($icons_order);
- 
+  
+  if(is_array($custom_icons_order) ) 
+  {
+	  foreach($custom_icons_order as $data)
+	  {
+		 $icons_order[$data['order']] = $data;
+	  }
+  }
+  ksort($icons_order);
+  
 ?>
 <!-- Section 5 "Any other wishes for your main icons?" main div Start -->
 <div class="tab5">
@@ -67,7 +55,7 @@
           <?php break; ?>
           <?php case 'instagram' :   ?><li class="instagram_section " data-index="<?php echo $index; ?>" id="sfsi_instagramIcon_order"><a href="#" title="Instagram" ><img src="<?php echo SFSI_PLUGURL; ?>images/instagram.png" alt="Instagram" /></a></li>
           <?php break; ?>          
-          <?php default   :  ?><li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" ><a href="#" title="Custom Icon" ><img src="<?php echo $icn['img']; ?>" alt="Linked In" class="sfcm" /></a></li> 
+          <?php default   :  ?><li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" ><a href="#" title="Custom Icon" ><img src="<?php echo $icons[$icn['ele']]; ?>" alt="Linked In" class="sfcm" /></a></li> 
           <?php    break; ?>
             
          <?php  endswitch; ?>   
@@ -226,7 +214,7 @@ here what text will be displayed if a user moves his mouse over the icon:</p>
          <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
          <a href="javascript:;" id="sfsi_save5" title="Save">Save</a>
      </div><!-- END SAVE BUTTON SECTION   -->
-     <a class="sfsiColbtn closeSec" href="javascript:;" class="closeSec">Collapse area</a>
+     <a class="sfsiColbtn closeSec" href="javascript:;" >Collapse area</a>
      <label class="closeSec"></label>
        <!-- ERROR AND SUCCESS MESSAGE AREA-->
      <p class="red_txt errorMsg" style="display:none"> </p>

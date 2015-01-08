@@ -401,7 +401,8 @@ function sfsi_update_step5() {
     if (!s) return global_error = 1, !1;
     beForeLoad();
     var i = SFSI("input[name='sfsi_icons_size']").val(), e = SFSI("input[name='sfsi_icons_perRow']").val(), t = SFSI("input[name='sfsi_icons_spacing']").val(), n = SFSI("#sfsi_icons_Alignment").val(), o = SFSI("input[name='sfsi_icons_ClickPageOpen']:checked").val(), a = SFSI("input[name='sfsi_icons_float']:checked").val(), dsb = SFSI("input[name='sfsi_disable_floaticons']:checked").val(), r = SFSI("#sfsi_icons_floatPosition").val(), c = SFSI("input[name='sfsi_icons_stick']:checked").val(), p = SFSI("#sfsi_rssIcon_order").attr("data-index"), _ = SFSI("#sfsi_emailIcon_order").attr("data-index"), l = SFSI("#sfsi_googleIcon_order").attr("data-index"), S = SFSI("#sfsi_facebookIcon_order").attr("data-index"), u = SFSI("#sfsi_twitterIcon_order").attr("data-index"), f = SFSI("#sfsi_youtubeIcon_order").attr("data-index"), d = SFSI("#sfsi_pinterestIcon_order").attr("data-index"), I = SFSI("#sfsi_instagramIcon_order").attr("data-index"), m = SFSI("#sfsi_shareIcon_order").attr("data-index"), F = SFSI("#sfsi_linkedinIcon_order").attr("data-index"), h = new Array();
-    SFSI(".custom_iconOrder").each(function() {
+    SFSI(".custom_iconOrder").each(function()
+	{
         h.push({
             order:SFSI(this).attr("data-index"),
             ele:SFSI(this).attr("element-id")
@@ -452,7 +453,7 @@ function sfsi_update_step5() {
         dataType:"json",
         async:!0,
         success:function(s) {
-            "success" == s ? (showErrorSuc("success", "Saved !", 5), sfsicollapse("#sfsi_save5")) :(global_error = 1, 
+			"success" == s ? (showErrorSuc("success", "Saved !", 5), sfsicollapse("#sfsi_save5")) :(global_error = 1, 
             showErrorSuc("error", "Unkown error , please try again", 5)), afterLoad();
         }
     });

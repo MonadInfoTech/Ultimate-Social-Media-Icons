@@ -263,10 +263,10 @@ function SFSI_getFeedUrl()
     ));
      // Send the request & save response to $resp
         $resp = curl_exec($curl);
-        $resp=json_decode($resp);
-        curl_close($curl);
-      
-         $feed_url=stripslashes_deep($resp->redirect_url);
+        $resp = json_decode($resp);
+		curl_close($curl);
+		
+		 $feed_url=stripslashes_deep($resp->redirect_url);
          return $resp;exit;
          
 }
