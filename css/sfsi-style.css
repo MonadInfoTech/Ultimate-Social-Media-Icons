@@ -2899,14 +2899,17 @@ ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
     color: #e12522;
 	transition: 0s;
     background: url(images/left_log_icn.png) 6px 15px no-repeat #000;
+	background: url(images/left_log_icn.png) 6px -43px no-repeat #444444;
+	color: #fafafa;
 }
 ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options:hover {
     background: url(images/left_log_icn.png) 6px -43px no-repeat #444444;
-    color: #fafafa;
+	color: #fafafa;
 }
 ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_page_sfsi-options a.current:hover {
-    background: url(images/left_log_icn.png) 6px -43px no-repeat #e12522;
-    color: #fafafa;
+    background: url(images/left_log_icn.png) 6px 15px no-repeat #000000;
+    /*background: url(images/left_log_icn.png) 6px -43px no-repeat #444444;*/
+	color: #e12522;
 }
 .sfsi_outr_div {
     position: fixed;

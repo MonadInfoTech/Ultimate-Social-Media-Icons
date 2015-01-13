@@ -281,7 +281,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
      $icons_baseUrl=SFSI_PLUGURL."/images/icons_theme/".$active_theme."/";
      $visit_iconsUrl= SFSI_PLUGURL."/images/visit_icons/";   
      $hoverSHow=0;
-       
+   
    /* check is icon is a custom icon or default icon */  
    if(is_numeric($icon_name)) { $icon_n=$icon_name; $icon_name="custom" ; } 
     $counts='';
@@ -289,8 +289,9 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     $twt_margin="";
     $icons_space=$sfsi_section5_options['sfsi_icons_spacing'];
     $padding_top='';
-    $current_url='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-    $url="#";
+    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
+	$current_url= $scheme.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+	$url="#";
     $cmcls='';
     $toolClass='';
     

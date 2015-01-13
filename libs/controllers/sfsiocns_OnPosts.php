@@ -138,7 +138,7 @@ if($show_count==1)
 	
 <?php } if($sfsi_section1['sfsi_share_display']=="yes" || $sfsi_section6['sfsi_show_Onposts']=="yes") { ?>		
 	 <!-- Addthis js -->
-        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
         <script type="text/javascript">
        var addthis_config = {  ui_click: true  };
        </script>
@@ -149,7 +149,7 @@ if($show_count==1)
 	
 	<?php } if($sfsi_section1['sfsi_twitter_display']=="yes") {?>
 <!-- twitter JS End -->
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 	<?php }
 	/* activate footer credit link */
         if(get_option('sfsi_footer_sec')=="yes")

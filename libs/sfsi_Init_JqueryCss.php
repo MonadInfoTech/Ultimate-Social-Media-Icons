@@ -6,11 +6,14 @@ function theme_back_enqueue_script()
   		wp_enqueue_style('thickbox');
 		//wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style-min.css' );
 		wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
-		if($_GET['page'] == 'sfsi-options')
+		if(isset($_GET['page']))
 		{
-			wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
-			wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
-			wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
+			if($_GET['page'] == 'sfsi-options')
+			{
+				wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
+				wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
+				wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
+			}
 		}
 		//including floating option css
 		$option5=  unserialize(get_option('sfsi_section5_options',false));

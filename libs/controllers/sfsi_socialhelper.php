@@ -34,7 +34,8 @@ function sfsi_get_linkedin($url) {
 function sfsi_getlinkedin_follower($ln_company,$APIsettings)
 {      
    require_once(SFSI_DOCROOT.'/helpers/linkedin-api/linkedin-api.php');
-   $url='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+   $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
+   $url=$scheme.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
    $linkedin = new LinkedIn($APIsettings['ln_api_key'], $APIsettings['ln_secret_key'],$APIsettings['ln_oAuth_user_token'], $url );
    $followers = $linkedin->getCompanyFollowersByName($ln_company); 
    return  strip_tags($followers);
@@ -113,7 +114,8 @@ function sfsi_get_youtube($user)
 /* get addthis counts  */
 function sfsi_get_atthis()
 {
-    $url='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+	$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
+    $url=$scheme.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
     $json_string = @file_get_contents('http://api-public.addthis.com/url/shares.json?url='.$url);
     $json = json_decode($json_string, true);
     return isset($json['shares'])? $this->format_num((int) $json['shares']):0;

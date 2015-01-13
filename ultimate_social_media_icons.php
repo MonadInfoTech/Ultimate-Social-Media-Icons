@@ -35,7 +35,7 @@ register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
-function DISPLAY_ULTIMATE_SOCIAL_ICONS($args, $content = null)
+function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
 {
 	$instance = array("showf" => 1, "title" => '');
 	$return = '';
