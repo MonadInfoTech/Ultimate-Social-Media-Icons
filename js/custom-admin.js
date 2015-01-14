@@ -519,6 +519,67 @@ function sfsi_update_step7() {
     });
 }
 
+function sfsi_update_step8() {
+    var s = sfsi_validationStep7();
+	s = true;
+    if (!s) return global_error = 1, !1;
+    beForeLoad();
+	var i = SFSI("input[name='show_via_widget']:checked").val(),
+        e = SFSI("input[name='float_on_page']:checked").val(),
+        t = SFSI("input[name='float_page_position']:checked").val(),
+        n = SFSI("input[name='place_item_manually']:checked").val(),
+        o = SFSI("input[name='show_item_onposts']:checked").val(),
+        a = SFSI("input[name='display_button_type']:checked").val(),
+        r = SFSI("input[name='sfsi_post_icons_size']").val(),
+        c = SFSI("input[name='sfsi_post_icons_spacing']").val(),
+        p = SFSI("input[name='sfsi_show_Onposts']:checked").val(),
+		v = SFSI("input[name='sfsi_textBefor_icons']").val(),
+		x = SFSI("#sfsi_icons_alignment").val(),
+		z = SFSI("#sfsi_icons_DisplayCounts").val(),
+		b = SFSI("input[name='display_before_posts']:checked").val(),
+		d = SFSI("input[name='display_after_posts']:checked").val(),
+		/*f = SFSI("input[name='display_on_postspage']:checked").val(),
+		g = SFSI("input[name='display_on_homepage']:checked").val(),*/
+		f = SFSI("input[name='display_before_blogposts']:checked").val(),
+		g = SFSI("input[name='display_after_blogposts']:checked").val(),
+		
+        _ = [];
+    /*SFSI("#sfsi_Show_popupOn_PageIDs :selected").each(function(s, i) {
+        _[s] = SFSI(i).val()
+    });*/
+	var f = {
+            action: "updateSrcn8",
+            show_via_widget: i,
+            float_on_page: e,
+            float_page_position: t,
+            place_item_manually: n,
+            show_item_onposts: o,
+            display_button_type: a,
+            sfsi_post_icons_size: r,
+            sfsi_post_icons_spacing: c,
+            sfsi_show_Onposts: p,
+			sfsi_textBefor_icons: v,
+			sfsi_icons_alignment: x,
+			sfsi_icons_DisplayCounts: z,
+			display_before_posts: b,
+			display_after_posts: d,
+			/*display_on_postspage: f,
+			display_on_homepage: g*/
+			display_before_blogposts: f,
+			display_after_blogposts: g
+        };
+    SFSI.ajax({
+        url: ajax_object.ajax_url,
+        type: "post",
+        data: f,
+        dataType: "json",
+        async: !0,
+        success: function(s) {
+			"success" == s ? (showErrorSuc("success", "Saved !", 8), sfsicollapse("#sfsi_save8")) : showErrorSuc("error", "Unkown error , please try again", 8), afterLoad()
+        }
+    })
+}
+
 function afterIconSuccess(s) {
     if (s.res = "success") {
         var i = s.key + 1, e = s.element, t = e + 1;
@@ -808,6 +869,8 @@ SFSI(document).ready(function(s) {
         sfsi_update_step6() && sfsicollapse(this);
     }), SFSI("#sfsi_save7").on("click", function() {
         sfsi_update_step7() && sfsicollapse(this);
+		}), SFSI("#sfsi_save8").on("click", function() {
+        sfsi_update_step8() && sfsicollapse(this);
     }), SFSI("#save_all_settings").on("click", function() {
         return SFSI("#save_all_settings").text("Saving.."), SFSI(".save_button >a").css("pointer-events", "none"), 
         sfsi_update_step1(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Which icons do you want to show on your site?" tab.', 8), 
@@ -816,7 +879,8 @@ SFSI(document).ready(function(s) {
         global_error = 0, !1) :(sfsi_update_step4(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display "counts" next to your icons?" tab.', 8), 
         global_error = 0, !1) :(sfsi_update_step5(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Any other wishes for your main icons?" tab.', 8), 
         global_error = 0, !1) :(sfsi_update_step6(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display icons at the end of every post?" tab.', 8), 
-        global_error = 0, !1) :(sfsi_update_step7(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display a pop-up, asking people to subscribe?" tab.', 8), 
+        global_error = 0, !1) :(sfsi_update_step7(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display a pop-up, asking people to subscribe?" tab.', 8),
+		global_error = 0, !1) : sfsi_update_step8(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Where shall they be displayed?" tab.', 8), 
         global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", 'Saved! Now go to the <a href="widgets.php">widget</a> area and place the widget into your sidebar (if not done already)', 8))))))));
     }), SFSI(".fileUPInput").live("change", function() {
         beForeLoad(), beforeIconSubmit(this) && (SFSI(".upload-overlay").css("pointer-events", "none"), 
@@ -1067,3 +1131,16 @@ function showhideutube(ref)
 }
 
 var initTop = new Array();
+
+function toggleflotpage(ref)
+{
+	var pos = jQuery(ref).children(".checkbox").css("background-position");
+	if(pos == "0px 0px")
+	{
+		jQuery(ref).next(".right_info").children(".tab_3_icns").hide();
+	}
+	else
+	{
+		jQuery(ref).next(".right_info").children(".tab_3_icns").show();
+	}
+}

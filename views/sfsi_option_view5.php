@@ -89,12 +89,13 @@
    
      <!-- icon's floating and stick section start here -->	
     <div class="row sticking">
-	<h4>Sticking &amp; floating</h4>
-	<div class="space">
+	<h4>Sticking</h4>
+	<p>If you decided to show your icons via a widget, you can add the effect that when the user scrolls down, the icons will stick at the  top of the screen so that they are still displayed even if the user scrolled all the way down. Do you want to do that?</p>
+	<!--<div class="space">
 	<p class="list">Make icons float?</p>	
 	<ul class="enough_waffling">
-	    <li><input name="sfsi_icons_float" <?php echo ($option5['sfsi_icons_float']=='yes') ?  'checked="true"' : '' ;?>  type="radio" value="yes" class="styled"  /><label>Yes</label></li>
-	    <li><input name="sfsi_icons_float" <?php echo ($option5['sfsi_icons_float']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
+	    <li><input name="sfsi_icons_float" <?php //echo ($option5['sfsi_icons_float']=='yes') ?  'checked="true"' : '' ;?>  type="radio" value="yes" class="styled"  /><label>Yes</label></li>
+	    <li><input name="sfsi_icons_float" <?php //echo ($option5['sfsi_icons_float']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
 	</ul>
       </div>
       <div class="clear float_options" <?php if($option5['sfsi_icons_stick']=='yes' || $option5['sfsi_icons_float']=='no') :?> style="display:none" <?php endif;?>>
@@ -109,10 +110,10 @@
 		<option value="bottom-right" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-right') ?  'selected="selected"' : '' ;?> >Bottom - Right</option>
 	    </select>
 	</div>
-  </div> 
+  </div>-->
   
   <div class="space">
-    <p class="list">Make icons stick?</p>	
+    <!--<p class="list">Make icons stick?</p>-->	
     <ul class="enough_waffling">
   	<li><input name="sfsi_icons_stick" <?php echo ($option5['sfsi_icons_stick']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
 	<li><input name="sfsi_icons_stick" <?php echo ($option5['sfsi_icons_stick']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>

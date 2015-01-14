@@ -494,7 +494,7 @@ body {
     list-style: none;
     display: inline-block;
 }
-.tab6 .social_icon_like1 li span {
+.tab6 .social_icon_like1 li span, .tab8 .social_icon_like1 li span {
     margin: 0;
     width: 44px;
     display: block;
@@ -3296,4 +3296,313 @@ ul.cstmskin_iconlist {
 .pop_up_box_ex {
     color: #5a6570;
     font-family: helveticaregular;
+}
+/*modify by palak*/
+.tab8 ul.icn_listing li .right_info {
+    float: left;
+    font-family: helveticaregular;
+    margin-left: 25px;
+    width: 85%;
+}
+/*modify by palak*/
+/*palak css*/
+.tab8 .tab_3_icns.shwthmbfraftr > li
+{
+width:100% !important;
+}
+.tab8 .icons_size > span
+{
+width:4%;
+}
+.tab8 .icons_size > input
+{
+background:none repeat scroll 0 0 #e5e5e5;
+width:10%;
+float:left;
+padding:10px 0;
+text-align:center;
+}
+.tab8 .icons_size > ins 
+{
+width:18%;
+margin-left:19px;
+}
+.tab8 .icons_size > span.last
+{
+width: 22% !important;
+}
+.tab8 .radio_section.tb_4_ck
+{
+margin:0 !important;
+}
+.tab8 .tab_3_icns.shwthmbfraftr .row, .tab8 .tab_3_icns.shwthmbfraftr p, .tab8 .options
+{
+margin-left: 7%;
+width: 93%;
+}
+.tab8 .tab_3_icns.shwthmbfraftr label
+{
+width:90%;
+}
+.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1
+{
+margin-left: 15% !important;
+width: 85% !important;
+}
+.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 li
+{
+width:18% !important;
+}
+.tab8 .tab_3_icns.shwthmbfraftr .usually > li
+{
+width:100% !important;
+}
+.tab8 .tab_3_icns.shwthmbfraftr .options > label
+{
+width:43% !important;
+margin:0;
+}
+.tab8 .row.PostsSettings_section .options .first.chcklbl
+{
+float: left !important;
+width: 43% !important;
+}
+.tab8 .row.PostsSettings_section .options .chckwpr
+{
+width:55%;
+float:left;
+}
+.tab8 .row.PostsSettings_section .options
+{
+width:100%;
+margin:0;
+}
+.tab8 .tab_3_icns.flthmonpg .radio
+{
+margin-top:55px !important;
+}
+/*palak css end*/
+/*modify by palak*/
+.tab8 ul.icn_listing li {
+    float: left;
+    padding: 11px 0 11px 8px;
+    width: 100%;
+}
+/*modify by palak*/
+/*modify by palak*/
+.tab8 ul.icn_listing {
+    list-style: outside none none;
+    margin: 35px 0 0;
+    overflow: hidden;
+}
+/*modify by palak*/
+.right_info label.sub-subtitle
+{
+	font-size: 13px;
+	font-weight: normal;
+}
+ul.icn_listing li .right_info label.sub-subtitle a 
+{
+	font-size: 13px;
+}
+.tab8 ul.tab_3_icns li .radio {
+    margin-top: 7px;
+}
+
+.tab8 ul.tab_3_icns li label {
+    line-height: 50px !important;
+}
+.tab8 ul.icn_listing li .tab_3_icns li {
+    float: left;
+    width: 48%;
+}
+/*modify by palak*/
+.tab8 .row
+{
+	clear: both;
+	display: block;
+	float: left;
+	font-family: helveticaregular;
+	line-height: 42px;
+	margin-top: 25px;
+	padding-top: 15px;
+	width: 100%;
+}
+/*modify by palak*/
+.tab8 .icons_size 
+{
+    padding-top: 15px;
+}
+.tab8 .icons_size
+{
+    position: relative;
+}
+.tab8 .icons_size span 
+{
+    display: block;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 46px;
+    margin-right: 18px;
+}
+.tab8.icons_size span.last
+{
+    margin-left: 55px;
+}
+.tab8 .icons_size ins
+ {
+    float: left;
+    font-size: 17px;
+    font-weight: 400;
+    margin-right: 25px;
+    text-decoration: none;
+}
+.tab8 .social_icon_like1 {
+    float: left;
+    margin: 0;
+    padding: 35px 0 0;
+    text-align: center;
+    width: 100%;
+}
+.tab8 .social_icon_like1 ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.tab8 .social_icon_like1 li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 20px;
+    padding: 0;
+    width: auto;
+}
+.tab8 .social_icon_like1 li a {
+    color: #5a6570;
+    display: block;
+    text-decoration: none;
+}
+.tab8 .social_icon_like1 li img {
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+.tab8 ul.usually {
+    list-style: outside none none;
+    margin: 28px 0 6px 60px;
+    padding: 0;
+}
+.tab8 ul.usually li {
+    font-size: 17px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: auto;
+}
+.tab8 ul.enough_waffling {
+    list-style: outside none none;
+    margin: 25px 0 0;
+    padding: 0;
+    text-align: center;
+}
+.tab8 ul.enough_waffling li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 22px;
+    padding: 0;
+}
+.tab8 ul.enough_waffling li span {
+    float: left;
+}
+.tab8 ul.enough_waffling li label {
+    color: #5a6570;
+    float: left;
+    font-family: helveticaregular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 38px;
+    margin: 0 0 0 20px;
+    text-align: center;
+}
+/*modify by palak*/
+.tab8 .row {
+/*    border-top: 1px solid #eaebee;*/
+    clear: both;
+    display: block;
+    float: left;
+    font-family: "Helvetica CE 35 Thin";
+    line-height: 42px;
+    margin-top: 25px;
+    padding-top: 15px;
+    width: 100%;
+}
+/*modify by palak*/
+.tab8 .options {
+    clear: both;
+    float: left;
+    margin-top: 25px;
+    width: 100%;
+}
+.tab8 .options label.first {
+    font-family: helveticaregular;
+    font-size: 18px;
+}
+.tab8 .options label {
+    color: #5a6570;
+    float: left;
+    font-family: helveticaregular;
+    font-size: 18px;
+    line-height: 46px;
+    width: 345px;
+}
+.tab8 .options input {
+    background: none repeat scroll 0 0 #e5e5e5;
+    border: 0 none;
+    box-shadow: 2px 2px 3px #dcdcdc inset;
+    float: left;
+    padding: 10px;
+    width: 308px;
+}
+.tab8 .options .field {
+    float: left;
+    position: relative;
+    width: 223px;
+}
+.tab8 .options .field .select {
+    background: url(../images/select_bg1.jpg) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    font-family: helveticaregular;
+    padding-left: 17px;
+    width: 207px;
+}
+.tab8 .options .field select.styled {
+    height: 46px;
+    left: 0;
+    line-height: 46px;
+    position: absolute;
+    top: 0;
+    width: 213px;
+}
+.tab8 .options .field select.styled {
+    line-height: 46px;
+}
+.tab8 ul.icn_listing li .snglchckcntr .right_info
+{
+float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    text-align: left;
+    width: auto;
+}
+.snglchckcntr
+{
+	width:50%;
+	float:left;
+}
+.chckwpr
+{
+	width:100%;
+	float:left;
 }

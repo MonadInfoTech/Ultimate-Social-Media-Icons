@@ -448,7 +448,56 @@ function sfsi_options_updater7()
     update_option('sfsi_section7_options',serialize($up_option7)); 
     header('Content-Type: application/json');
     echo  json_encode(array("success")); exit;
+}
+
+add_action('wp_ajax_updateSrcn8','sfsi_options_updater8');        
+function sfsi_options_updater8()
+{
+    $show_via_widget           = isset($_POST["show_via_widget"]) ? $_POST["show_via_widget"] : 'no'; 
+    $float_on_page           	 = isset($_POST["float_on_page"]) ? $_POST["float_on_page"] : 'no'; 
+    $float_page_position         = isset($_POST["float_page_position"]) ? $_POST["float_page_position"] : 'no'; 
+    $place_item_manually         = isset($_POST["place_item_manually"]) ? $_POST["place_item_manually"] : 'no'; 
+    $show_item_onposts         	 = isset($_POST["show_item_onposts"]) ? $_POST["show_item_onposts"] : 'no';
+	$display_button_type         = isset($_POST["display_button_type"]) ? $_POST["display_button_type"] : 'no';
+	$sfsi_post_icons_size        = isset($_POST["sfsi_post_icons_size"]) ? $_POST["sfsi_post_icons_size"] : 40;
+	$sfsi_post_icons_spacing     = isset($_POST["sfsi_post_icons_spacing"]) ? $_POST["sfsi_post_icons_spacing"] : 5;
+	$sfsi_show_Onposts         	 = isset($_POST["sfsi_show_Onposts"]) ? $_POST["sfsi_show_Onposts"] : 'no';
+	$sfsi_textBefor_icons        = isset($_POST["sfsi_textBefor_icons"]) ? $_POST["sfsi_textBefor_icons"] : 'Please like & share:';
+	$sfsi_icons_alignment        = isset($_POST["sfsi_icons_alignment"]) ? $_POST["sfsi_icons_alignment"] : 'center-right';
+	$sfsi_icons_DisplayCounts    = isset($_POST["sfsi_icons_DisplayCounts"]) ? $_POST["sfsi_icons_DisplayCounts"] : 'no'; 
+	$display_before_posts    = isset($_POST["display_before_posts"]) ? $_POST["display_before_posts"] : 'no'; 
+	$display_after_posts    = isset($_POST["display_after_posts"]) ? $_POST["display_after_posts"] : 'no'; 
+	/*$display_on_postspage    = isset($_POST["display_on_postspage"]) ? $_POST["display_on_postspage"] : 'no'; 
+	$display_on_homepage    = isset($_POST["display_on_homepage"]) ? $_POST["display_on_homepage"] : 'no';*/ 
+	$display_before_blogposts    = isset($_POST["display_before_blogposts"]) ? $_POST["display_before_blogposts"] : 'no'; 
+	$display_after_blogposts    = isset($_POST["display_after_blogposts"]) ? $_POST["display_after_blogposts"] : 'no';
+    //post options
+    $up_option8=array(
+                'show_via_widget'=>$show_via_widget,
+                'float_on_page'=>$float_on_page,
+                'float_page_position'=>$float_page_position,
+                'place_item_manually'=>$place_item_manually,
+                'show_item_onposts'=>$show_item_onposts,
+				'display_button_type'=>$display_button_type,
+				'sfsi_post_icons_size'=>$sfsi_post_icons_size,
+				'sfsi_post_icons_spacing'=>$sfsi_post_icons_spacing,
+				'sfsi_show_Onposts'=>$sfsi_show_Onposts,
+				'sfsi_textBefor_icons'=>$sfsi_textBefor_icons,
+				'sfsi_icons_alignment'=>$sfsi_icons_alignment,
+				'sfsi_icons_DisplayCounts'=>$sfsi_icons_DisplayCounts,
+				'display_before_posts'=>$display_before_posts,
+				'display_after_posts'=>$display_after_posts,
+				/*'display_on_postspage'=>$display_on_postspage,
+				'display_on_homepage'=>$display_on_homepage,*/
+				'display_before_blogposts'=>$display_before_blogposts,
+				'display_after_blogposts'=>$display_after_blogposts,
+                 );
+     update_option('sfsi_section8_options',serialize($up_option8));
+    header('Content-Type: application/json');
+    echo  json_encode(array("success")); exit;
 } 
+//updateSrcn8
+ 
 /* upload custom icons images */
 /* get counts for admin section */        
 function sfsi_getCounts()

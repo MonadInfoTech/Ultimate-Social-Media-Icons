@@ -13,24 +13,35 @@ class Sfsi_Widget extends WP_Widget
 	function widget( $args, $instance )
 	{
 		extract( $args );
-		/*Our variables from the widget settings. */
-		$title = apply_filters('widget_title', $instance['title'] );
-		$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
-		global $is_floter;	      
-		echo $before_widget;
-        ?>
-            <div class="sfsi_widget">   
-				<div id='sfsi_wDiv'></div>
-                    <?php /* Display the widget title */
-						if ( $title ) echo $before_title . $title . $after_title;
-							/* Link the main icons function */
-               				 echo sfsi_check_visiblity(0);
-             		  ?>
-	      		<div style="clear: both;"></div>
-            </div>
-            <?php
-	      		if ( is_active_widget( false, false, $this->id_base, true ) ) { }
-		echo $after_widget;
+		//if show via widget is checked
+		$sfsi_section8_options = get_option("sfsi_section8_options");
+		$sfsi_section8_options = unserialize($sfsi_section8_options);
+		$show_via_widget = $sfsi_section8_options['show_via_widget'];
+		if($show_via_widget == "yes")
+		{
+			/*Our variables from the widget settings. */
+			$title = apply_filters('widget_title', $instance['title'] );
+			$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
+			global $is_floter;	      
+			echo $before_widget;
+			?>
+				<div class="sfsi_widget">   
+					<div id='sfsi_wDiv'></div>
+						<?php /* Display the widget title */
+							if ( $title ) echo $before_title . $title . $after_title;
+								/* Link the main icons function */
+								 echo sfsi_check_visiblity(0);
+						  ?>
+					<div style="clear: both;"></div>
+				</div>
+				<?php
+					if ( is_active_widget( false, false, $this->id_base, true ) ) { }
+			echo $after_widget;
+		}
+		else
+		{
+			echo 'Kindly go to setting page and check the option "show them via a widget"';
+		}
 	}
 	
 	/*Update the widget */ 
@@ -84,13 +95,17 @@ function sfsi_check_visiblity($isFloter=0)
     $sfsi_section1_options=  unserialize(get_option('sfsi_section1_options',false));
     $sfsi_section3=  unserialize(get_option('sfsi_section3_options',false));
     $sfsi_section5=  unserialize(get_option('sfsi_section5_options',false));
-       
+    
+	//options that are added on the third question
+	$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+	   
     /* calculate the width and icons display alignments */
     $icons_space=$sfsi_section5['sfsi_icons_spacing'];
     $icons_size=$sfsi_section5['sfsi_icons_size'];
     $icons_per_row=($sfsi_section5['sfsi_icons_perRow'])? $sfsi_section5['sfsi_icons_perRow'] : '';
     
     $icons_alignment=$sfsi_section5['sfsi_icons_Alignment'];
+	$icons_alignment=$sfsi_section8['sfsi_icons_alignment'];
     $position='position:absolute;';
     $position1='position:absolute;';
     $jquery='<script>';
@@ -115,11 +130,14 @@ function sfsi_check_visiblity($isFloter=0)
     }
 	
     /* check if icons floating  is activated in admin */
-    if($sfsi_section5['sfsi_icons_float']=="yes")
+	/*settings under third question*/
+    //if($sfsi_section5['sfsi_icons_float']=="yes")
+	if($sfsi_section8['float_on_page']=="yes")
 	{
          $top="15";
-         switch($sfsi_section5['sfsi_icons_floatPosition'])
-         {
+         //switch($sfsi_section5['sfsi_icons_floatPosition'])
+         switch($sfsi_section8['float_page_position'])
+		 {
              case "top-left" : if(is_admin_bar_showing()) :  $position.="position:absolute;left:30px;top:35px;"; $top="35"; else : $position.="position:absolute;left:10px;top:2%"; $top="10"; endif;                                                
              break;
              case "top-right" : if(is_admin_bar_showing()) :  $position.="position:absolute;right:30px;top:35px;"; $top="35"; else : $position.="position:absolute;right:10px;top:2%"; $top="10"; endif;                       
@@ -230,7 +248,7 @@ function sfsi_check_visiblity($isFloter=0)
     $icons_main.=$icons.'<div id="sfsi_holder" class="sfsi_holders" style="position: relative; float: left;width:100%;z-index:-1;"></div >'.$jquery;
     /* if floating of icons is active create a floater div */
     $icons_float='';
-    if($sfsi_section5['sfsi_icons_float']=="yes" && $isFloter==1)
+    if($sfsi_section8['float_on_page']=="yes" && $isFloter==1)
     {
 	  $icons_float='<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:'.$width.'px;text-align:'.$icons_alignment.';'.$position.'">';
 	  $icons_float.=$icons;
@@ -262,6 +280,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     $sfsi_section5_options=  unserialize(get_option('sfsi_section5_options',false));
     $sfsi_section6_options=  unserialize(get_option('sfsi_section6_options',false));
     $sfsi_section7_options=  unserialize(get_option('sfsi_section7_options',false));
+	$sfsi_section8_options=  unserialize(get_option('sfsi_section8_options',false));
 
 	 /* get active theme */
      $border_radius='';

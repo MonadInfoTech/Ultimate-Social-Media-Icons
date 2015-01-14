@@ -173,6 +173,28 @@ function sfsi_activate_plugin()
         'sfsi_Shown_popupOnceTime'=>'',
         'sfsi_Shown_popuplimitPerUserTime'=>'',
         ); add_option('sfsi_section7_options',  serialize($options7));
+	
+	/*options that are added in the third question*/
+	$options8=array('show_via_widget'=>'no',
+        'float_on_page'=>'no',
+        'float_page_position'=>'center-right',
+        'place_item_manually'=>'no',
+        'show_item_onposts'=>'no',
+		'display_button_type'=>'no',
+        'sfsi_post_icons_size'=>40,
+        'sfsi_post_icons_spacing'=>5,
+		'sfsi_show_Onposts'=>'no',
+		'sfsi_textBefor_icons'=>'Please like & share:',
+		'sfsi_icons_alignment'=>'left',
+		'sfsi_icons_DisplayCounts'=>'no',
+		'display_before_posts'=>'no',
+		'display_after_posts'=>'no',
+		'display_on_postspage'=>'no',
+		'display_on_homepage'=>'no'
+		
+		
+        ); add_option('sfsi_section8_options',  serialize($options8));	
+		
         update_option('sfsi_feed_id',$sffeeds->feed_id);
         add_option('sfsi_installDate',date('Y-m-d h:i:s'));
         add_option('sfsi_RatingDiv','no');
@@ -222,6 +244,7 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_section5_options');
     delete_option('sfsi_section6_options');
     delete_option('sfsi_section7_options');
+	delete_option('sfsi_section8_options');
     delete_option('sfsi_feed_id');
     delete_option('sfsi_footer_sec');
     delete_option('sfsi_activate');
