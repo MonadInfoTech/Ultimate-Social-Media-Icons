@@ -85,9 +85,39 @@ function ultimatefbmetatags()
 			   echo '<meta property="og:image" content="'.$feat_image.'">';
 	   }
 	   $metadata = wp_get_attachment_metadata( $attachment_id );
-	   $image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
-	   $width = $metadata['width'];
-	   $height = $metadata['height'];
+	   if(!isset($metadata) || empty($metadata))
+	   {
+		   if(isset($metadata['sizes']['post-thumbnail']))
+		   {
+				$image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
+		   }
+		   else
+		   {
+				$image_type = '';  
+		   }
+		   if(isset($metadata['width']))
+		   {
+		   		$width = $metadata['width'];
+	   	   }
+		   else
+		   {
+				$width = '';  
+		   }
+		   if(isset($metadata['height']))
+		   {
+		   		$height = $metadata['height'];
+	   	   }
+		   else
+		   {
+				$height = '';  
+		   }
+	   }
+	   else
+	   {
+			$image_type = '';
+			$width = '';
+			$height = '';  
+	   }
 	   echo '<meta property="og:image:type" content="'.$image_type.'">';
 	   echo '<meta property="og:image:width" content="'.$width.'">';
 	   echo '<meta property="og:image:height" content="'.$height.'">';

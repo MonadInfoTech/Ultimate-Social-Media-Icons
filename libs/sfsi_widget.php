@@ -151,7 +151,19 @@ function sfsi_check_visiblity($isFloter=0)
              case "bottom-left" : $position.="position:absolute;left:30px;bottom:0px"; $top="bottom"; 
              break;
          }
-        $jquery.="SFSI( document ).ready(function( $ ) { sfsi_float_widget('".$top."')});";
+       	 if($sfsi_section5['sfsi_icons_floatPosition'] == 'center-right' || $sfsi_section5['sfsi_icons_floatPosition'] == 'center-left')
+		 {
+        	$jquery.="SFSI( document ).ready(function( $ )
+					  {
+						var topalign = ( jQuery(window).height() - SFSI('#sfsi_floater').height() ) / 2;
+						SFSI('#sfsi_floater').css('top',topalign);
+					  	sfsi_float_widget('".$top."');
+					  });";
+		 }
+		 else
+		 {
+			$jquery.="SFSI( document ).ready(function( $ ) { sfsi_float_widget('".$top."')});"; 
+		 }
     }
 	  
     $extra='';
@@ -190,6 +202,7 @@ function sfsi_check_visiblity($isFloter=0)
                      $sfsi_section5['sfsi_pinterestIcon_order']=>'pinterest',
                      $sfsi_section5['sfsi_linkedinIcon_order']=>'linkedin',
 		     		 $sfsi_section5['sfsi_instagramIcon_order']=>'instagram',) ;
+   
    if(is_array($custom_icons_order) ) 
    {
 		foreach($custom_icons_order as $data)
@@ -198,7 +211,7 @@ function sfsi_check_visiblity($isFloter=0)
 		}
    }
    ksort($icons_order);
-   
+   					  
    /* calculate the total width of widget according to icons  */
    if(!empty($icons_per_row))
    {
@@ -248,7 +261,7 @@ function sfsi_check_visiblity($isFloter=0)
     $icons_main.=$icons.'<div id="sfsi_holder" class="sfsi_holders" style="position: relative; float: left;width:100%;z-index:-1;"></div >'.$jquery;
     /* if floating of icons is active create a floater div */
     $icons_float='';
-    if($sfsi_section8['float_on_page']=="yes" && $isFloter==1)
+	if($sfsi_section8['float_on_page']=="yes" && $isFloter==1)
     {
 	  $icons_float='<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:'.$width.'px;text-align:'.$icons_alignment.';'.$position.'">';
 	  $icons_float.=$icons;
@@ -1121,26 +1134,29 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 		$margin_bot = "30px;";
     }
     
-	$icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='sfsi_wicons ".$cmcls."'>";
-    $icons.= "<div class='inerCnt'>";
-    $icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' . $new_window.  href='".$url."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
-    $icons.= "<img alt='".$alt_text."' title='".$alt_text."' src='".$icon."' width='".$icons_size."' style='".$border_radius.$padding_top."' class='sfcm sfsi_wicon' effect='".$mouse_hover_effect."'   />"; 
-    $icons.= '</a>';
-   
-   if(isset($counts) &&  $counts!='')
-   {
-    	$icons.= '<span class="bot_no '.$bt_class.'">'.$counts.'</span>';  
-   }
-     
-   if($hoverSHow && !empty($hoverdiv))
-   {	
-		$icons.= '<div class="sfsi_tool_tip_2 '.$toolClass.' '.$toolT_cls.'" style="width:'.$width.'px ;opacity:0;z-index:-1;margin-left:-'.$twt_margin.'px;" id="sfsiid_'.$icon_name.'">';
-		$icons.= '<span class="bot_arow '.$arrow_class.'"></span>';
-		$icons.= '<div class="sfsi_inside">'.$hoverdiv."</div>";
-		$icons.= "</div>";
-   }
-   $icons.="</div>";
-   $icons.="</div>";
+	if(isset($icon) && !empty($icon) && filter_var($icon, FILTER_VALIDATE_URL))
+	{
+		$icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='sfsi_wicons ".$cmcls."'>";
+		$icons.= "<div class='inerCnt'>";
+		$icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' . $new_window.  href='".$url."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
+		$icons.= "<img alt='".$alt_text."' title='".$alt_text."' src='".$icon."' width='".$icons_size."' style='".$border_radius.$padding_top."' class='sfcm sfsi_wicon' effect='".$mouse_hover_effect."'   />"; 
+		$icons.= '</a>';
+	   
+	   if(isset($counts) &&  $counts!='')
+	   {
+			$icons.= '<span class="bot_no '.$bt_class.'">'.$counts.'</span>';  
+	   }
+		 
+	   if($hoverSHow && !empty($hoverdiv))
+	   {	
+			$icons.= '<div class="sfsi_tool_tip_2 '.$toolClass.' '.$toolT_cls.'" style="width:'.$width.'px ;opacity:0;z-index:-1;margin-left:-'.$twt_margin.'px;" id="sfsiid_'.$icon_name.'">';
+			$icons.= '<span class="bot_arow '.$arrow_class.'"></span>';
+			$icons.= '<div class="sfsi_inside">'.$hoverdiv."</div>";
+			$icons.= "</div>";
+	   }
+	   $icons.="</div>";
+	   $icons.="</div>";
+	}
    return  $icons;       
 }
 

@@ -48,7 +48,11 @@ define('rss_readmore_text2', $rss_readmore_text2);
 	    formfield = jQuery(ref).prev("input").attr('name');
 		tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
 		window.send_to_editor = function(html) {
-			url = jQuery('img',html).attr('src');
+			var url = jQuery('img',html).attr('src');
+			if(url == undefined) 
+			{
+				var url = jQuery(html).attr('src');
+			}
 			tb_remove();
 			sfsi_newcustomicon_upload(url);
 		}
@@ -497,7 +501,11 @@ I want to see how it works</a></div>
 				var title = jQuery(ref).attr('title');
 				tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
 				window.send_to_editor = function(html) {
-					url = jQuery('img',html).attr('src');
+					var url = jQuery('img',html).attr('src');
+					if(url == undefined) 
+					{
+						var url = jQuery(html).attr('src');
+					}
 					sfsi_customskin_upload(title+'='+url, ref);
 					tb_remove();
 				}

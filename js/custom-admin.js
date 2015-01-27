@@ -33,7 +33,7 @@ function sfsi_delete_CusIcon(s, i) {
                 showErrorSuc("success", "Saved !", 1);
                 var t = e.last_index + 1;
                 SFSI("#total_cusotm_icons").val(e.total_up), SFSI(s).closest(".custom").remove(), 
-                SFSI("li.custom:last").addClass("bdr_btm_non"), SFSI(".custom-links").find("div." + i.attr("name")).remove(), 
+                SFSI("li.custom:last-child").addClass("bdr_btm_non"), SFSI(".custom-links").find("div." + i.attr("name")).remove(), 
                 SFSI(".custom_m").find("div." + i.attr("name")).remove(), SFSI(".share_icon_order").children("li." + i.attr("name")).remove(), 
                 SFSI("ul.sfsi_sample_icons").children("li." + i.attr("name")).remove();
                 var n = e.total_up + 1;
@@ -175,7 +175,16 @@ function sfsi_newcustomicon_upload(s) {
         dataType:"json",
         async:!0,
         success:function(s) {
-			afterIconSuccess(s);
+			if(s.res == 'success')
+			{
+				afterIconSuccess(s);
+			}
+			else
+			{
+				SFSI(".upload-overlay").hide("slow");
+				SFSI(".uperror").html(s.res);
+				showErrorSuc("Error", "Some Error Occured During Upload Custom Icon", 1)
+			}
         }
     });
 }
@@ -583,12 +592,17 @@ function sfsi_update_step8() {
 function afterIconSuccess(s) {
     if (s.res = "success") {
         var i = s.key + 1, e = s.element, t = e + 1;
-        SFSI("#total_cusotm_icons").val(s.element), SFSI(".upload-overlay").hide("slow"), 
-        SFSI(".uperror").html(""), showErrorSuc("success", "Custom Icon updated successfully", 1), 
-        d = new Date(), SFSI("input[name=sfsiICON_" + s.key + "]").removeAttr("ele-type"), 
-        SFSI("input[name=sfsiICON_" + s.key + "]").removeAttr("isnew"), SFSI("li.custom:last").removeClass("bdr_btm_non"), 
-        SFSI("li.custom:last").children("span.custom-img").children("img").attr("src", s.img_path + "?" + d.getTime()), 
-        icons_name = SFSI("li.custom:last").find("input.styled").attr("name");
+        SFSI("#total_cusotm_icons").val(s.element);
+		SFSI(".upload-overlay").hide("slow");
+        SFSI(".uperror").html("");
+		showErrorSuc("success", "Custom Icon updated successfully", 1);
+        d = new Date();
+		
+		SFSI("li.custom:last-child").removeClass("bdr_btm_non"); 
+        SFSI("li.custom:last-child").children("span.custom-img").children("img").attr("src", s.img_path+ "?" + d.getTime());
+		SFSI("input[name=sfsiICON_" + s.key + "]").removeAttr("ele-type"); 
+        SFSI("input[name=sfsiICON_" + s.key + "]").removeAttr("isnew");
+		icons_name = SFSI("li.custom:last-child").find("input.styled").attr("name");
         var n = icons_name.split("_");
         s.key = n[1], s.img_path += "?" + d.getTime(), 5 > e && SFSI(".icn_listing").append('<li id="c' + i + '" class="custom bdr_btm_non"><div class="radio_section tb_4_ck"><span class="checkbox" dynamic_ele="yes" style="background-position: 0px 0px;"></span><input name="sfsiICON_' + i + '"  type="checkbox" value="yes" class="styled" style="display:none;" element-type="cusotm-icon" isNew="yes" /></div> <span class="custom-img"><img src="' + SFSI("#plugin_url").val() + 'images/custom.png" id="CImg_' + i + '"  /> </span> <span class="custom custom-txt">Custom' + t + ' </span> <div class="right_info"> <p><span>It depends:</span> Upload a custom icon if you have other accounts/websites you want to link to.</p><div class="inputWrapper"></div></li>'), 
         SFSI(".custom_section").show(), SFSI(".custom-links").append(' <div class="row  sfsiICON_' + s.key + ' cm_lnk"> <h2 class="custom"> <span class="customstep2-img"> <img   src="' + s.img_path + "?" + d.getTime() + '" style="border-radius:48%" /> </span> <span class="sfsiCtxt">Custom ' + e + '</span> </h2> <div class="inr_cont "><p>Where do you want this icon to link to?</p> <p class="radio_section fb_url custom_section  sfsiICON_' + s.key + '" ><label>Link :</label><input file-id="' + s.key + '" name="sfsi_CustomIcon_links[]" type="text" value="" placeholder="http://" class="add" /></p></div></div>');

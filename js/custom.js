@@ -88,7 +88,18 @@ function sfsi_float_widget(s) {
 			SFSI("#sfsi_floater").css("top",documentheight+"px");
 		}
 	}
-    if ("center" == s) var t = window.innerHeight / 2; else if ("bottom" == s) var t = window.innerHeight - SFSI("#sfsi_floater").height(); else var t = parseInt(s);
+    if ("center" == s)
+	{
+		var t = ( jQuery(window).height() - SFSI("#sfsi_floater").height() ) / 2;
+	}
+	else if ("bottom" == s)
+	{
+		var t = window.innerHeight - SFSI("#sfsi_floater").height();
+	}
+	else
+	{
+		var t = parseInt(s);
+	}
     var n = 50, o = .1, a = 0, r = 0;
     SFSI("#sfsi_floater"), window.onscroll = e;
 }

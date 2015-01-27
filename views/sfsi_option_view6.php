@@ -50,7 +50,7 @@
         <a  href="javascript:;" id="sfsi_save6" title="Save">Save</a>
   
   </div>  <!-- END SAVE BUTTON SECTION   -->
-  <a class="sfsiColbtn closeSec" href="javascript:;" class="closeSec">Collapse area</a>
+  <a class="sfsiColbtn closeSec" href="javascript:;">Collapse area</a>
   <label class="closeSec"></label>
   <!-- ERROR AND SUCCESS MESSAGE AREA-->
   <p class="red_txt errorMsg" style="display:none"> </p>

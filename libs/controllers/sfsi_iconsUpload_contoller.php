@@ -3,7 +3,11 @@
 add_action('wp_ajax_UploadSkins','sfsi_UploadSkins');
 function sfsi_UploadSkins()
 {
-	require(ABSPATH.'/wp-load.php');
+	//require(ABSPATH.'/wp-load.php');
+	if ( defined('ABSPATH') )
+     	require_once(ABSPATH . 'wp-load.php');
+    else
+        require_once('../wp-load.php');
 	extract($_REQUEST);
 	$upload_dir = wp_upload_dir();
 	
@@ -81,7 +85,11 @@ function sfsi_UploadSkins()
 add_action('wp_ajax_DeleteSkin','sfsi_DeleteSkin');
 function sfsi_DeleteSkin()
 {
-	require(ABSPATH.'/wp-load.php');
+	//require(ABSPATH.'/wp-load.php');
+	if ( defined('ABSPATH') )
+     	require_once(ABSPATH . 'wp-load.php');
+    else
+        require_once('../wp-load.php');
 	$upload_dir = wp_upload_dir();
 	
 	if($_REQUEST['action'] == 'DeleteSkin' && isset($_REQUEST['iconname']) && !empty($_REQUEST['iconname']))
@@ -205,12 +213,16 @@ add_action('wp_ajax_UploadIcons','sfsi_UploadIcons');
 /* uplaod custom icon {change by monad}*/
 function sfsi_UploadIcons()
 {
-	require(ABSPATH.'/wp-load.php');
-	extract($_POST);
-	$upload_dir = wp_upload_dir();
+	if ( defined('ABSPATH') )
+     	require_once(ABSPATH . 'wp-load.php');
+    else
+        require_once('../wp-load.php');
 	
+	extract($_POST);
+	
+	$upload_dir	= wp_upload_dir();
 	$ThumbSquareSize 		= 51; //Thumbnail will be 57X57
-	$Quality 			= 90; //jpeg quality
+	$Quality 			    = 90; //jpeg quality
 	$DestinationDirectory   = $upload_dir['path'].'/'; //specify upload directory ends with / (slash)
 	$AcceessUrl             = $upload_dir['url'].'/';
 	$ThumbPrefix			= "cmicon_";
@@ -248,41 +260,37 @@ function sfsi_UploadIcons()
 				default:
 						 die(json_encode(array('res'=>'type_error'))); //output error and exit
 		}
-
 		
 		$ImageName = preg_replace("/\\.[^.\\s]{3,4}$/", "", $iconName);
-		$cnt=$i+1;
 		
 		$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;        
 		$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
 		if(empty($icons))
 		{   
 			end($icons);
-			$new=0;
+			$new = 0;
 		}    
 		else {
 			end($icons);
-			$cnt=key($icons);
-			$new=$cnt+1;
+			$cnt = key($icons);
+			$new = $cnt+1;
 		}
-		$NewIconName = "/custom_icon".$new.'.'.$ImageExt;
+		$NewIconName = "custom_icon".$new.'.'.$ImageExt;
         $iconPath 	= $DestinationDirectory.$NewIconName; //Thumbnail name with destination directory
 		
 		//Create a square Thumbnail right after, this time we are using cropImage() function
 		if(cropImage($CurWidth,$CurHeight,$ThumbSquareSize,$iconPath,$CreatedImage,$Quality,$ImageType))
 		{
-			 //update database information 
+			 	//update database information 
 				$AccressImagePath=$AcceessUrl.$NewIconName;                                        
-					$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;
-					$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
-					$icons[] = $AccressImagePath;
-					
-					$sec_options['sfsi_custom_files'] = serialize($icons);
-					$total_uploads =  count($icons);
-					end($icons);
-					$key = key($icons);
-					update_option('sfsi_section1_options',serialize($sec_options));
-					die(json_encode(array('res'=>'success','img_path'=>$AccressImagePath,'element'=>$total_uploads,'key'=>$key)));
+				$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;
+				$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
+				$icons[] = $AccressImagePath;
+				
+				$sec_options['sfsi_custom_files'] = serialize($icons);
+				$total_uploads = count($icons); end($icons); $key = key($icons);
+				update_option('sfsi_section1_options',serialize($sec_options));
+				die(json_encode(array('res'=>'success','img_path'=>$AccressImagePath,'element'=>$total_uploads,'key'=>$key)));
 	   }
 	   else
 	   {        
@@ -305,13 +313,16 @@ function sfsi_deleteIcons()
        $up_icons= (is_array(unserialize($sec_options1['sfsi_custom_files']))) ? unserialize($sec_options1['sfsi_custom_files']) : array();
        $icons_links= (is_array(unserialize($sec_options2['sfsi_CustomIcon_links']))) ? unserialize($sec_options2['sfsi_CustomIcon_links']) : array();
        $icon_path=$up_icons[$custom_icon[1]];  
-        $path=  pathinfo($icon_path);      
+       $path=  pathinfo($icon_path);      
       
 	   // Changes By {Monad}
-	   /*if(is_file(SFSI_DOCROOT.'/images/custom_icons/'.$path['basename']))
+	   $imgpath = parse_url($icon_path, PHP_URL_PATH);
+	   
+	   if(is_file($_SERVER['DOCUMENT_ROOT'] . $imgpath))
 	   {
-        	unlink(SFSI_DOCROOT.'/images/custom_icons/'.$path['basename']);
-       }*/
+        	unlink($_SERVER['DOCUMENT_ROOT'] . $imgpath);
+       }
+	   
 	   
 	if(isset($up_icons[$custom_icon[1]]))
 	{
@@ -436,9 +447,13 @@ function cropImage($CurWidth,$CurHeight,$iSize,$DestFolder,$SrcImage,$Quality,$I
 				return false;
 		}
 		
-	/* Destroy image, frees memory	*/
-	if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
-	return true;
+		/* Destroy image, frees memory	*/
+		if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 ?>

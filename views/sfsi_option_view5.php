@@ -1,10 +1,11 @@
 <?php
 /* unserialize all saved option for  section 5 options */
- 
   $icons =  unserialize(get_option('sfsi_section1_options'));
-  $icons =  unserialize($icons['sfsi_custom_files']);	 
+  $icons =  unserialize($icons['sfsi_custom_files']);
+  
   $option5=  unserialize(get_option('sfsi_section5_options',false));
-  $custom_icons_order=unserialize($option5['sfsi_CustomIcons_order']);
+  $custom_icons_order = unserialize($option5['sfsi_CustomIcons_order']);
+  
   $icons_order=array($option5['sfsi_rssIcon_order']=>'rss',
                      $option5['sfsi_emailIcon_order']=>'email',
                      $option5['sfsi_facebookIcon_order']=>'facebook',
@@ -14,9 +15,7 @@
                      $option5['sfsi_youtubeIcon_order']=>'youtube',
                      $option5['sfsi_pinterestIcon_order']=>'pinterest',
                      $option5['sfsi_linkedinIcon_order']=>'linkedin',
-		     $option5['sfsi_instagramIcon_order']=>'instagram'
-                    ) ;
-  
+		     		 $option5['sfsi_instagramIcon_order']=>'instagram') ;
   if(is_array($custom_icons_order) ) 
   {
 	  foreach($custom_icons_order as $data)
@@ -25,38 +24,84 @@
 	  }
   }
   ksort($icons_order);
-  
 ?>
 <!-- Section 5 "Any other wishes for your main icons?" main div Start -->
 <div class="tab5">
 	<h4>Order of your icons</h4>
     <!-- icon drag drop  section start here -->	
     <ul class="share_icon_order" >
-     <?php $ctn=0; foreach($icons_order as $index=>$icn) :  ?>   
-        <?php switch ($icn) : 
-            
-            case 'rss' :   ?><li class="rss_section" data-index="<?php echo $index; ?>" id="sfsi_rssIcon_order"><a href="#" title="RSS"><img src="<?php echo SFSI_PLUGURL; ?>images/rss.png" alt="RSS" /></a></li>
+     <?php 
+	 	$ctn = 0;
+	 	foreach($icons_order as $index=>$icn) :
+          
+		  switch ($icn) : 
+          case 'rss' :?>
+            	 <li class="rss_section" data-index="<?php echo $index; ?>" id="sfsi_rssIcon_order">
+                	<a href="#" title="RSS"><img src="<?php echo SFSI_PLUGURL; ?>images/rss.png" alt="RSS" /></a>
+                 </li>
           <?php break; ?>
-          <?php case 'email' :   ?><li class="email_section " data-index="<?php echo $index; ?>" id="sfsi_emailIcon_order"><a href="#" title="Email"><img src="<?php echo SFSI_PLUGURL; ?>images/<?php echo $email_image; ?>" alt="Email" class="icon_img" /></a></li>
+          
+		  <?php case 'email' :?>
+          		<li class="email_section " data-index="<?php echo $index; ?>" id="sfsi_emailIcon_order">
+                	<a href="#" title="Email"><img src="<?php echo SFSI_PLUGURL; ?>images/<?php echo $email_image; ?>" alt="Email" class="icon_img" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'facebook' :   ?><li class="facebook_section " data-index="<?php echo $index; ?>" id="sfsi_facebookIcon_order"><a href="#" title="Facebook"><img src="<?php echo SFSI_PLUGURL; ?>images/facebook.png" alt="Facebook" /></a></li>
+          
+		  <?php case 'facebook' :?>
+          		<li class="facebook_section " data-index="<?php echo $index; ?>" id="sfsi_facebookIcon_order">
+                	<a href="#" title="Facebook"><img src="<?php echo SFSI_PLUGURL; ?>images/facebook.png" alt="Facebook" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'google' :   ?><li class="google_section " data-index="<?php echo $index; ?>" id="sfsi_googleIcon_order"><a href="#" title="Google Plus" ><img src="<?php echo SFSI_PLUGURL; ?>images/google_plus.png" alt="Google Plus" /></a></li>
+          
+          <?php case 'google' :?>
+          		<li class="google_section " data-index="<?php echo $index; ?>" id="sfsi_googleIcon_order">
+                	<a href="#" title="Google Plus" ><img src="<?php echo SFSI_PLUGURL; ?>images/google_plus.png" alt="Google Plus" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'twitter' :   ?><li class="twitter_section " data-index="<?php echo $index; ?>" id="sfsi_twitterIcon_order"><a href="#" title="Twitter" ><img src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" alt="Twitter" /></a></li>
+          
+          <?php case 'twitter' :?>
+          		<li class="twitter_section " data-index="<?php echo $index; ?>" id="sfsi_twitterIcon_order">
+                	<a href="#" title="Twitter" ><img src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" alt="Twitter" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'share' :   ?><li class="share_section " data-index="<?php echo $index; ?>"  id="sfsi_shareIcon_order"><a href="#" title="Share" ><img src="<?php echo SFSI_PLUGURL; ?>images/share.png" alt="Share" /></a></li>
+          
+          <?php case 'share' : ?>
+          		<li class="share_section " data-index="<?php echo $index; ?>"  id="sfsi_shareIcon_order">
+                	<a href="#" title="Share" ><img src="<?php echo SFSI_PLUGURL; ?>images/share.png" alt="Share" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'youtube' :   ?><li class="youtube_section " data-index="<?php echo $index; ?>" id="sfsi_youtubeIcon_order"><a href="#" title="YouTube" ><img src="<?php echo SFSI_PLUGURL; ?>images/youtube.png" alt="YouTube" /></a></li>
+          
+          <?php case 'youtube' :?>
+          		<li class="youtube_section " data-index="<?php echo $index; ?>" id="sfsi_youtubeIcon_order">
+                	<a href="#" title="YouTube" ><img src="<?php echo SFSI_PLUGURL; ?>images/youtube.png" alt="YouTube" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'pinterest' :   ?><li class="pinterest_section " data-index="<?php echo $index; ?>" id="sfsi_pinterestIcon_order"><a href="#" title="Pinterest" ><img src="<?php echo SFSI_PLUGURL; ?>images/pinterest.png" alt="Pinterest" /></a></li>
+          
+          <?php case 'pinterest' :?>
+          		<li class="pinterest_section " data-index="<?php echo $index; ?>" id="sfsi_pinterestIcon_order">
+                	<a href="#" title="Pinterest" ><img src="<?php echo SFSI_PLUGURL; ?>images/pinterest.png" alt="Pinterest" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'linkedin' :   ?><li class="linkedin_section " data-index="<?php echo $index; ?>" id="sfsi_linkedinIcon_order"><a href="#" title="Linked In" ><img src="<?php echo SFSI_PLUGURL; ?>images/linked_in.png" alt="Linked In" /></a></li>
+          
+          <?php case 'linkedin' :?>
+          		<li class="linkedin_section " data-index="<?php echo $index; ?>" id="sfsi_linkedinIcon_order">
+                	<a href="#" title="Linked In" ><img src="<?php echo SFSI_PLUGURL; ?>images/linked_in.png" alt="Linked In" /></a>
+                </li>
           <?php break; ?>
-          <?php case 'instagram' :   ?><li class="instagram_section " data-index="<?php echo $index; ?>" id="sfsi_instagramIcon_order"><a href="#" title="Instagram" ><img src="<?php echo SFSI_PLUGURL; ?>images/instagram.png" alt="Instagram" /></a></li>
-          <?php break; ?>          
-          <?php default   :  ?><li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" ><a href="#" title="Custom Icon" ><img src="<?php echo $icons[$icn['ele']]; ?>" alt="Linked In" class="sfcm" /></a></li> 
-          <?php    break; ?>
+          
+          <?php case 'instagram' :?>
+          		<li class="instagram_section " data-index="<?php echo $index; ?>" id="sfsi_instagramIcon_order">
+                	<a href="#" title="Instagram" ><img src="<?php echo SFSI_PLUGURL; ?>images/instagram.png" alt="Instagram" /></a>
+                </li>
+          <?php break; ?>
+                  
+          <?php default   :?>
+          		<?php if(isset($icons[$icn['ele']]) && !empty($icons[$icn['ele']]) && filter_var($icons[$icn['ele']], FILTER_VALIDATE_URL) ): ?>
+          		<li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" >
+                	<a href="#" title="Custom Icon" ><img src="<?php echo $icons[$icn['ele']]; ?>" alt="Linked In" class="sfcm" /></a>
+                </li> 
+                <?php endif; ?>
+          <?php break; ?>
             
          <?php  endswitch; ?>   
     <?php endforeach; ?> 

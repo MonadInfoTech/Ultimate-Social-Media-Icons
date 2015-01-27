@@ -3229,12 +3229,13 @@ ul.cstmskin_iconlist {
 {
 	width: 120px;
 }
-.sfsi_widget .sfsi_wDiv .sfsi_wicons .inerCnt a
+.sfsi_widget .sfsi_wDiv .sfsi_wicons .inerCnt a, .sfsi_widget .sfsi_wDiv .sfsi_wicons .inerCnt a.sficn
 {
 	padding: 0px;
 	margin: 0px;
 	width: 100%;
 	float: left;
+	border: medium none;
 }
 .sfsi_socialwpr
 {
