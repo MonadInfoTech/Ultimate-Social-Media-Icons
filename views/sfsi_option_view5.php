@@ -1,11 +1,10 @@
 <?php
 /* unserialize all saved option for  section 5 options */
-  $icons =  unserialize(get_option('sfsi_section1_options'));
-  $icons =  unserialize($icons['sfsi_custom_files']);
-  
+     
+  $icons = ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
+   
   $option5=  unserialize(get_option('sfsi_section5_options',false));
   $custom_icons_order = unserialize($option5['sfsi_CustomIcons_order']);
-  
   $icons_order=array($option5['sfsi_rssIcon_order']=>'rss',
                      $option5['sfsi_emailIcon_order']=>'email',
                      $option5['sfsi_facebookIcon_order']=>'facebook',
