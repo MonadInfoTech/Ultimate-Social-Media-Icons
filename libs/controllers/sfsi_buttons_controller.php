@@ -657,11 +657,15 @@ function sfsi_getCounts()
    if($sfsi_section4_options['sfsi_instagram_countsFrom']=="followers" )
    {
       $iuser_name= $sfsi_section4_options['sfsi_instagram_User'];
-       $counts=$socialObj->sfsi_get_instagramFollowers($iuser_name);
-        if(empty($counts))
-        {
-          $scounts['instagram_count']=(string) "0";
-        }
+      $counts = $socialObj->sfsi_get_instagramFollowers($iuser_name);
+		if(empty($counts))
+		{
+		  $scounts['instagram_count']=(string) "0";
+		}
+		else
+		{
+			 $scounts['instagram_count']=$counts;
+		}
    }
    else
    {

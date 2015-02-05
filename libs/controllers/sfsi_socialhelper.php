@@ -147,21 +147,41 @@ function get_UsersPins($user_name,$board)
 }
 
  /* send curl request   */
-private function file_get_contents_curl($url){
-
-$ch=curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-$cont = curl_exec($ch);
-if(curl_error($ch))
+private function file_get_contents_curl($url)
 {
-//die(curl_error($ch));
+	$ch=curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+	curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+	curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
+	$cont = curl_exec($ch);
+
+	if(curl_error($ch))
+	{
+		//die(curl_error($ch));
+	}
+	return $cont;
 }
-return $cont;
+
+private function get_content_curl($url)
+{
+	$curl = curl_init();
+	curl_setopt($curl, CURLOPT_HEADER, false);
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($curl, CURLOPT_HTTPGET, 1);
+	curl_setopt($curl, CURLOPT_URL, $url );
+	curl_setopt($curl, CURLOPT_DNS_USE_GLOBAL_CACHE, false );
+	curl_setopt($curl, CURLOPT_DNS_CACHE_TIMEOUT, 2 );
+	$cont = curl_exec($curl);
+
+	if(curl_error($curl))
+	{
+		//die(curl_error($ch));
+	}
+	return $cont;
 }
  /* convert no. to 2K,3M format   */
 function format_num($num, $precision = 0) {
@@ -254,11 +274,13 @@ public function sfsi_PinIt($url='') {
 public function sfsi_get_instagramFollowers($user_name)
 {
     /* get instagram user id */
-    $return_data = $this->file_get_contents_curl('http://jelled.com/ajax/instagram?do=username&username='.$user_name.'&format=json');
-    $json_string = preg_replace('/^receiveCount\((.*)\)$/', "\\1", $return_data);
+    /*$return_data = $this->file_get_contents_curl('http://jelled.com/ajax/instagram?do=username&username='.$user_name.'&format=json');*/
+	$return_data = $this->get_content_curl('https://api.instagram.com/v1/users/search?q='.$user_name.'&client_id=12d8dcc9abd74f83b0899756adccedc2');
+	$json_string = preg_replace('/^receiveCount\((.*)\)$/', "\\1", $return_data);
     $json = json_decode($json_string, true);
-    $user_id=$json['data'][0]['id']; 
-    $return_data = $this->file_get_contents_curl('https://api.instagram.com/v1/users/'.$user_id.'/?access_token=53042481.ab103e5.0c6f8f50471a4e1f97595f8db529a47a');
+	$user_id=$json['data'][0]['id'];
+	
+	$return_data = $this->get_content_curl('https://api.instagram.com/v1/users/'.$user_id.'/?access_token=53042481.ab103e5.0c6f8f50471a4e1f97595f8db529a47a');
     $json_string = preg_replace('/^receiveCount\((.*)\)$/', "\\1", $return_data);
     $json = json_decode($json_string, true);
     return $this->format_num($json['data']['counts']['followed_by'],0);

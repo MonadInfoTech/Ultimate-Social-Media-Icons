@@ -2791,7 +2791,7 @@ h2.optional {
 }
 .tab2 .utube_inn p.extra_pp {
     float: left;
-    width: 88%;
+    width: 100%;
     margin: 0 0 0 48px;
 }
 .tab2 .utube_inn p.extra_pp label {
@@ -3606,4 +3606,10 @@ float: left;
 {
 	width:100%;
 	float:left;
+}
+.cstmutbchnlidwpr .utbe_instruction,.cstmutbchnlnmewpr .utbe_instruction, .lnkdin_instruction {
+    float: left;
+    line-height: 22px;
+    margin-top: 10px;
+    width: 100%;
 }

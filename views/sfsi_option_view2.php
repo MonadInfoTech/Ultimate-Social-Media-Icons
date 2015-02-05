@@ -12,7 +12,7 @@
         <div class="inr_cont">
             <p>When clicked on, users can subscribe via RSS</p>
             <div class="rss_url_row">
-                <h4>RSS URL</h4> <input name="sfsi_rss_url"  id="sfsi_rss_url" class="add"   type="url" value="<?php echo ($option2['sfsi_rss_url']!='') ?  $option2['sfsi_rss_url'] : '' ;?>" placeholder="E.g http://www.yoursite.com/feed" class="add" /> <span class="sfrsTxt" >For most blogs it’s <strong>http://blogname.com/feed</strong></span>
+                <h4>RSS URL</h4> <input name="sfsi_rss_url"  id="sfsi_rss_url" class="add" type="url" value="<?php echo ($option2['sfsi_rss_url']!='') ?  $option2['sfsi_rss_url'] : '' ;?>" placeholder="E.g http://www.yoursite.com/feed" /> <span class="sfrsTxt" >For most blogs it’s <strong>http://blogname.com/feed</strong></span>
             </div>
         </div>    
     </div><!-- END RSS ICON -->
@@ -38,7 +38,7 @@
         <p>The facebook icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do <a class="rit_link pop-up" href="javascript:;"  data-id="fbex-s2">(see an example)</a>.</p>
         <p>The facebook icon should allow users to...</p> 
         
-        <p class="radio_section fb_url"><input name="sfsi_facebookPage_option" <?php echo ($option2['sfsi_facebookPage_option']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Visit my Facebook page at:</label><input name="sfsi_facebookPage_url" type="url" placeholder="http://" value="<?php echo ($option2['sfsi_facebookPage_url']!='') ?  $option2['sfsi_facebookPage_url'] : 'http://' ;?>" placeholder="E.g https://www.facebook.com/your_page_name" class="add" /></p>
+        <p class="radio_section fb_url"><input name="sfsi_facebookPage_option" <?php echo ($option2['sfsi_facebookPage_option']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Visit my Facebook page at:</label><input name="sfsi_facebookPage_url" type="url" value="<?php echo ($option2['sfsi_facebookPage_url']!='') ?  $option2['sfsi_facebookPage_url'] : 'http://' ;?>" placeholder="E.g https://www.facebook.com/your_page_name" /></p>
         
         <p class="radio_section fb_url extra_sp"><input name="sfsi_facebookLike_option" <?php echo ($option2['sfsi_facebookLike_option']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Like my blog on Facebook (+1)</label></p>
         
@@ -93,9 +93,15 @@
 				?>
             	<div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
                 	<p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>" placeholder="youtube_channel_name" class="add" /></p>
+                    <div class="utbe_instruction">
+                    	To find your Username go to "My channel" in Youtube menu bar on the left & Select the "About" tab and take your user name from URL there (e.g. https://www.youtube.com/user/<b>Myusername</b>/about).
+                    </div>
                 </div>
                 <div class="cstmutbchnlidwpr" <?php if($sfsi_youtubeusernameorid == 'id'){echo 'style="display: block;"';}?>>
                 	<p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option4['sfsi_ytube_chnlid']) && $option4['sfsi_ytube_chnlid']!='') ?  $option4['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
+                    <div class="utbe_instruction">
+                    	To find your Channel name go to "My Channel" in Youtube menu bar on the left and take your channel name from there.
+                    </div>
                 </div>
             </div>
        </div>
@@ -135,6 +141,9 @@
         <div class="radio_section fb_url link_2"><input name="sfsi_linkedin_follow" <?php echo ($option2['sfsi_linkedin_follow']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Follow me on Linkedin: </label><input name="sfsi_linkedin_followCompany" type="text" value="<?php echo ($option2['sfsi_linkedin_followCompany']!='') ?  $option2['sfsi_linkedin_followCompany'] : '' ;?>" class="add" placeholder="Enter company ID, e.g. 123456" /></div>
         <div class="radio_section fb_url link_3"><input name="sfsi_linkedin_SharePage" <?php echo ($option2['sfsi_linkedin_SharePage']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Share my page on LinkedIn</label></div>
         <div class="radio_section fb_url link_4"><input name="sfsi_linkedin_recommendBusines" <?php echo ($option2['sfsi_linkedin_recommendBusines']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label class="anthr_labl">Recommend my business or product on Linkedin</label><input name="sfsi_linkedin_recommendProductId" type="text" value="<?php echo ($option2['sfsi_linkedin_recommendProductId']!='') ?  $option2['sfsi_linkedin_recommendProductId'] : '' ;?>" class="add link_dbl" placeholder="Enter Product ID, e.g. 1441" /> <input name="sfsi_linkedin_recommendCompany" type="text" value="<?php echo ($option2['sfsi_linkedin_recommendCompany']!='') ?  $option2['sfsi_linkedin_recommendCompany'] : '' ;?>" class="add" placeholder="Enter company name, e.g. Google”" /></div>
+        <div class="lnkdin_instruction">
+        	To find your Product or Company ID, you can use their ID lookup tool at <a target="_blank" href="https://developer.linkedin.com/apply-getting-started#company-lookup">https://developer.linkedin.com/apply-getting-started#company-lookup</a>. You need to be logged in to Linkedin to be able to use it.
+        </div>
         </div>
     </div><!-- END LINKEDIN ICON -->
     

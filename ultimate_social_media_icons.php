@@ -41,6 +41,7 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
 	$sfsi_section8_options = get_option("sfsi_section8_options");
 	$sfsi_section8_options = unserialize($sfsi_section8_options);
 	$place_item_manually = $sfsi_section8_options['place_item_manually'];
+		
 	if($place_item_manually == "yes")
 	{
 		$return = '';
@@ -250,93 +251,6 @@ function check_sfsfiupdatedoptions()
 	{
 		$option4['sfsi_youtubeusernameorid']= 'name';
     	update_option('sfsi_section4_options',serialize($option4));
-	}
-	
-	//options inherting from the previous version
-	if(!isset($option8['float_on_page']))
-	{
-		$option8['float_on_page'] = $option5['sfsi_icons_float'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['float_page_position']))
-	{
-		$option8['float_page_position'] = $option5['sfsi_icons_floatPosition'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['sfsi_post_icons_size']))
-	{
-		$option8['sfsi_post_icons_size'] = $option5['sfsi_icons_size'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['sfsi_post_icons_spacing']))
-	{
-		$option8['sfsi_post_icons_spacing'] = $option5['sfsi_icons_spacing'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	
-	
-	if(!isset($option8['show_item_onposts']))
-	{
-		$option8['show_item_onposts'] = $option6['sfsi_show_Onposts'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['sfsi_textBefor_icons']))
-	{
-		$option8['sfsi_textBefor_icons'] = $option6['sfsi_textBefor_icons'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['sfsi_icons_alignment']))
-	{
-		$option8['sfsi_icons_alignment'] = $option6['sfsi_icons_alignment'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['sfsi_icons_DisplayCounts']))
-	{
-		$option8['sfsi_icons_DisplayCounts'] = $option6['sfsi_icons_DisplayCounts'];
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	
-	
-	
-	if(!isset($option8['show_via_widget']))
-	{
-		$option8['show_via_widget'] = 'yes';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['place_item_manually']))
-	{
-		$option8['place_item_manually'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['display_button_type']))
-	{
-		$option8['display_button_type'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['sfsi_show_Onposts']))
-	{
-		$option8['sfsi_show_Onposts'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['display_before_posts']))
-	{
-		$option8['display_before_posts'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['display_after_posts']))
-	{
-		$option8['display_after_posts'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['display_on_postspage']))
-	{
-		$option8['display_on_postspage'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
-	}
-	if(!isset($option8['display_on_homepage']))
-	{
-		$option8['display_on_homepage'] = 'no';
-		update_option('sfsi_section8_options',  serialize($option8));
 	}
 }
 ?>
