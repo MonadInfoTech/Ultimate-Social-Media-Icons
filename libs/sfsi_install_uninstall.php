@@ -184,12 +184,15 @@ function sfsi_activate_plugin()
 		'sfsi_icons_alignment'=>$option6['sfsi_icons_alignment'],
 		'sfsi_icons_DisplayCounts'=>$option6['sfsi_icons_DisplayCounts'],
 		'place_item_manually'=>'no',
-        'show_item_onposts'=>'no',
+        /*'show_item_onposts'=>'no',*/
+		'show_item_onposts'=> $option6['sfsi_show_Onposts'],
 		'display_button_type'=>'no',
         'display_before_posts'=>'no',
-		'display_after_posts'=>'no',
+		'display_after_posts'=>$option6['sfsi_show_Onposts'],
 		'display_on_postspage'=>'no',
-		'display_on_homepage'=>'no');
+		'display_on_homepage'=>'no',
+		'display_before_blogposts'=>'no',
+		'display_after_blogposts'=>'no');
 	add_option('sfsi_section8_options',  serialize($options8));		
 		
 	update_option('sfsi_feed_id',$sffeeds->feed_id);

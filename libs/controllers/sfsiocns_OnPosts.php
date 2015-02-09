@@ -4,40 +4,48 @@
 function sfsi_social_buttons_below($content) {
 	global $post;
          $sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
+		 
+		 //new options that are added on the third questions
+		 //so in this function we are replacing all the past options 
+		 //that were saved under option6 by new settings saved under option8 
+		 $sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+		 $show_item_onposts = $sfsi_section8['show_item_onposts'];
+		 //new options that are added on the third questions
         
   /* check if option activated in admin or not */ 
-  if($sfsi_section6['sfsi_show_Onposts']=="yes")
-  {
+  //if($sfsi_section6['sfsi_show_Onposts']=="yes")
+  //removing following condition for now
+  /*if($sfsi_section8['sfsi_show_Onposts']=="yes")
+  {*/
 	$permalink = get_permalink($post->ID);
         $title = get_the_title();
 	$sfsiLikeWith="45px;";
         /* check for counter display */
-        if($sfsi_section6['sfsi_icons_DisplayCounts']=="yes")
-        {
+        //if($sfsi_section6['sfsi_icons_DisplayCounts']=="yes")
+		if($sfsi_section8['sfsi_icons_DisplayCounts']=="yes")
+		{
             $show_count=1;
-	    $sfsiLikeWith="75px;";
-	   
+	    	$sfsiLikeWith="75px;";
         }   
         else
         {
             $show_count=0;
         } 
-        $txt=(isset($sfsi_section6['sfsi_textBefor_icons']))? $sfsi_section6['sfsi_textBefor_icons'] : "Share this Post with :" ;
-        $float= $sfsi_section6['sfsi_icons_alignment'];
-        $icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:5px;'><span>".$txt."</span></div>";
+        //$txt=(isset($sfsi_section6['sfsi_textBefor_icons']))? $sfsi_section6['sfsi_textBefor_icons'] : "Share this Post with :" ;
+        $txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
+		//$float= $sfsi_section6['sfsi_icons_alignment'];
+        $float= $sfsi_section8['sfsi_icons_alignment'];
+		$icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:5px;'><span>".$txt."</span></div>";
         
-		//adding wrapper div
-		$icons.="<div class='sfsi_socialwpr'>";
-			$icons.="<div class='sf_fb' style='width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
-			$icons.="<div class='sf_google'>".sfsi_googlePlus($permalink,$show_count)."</div>";
-			$icons.="<div class='sf_addthis'>".sfsi_Addthis($show_count)."</div>";
-      	$icons.="</div>";
-		//closing wrapper div
+        $icons.="<div class='sf_fb' style='float:left;margin:5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
+	$icons.="<div class='sf_google'  style='float:left;margin:5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+        $icons.="<div class='sf_addthis'  style='float:left;margin:8px 5px 5px 5px;'>".sfsi_Addthis($show_count)."</div>";
+      
 	$icons.="</div>";
     if(!is_feed() && !is_home() && !is_page()) {
 		$content =   $content .$icons;
 	}
-  }   
+  //}   
 	return $content;
 }
 
@@ -89,6 +97,28 @@ if($show_count==1)
    else
    {
 	$atiocn.='<div class="addthis_toolbox addthis_default_style addthis_20x20_style"><a class="addthis_button_compact " href="#">  <img src="'.SFSI_PLUGURL.'images/sharebtn.png"  border="0" alt="Share" /></a></div>';
+      return $atiocn; 
+    }
+}
+
+function sfsi_Addthis_blogpost($show_count, $permalink, $post_title)
+{ 
+   $atiocn=' <script type="text/javascript">
+var addthis_config = {
+     pubid: "YOUR-PROFILE-ID"
+}
+</script>';
+if($show_count==1)
+   {
+	   $atiocn.=' <div class="addthis_toolbox" data-url="'.$permalink.'" data-title="'.$post_title.'" addthis:url="'.$permalink.'">
+              <a class="addthis_counter addthis_pill_style share_showhide"></a>
+	   </div>';
+	    return $atiocn;
+	
+   }
+   else
+   {
+	$atiocn.='<div class="addthis_toolbox addthis_default_style addthis_20x20_style" data-url="'.$permalink.'" data-title="'.$post_title.'" addthis:url="'.$permalink.'"><a class="addthis_button_compact " href="#">  <img src="'.SFSI_PLUGURL.'images/sharebtn.png"  border="0" alt="Share" /></a></div>';
       return $atiocn; 
     }
 }
@@ -165,7 +195,8 @@ if($show_count==1)
         
 }
 /* filter the content of post */
-add_filter('the_content', 'sfsi_social_buttons_below');
+//commenting following code as we are going to extend this functionality 
+//add_filter('the_content', 'sfsi_social_buttons_below');
 
 /* update footer for frontend and admin both */ 
 if(!is_admin())
@@ -182,8 +213,4 @@ if(is_admin())
 
 /* ping to vendor site on updation of new post */
 
-
-  
-
-  
 ?>

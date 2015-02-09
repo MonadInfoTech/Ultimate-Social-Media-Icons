@@ -19,7 +19,7 @@
     <p> If you have any questions, <a  href="mailto:support@ultimatelysocial.com" title="support@ultimatelysocial.com" alt="support@ultimatelysocial.com" class="lit_txt">let us know</a>, we‘ll help you out!</p>-->
     <h1>Welcome to the Ultimate Floating Button & Share Plugin!</h1>
 	<p>This plugin is 100% FREE and will fulfill all your subscription/sharing/liking needs!</p>
-	<p>Simply answer the questions below (at least the first 3)by clicking on them -that's it!</p>
+	<p>Simply answer the questions below (at least the first 3) by clicking on them - that's it!</p>
     <p> If you have any questions, <a  href="mailto:support@ultimatelysocial.com" title="support@ultimatelysocial.com" alt="support@ultimatelysocial.com" class="lit_txt">let us know</a>, we‘ll help you out!</p>
     </div> <!-- END Top content area of plugin -->
       
@@ -71,7 +71,7 @@
     <!-- step old 7 END here -->
 
      </div>
-    <div class="tab8">
+    <div class="tab9">
          <div class="save_button">
 		  <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
 		<a href="javascript:;" id="save_all_settings" title="Save All Settings">Save All Settings</a>

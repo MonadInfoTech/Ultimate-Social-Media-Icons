@@ -90,6 +90,7 @@ body {
     line-height: 26px;
     padding-top: 19px;
 }
+.tab_3_icns.shwthmbfraftr .cstmdisplaysharingtxt { float: left; }
 #accordion p:first-child, #accordion1 p:first-child {
     padding-top: 0;
 }
@@ -2833,7 +2834,7 @@ h2.optional {
 }
 .sfsi_Sicons .sf_fb .fb_iframe_widget>span {
     position: absolute;
-    width: 450px!important;
+    /*width: 450px!important;*/
     z-index: 1;
 }
 .sfsi_Sicons .sf_addthis, .sfsi_Sicons .sf_google {
@@ -3305,6 +3306,10 @@ ul.cstmskin_iconlist {
     margin-left: 25px;
     width: 85%;
 }
+.tab8 ul.icn_listing li .right_info p label.ckckslctn
+{
+	display: none;
+}
 /*modify by palak*/
 /*palak css*/
 .tab8 .tab_3_icns.shwthmbfraftr > li
@@ -3330,7 +3335,7 @@ margin-left:19px;
 }
 .tab8 .icons_size > span.last
 {
-width: 22% !important;
+width: auto !important;
 }
 .tab8 .radio_section.tb_4_ck
 {
@@ -3352,7 +3357,7 @@ width: 85% !important;
 }
 .tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 li
 {
-width:18% !important;
+width:auto !important;
 }
 .tab8 .tab_3_icns.shwthmbfraftr .usually > li
 {
@@ -3362,6 +3367,11 @@ width:100% !important;
 {
 width:43% !important;
 margin:0;
+
+width: auto;
+/*margin-right: 60px;*/
+margin-bottom: 0;
+margin-top: 0px;
 }
 .tab8 .row.PostsSettings_section .options .first.chcklbl
 {

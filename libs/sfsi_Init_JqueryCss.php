@@ -64,9 +64,6 @@ function theme_back_enqueue_script()
 		/* initilaize the ajax url in javascript */
 		wp_localize_script( 'SFSICustomJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 		wp_localize_script( 'SFSICustomValidateJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
-		
-		
-		
 }
 add_action( 'admin_enqueue_scripts', 'theme_back_enqueue_script' );
 
@@ -97,8 +94,8 @@ function theme_front_enqueue_script()
 		/* end cusotm js */
 		
 		/* initilaize the ajax url in javascript */
-		wp_localize_script( 'SFSICustomJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-		wp_localize_script( 'SFSICustomValidateJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
+		wp_localize_script( 'SFSICustomJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
+		//wp_localize_script( 'SFSICustomValidateJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
 		
 		/* include CSS for front-end and backend  */
 		//wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style-min.css' );
@@ -111,6 +108,7 @@ function theme_front_enqueue_script()
 		{
 			wp_enqueue_style("disable_sfsi", SFSI_PLUGURL . 'css/disable_sfsi.css' );
 		}
+		
 }
 add_action( 'wp_enqueue_scripts', 'theme_front_enqueue_script' );		
 ?>

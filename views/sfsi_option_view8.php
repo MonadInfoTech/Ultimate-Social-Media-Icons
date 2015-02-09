@@ -5,11 +5,21 @@
 <div class="tab8">
 	<ul class="icn_listing">
 		<li class="">
-			<div class="radio_section tb_4_ck"><input name="show_via_widget" <?php echo ($option8['show_via_widget']=='yes') ?  'checked="true"' : '' ;?>  id="show_via_widget" type="checkbox" value="yes" class="styled"  /></div>
+			<div class="radio_section tb_4_ck" onclick="checkforinfoslction(this);"><input name="show_via_widget" <?php echo ($option8['show_via_widget']=='yes') ?  'checked="true"' : '' ;?>  id="show_via_widget" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
 					Show them via a widget<br>
-					<label class="sub-subtitle" >Go to the <a href="<?php echo admin_url('widgets.php');?>">widgets area</a> and drag & drop it where you want to have it!</label>
+                    <?php
+                    if($option8['show_via_widget']=='yes')
+					{
+						$label_style = 'style="display:block;"';
+					}
+					else
+					{
+						$label_style = '';
+					}
+					?>
+					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Go to the <a href="<?php echo admin_url('widgets.php');?>">widgets area</a> and drag & drop it where you want to have it!</label>
 				</p>
 			</div>
 		</li>
@@ -48,11 +58,21 @@
 			</div>
 		</li>
 		<li class="">
-			<div class="radio_section tb_4_ck"><input name="place_item_manually" <?php echo ($option8['place_item_manually']=='yes') ?  'checked="true"' : '' ;?>  id="place_item_manually" type="checkbox" value="yes" class="styled"  /></div>
+			<div class="radio_section tb_4_ck" onclick="checkforinfoslction(this);"><input name="place_item_manually" <?php echo ($option8['place_item_manually']=='yes') ?  'checked="true"' : '' ;?>  id="place_item_manually" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
 					Place them manually<br>
-					<label class="sub-subtitle" >Place <label><</label><label>?</label><label>php SHOW_FLOATING_ICONS();</label><label>?</label><label>></label> in your theme codes or use the shortcode [SHOW_FLOATING_ICONS] to display them wherever you want.</label>
+                    <?php
+                    if($option8['place_item_manually']=='yes')
+					{
+						$label_style = 'style="display:block;"';
+					}
+					else
+					{
+						$label_style = '';
+					}
+					?>
+					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label><</label><label>?</label><label>php SHOW_FLOATING_ICONS();</label><label>?</label><label>></label> in your theme codes or use the shortcode [SHOW_FLOATING_ICONS] to display them wherever you want.</label>
 				</p>
 			</div>
 		</li>
@@ -75,7 +95,7 @@
 					<li>
 						<input name="display_button_type" <?php echo ( $option8['display_button_type']=='standard_buttons') ?  'checked="true"' : '' ;?> type="radio" value="standard_buttons" class="styled"  />
 						<label>Display only standard sharing buttons</label>
-						<p>To make it quick, you can decide to only display the following three buttons: </p>
+						<p class="cstmdisplaysharingtxt">To make it quick, you can decide to only display the following three buttons: </p>
 						<div class="social_icon_like1">
 						<ul>
 							<li><a href="#" title="Facebook Like"><img src="<?php echo SFSI_PLUGURL; ?>images/like.jpg" alt="Facebook Like" /><span>18k</span></a></li>

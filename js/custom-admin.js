@@ -338,7 +338,7 @@ function sfsi_showPreviewCounts() {
 }
 
 function sfsi_show_OnpostsDisplay() {
-    "yes" == SFSI("input[name='sfsi_show_Onposts']:checked").val() ? SFSI(".PostsSettings_section").slideDown() :SFSI(".PostsSettings_section").slideUp();
+   //"yes" == SFSI("input[name='sfsi_show_Onposts']:checked").val() ? SFSI(".PostsSettings_section").slideDown() :SFSI(".PostsSettings_section").slideUp();
 }
 
 function sfsi_update_step4() {
@@ -655,7 +655,7 @@ function beForeLoad() {
 }
 
 function afterLoad() {
-    SFSI("input").removeClass("inputError"), SFSI(".save_button >a").html("Save"), SFSI(".tab8>div.save_button >a").html("Save All Settings"), 
+    SFSI("input").removeClass("inputError"), SFSI(".save_button >a").html("Save"), SFSI(".tab9>div.save_button >a").html("Save All Settings"), 
     SFSI(".save_button >a").css("pointer-events", "auto"), SFSI(".save_button >a").removeAttr("onclick"), 
     SFSI(".loader-img").hide();
 }
@@ -815,7 +815,7 @@ SFSI(document).ready(function(s) {
             sfsi_make_popBox();
         }
     }), SFSI("div#sfsiid_linkedin").find(".icon4").find("a").find("img").mouseover(function() {
-        SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/linkedIn_hover.svg");
+		SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/linkedIn_hover.svg");
     }), SFSI("div#sfsiid_linkedin").find(".icon4").find("a").find("img").mouseleave(function() {
         SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/linkedIn.svg");
     }), SFSI("div#sfsiid_youtube").find(".icon1").find("a").find("img").mouseover(function() {
@@ -895,8 +895,9 @@ SFSI(document).ready(function(s) {
         global_error = 0, !1) :(sfsi_update_step6(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display icons at the end of every post?" tab.', 8), 
         global_error = 0, !1) :(sfsi_update_step7(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Do you want to display a pop-up, asking people to subscribe?" tab.', 8),
 		global_error = 0, !1) : sfsi_update_step8(), 1 == global_error ? (showErrorSuc("error", 'Some Selection error in "Where shall they be displayed?" tab.', 8), 
-        global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", 'Saved! Now go to the <a href="widgets.php">widget</a> area and place the widget into your sidebar (if not done already)', 8))))))));
-    }), SFSI(".fileUPInput").live("change", function() {
+        /*global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", 'Saved! Now go to the <a href="widgets.php">widget</a> area and place the widget into your sidebar (if not done already)', 8))))))));*/
+    	global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", '', 8))))))));
+	}), SFSI(".fileUPInput").live("change", function() {
         beForeLoad(), beforeIconSubmit(this) && (SFSI(".upload-overlay").css("pointer-events", "none"), 
         SFSI("#customIconFrm").ajaxForm({
             dataType:"json",
@@ -1156,5 +1157,18 @@ function toggleflotpage(ref)
 	else
 	{
 		jQuery(ref).next(".right_info").children(".tab_3_icns").show();
+	}
+}
+
+function checkforinfoslction(ref)
+{
+	var pos = jQuery(ref).children(".checkbox").css("background-position");
+	if(pos == "0px 0px")
+	{
+		jQuery(ref).next(".right_info").children("p").children("label").hide();
+	}
+	else
+	{
+		jQuery(ref).next(".right_info").children("p").children("label").show();
 	}
 }
