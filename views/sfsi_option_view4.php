@@ -14,7 +14,7 @@
 <!-- Section 4 "Do you want to display "counts" next to your icons?" main div Start -->
 <div class="tab4">
   <p>It’s a psychological fact that people like to follow other people (as explained well in Robert Cialdini’s book “<a href="http://www.amazon.com/Influence-Psychology-Persuasion-Revised-Edition/dp/006124189X" target="_blank" class="lit_txt">Influence</a>”), so when they see that your site has already a good number of Facebook likes, it’s more likely that they will subscribe/like/share your site than if it had 0. </p>
-  <p>Therefore, you can select to display the count next to your icons, for your main icons, not those next to the posts.<!--which will look like this:--></p>
+  <p>Therefore, you can select to display the count next to your icons, for your main icons, not those next to the posts which will look like this:</p>
 	<!-- sample icons --> 
 	<ul class="like_icon">
         <li class="rss_section"><a href="#" title="RSS"><img src="<?php echo SFSI_PLUGURL ?>images/rss.png" alt="RSS" /></a><span>12k</span></li>

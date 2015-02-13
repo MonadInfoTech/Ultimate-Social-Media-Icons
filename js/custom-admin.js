@@ -406,6 +406,7 @@ function sfsi_update_step4() {
 }
 
 function sfsi_update_step5() {
+	sfsi_update_step3();
     var s = sfsi_validationStep5();
     if (!s) return global_error = 1, !1;
     beForeLoad();
