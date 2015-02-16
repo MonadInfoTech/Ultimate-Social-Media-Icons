@@ -1233,6 +1233,10 @@ ul.tab_3_list li {
     font-size: 17px;
     margin-bottom: 4px;
 }
+.tab5 ul.tab_3_list li
+{
+	background: url(../images/tab_3_list_bg.jpg) 13px 18px no-repeat;
+}
 .tab3 .row h3 {
     margin: 0 0 20px;
     color: #414951;

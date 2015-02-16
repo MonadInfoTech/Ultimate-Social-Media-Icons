@@ -173,6 +173,14 @@ function sfsi_activate_plugin()
 		$option5=  unserialize(get_option('sfsi_section5_options',false));
 	if(get_option('sfsi_section6_options',false))	
 		$option6=  unserialize(get_option('sfsi_section6_options',false));
+	if($option6['sfsi_show_Onposts'] == 'yes')
+	{
+		$display_button_type = 'standard_buttons';
+	}
+	else
+	{
+		$display_button_type = '';
+	}
 	$options8=array(
 		'show_via_widget'=>'yes',
         'float_on_page'=> $option5['sfsi_icons_float'],
@@ -186,7 +194,7 @@ function sfsi_activate_plugin()
 		'place_item_manually'=>'no',
         /*'show_item_onposts'=>'no',*/
 		'show_item_onposts'=> $option6['sfsi_show_Onposts'],
-		'display_button_type'=>'no',
+		'display_button_type'=> $display_button_type,
         'display_before_posts'=>'no',
 		'display_after_posts'=>$option6['sfsi_show_Onposts'],
 		'display_on_postspage'=>'no',
