@@ -1174,4 +1174,85 @@ function sfsi_checkNewWindow()
 	    return ''; 
 	}
 }
+
+function sfsi_check_posts_visiblity($isFloter=0)
+{
+  	global $wpdb;
+    /* Access the saved settings in database  */
+    $sfsi_section1_options=  unserialize(get_option('sfsi_section1_options',false));
+    $sfsi_section3=  unserialize(get_option('sfsi_section3_options',false));
+    $sfsi_section5=  unserialize(get_option('sfsi_section5_options',false));
+    
+	//options that are added on the third question
+	$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+	   
+    /* calculate the width and icons display alignments */
+    $icons_space=$sfsi_section8['sfsi_post_icons_spacing'];
+    $icons_size=$sfsi_section8['sfsi_post_icons_size'];	  
+    $extra='';
+
+	    
+   /* magnage the icons in saved order in admin */ 
+   $custom_icons_order = unserialize($sfsi_section5['sfsi_CustomIcons_order']);
+   $icons=  unserialize($sfsi_section1_options['sfsi_custom_files']);
+   $icons_order = array(
+   					 '0' => '',
+					 $sfsi_section5['sfsi_rssIcon_order']=>'rss',
+                     $sfsi_section5['sfsi_emailIcon_order']=>'email',
+                     $sfsi_section5['sfsi_facebookIcon_order']=>'facebook',
+                     $sfsi_section5['sfsi_googleIcon_order']=>'google',
+                     $sfsi_section5['sfsi_twitterIcon_order']=>'twitter',
+                     $sfsi_section5['sfsi_shareIcon_order']=>'share',
+                     $sfsi_section5['sfsi_youtubeIcon_order']=>'youtube',
+                     $sfsi_section5['sfsi_pinterestIcon_order']=>'pinterest',
+                     $sfsi_section5['sfsi_linkedinIcon_order']=>'linkedin',
+		     		 $sfsi_section5['sfsi_instagramIcon_order']=>'instagram',) ;
+   
+   if(is_array($custom_icons_order) ) 
+   {
+		foreach($custom_icons_order as $data)
+		{
+		   $icons_order[$data['order']] = $data;
+		}
+   }
+   ksort($icons_order);
+   
+    /* built the main widget div */
+    $icons_main='<div class="norm_row sfsi_wDivothr">';
+    $icons="";
+	$icons .= '<style type="text/css">.sfsibeforpstwpr .norm_row.sfsi_wDivothr .sfsi_wicons, .sfsiaftrpstwpr .norm_row.sfsi_wDivothr .sfsi_wicons{width: '.$icons_size.'px !important;height: '.$icons_size.'px !important; margin-left: '.$icons_space.'px !important;}</style>';
+    /* loop through icons and bulit the icons with all settings applied in admin */
+	foreach($icons_order  as $index => $icn) :
+	if(is_array($icn)) { $icon_arry=$icn; $icn="custom" ; } 
+    switch ($icn) :     
+    case 'rss' :  if($sfsi_section1_options['sfsi_rss_display']=='yes')  $icons.= sfsi_prepairIcons('rss');  
+    break;
+    case 'email' :   if($sfsi_section1_options['sfsi_email_display']=='yes')   $icons.= sfsi_prepairIcons('email'); 
+    break;
+    case 'facebook' :  if($sfsi_section1_options['sfsi_facebook_display']=='yes') $icons.= sfsi_prepairIcons('facebook');
+    break;
+    case 'google' :  if($sfsi_section1_options['sfsi_google_display']=='yes')    $icons.= sfsi_prepairIcons('google'); ;
+    break;
+    case 'twitter' :  if($sfsi_section1_options['sfsi_twitter_display']=='yes')    $icons.= sfsi_prepairIcons('twitter'); 
+    break;
+    case 'share' :  if($sfsi_section1_options['sfsi_share_display']=='yes')    $icons.= sfsi_prepairIcons('share');    break;
+    case 'youtube' :  if($sfsi_section1_options['sfsi_youtube_display']=='yes')     $icons.= sfsi_prepairIcons('youtube'); 
+    break;
+    case 'pinterest' :   if($sfsi_section1_options['sfsi_pinterest_display']=='yes')     $icons.= sfsi_prepairIcons('pinterest');
+    break;
+    case 'linkedin' :  if($sfsi_section1_options['sfsi_linkedin_display']=='yes')    $icons.= sfsi_prepairIcons('linkedin'); 
+    break;
+    case 'instagram' :  if($sfsi_section1_options['sfsi_instagram_display']=='yes')    $icons.= sfsi_prepairIcons('instagram'); 
+    break;	  
+    case 'custom' : $icons.= sfsi_prepairIcons($icon_arry['ele']); 
+    break;    
+    endswitch;
+    endforeach;  
+    $icons.='</div >';
+    $icons_main.=$icons;
+    /* if floating of icons is active create a floater div */
+    $icons_float='';
+    $icons_data=$icons_main.$icons_float;
+    return $icons_data;
+}
 ?>

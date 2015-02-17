@@ -12,11 +12,11 @@
                     <?php
                     if($option8['show_via_widget']=='yes')
 					{
-						$label_style = 'style="display:block;"';
+						$label_style = 'style="display:block; font-size: 16px;"';
 					}
 					else
 					{
-						$label_style = '';
+						$label_style = 'style="font-size: 16px;"';
 					}
 					?>
 					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Go to the <a href="<?php echo admin_url('widgets.php');?>">widgets area</a> and drag & drop it where you want to have it!</label>
@@ -29,29 +29,45 @@
 				<p>
 					Float them on the page
 				</p>
-				<ul class="tab_3_icns flthmonpg" <?php echo ($option8['float_on_page'] != "yes")? 'style="display: none";' : '' ;?>>
+                <?php
+                if($option8['float_on_page'] == "yes")
+				{
+					$style = 'display: block;';
+				}
+				else
+				{
+					$style ="display: none;";
+				}
+				?>
+				<ul class="tab_3_icns flthmonpg" <?php echo 'style="'.$style.'";';?>>
 					<li>
 						<input name="float_page_position" <?php echo ( $option8['float_page_position']=='top-left') ?  'checked="true"' : '' ;?> type="radio" value="top-left" class="styled"  />
+                        <span class="sfsi_flicnsoptn3 sfsioptntl">Top left</span>
 						<label><img src="<?php echo SFSI_PLUGURL;?>images/top_left.png" /></label>
 					</li>
 					<li>
 						<input name="float_page_position" <?php echo ( $option8['float_page_position']=='top-right') ?  'checked="true"' : '' ;?> type="radio" value="top-right" class="styled"  />
+                        <span class="sfsi_flicnsoptn3 sfsioptntr">Top right</span>
 						<label><img src="<?php echo SFSI_PLUGURL;?>images/top_right.png" /></label>
 					</li>
 					<li>
 						<input name="float_page_position" <?php echo ( $option8['float_page_position']=='center-left') ?  'checked="true"' : '' ;?> type="radio" value="center-left" class="styled"  />
+                        <span class="sfsi_flicnsoptn3 sfsioptncl">Center left</span>
 						<label><img src="<?php echo SFSI_PLUGURL;?>images/center_left.png" /></label>
 					</li>
 					<li>
 						<input name="float_page_position" <?php echo ( $option8['float_page_position']=='center-right') ?  'checked="true"' : '' ;?> type="radio" value="center-right" class="styled"  />
+                        <span class="sfsi_flicnsoptn3 sfsioptncr">Center right</span>
 						<label><img src="<?php echo SFSI_PLUGURL;?>images/center_right.png" /></label>
 					</li>
 					<li>
 						<input name="float_page_position" <?php echo ( $option8['float_page_position']=='bottom-left') ?  'checked="true"' : '' ;?> type="radio" value="bottom-left" class="styled"  />
+                        <span class="sfsi_flicnsoptn3 sfsioptnbl">Bottom left</span>
 						<label><img src="<?php echo SFSI_PLUGURL;?>images/bottom_left.png" /></label>
 					</li>
 					<li>
 						<input name="float_page_position" <?php echo ( $option8['float_page_position']=='bottom-right') ?  'checked="true"' : '' ;?> type="radio" value="bottom-right" class="styled"  />
+                        <span class="sfsi_flicnsoptn3 sfsioptnbr">Bottom right</span>
 						<label><img src="<?php echo SFSI_PLUGURL;?>images/bottom_right.png" /></label>
 					</li>
 				</ul>
@@ -65,14 +81,14 @@
                     <?php
                     if($option8['place_item_manually']=='yes')
 					{
-						$label_style = 'style="display:block;"';
+						$label_style = 'style="display:block; font-size: 15px;"';
 					}
 					else
 					{
-						$label_style = '';
+						$label_style = 'style="font-size: 15px;"';
 					}
 					?>
-					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label><</label><label>?</label><label>php SHOW_FLOATING_ICONS();</label><label>?</label><label>></label> in your theme codes or use the shortcode [SHOW_FLOATING_ICONS] to display them wherever you want.</label>
+					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label class="sfsi_ckckslctnlbl"><</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">php SHOW_FLOATING_ICONS();</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">></label> in your theme codes or use the shortcode [SHOW_FLOATING_ICONS] to display them wherever you want.</label>
 				</p>
 			</div>
 		</li>
@@ -81,12 +97,14 @@
 			<div class="right_info">
 				<p>
 					Show them before or after posts
+                    <br>
+                    <label class="sub-subtitle" style="font-size: 15px;">Here you have two options:</label>
 				</p>
 				
 				<ul class="tab_3_icns shwthmbfraftr" <?php echo ($option8['show_item_onposts'] != "yes")? 'style="display: none";' : '' ;?>>
 					<li>
 						<input name="display_button_type" <?php echo ( $option8['display_button_type']=='normal_button') ?  'checked="true"' : '' ;?> type="radio" value="normal_button" class="styled"  />
-						<label>Display the icons I selected above</label>
+						<label class="labelhdng4">Display the icons I selected above</label>
 						<div class="row">
 							<h4>Size &amp; spacing of your icons</h4>
 							<div class="icons_size"><span>Size:</span><input name="sfsi_post_icons_size" value="<?php echo ($option8['sfsi_post_icons_size']!='') ?  $option8['sfsi_post_icons_size'] : '' ;?>" type="text" /><ins>pixels wide &amp; tall</ins> <span class="last">Spacing between icons:</span><input name="sfsi_post_icons_spacing" type="text" value="<?php echo ($option8['sfsi_post_icons_spacing']!='') ?  $option8['sfsi_post_icons_spacing'] : '' ;?>" /><ins>Pixels</ins></div>
@@ -94,7 +112,7 @@
 					</li>
 					<li>
 						<input name="display_button_type" <?php echo ( $option8['display_button_type']=='standard_buttons') ?  'checked="true"' : '' ;?> type="radio" value="standard_buttons" class="styled"  />
-						<label>Display only standard sharing buttons</label>
+						<label class="labelhdng4">Display only standard sharing buttons</label>
 						<p class="cstmdisplaysharingtxt">To make it quick, you can decide to only display the following three buttons: </p>
 						<div class="social_icon_like1">
 						<ul>
@@ -106,7 +124,7 @@
 						</div>
 						
 						<p class="clear">Those are usually all you need: </p>
-						<ul class="usually">
+						<ul class="usually" style="color:#5a6570">
 							<li>1. Facebook is No.1 in liking, so it’s a must have</li>
 							<li>2. Google+ is also important due to SEO reasons, so important to have as well</li>
 							<li>3. Share-button covers all other platforms for sharing</li>
@@ -122,11 +140,12 @@
 						</div>
 
 					  <div class="row PostsSettings_section">
-						<h4>Options:</h4>
+						<h4 class="labelhdng4">Options:</h4>
                         
                         <!--Display them options-->
                         <div class="options">
-                        	<label class="first chcklbl">Display them on Post page: </label>
+                        	<label class="first chcklbl">Display them: </label>
+                            <label class="seconds chcklbl labelhdng4">On Post Pages </label>
                             <div class="chckwpr">
                             	<div class="snglchckcntr">
                                     <div class="radio_section tb_4_ck"><input name="display_before_posts" <?php echo ($option8['display_before_posts']=='yes') ?  'checked="true"' : '' ;?>  id="display_before_posts" type="checkbox" value="yes" class="styled"  /></div>
@@ -149,7 +168,7 @@
                         
                         
                         <div class="options">
-                        	<label class="first chcklbl">Display them on blog page: </label>
+                        	<label class="seconds chcklbl labelhdng4">On Homepage</label>
                             <div class="chckwpr">
                             	<div class="snglchckcntr">
                                     <div class="radio_section tb_4_ck"><input name="display_before_blogposts" <?php echo ($option8['display_before_blogposts']=='yes') ?  'checked="true"' : '' ;?>  id="display_before_blogposts" type="checkbox" value="yes" class="styled"  /></div>

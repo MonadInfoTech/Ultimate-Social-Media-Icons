@@ -566,7 +566,7 @@ body {
     display: block;
     width: 100%;
     float: left;
-    font-family: "Helvetica CE 35 Thin";
+    font-family: helveticaregular;
     line-height: 42px;
 }
 .tab6 .options {
@@ -3380,12 +3380,12 @@ margin-top: 0px;
 .tab8 .row.PostsSettings_section .options .first.chcklbl
 {
 float: left !important;
-width: 43% !important;
+width: 41% !important;
 }
 .tab8 .row.PostsSettings_section .options .chckwpr
 {
-width:55%;
-float:left;
+width:58%;
+float:right;
 }
 .tab8 .row.PostsSettings_section .options
 {
@@ -3547,10 +3547,10 @@ ul.icn_listing li .right_info label.sub-subtitle a
     clear: both;
     display: block;
     float: left;
-    font-family: "Helvetica CE 35 Thin";
+    font-family: helveticaregular;
     line-height: 42px;
-    margin-top: 25px;
-    padding-top: 15px;
+    margin-top: 0px;
+    padding-top: 10px;
     width: 100%;
 }
 /*modify by palak*/
@@ -3626,4 +3626,70 @@ float: left;
     line-height: 22px;
     margin-top: 10px;
     width: 100%;
+}
+#accordion .tab8 .icn_listing li .right_info p
+{
+	font-size: 20px;
+}
+#accordion .tab8 ul.tab_3_icns
+{
+	margin-top: 0px;
+}
+#accordion .tab8 .icn_listing li .right_info p.cstmdisplaysharingtxt
+{
+	padding-top: 5px;
+}
+#accordion .tab8 ul.shwthmbfraftr .labelhdng4, #accordion .tab8 ul.shwthmbfraftr .row h4.labelhdng4
+{
+	color: #000000;
+}
+#accordion .tab8 ul.shwthmbfraftr .row h4
+{
+	font-weight: normal;
+	font-size: 18px;
+	color: #69737c;
+}
+.tab8 .row.PostsSettings_section .options .seconds.chcklbl
+{
+	float: right;
+	width: 58% !important;	
+}
+.sfsibeforpstwpr, .sfsiaftrpstwpr
+{
+	width: 100%;
+	float: left;
+	line-height: 18px;
+}
+.sfsibeforpstwpr .sfsi_Sicons span, .sfsiaftrpstwpr .sfsi_Sicons span
+{
+	font-size: 20px;
+}
+.sfsibeforpstwpr .sfsi_Sicons, .sfsiaftrpstwpr .sfsi_Sicons
+{
+	/*width: 100%;*/
+}
+.sfsibeforpstwpr .norm_row.sfsi_wDivothr, .sfsiaftrpstwpr .norm_row.sfsi_wDivothr
+{
+	width: auto;
+	float: left;
+}
+.sfsibeforpstwpr .norm_row.sfsi_wDivothr .sfsi_wicons, .sfsiaftrpstwpr .norm_row.sfsi_wDivothr .sfsi_wicons
+{
+	float: left;
+}
+.sfsi_flicnsoptn3
+{
+	color: #69737c;
+    float: left;
+    font-size: 20px;
+    margin: 62px 5px 0 25px;
+    width: auto;
+}
+.sfsi_flicnsoptn3.sfsioptntl, .sfsi_flicnsoptn3.sfsioptntr
+{
+	margin-right: 32px;
+}
+.sfsi_ckckslctnlbl
+{
+	font-weight: bold;
 }

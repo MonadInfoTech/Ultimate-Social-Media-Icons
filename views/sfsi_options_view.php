@@ -45,17 +45,17 @@
 	<h2 class="optional">Optional</h2>
 	 <div id="accordion1">
 	<!-- step old 3 start here -->
-    <!--<h3><span>4</span>What design &amp; animation do you want to give your icons?</h3>-->
-     <?php //include(SFSI_DOCROOT.'/views/sfsi_option_view3.php'); ?>
+    <h3><span>4</span>What design &amp; animation do you want to give your icons?</h3>
+     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view3.php'); ?>
     <!-- step old 3 END here -->
 
     <!-- step old 4 Start here -->
-    <h3><span>4</span>Do you want to display "counts" next to your main icons?</h3>
+    <h3><span>5</span>Do you want to display "counts" next to your main icons?</h3>
      <?php include(SFSI_DOCROOT.'/views/sfsi_option_view4.php'); ?>
     <!-- step old 4 END here -->
 
     <!-- step old 5 Start here -->
-    <h3><span>5</span>Any other wishes for your main icons?</h3>
+    <h3><span>6</span>Any other wishes for your main icons?</h3>
     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view5.php'); ?>
     <!-- step old 5 END here -->
 
@@ -66,7 +66,7 @@
 
 
     <!-- step old 7 Start here -->
-    <h3><span>6</span>Do you want to display a pop-up, asking people to subscribe?</h3>
+    <h3><span>7</span>Do you want to display a pop-up, asking people to subscribe?</h3>
      <?php include(SFSI_DOCROOT.'/views/sfsi_option_view7.php'); ?>
     <!-- step old 7 END here -->
 
