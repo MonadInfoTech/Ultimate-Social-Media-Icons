@@ -88,7 +88,7 @@
 						$label_style = 'style="font-size: 15px;"';
 					}
 					?>
-					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label class="sfsi_ckckslctnlbl"><</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">php SHOW_FLOATING_ICONS();</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">></label> in your theme codes or use the shortcode [SHOW_FLOATING_ICONS] to display them wherever you want.</label>
+					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label class="sfsi_ckckslctnlbl"><</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">php SHOW_FLOATING_ICONS();</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">></label> in your theme codes or use the shortcode <label class="sfsi_ckckslctnlbl">[SHOW_FLOATING_ICONS]</label> to display them wherever you want.</label>
 				</p>
 			</div>
 		</li>
