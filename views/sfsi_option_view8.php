@@ -3,7 +3,7 @@
     $option8=  unserialize(get_option('sfsi_section8_options',false));
 ?>
 <div class="tab8">
-	<ul class="icn_listing">
+	<ul class="icn_listing8">
 		<li class="">
 			<div class="radio_section tb_4_ck" onclick="checkforinfoslction(this);"><input name="show_via_widget" <?php echo ($option8['show_via_widget']=='yes') ?  'checked="true"' : '' ;?>  id="show_via_widget" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">

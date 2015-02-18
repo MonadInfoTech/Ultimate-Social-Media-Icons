@@ -971,6 +971,10 @@ ul.icn_listing li .tb_4_ck {
     float: left;
     margin: 10px 0 0;
 }
+ul.icn_listing8 li .tb_4_ck {
+    float: left;
+    margin: 10px 0 0;
+}
 .tab1 ul.icn_listing li .custom, .tab1 ul.icn_listing li .sfsicls_email, .tab1 ul.icn_listing li .sfsicls_facebook, .tab1 ul.icn_listing li .sfsicls_ggle_pls, .tab1 ul.icn_listing li .sfsicls_instagram, .tab1 ul.icn_listing li .sfsicls_linkdin, .tab1 ul.icn_listing li .sfsicls_pinterest, .tab1 ul.icn_listing li .sfsicls_rs_s, .tab1 ul.icn_listing li .sfsicls_share, .tab1 ul.icn_listing li .sfsicls_twt, .tab1 ul.icn_listing li .sfsicls_utube {
     background: url(../images/tab_1_icn_list.png) no-repeat;
     float: left;
@@ -1032,6 +1036,11 @@ ul.icn_listing li .tb_4_ck {
     margin-right: 13px;
 }
 ul.icn_listing li .right_info a {
+    text-decoration: underline;
+    color: #a4a9ad;
+    font-size: 16px;
+}
+ul.icn_listing8 li .right_info a {
     text-decoration: underline;
     color: #a4a9ad;
     font-size: 16px;
@@ -2038,6 +2047,10 @@ ul.tab_3_icns li .icns_tab_3, ul.tab_3_icns li .radio {
     border: none;
 }
 ul.icn_listing li .right_info a {
+    outline: 0;
+    font-family: helveticaregular;
+}
+ul.icn_listing8 li .right_info a {
     outline: 0;
     font-family: helveticaregular;
 }
@@ -3304,13 +3317,13 @@ ul.cstmskin_iconlist {
     font-family: helveticaregular;
 }
 /*modify by palak*/
-.tab8 ul.icn_listing li .right_info {
+.tab8 ul.icn_listing8 li .right_info {
     float: left;
     font-family: helveticaregular;
     margin-left: 25px;
     width: 85%;
 }
-.tab8 ul.icn_listing li .right_info p label.ckckslctn
+.tab8 ul.icn_listing8 li .right_info p label.ckckslctn
 {
 	display: none;
 }
@@ -3398,14 +3411,14 @@ margin-top:55px !important;
 }
 /*palak css end*/
 /*modify by palak*/
-.tab8 ul.icn_listing li {
+.tab8 ul.icn_listing8 li {
     float: left;
     padding: 11px 0 11px 8px;
     width: 100%;
 }
 /*modify by palak*/
 /*modify by palak*/
-.tab8 ul.icn_listing {
+.tab8 ul.icn_listing8 {
     list-style: outside none none;
     margin: 35px 0 0;
     overflow: hidden;
@@ -3427,7 +3440,7 @@ ul.icn_listing li .right_info label.sub-subtitle a
 .tab8 ul.tab_3_icns li label {
     line-height: 50px !important;
 }
-.tab8 ul.icn_listing li .tab_3_icns li {
+.tab8 ul.icn_listing8 li .tab_3_icns li {
     float: left;
     width: 48%;
 }
@@ -3603,7 +3616,7 @@ ul.icn_listing li .right_info label.sub-subtitle a
 .tab8 .options .field select.styled {
     line-height: 46px;
 }
-.tab8 ul.icn_listing li .snglchckcntr .right_info
+.tab8 ul.icn_listing8 li .snglchckcntr .right_info
 {
 float: left;
     margin-left: 10px;
@@ -3627,7 +3640,7 @@ float: left;
     margin-top: 10px;
     width: 100%;
 }
-#accordion .tab8 .icn_listing li .right_info p
+#accordion .tab8 .icn_listing8 li .right_info p
 {
 	font-size: 20px;
 }
@@ -3635,7 +3648,7 @@ float: left;
 {
 	margin-top: 0px;
 }
-#accordion .tab8 .icn_listing li .right_info p.cstmdisplaysharingtxt
+#accordion .tab8 .icn_listing8 li .right_info p.cstmdisplaysharingtxt
 {
 	padding-top: 5px;
 }
