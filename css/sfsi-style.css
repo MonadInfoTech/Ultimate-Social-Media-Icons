@@ -13,6 +13,18 @@
     font-weight: 400;
     font-style: normal;
 }
+
+@font-face {
+    font-family: helveticaneue-light;
+    src: url(fonts/helveticaneue-light.eot);
+    src: url(fonts/helveticaneue-light.eot?#iefix) format('embedded-opentype'), 
+		 url(fonts/helveticaneue-light.woff) format('woff'), 
+		 url(fonts/helveticaneue-light.ttf) format('truetype'),
+		 url(fonts/helveticaneue-light.svg#helveticaneue-light) format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -40,7 +52,7 @@ body {
     border: 0;
 }
 .main_contant p, .ui-accordion .ui-accordion-header {
-    font-family: helveticaregular;
+    font-family: 'helveticaneue-light';
 }
 .sfsi_mainContainer input, .sfsi_mainContainer select {
     outline: 0;
@@ -85,7 +97,7 @@ body {
 #accordion p, #accordion1 p {
     color: #5a6570;
     text-align: left;
-    font-family: helveticaregular;
+    font-family: 'helveticaneue-light';
     font-size: 17px;
     line-height: 26px;
     padding-top: 19px;
@@ -105,6 +117,9 @@ body {
 #accordion h4:first-child, #accordion1 h4:first-child {
     padding-top: 0;
 }
+
+#accordion .tab8 h4:first-child, #accordion1 h4:first-child { margin-left: 0 !important}
+
 .tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7 {
     color: #5a6570;
     text-align: left;
@@ -299,6 +314,8 @@ body {
     padding: 11px 0;
     text-decoration: none;
 }
+.save_button a:hover { background:#079345 }
+
 .tab5 ul.share_icon_order {
     margin: 0;
     padding: 0;
@@ -1265,7 +1282,6 @@ ul.tab_3_icns li {
 ul.tab_3_icns label {
     float: left;
     line-height: 42px;
-    margin: 0 20px;
     color: #69737C;
     font-size: 18px;
     font-family: helveticaregular;
@@ -2738,9 +2754,7 @@ h2.optional {
 .tab3 ul.tab_3_icns li .radio {
     margin-top: 7px;
 }
-.tab3 ul.tab_3_icns li label {
-    line-height: 50px!important;
-}
+.tab3 ul.tab_3_icns li label { line-height: 50px!important; margin-left: 20px;}
 .sfsi_mainContainer input[type=email], .sfsi_mainContainer input[type=number], .sfsi_mainContainer input[type=password], .sfsi_mainContainer input[type=search], .sfsi_mainContainer input[type=tel], .sfsi_mainContainer input[type=text], .sfsi_mainContainer input[type=url], .sfsi_mainContainer select, .sfsi_mainContainer textarea {
     color: #5a6570!important;
 }
@@ -3053,10 +3067,7 @@ h1.abt_titl {
     text-align: center;
     margin: 19% 0 0;
 }
-.sfcm.sfsi_wicon {
-    padding: 0;
-	width: 100%;
-}
+.sfcm.sfsi_wicon { padding: 0; width: 100%;}
 .fb_iframe_widget span {
     vertical-align: top!important;
 }
@@ -3316,111 +3327,67 @@ ul.cstmskin_iconlist {
     color: #5a6570;
     font-family: helveticaregular;
 }
-/*modify by palak*/
+
 .tab8 ul.icn_listing8 li .right_info {
-    float: left;
     font-family: helveticaregular;
-    margin-left: 25px;
-    width: 85%;
 }
 .tab8 ul.icn_listing8 li .right_info p label.ckckslctn
 {
 	display: none;
 }
-/*modify by palak*/
-/*palak css*/
-.tab8 .tab_3_icns.shwthmbfraftr > li
-{
-width:100% !important;
-}
-.tab8 .icons_size > span
-{
-width:4%;
-}
-.tab8 .icons_size > input
-{
-background:none repeat scroll 0 0 #e5e5e5;
-width:10%;
-float:left;
-padding:10px 0;
-text-align:center;
-}
-.tab8 .icons_size > ins 
-{
-width:18%;
-margin-left:19px;
-}
-.tab8 .icons_size > span.last
-{
-width: auto !important;
-}
-.tab8 .radio_section.tb_4_ck
-{
-margin:0 !important;
-}
-.tab8 .tab_3_icns.shwthmbfraftr .row, .tab8 .tab_3_icns.shwthmbfraftr p, .tab8 .options
-{
-margin-left: 7%;
-width: 93%;
-}
-.tab8 .tab_3_icns.shwthmbfraftr label
-{
-width:90%;
-}
-.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1
-{
-margin-left: 15% !important;
-width: 85% !important;
-}
-.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 li
-{
-width:auto !important;
-}
-.tab8 .tab_3_icns.shwthmbfraftr .usually > li
-{
-width:100% !important;
-}
-.tab8 .tab_3_icns.shwthmbfraftr .options > label
-{
-width:43% !important;
-margin:0;
 
-width: auto;
-/*margin-right: 60px;*/
-margin-bottom: 0;
-margin-top: 0px;
+.tab8 .tab_3_icns.shwthmbfraftr > li {
+	width:100% !important; 
+	max-width:100% !important; 
+	border-left: 45px solid transparent;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+		box-sizing: border-box;
 }
-.tab8 .row.PostsSettings_section .options .first.chcklbl
-{
-float: left !important;
-width: 41% !important;
+.tab8 .icons_size > span { width:4%;}
+.tab8 .icons_size > input {
+	background:none repeat scroll 0 0 #e5e5e5;
+	width:80px;
+	float:left;
+	padding:10px 0;
+	text-align:center;
 }
-.tab8 .row.PostsSettings_section .options .chckwpr
-{
-width:58%;
-float:right;
-}
-.tab8 .row.PostsSettings_section .options
-{
-width:100%;
-margin:0;
-}
-.tab8 .tab_3_icns.flthmonpg .radio
-{
-margin-top:55px !important;
-}
+.tab8 .icons_size > ins { width:18%; margin-left:19px; }
+.tab8 .icons_size > span.last { width: auto !important; }
+.tab8 .radio_section.tb_4_ck { margin: 0 20px 0 0 !important; }
+.tab8 .tab_3_icns.shwthmbfraftr .row, 
+.tab8 .tab_3_icns.shwthmbfraftr p, 
+.tab8 .options { margin-left: 60px; float: none; width: auto}
+.tab8 .tab_3_icns.shwthmbfraftr label { width:90%; }
+
+.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 ul { margin-left: 130px}
+.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 li { width: auto; max-width: auto; min-width: auto; margin: 0 50px 0 0 }
+.tab8 .tab_3_icns.shwthmbfraftr .usually > li { width:85% !important;  max-width: 100% !important; margin-left: 70px; font-family: 'helveticaneue-light'; padding-bottom: 5px}
+.tab8 .tab_3_icns.shwthmbfraftr .options > label { width:42% !important; margin:0; width: auto; margin-bottom: 0; margin-top: 0px; }
+.tab8 .row.PostsSettings_section .options .first.chcklbl { float: left !important; width: 35% !important; }
+.tab8 .row.PostsSettings_section .options .chckwpr { width:58%; float:right; }
+.tab8 .row.PostsSettings_section .options { width:100%; margin:0; font-family: 'helveticaneue-light'; float: left; margin-bottom: 10px}
+.tab8 .row.PostsSettings_section .options.shareicontextfld { margin: 15px 0; }
+.tab8 .tab_3_icns.flthmonpg .radio { margin-top:55px !important; }
+.tab8 .radiodisplaysection { float: left; margin-bottom: 50px}
+
+
+
 /*palak css end*/
 /*modify by palak*/
 .tab8 ul.icn_listing8 li {
     float: left;
-    padding: 11px 0 11px 8px;
+    padding: 11px 0 40px 8px;
     width: 100%;
+	margin: 0
 }
 /*modify by palak*/
 /*modify by palak*/
 .tab8 ul.icn_listing8 {
     list-style: outside none none;
-    margin: 35px 0 0;
+    margin: 5px 0 0;
     overflow: hidden;
 }
 /*modify by palak*/
@@ -3441,9 +3408,15 @@ ul.icn_listing li .right_info label.sub-subtitle a
     line-height: 50px !important;
 }
 .tab8 ul.icn_listing8 li .tab_3_icns li {
-    float: left;
-    width: 48%;
+    width: 50%;
+	max-width: 450px;
+	min-width: 420px;
+	padding-left: 0;
+	padding-bottom: 15px
 }
+
+#accordion .tab8 .icn_listing8 li .right_info p { display: table}
+
 /*modify by palak*/
 .tab8 .row
 {
@@ -3461,19 +3434,16 @@ ul.icn_listing li .right_info label.sub-subtitle a
 {
     padding-top: 15px;
 }
-.tab8 .icons_size
-{
-    position: relative;
-}
-.tab8 .icons_size span 
-{
+.tab8 .icons_size { position: relative; font-family: 'helveticaneue-light' }
+.tab8 .icons_size span  {
     display: block;
     float: left;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 46px;
     margin-right: 18px;
 }
+
 .tab8.icons_size span.last
 {
     margin-left: 55px;
@@ -3489,7 +3459,7 @@ ul.icn_listing li .right_info label.sub-subtitle a
 .tab8 .social_icon_like1 {
     float: left;
     margin: 0;
-    padding: 35px 0 0;
+    padding: 30px 0 0;
     text-align: center;
     width: 100%;
 }
@@ -3518,8 +3488,9 @@ ul.icn_listing li .right_info label.sub-subtitle a
 }
 .tab8 ul.usually {
     list-style: outside none none;
-    margin: 28px 0 6px 60px;
+    margin: 28px 0 15px 60px;
     padding: 0;
+	float: left
 }
 .tab8 ul.usually li {
     font-size: 17px;
@@ -3571,16 +3542,17 @@ ul.icn_listing li .right_info label.sub-subtitle a
     clear: both;
     float: left;
     margin-top: 25px;
-    width: 100%;
+    width: auto;
+	float: none;
 }
 .tab8 .options label.first {
-    font-family: helveticaregular;
+    font-family: 'helveticaneue-light';
     font-size: 18px;
 }
 .tab8 .options label {
     color: #5a6570;
     float: left;
-    font-family: helveticaregular;
+    font-family: 'helveticaneue-light';
     font-size: 18px;
     line-height: 46px;
     width: 345px;
@@ -3616,13 +3588,14 @@ ul.icn_listing li .right_info label.sub-subtitle a
 .tab8 .options .field select.styled {
     line-height: 46px;
 }
-.tab8 ul.icn_listing8 li .snglchckcntr .right_info
-{
-float: left;
-    margin-left: 10px;
+.tab8 ul.icn_listing8 li .snglchckcntr .right_info {
+	float: left;
     margin-right: 0;
     text-align: left;
     width: auto;
+	font-family: 'helveticaneue-light';
+	font-size: 18px;
+	line-height: 30px;
 }
 .snglchckcntr
 {
@@ -3646,27 +3619,22 @@ float: left;
 }
 #accordion .tab8 ul.tab_3_icns
 {
-	margin-top: 0px;
+	margin-top: 25px;
 }
-#accordion .tab8 .icn_listing8 li .right_info p.cstmdisplaysharingtxt
-{
-	padding-top: 5px;
-}
-#accordion .tab8 ul.shwthmbfraftr .labelhdng4, #accordion .tab8 ul.shwthmbfraftr .row h4.labelhdng4
-{
-	color: #000000;
-}
-#accordion .tab8 ul.shwthmbfraftr .row h4
-{
+#accordion .tab8 .icn_listing8 li .right_info p.cstmdisplaysharingtxt { padding-top: 5px; display: inline;}
+#accordion .tab8 ul.shwthmbfraftr .labelhdng4, 
+#accordion .tab8 ul.shwthmbfraftr .row h4.labelhdng4 { color: #555; font-size: 20px; margin-left: 20px; font-family: 'helveticaregular'}
+.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section { margin-top: 75px}
+.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section>.labelhdng4 { margin-bottom: 20px !important} 
+
+
+#accordion .tab8 ul.shwthmbfraftr .row h4 {
+	font-family: 'helveticaneue-light';
 	font-weight: normal;
 	font-size: 18px;
 	color: #69737c;
 }
-.tab8 .row.PostsSettings_section .options .seconds.chcklbl
-{
-	float: right;
-	width: 58% !important;	
-}
+.tab8 .row.PostsSettings_section .options .seconds.chcklbl { float: right; width: 58% !important; }
 .sfsibeforpstwpr, .sfsiaftrpstwpr
 {
 	width: 100%;
@@ -3695,13 +3663,11 @@ float: left;
 	color: #69737c;
     float: left;
     font-size: 20px;
-    margin: 62px 5px 0 25px;
-    width: auto;
+    margin: 62px 5px 0 20px;
+	font-family: 'helveticaneue-light';
+    width: 120px;
 }
-.sfsi_flicnsoptn3.sfsioptntl, .sfsi_flicnsoptn3.sfsioptntr
-{
-	margin-right: 32px;
-}
+
 .sfsi_ckckslctnlbl
 {
 	font-weight: bold;

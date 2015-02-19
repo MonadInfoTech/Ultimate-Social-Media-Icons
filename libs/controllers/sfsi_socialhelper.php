@@ -6,8 +6,8 @@ class sfsi_SocialHelper {
 private $url,$timeout=10;
 
 /* get twitter followers */
-function sfsi_get_tweets($username,$tw_settings) {
-    
+function sfsi_get_tweets($username,$tw_settings)
+{
    require_once(SFSI_DOCROOT.'/helpers/twitter-api/twitteroauth.php');
     $settings = array(
     'oauth_access_token' => "335692958-JuqG7ArGrblrccHl3veVRFOdg64BUQZ7XpIs8x3Q",
@@ -25,7 +25,8 @@ function sfsi_get_tweets($username,$tw_settings) {
     return $followerCount;
 }
 /* get linkedIn counts */
-function sfsi_get_linkedin($url) {
+function sfsi_get_linkedin($url)
+{
    $json_string = $this->file_get_contents_curl("http://www.linkedin.com/countserv/count/share?url=$url&format=json");
    $json = json_decode($json_string, true);
    return isset($json['count'])? intval($json['count']):0;
@@ -41,7 +42,8 @@ function sfsi_getlinkedin_follower($ln_company,$APIsettings)
    return  strip_tags($followers);
 }
 /* get facebook likes */
-function sfsi_get_fb($url) {
+function sfsi_get_fb($url)
+{
    $json_string = $this->file_get_contents_curl('http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls='.$url);
    $json = json_decode($json_string, true);
    return isset($json[0])? $json[0]:0;
@@ -50,36 +52,36 @@ function sfsi_get_fb($url) {
 function sfsi_get_google($url,$google_api_key)
 {   
    if(filter_var($url, FILTER_VALIDATE_URL) && !empty($google_api_key))
-  {
-    $url=parse_url($url);
-    $url_path=explode('/',$url['path']);
-    if(isset($url_path))
-    {     end($url_path);
-          $key=key($url_path);
-          
-    $page_id = $url_path[$key];
-    }
-    if($this->sfsi_get_http_response_code("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key")!="404")
-    {        
-        $data = $this->file_get_contents_curl("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key");     
-        $data = json_decode($data, true);
-      
-        return $this->format_num($data['circledByCount']); 
-    }
-    else
-    {
-        return 0;
-    }    
+   {
+    	$url = parse_url($url);
+    	$url_path=explode('/',$url['path']);
+		if(isset($url_path))
+		{  
+		   end($url_path);
+		   $key=key($url_path);
+		   $page_id = $url_path[$key];
+		}
+		
+		if($this->sfsi_get_http_response_code("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key")!="404")
+		{        
+			$data = $this->file_get_contents_curl("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key");     
+			$data = json_decode($data, true);
+		  
+			return $this->format_num($data['circledByCount']); 
+		}
+		else
+		{
+			return 0;
+		}    
    }
- else {
+   else
+   {
       return 0;
-  }
-    
-
-
+   }
 }
 /* get google+ likes */
-function sfsi_getPlus1($url) {
+function sfsi_getPlus1($url)
+{
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_URL, "https://clients6.google.com/rpc");
   curl_setopt($curl, CURLOPT_POST, 1);
@@ -95,9 +97,7 @@ function sfsi_getPlus1($url) {
 /* get youtube subscribers  */
 function sfsi_get_youtube($user)
 {
-    
     $xmlData = @file_get_contents('http://gdata.youtube.com/feeds/api/users/' . $user);
-    
     if($xmlData)
     {   
         $xmlData = str_replace('yt:', 'yt', $xmlData);
@@ -122,11 +122,12 @@ function sfsi_get_atthis()
     
 }
  /* get pinit counts  */       
-function sfsi_get_pinterest($url) {
-$return_data = $this->file_get_contents_curl('http://api.pinterest.com/v1/urls/count.json?callback=receiveCount&url='.$url);
-$json_string = preg_replace('/^receiveCount\((.*)\)$/', "\\1", $return_data);
-$json = json_decode($json_string, true);
-return isset($json['count'])?intval($json['count']):0;
+function sfsi_get_pinterest($url)
+{
+	$return_data = $this->file_get_contents_curl('http://api.pinterest.com/v1/urls/count.json?callback=receiveCount&url='.$url);
+	$json_string = preg_replace('/^receiveCount\((.*)\)$/', "\\1", $return_data);
+	$json = json_decode($json_string, true);
+	return isset($json['count'])?intval($json['count']):0;
 }
  /* get pinit counts for a user  */
 function get_UsersPins($user_name,$board)
@@ -184,7 +185,8 @@ private function get_content_curl($url)
 	return $cont;
 }
  /* convert no. to 2K,3M format   */
-function format_num($num, $precision = 0) {
+function format_num($num, $precision = 0)
+{
    if ($num >= 1000 && $num < 1000000) {
     $n_format = number_format($num/1000,$precision).'k';
     } else if ($num >= 1000000 && $num < 1000000000) {
@@ -195,10 +197,11 @@ function format_num($num, $precision = 0) {
    $n_format = $num;
     }
   return $n_format;
-  }
+}
   
-  /* create on page facebook links option */
-public function sfsi_FBlike($permalink) {
+/* create on page facebook links option */
+public function sfsi_FBlike($permalink)
+{
         $send = 'false';
         $width = 180;
         $show_count=0;
@@ -211,24 +214,29 @@ public function sfsi_FBlike($permalink) {
         $fb_like_html .= ' action="like"></fb:like>';
         return $fb_like_html;exit;
 }
-  /* create on page facebook share option */
- public function sfsiFB_Share($permalink) {
-		$fb_share_html = '<fb:share-button href="'.$permalink.'" width="140" ';
-                $fb_share_html .= 'type="button"';
-		$fb_share_html .= '></fb:share-button>';
-		return $fb_share_html;
-	}
+/* create on page facebook share option */
+public function sfsiFB_Share($permalink)
+{
+	$fb_share_html = '<fb:share-button href="'.$permalink.'" width="140" ';
+			$fb_share_html .= 'type="button"';
+	$fb_share_html .= '></fb:share-button>';
+	return $fb_share_html;
+}
   /* create on page google share option */      
-  public function sfsi_Googlelike($permalink) {
-      $show_count=0;  
-      $google_html = '<div class="g-plusone" data-href="' . $permalink . '" ';
-        if($show_count) {
-                $google_html .= 'data-size="bubble" ';
-        } else {
-                $google_html .= 'data-size="large" data-annotation="none" ';
-        }
-        $google_html .= '></div>';
-        return $google_html;
+public function sfsi_Googlelike($permalink)
+ {
+  $show_count=0;  
+  $google_html = '<div class="g-plusone" data-href="' . $permalink . '" ';
+	if($show_count)
+	{
+		$google_html .= 'data-size="bubble" ';
+	}
+	else
+	{
+		$google_html .= 'data-size="large" data-annotation="none" ';
+	}
+	$google_html .= '></div>';
+	return $google_html;
 }      
   /* create on page google share option */      
   public function sfsi_GoogleShare($permalink) {

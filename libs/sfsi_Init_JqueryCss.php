@@ -88,7 +88,7 @@ function sfsiplugin_front_enqueue_script()
 		wp_register_script('SFSIjqueryrandom-shuffle', SFSI_PLUGURL . 'js/shuffle/random-shuffle-min.js', array('jquery'),'',true);
 		wp_enqueue_script("SFSIjqueryrandom-shuffle");
 		
-		wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom.js', array('jquery'));
+		wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom.js', array('jquery'), '', true);
 		wp_enqueue_script("SFSICustomJs");
 		
 		/* end cusotm js */

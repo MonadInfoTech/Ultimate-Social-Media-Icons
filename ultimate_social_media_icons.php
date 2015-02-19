@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.1.1.9
+Version: 1.1.1.6
 License: GPLv2 or later
 
 */
@@ -73,6 +73,9 @@ function ultimatefbmetatags()
 {
    $post_id = get_the_ID();
    $attachment_id = get_post_thumbnail_id($post_id);
+   $description = get_the_content($post_id);
+   $title = get_the_title($post_id);
+   $url = get_permalink($post_id);
    echo ' <meta name="viewport" content="width=device-width, initial-scale=1">';
    if($attachment_id)
    {
@@ -86,7 +89,7 @@ function ultimatefbmetatags()
 			   echo '<meta property="og:image" content="'.$feat_image.'">';
 	   }
 	   $metadata = wp_get_attachment_metadata( $attachment_id );
-	   if(!isset($metadata) || empty($metadata))
+	   if(isset($metadata) && !empty($metadata))
 	   {
 		   if(isset($metadata['sizes']['post-thumbnail']))
 		   {
@@ -119,14 +122,17 @@ function ultimatefbmetatags()
 			$width = '';
 			$height = '';  
 	   }
-	   echo '<meta property="og:image:type" content="'.$image_type.'">';
-	   echo '<meta property="og:image:width" content="'.$width.'">';
-	   echo '<meta property="og:image:height" content="'.$height.'">';
+	   echo '<meta property="og:image:type" content="'.$image_type.'" />';
+	   echo '<meta property="og:image:width" content="'.$width.'" />';
+	   echo '<meta property="og:image:height" content="'.$height.'" />';
+	   echo '<meta property="og:description" content="'.$description.'"/>';
+	   echo '<meta property="og:title" content="'.$title.'" />';
+	   echo '<meta property="og:url" content="'.$url.'" />';
    }
 }
 
 //functionality for before posts
-add_action( 'loop_start', 'show_sfsi_beforeposts', 10 );
+/*add_action( 'loop_start', 'show_sfsi_beforeposts', 10 );
 function show_sfsi_beforeposts( $query )
 {
 	if( is_single() )
@@ -158,16 +164,15 @@ function show_sfsi_beforeposts( $query )
 			}
 		}
 	}
-}
-
-//functionality for after posts
-add_filter( 'the_content', 'show_sfsi_afterposts' );
-function show_sfsi_afterposts( $content )
+}*/
+add_filter( 'the_content', 'show_sfsi_beforeposts' );
+function show_sfsi_beforeposts( $content )
 {
 	if( is_single() )
 	{
 		$icons = '';
 		$option8=  unserialize(get_option('sfsi_section8_options',false));
+		$lineheight = $option8['sfsi_post_icons_size']+3;
 		$display_button_type = $option8['display_button_type'];
 		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Share this Post with :" ;
 		$float = $option8['sfsi_icons_alignment'];
@@ -181,7 +186,40 @@ function show_sfsi_afterposts( $content )
 				else
 				{
 					$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-						$icons .= "<div style='float:left;margin:0 5px;'><span>".$txt."</span></div>";
+						$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+						$icons .= sfsi_check_posts_visiblity(0);
+					$icons .= "</div>";
+				}
+			$icons .= '</div>';
+		}
+	}
+	$content = $icons.'</br>'.$content;
+	return $content;
+}
+
+//functionality for after posts
+add_filter( 'the_content', 'show_sfsi_afterposts' );
+function show_sfsi_afterposts( $content )
+{
+	if( is_single() )
+	{
+		$icons = '';
+		$option8=  unserialize(get_option('sfsi_section8_options',false));
+		$lineheight = $option8['sfsi_post_icons_size']+3;
+		$display_button_type = $option8['display_button_type'];
+		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Share this Post with :" ;
+		$float = $option8['sfsi_icons_alignment'];
+		if($option8['display_after_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
+		{
+			$icons .= '<div class="sfsiaftrpstwpr">';
+				if($display_button_type == 'standard_buttons')
+				{
+					$icons .= sfsi_social_buttons_below($content = null);
+				}
+				else
+				{
+					$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+						$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
 						$icons .= sfsi_check_posts_visiblity(0);
 					$icons .= "</div>";
 				}
@@ -193,13 +231,14 @@ function show_sfsi_afterposts( $content )
 }
 
 //showing before and after blog posts
-add_filter( 'the_title', 'show_sfsi_beforeblogposts' );
-function show_sfsi_beforeblogposts( $title )
+add_filter( 'the_content', 'show_sfsi_beforeblogposts' );
+function show_sfsi_beforeblogposts( $content )
 {
 	if ( is_home() ) 
 	{
 		$icons = '';
 		$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+		$lineheight = $sfsi_section8['sfsi_post_icons_size']+3;
 		if($sfsi_section8['display_before_blogposts'] == "yes" && $sfsi_section8['show_item_onposts'] == "yes")
 		{
 			global $id, $post;
@@ -222,7 +261,7 @@ function show_sfsi_beforeblogposts( $title )
 			//icon selection
 			$icons .= "<div class='sfsibeforpstwpr'>";
 				$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-					$icons .= "<div style='float:left;margin:0 5px;'><span>".$txt."</span></div>";
+					$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
 					if($display_button_type == 'standard_buttons')
 					{
 						$icons .= "<div class='sf_fb' style='float:left;margin:0 5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
@@ -238,15 +277,15 @@ function show_sfsi_beforeblogposts( $title )
 			//icon selection
 			if( $id && $post && $post->post_type == 'post' )
 			{
-				return $icons.'</br>'.$title;
+				return $icons.'</br>'.$content;
 			}
 			else
 			{
-				return $title;
+				return $content;
 			}
 		}
 	}
-	return $title;
+	return $content;
 }
 
 //functionality for after posts
@@ -257,6 +296,24 @@ function show_sfsi_afterblogposts( $content )
 	{
 		$icons = '';
 		$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+		$lineheight = $sfsi_section8['sfsi_post_icons_size'];
+		if(20 < $lineheight && $lineheight < 30)
+		{
+			$font = '';
+		}
+		if(30 < $lineheight && $lineheight < 40)
+		{
+			$font = '';
+		}
+		if(40 < $lineheight && $lineheight < 50)
+		{
+			$font = '';
+		}
+		if(50 < $lineheight && $lineheight < 60)
+		{
+			$font = '';
+		}
+		
 		if($sfsi_section8['display_after_blogposts'] == "yes" && $sfsi_section8['show_item_onposts'] == "yes")
 		{
 			global $post;
@@ -279,7 +336,7 @@ function show_sfsi_afterblogposts( $content )
 			//icon selection
 			$icons .= "<div class='sfsiaftrpstwpr'>";
 				$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-					$icons .= "<div style='float:left;margin:0 5px;'><span>".$txt."</span></div>";
+					$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
 					if($display_button_type == 'standard_buttons')
 					{
 						$icons .= "<div class='sf_fb' style='float:left;margin:0 5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";

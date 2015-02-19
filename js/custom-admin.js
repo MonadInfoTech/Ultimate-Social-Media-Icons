@@ -1153,14 +1153,39 @@ function toggleflotpage(ref)
 	var pos = jQuery(ref).children(".checkbox").css("background-position");
 	if(pos == "0px 0px")
 	{
+		jQuery(ref).next(".right_info").children("p").children(".sub-subtitle").hide();
 		jQuery(ref).next(".right_info").children(".tab_3_icns").hide();
 	}
 	else
 	{
+		jQuery(ref).next(".right_info").children("p").children(".sub-subtitle").show();
 		jQuery(ref).next(".right_info").children(".tab_3_icns").show();
 	}
 }
-
+function togglbtmsection(ref)
+{
+	jQuery(ref).parent("ul").children("li").each(function(index, element)
+	{
+		var pos = jQuery(this).children(".radio").css("background-position");
+		if(pos == "0px 0px")
+		{
+			jQuery(this).children(".radiodisplaysection").hide();
+		}
+		else
+		{
+			jQuery(this).children(".radiodisplaysection").show();
+		}
+    });
+	var pos = jQuery(ref).children(".radio").css("background-position");
+	if(pos != "0px 0px")
+	{
+		jQuery(ref).children(".radiodisplaysection").show();
+	}
+	else
+	{
+		jQuery(ref).children(".radiodisplaysection").hide();
+	}
+}
 function checkforinfoslction(ref)
 {
 	var pos = jQuery(ref).children(".checkbox").css("background-position");
