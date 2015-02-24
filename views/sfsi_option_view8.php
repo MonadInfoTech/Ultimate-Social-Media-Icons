@@ -8,7 +8,7 @@
 			<div class="radio_section tb_4_ck" onclick="checkforinfoslction(this);"><input name="show_via_widget" <?php echo ($option8['show_via_widget']=='yes') ?  'checked="true"' : '' ;?>  id="show_via_widget" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
-					<span class="toglepstpgspn">Show them via a widget</span><br>
+					Show them via a widget<br>
                     <?php
                     if($option8['show_via_widget']=='yes')
 					{
@@ -27,7 +27,7 @@
         <div class="radio_section tb_4_ck" onclick="toggleflotpage(this);"><input name="float_on_page" <?php echo ($option8['float_on_page']=='yes') ?  'checked="true"' : '' ;?>  id="float_on_page" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
-					<span class="toglepstpgspn">Float them on the page</span>
+					Float them on the page
 				</p>
                 <?php
                 if($option8['float_on_page'] == "yes")
@@ -77,7 +77,7 @@
 			<div class="radio_section tb_4_ck" onclick="checkforinfoslction(this);"><input name="place_item_manually" <?php echo ($option8['place_item_manually']=='yes') ?  'checked="true"' : '' ;?>  id="place_item_manually" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
-					<span class="toglepstpgspn">Place them manually</span><br>
+					Place them manually<br>
                     <?php
                     if($option8['place_item_manually']=='yes')
 					{
@@ -96,30 +96,28 @@
 			<div class="radio_section tb_4_ck" onclick="toggleflotpage(this);"><input name="show_item_onposts" <?php echo ($option8['show_item_onposts']=='yes') ?  'checked="true"' : '' ;?>  id="show_item_onposts" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
-					<span class="toglepstpgspn">Show them before or after posts</span>
+					Show them before or after posts
                     <br>
                     <label class="sub-subtitle" style="font-size: 15px;">Here you have two options:</label>
 				</p>
 				
 				<ul class="tab_3_icns shwthmbfraftr" <?php echo ($option8['show_item_onposts'] != "yes")? 'style="display: none";' : '' ;?>>
-					<li onclick="togglbtmsection('toggledsplyitemslctn', 'toggleonlystndrshrng', this);" class="clckbltglcls">
+					<li onclick="togglbtmsection(this)">
 						<input name="display_button_type" <?php echo ( $option8['display_button_type']=='normal_button') ?  'checked="true"' : '' ;?> type="radio" value="normal_button" class="styled"  />
 						<label class="labelhdng4">Display the icons I selected above</label>
-                    </li>
-                    <li onclick="togglbtmsection('toggleonlystndrshrng', 'toggledsplyitemslctn', this);" class="clckbltglcls">
-						<input name="display_button_type" <?php echo ( $option8['display_button_type']=='standard_buttons') ?  'checked="true"' : '' ;?> type="radio" value="standard_buttons" class="styled"  />
-						<label class="labelhdng4">Display only standard sharing buttons</label>
-                    </li>
-                    <li class="toggledsplyitemslctn">
-                    	<?php if ($option8['display_button_type']=='normal_button'): $display = "display:block"; else:  $display = "display:none"; endif;?>
+                        
+                        <?php if ($option8['display_button_type']=='normal_button'): $display = "display:block"; else:  $display = "display:none"; endif;?>
 						<div class="row radiodisplaysection" style="<?php echo $display; ?>">
 							<h4>Size &amp; spacing of your icons</h4>
 							<div class="icons_size"><span>Size:</span><input name="sfsi_post_icons_size" value="<?php echo ($option8['sfsi_post_icons_size']!='') ?  $option8['sfsi_post_icons_size'] : '' ;?>" type="text" /><ins>pixels wide &amp; tall</ins> <span class="last">Spacing between icons:</span><input name="sfsi_post_icons_spacing" type="text" value="<?php echo ($option8['sfsi_post_icons_spacing']!='') ?  $option8['sfsi_post_icons_spacing'] : '' ;?>" /><ins>Pixels</ins></div>
 						</div>
-                    </li>
+                        
+					</li>
                     
-                    <li class="toggleonlystndrshrng">
-                    	<?php if ($option8['display_button_type']=='standard_buttons'): $display = "display:block"; else:  $display = "display:none"; endif;?>
+					<li onclick="togglbtmsection(this)">
+						<input name="display_button_type" <?php echo ( $option8['display_button_type']=='standard_buttons') ?  'checked="true"' : '' ;?> type="radio" value="standard_buttons" class="styled"  />
+						<label class="labelhdng4">Display only standard sharing buttons</label>
+                        <?php if ($option8['display_button_type']=='standard_buttons'): $display = "display:block"; else:  $display = "display:none"; endif;?>
 						<div class="radiodisplaysection" style="<?php echo $display; ?>">
 
                             <p class="cstmdisplaysharingtxt">To make it quick, you can decide to only display the following three buttons: </p>
@@ -149,78 +147,82 @@
                                 <li>2. Google+ is also important due to SEO reasons, so important to have as well</li>
                                 <li>3. Share-button covers all other platforms for sharing</li>
                             </ul>
+                            <!--
+                            <h4>So: do you want to display those at the end of every post?</h4>
+                            <ul class="enough_waffling">
+                                <li><input name="sfsi_show_Onposts" <?php //echo ($option8['sfsi_show_Onposts']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
+                                <li><input name="sfsi_show_Onposts" <?php //echo ($option8['sfsi_show_Onposts']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" /><label>No</label></li>
+                            </ul>-->
+
                             <div class="options">
                                 <label>Do you want to display the counts?</label><div class="field"><select name="sfsi_icons_DisplayCounts" id="sfsi_icons_DisplayCounts" class="styled"><option value="yes" <?php echo ($option8['sfsi_icons_DisplayCounts']=='yes') ?  'selected="true"' : '' ;?>>YES</option><option value="no" <?php echo ($option8['sfsi_icons_DisplayCounts']=='no') ?  'selected="true"' : '' ;?>>NO</option></select></div>
                             </div>
 					  </div>
-                    </li>
-                    
-					    
                       
-                  <li class="row PostsSettings_section">
-                    <h4 class="labelhdng4">Options:</h4>
-                    
-                    <!--Display them options-->
-                    <div class="options">
-                        <label class="first chcklbl">Display them: </label>
-                        <label class="seconds chcklbl labelhdng4">On Post Pages </label>
-                        <div class="chckwpr">
-                            <div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_before_posts" <?php echo ($option8['display_before_posts']=='yes') ?  'checked="true"' : '' ;?>  id="display_before_posts" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">Before posts</div>
+					  <div class="row PostsSettings_section">
+						<h4 class="labelhdng4">Options:</h4>
+                        
+                        <!--Display them options-->
+                        <div class="options">
+                        	<label class="first chcklbl">Display them: </label>
+                            <label class="seconds chcklbl labelhdng4">On Post Pages </label>
+                            <div class="chckwpr">
+                            	<div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_before_posts" <?php echo ($option8['display_before_posts']=='yes') ?  'checked="true"' : '' ;?>  id="display_before_posts" type="checkbox" value="yes" class="styled"  /></div>
+                                    <div class="right_info">Before posts</div>
+                                </div>
+                                <div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_after_posts" <?php echo ($option8['display_after_posts']=='yes') ?  'checked="true"' : '' ;?>  id="display_after_posts" type="checkbox" value="yes" class="styled"  /></div>
+                                	<div class="right_info">After posts</div>
+                                </div>
+                                <!--<div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_on_postspage" <?php //echo ($option8['display_on_postspage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_postspage" type="checkbox" value="yes" class="styled"  /></div>
+                                	<div class="right_info">On posts pages</div>
+                                </div>
+                                <div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_on_homepage" <?php //echo ($option8['display_on_homepage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_homepage" type="checkbox" value="yes" class="styled"  /></div>
+                            		<div class="right_info">On homepage</div>
+                                </div>-->
                             </div>
-                            <div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_after_posts" <?php echo ($option8['display_after_posts']=='yes') ?  'checked="true"' : '' ;?>  id="display_after_posts" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">After posts</div>
-                            </div>
-                            <!--<div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_on_postspage" <?php //echo ($option8['display_on_postspage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_postspage" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">On posts pages</div>
-                            </div>
-                            <div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_on_homepage" <?php //echo ($option8['display_on_homepage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_homepage" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">On homepage</div>
-                            </div>-->
                         </div>
-                    </div>
-                    
-                    
-                    <div class="options">
-                        <label class="seconds chcklbl labelhdng4">On Homepage</label>
-                        <div class="chckwpr">
-                            <div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_before_blogposts" <?php echo ($option8['display_before_blogposts']=='yes') ?  'checked="true"' : '' ;?>  id="display_before_blogposts" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">Before posts</div>
+                        
+                        
+                        <div class="options">
+                        	<label class="seconds chcklbl labelhdng4">On Homepage</label>
+                            <div class="chckwpr">
+                            	<div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_before_blogposts" <?php echo ($option8['display_before_blogposts']=='yes') ?  'checked="true"' : '' ;?>  id="display_before_blogposts" type="checkbox" value="yes" class="styled"  /></div>
+                                    <div class="right_info">Before posts</div>
+                                </div>
+                                <div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_after_blogposts" <?php echo ($option8['display_after_blogposts']=='yes') ?  'checked="true"' : '' ;?>  id="display_after_blogposts" type="checkbox" value="yes" class="styled"  /></div>
+                                	<div class="right_info">After posts</div>
+                                </div>
+                                <!--<div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_on_postspage" <?php //echo ($option8['display_on_postspage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_postspage" type="checkbox" value="yes" class="styled"  /></div>
+                                	<div class="right_info">On posts pages</div>
+                                </div>
+                                <div class="snglchckcntr">
+                                    <div class="radio_section tb_4_ck"><input name="display_on_homepage" <?php //echo ($option8['display_on_homepage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_homepage" type="checkbox" value="yes" class="styled"  /></div>
+                            		<div class="right_info">On homepage</div>
+                                </div>-->
                             </div>
-                            <div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_after_blogposts" <?php echo ($option8['display_after_blogposts']=='yes') ?  'checked="true"' : '' ;?>  id="display_after_blogposts" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">After posts</div>
-                            </div>
-                            <!--<div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_on_postspage" <?php //echo ($option8['display_on_postspage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_postspage" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">On posts pages</div>
-                            </div>
-                            <div class="snglchckcntr">
-                                <div class="radio_section tb_4_ck"><input name="display_on_homepage" <?php //echo ($option8['display_on_homepage']=='yes') ?  'checked="true"' : '' ;?>  id="display_on_homepage" type="checkbox" value="yes" class="styled"  /></div>
-                                <div class="right_info">On homepage</div>
-                            </div>-->
                         </div>
-                    </div>
-                    
-                    <!--Display them options-->
-                    
-                    
-                    <div class="options shareicontextfld">
-                        <label class="first">Text to appear before the sharing icons:</label><input name="sfsi_textBefor_icons" type="text" value="<?php echo ($option8['sfsi_textBefor_icons']!='') ?  $option8['sfsi_textBefor_icons'] : '' ; ?>" />
-                    </div>
-                    <div class="options">
-                        <label>Alignment of share icons: </label><div class="field"><select name="sfsi_icons_alignment" id="sfsi_icons_alignment" class="styled"><option value="left" <?php echo ($option8['sfsi_icons_alignment']=='left') ?  'selected="selected"' : '' ;?>>Left</option><option value="right" <?php echo ($option8['sfsi_icons_alignment']=='right') ?  'selected="selected"' : '' ;?>>Right</option></select></div>
-                    </div>
-                    <!--<div class="options">
-                        <label>Do you want to display the counts?</label><div class="field"><select name="sfsi_icons_DisplayCounts" id="sfsi_icons_DisplayCounts" class="styled"><option value="yes" <?php //echo ($option8['sfsi_icons_DisplayCounts']=='yes') ?  'selected="true"' : '' ;?>>YES</option><option value="no" <?php //echo ($option8['sfsi_icons_DisplayCounts']=='no') ?  'selected="true"' : '' ;?>>NO</option></select></div>
-                    </div>-->				
-                  </li>	
-					
+                        
+                        <!--Display them options-->
+                        
+                        
+						<div class="options shareicontextfld">
+							<label class="first">Text to appear before the sharing icons:</label><input name="sfsi_textBefor_icons" type="text" value="<?php echo ($option8['sfsi_textBefor_icons']!='') ?  $option8['sfsi_textBefor_icons'] : '' ; ?>" />
+						</div>
+						<div class="options">
+							<label>Alignment of share icons: </label><div class="field"><select name="sfsi_icons_alignment" id="sfsi_icons_alignment" class="styled"><option value="left" <?php echo ($option8['sfsi_icons_alignment']=='left') ?  'selected="selected"' : '' ;?>>Left</option><option value="right" <?php echo ($option8['sfsi_icons_alignment']=='right') ?  'selected="selected"' : '' ;?>>Right</option></select></div>
+						</div>
+						<!--<div class="options">
+                        	<label>Do you want to display the counts?</label><div class="field"><select name="sfsi_icons_DisplayCounts" id="sfsi_icons_DisplayCounts" class="styled"><option value="yes" <?php //echo ($option8['sfsi_icons_DisplayCounts']=='yes') ?  'selected="true"' : '' ;?>>YES</option><option value="no" <?php //echo ($option8['sfsi_icons_DisplayCounts']=='no') ?  'selected="true"' : '' ;?>>NO</option></select></div>
+						</div>-->				
+					  </div>	
+					</li>
 				</ul>	
 			</div>
 		</li>

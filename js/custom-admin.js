@@ -1162,21 +1162,9 @@ function toggleflotpage(ref)
 		jQuery(ref).next(".right_info").children(".tab_3_icns").show();
 	}
 }
-function togglbtmsection(show, hide, ref)
+function togglbtmsection(ref)
 {
-	jQuery(ref).parent("ul").children("li.clckbltglcls").each(function(index, element)
-	{
-		jQuery(this).children(".radio").css("background-position", "0px 0px");
-		jQuery(this).children(".styled").attr("checked", "false");
-	});
-	jQuery(ref).children(".radio").css("background-position", "0px -41px");
-	jQuery(ref).children(".styled").attr("checked", "true");
-	
-	jQuery("."+show).show();
-	jQuery("."+show).children(".radiodisplaysection").show();
-	jQuery("."+hide).hide();
-	jQuery("."+hide).children(".radiodisplaysection").hide();
-	/*jQuery(ref).parent("ul").children("li").each(function(index, element)
+	jQuery(ref).parent("ul").children("li").each(function(index, element)
 	{
 		var pos = jQuery(this).children(".radio").css("background-position");
 		if(pos == "0px 0px")
@@ -1196,7 +1184,7 @@ function togglbtmsection(show, hide, ref)
 	else
 	{
 		jQuery(ref).children(".radiodisplaysection").hide();
-	}*/
+	}
 }
 function checkforinfoslction(ref)
 {
