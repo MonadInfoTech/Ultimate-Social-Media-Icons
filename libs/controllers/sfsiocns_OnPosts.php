@@ -35,10 +35,10 @@ function sfsi_social_buttons_below($content) {
         $txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
 		//$float= $sfsi_section6['sfsi_icons_alignment'];
         $float= $sfsi_section8['sfsi_icons_alignment'];
-		$icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:5px;'><span>".$txt."</span></div>";
+		$icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:0 px; line-height: 32px'><span>".$txt."</span></div>";
         
         $icons.="<div class='sf_fb' style='float:left;margin:5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
-	$icons.="<div class='sf_google'  style='float:left;margin:5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+		$icons.="<div class='sf_google'  style='float:left;margin:5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
         $icons.="<div class='sf_addthis'  style='float:left;margin:8px 5px 5px 5px;'>".sfsi_Addthis($show_count)."</div>";
       
 	$icons.="</div>";

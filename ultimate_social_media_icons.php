@@ -131,114 +131,69 @@ function ultimatefbmetatags()
    }
 }
 
-//functionality for before posts
-/*add_action( 'loop_start', 'show_sfsi_beforeposts', 10 );
-function show_sfsi_beforeposts( $query )
+//functionality for before and after single posts
+
+add_filter( 'the_content', 'show_sfsi_beforaftereposts' );
+function show_sfsi_beforaftereposts( $content )
 {
 	if( is_single() )
 	{
-		$icons = "";
+		$icons_before = '';
+		$icons_after = '';
 		$option8=  unserialize(get_option('sfsi_section8_options',false));
+		$lineheight = $option8['sfsi_post_icons_size'];
+		$lineheight = getlineheighticons($lineheight);
 		$display_button_type = $option8['display_button_type'];
 		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Share this Post with :" ;
 		$float = $option8['sfsi_icons_alignment'];
 		if($option8['display_before_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
 		{
-			if( $query->is_main_query() )
-			{
-				$icons .= "<div class='sfsibeforpstwpr' style='float:".$float.";width: auto;'>";
-					if($display_button_type == 'standard_buttons')
-					{
-						$title .= sfsi_social_buttons_below($content = null);
-					}
-					else
-					{
-						$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-							$icons .= "<div style='float:left;margin:0 5px;'><span>".$txt."</span></div>";
-							$icons .= sfsi_check_posts_visiblity(0);
-						$icons .= "</div>";
-					}
-				$icons .= '</div>';
-				$title = $icons.'</br>'.$title;
-				echo $title;
-			}
-		}
-	}
-}*/
-add_filter( 'the_content', 'show_sfsi_beforeposts' );
-function show_sfsi_beforeposts( $content )
-{
-	if( is_single() )
-	{
-		$icons = '';
-		$option8=  unserialize(get_option('sfsi_section8_options',false));
-		$lineheight = $option8['sfsi_post_icons_size']+3;
-		$display_button_type = $option8['display_button_type'];
-		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Share this Post with :" ;
-		$float = $option8['sfsi_icons_alignment'];
-		if($option8['display_after_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
-		{
-			$icons .= '<div class="sfsiaftrpstwpr">';
+			$icons_before .= '<div class="sfsiaftrpstwpr">';
 				if($display_button_type == 'standard_buttons')
 				{
-					$icons .= sfsi_social_buttons_below($content = null);
+					$icons_before .= sfsi_social_buttons_below($content = null);
 				}
 				else
 				{
-					$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-						$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
-						$icons .= sfsi_check_posts_visiblity(0);
-					$icons .= "</div>";
+					$icons_before .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+						$icons_before .= "<div style='float:left;margin:0 0px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+						$icons_before .= sfsi_check_posts_visiblity(0);
+					$icons_before .= "</div>";
 				}
-			$icons .= '</div>';
+			$icons_before .= '</div>';
 		}
-	}
-	$content = $icons.'</br>'.$content;
-	return $content;
-}
-
-//functionality for after posts
-add_filter( 'the_content', 'show_sfsi_afterposts' );
-function show_sfsi_afterposts( $content )
-{
-	if( is_single() )
-	{
-		$icons = '';
-		$option8=  unserialize(get_option('sfsi_section8_options',false));
-		$lineheight = $option8['sfsi_post_icons_size']+3;
-		$display_button_type = $option8['display_button_type'];
-		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Share this Post with :" ;
-		$float = $option8['sfsi_icons_alignment'];
 		if($option8['display_after_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
 		{
-			$icons .= '<div class="sfsiaftrpstwpr">';
+			$icons_after .= '<div class="sfsiaftrpstwpr">';
 				if($display_button_type == 'standard_buttons')
 				{
-					$icons .= sfsi_social_buttons_below($content = null);
+					$icons_after .= sfsi_social_buttons_below($content = null);
 				}
 				else
 				{
-					$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-						$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
-						$icons .= sfsi_check_posts_visiblity(0);
-					$icons .= "</div>";
+					$icons_after .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+						$icons_after .= "<div style='float:left;margin:0 0px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+						$icons_after .= sfsi_check_posts_visiblity(0);
+					$icons_after .= "</div>";
 				}
-			$icons .= '</div>';
+			$icons_after .= '</div>';
 		}
 	}
-	$content = $content.'</br>'.$icons;
+	$content = $icons_before.'</br>'.$content.'</br>'.$icons_after;
 	return $content;
 }
 
 //showing before and after blog posts
-add_filter( 'the_content', 'show_sfsi_beforeblogposts' );
-function show_sfsi_beforeblogposts( $content )
+add_filter( 'the_content', 'show_sfsi_beforeafterblogposts' );
+function show_sfsi_beforeafterblogposts( $content )
 {
 	if ( is_home() ) 
 	{
-		$icons = '';
+		$icons_before = '';
+		$icons_after = '';
 		$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
-		$lineheight = $sfsi_section8['sfsi_post_icons_size']+3;
+		$lineheight = $sfsi_section8['sfsi_post_icons_size'];
+		$lineheight = getlineheighticons($lineheight);
 		if($sfsi_section8['display_before_blogposts'] == "yes" && $sfsi_section8['show_item_onposts'] == "yes")
 		{
 			global $id, $post;
@@ -259,61 +214,33 @@ function show_sfsi_beforeblogposts( $content )
 			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
 			$float = $sfsi_section8['sfsi_icons_alignment'];
 			//icon selection
-			$icons .= "<div class='sfsibeforpstwpr'>";
-				$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-					$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+			$icons_before .= "<div class='sfsibeforpstwpr'>";
+				$icons_before .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+					
 					if($display_button_type == 'standard_buttons')
 					{
-						$icons .= "<div class='sf_fb' style='float:left;margin:0 5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
-						$icons .= "<div class='sf_google'  style='float:left;margin:0 5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
-						$icons .= "<div class='sf_addthis'  style='float:left;margin:1px 5px 0px 5px;'>".sfsi_Addthis_blogpost($show_count, $permalink, $post_title)."</div>";
+						$icons_before .= "<div style='float:left;margin:0 0px; line-height:20px'><span>".$txt."</span></div>";
+						$icons_before .= "<div class='sf_fb' style='float:left;margin:0 5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
+						$icons_before .= "<div class='sf_google'  style='float:left;margin:0 5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+						$icons_before .= "<div class='sf_addthis'  style='float:left;margin:1px 5px 0px 5px;'>".sfsi_Addthis_blogpost($show_count, $permalink, $post_title)."</div>";
 					}
 					else
 					{
-						$icons .= sfsi_check_posts_visiblity(0);
+						$icons_before .= "<div style='float:left;margin:0 0px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+						$icons_before .= sfsi_check_posts_visiblity(0);
 					}
-				$icons .= "</div>";
-			$icons .= "</div>";
+				$icons_before .= "</div>";
+			$icons_before .= "</div>";
 			//icon selection
 			if( $id && $post && $post->post_type == 'post' )
 			{
-				return $icons.'</br>'.$content;
+				$content = $icons_before.'</br>'.$content;
 			}
 			else
 			{
-				return $content;
+				$contnet = $content;
 			}
 		}
-	}
-	return $content;
-}
-
-//functionality for after posts
-add_filter( 'the_content', 'show_sfsi_afterblogposts' );
-function show_sfsi_afterblogposts( $content )
-{
-	if(is_home())
-	{
-		$icons = '';
-		$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
-		$lineheight = $sfsi_section8['sfsi_post_icons_size'];
-		if(20 < $lineheight && $lineheight < 30)
-		{
-			$font = '';
-		}
-		if(30 < $lineheight && $lineheight < 40)
-		{
-			$font = '';
-		}
-		if(40 < $lineheight && $lineheight < 50)
-		{
-			$font = '';
-		}
-		if(50 < $lineheight && $lineheight < 60)
-		{
-			$font = '';
-		}
-		
 		if($sfsi_section8['display_after_blogposts'] == "yes" && $sfsi_section8['show_item_onposts'] == "yes")
 		{
 			global $post;
@@ -334,25 +261,27 @@ function show_sfsi_afterblogposts( $content )
 			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
 			$float= $sfsi_section8['sfsi_icons_alignment'];
 			//icon selection
-			$icons .= "<div class='sfsiaftrpstwpr'>";
-				$icons .= "<div class='sfsi_Sicons' style='float:".$float."'>";
-					$icons .= "<div style='float:left;margin:0 5px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+			$icons_after .= "<div class='sfsiaftrpstwpr'>";
+				$icons_after .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+					
 					if($display_button_type == 'standard_buttons')
 					{
-						$icons .= "<div class='sf_fb' style='float:left;margin:0 5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
-						$icons .= "<div class='sf_google'  style='float:left;margin:0 5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
-						$icons .= "<div class='sf_addthis'  style='float:left;margin:1px 5px 0px 5px;'>".sfsi_Addthis_blogpost($show_count, $permalink, $post_title)."</div>";
+						$icons_after .= "<div style='float:left;margin:0 0px; line-height:20px'><span>".$txt."</span></div>";
+						$icons_after .= "<div class='sf_fb' style='float:left;margin:0 5px;width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
+						$icons_after .= "<div class='sf_google'  style='float:left;margin:0 5px;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+						$icons_after .= "<div class='sf_addthis'  style='float:left;margin:1px 5px 0px 5px;'>".sfsi_Addthis_blogpost($show_count, $permalink, $post_title)."</div>";
 						
 					}
 					else
 					{
-						$icons .= sfsi_check_posts_visiblity(0);
+						$icons_after .= "<div style='float:left;margin:0 0px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
+						$icons_after .= sfsi_check_posts_visiblity(0);
 					}
-				$icons .= "</div>";
-			$icons .= "</div>";
+				$icons_after .= "</div>";
+			$icons_after .= "</div>";
 			//icon selection
-			return $content.'</br>'.$icons;
-		}		
+			$content = $content.'</br>'.$icons_after;
+		}	
 	}
 	return $content;
 }
@@ -371,5 +300,38 @@ function check_sfsfiupdatedoptions()
 		$option4['sfsi_youtubeusernameorid']= 'name';
     	update_option('sfsi_section4_options',serialize($option4));
 	}
+}
+
+
+//getting line height for the icons
+function getlineheighticons($lineheight)
+{
+	if( $lineheight < 16)
+	{
+		$lineheight = $lineheight*2;
+		return $lineheight;
+	}
+	elseif( $lineheight >= 16 && $lineheight < 20 )
+	{
+		$lineheight = $lineheight+10;
+		return $lineheight;
+	}
+	elseif( $lineheight >= 20 && $lineheight < 28 )
+	{
+		$lineheight = $lineheight+3;
+		return $lineheight;
+	}
+	elseif( $lineheight >= 28 && $lineheight < 40 )
+	{
+		$lineheight = $lineheight+4;
+		return $lineheight;
+	}
+	elseif( $lineheight >= 40 && $lineheight < 50 )
+	{
+		$lineheight = $lineheight+5;
+		return $lineheight;
+	}
+	$lineheight = $lineheight+6;
+	return $lineheight;
 }
 ?>
