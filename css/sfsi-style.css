@@ -1242,7 +1242,6 @@ ul.tab_2_email_sec li .radio {
     overflow: hidden;
 }
 .tab3 .row {
-    border-top: 1px solid #EAEBEE;
     padding: 15px 0;
     clear: both;
     overflow: hidden;
@@ -1250,6 +1249,9 @@ ul.tab_2_email_sec li .radio {
 .tab3 ul.tab_3_list {
     overflow: hidden;
     margin: 4px 0 11px;
+}
+.tab8 .toglepstpgspn {
+	font-weight: bold;
 }
 ul.tab_3_list li {
     background: url(../images/tab_3_list_bg.jpg) 13px 7px no-repeat;
@@ -3346,7 +3348,7 @@ ul.cstmskin_iconlist {
 	-o-box-sizing: border-box;
 		box-sizing: border-box;
 }
-.tab8 .icons_size > span { width:4%;}
+
 .tab8 .icons_size > input {
 	background:none repeat scroll 0 0 #e5e5e5;
 	width:80px;
@@ -3354,24 +3356,42 @@ ul.cstmskin_iconlist {
 	padding:10px 0;
 	text-align:center;
 }
-.tab8 .icons_size > ins { width:18%; margin-left:19px; }
-.tab8 .icons_size > span.last { width: auto !important; }
+.tab8 .icons_size > ins { margin-left:19px; }
+.tab8 .icons_size > span.last { width: auto !important; clear: left }
 .tab8 .radio_section.tb_4_ck { margin: 0 20px 0 0 !important; }
 .tab8 .tab_3_icns.shwthmbfraftr .row, 
 .tab8 .tab_3_icns.shwthmbfraftr p, 
-.tab8 .options { margin-left: 60px; float: none; width: auto}
-.tab8 .tab_3_icns.shwthmbfraftr label { width:90%; }
+.tab8 .options {
+	float: none; 
+	width: 100%;
+	border-left: 60px solid transparent; 
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-o-box-sizing: border-box; 
+	-ms-box-sizing: border-box;
+		box-sizing: border-box;
+}
+.tab8 .tab_3_icns.shwthmbfraftr label { width: auto; }
 
-.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 ul { margin-left: 130px}
+.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 ul { margin-left: 15px}
 .tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 li { width: auto; max-width: auto; min-width: auto; margin: 0 50px 0 0 }
 .tab8 .tab_3_icns.shwthmbfraftr .usually > li { width:85% !important;  max-width: 100% !important; margin-left: 70px; font-family: 'helveticaneue-light'; padding-bottom: 5px}
-.tab8 .tab_3_icns.shwthmbfraftr .options > label { width:42% !important; margin:0; width: auto; margin-bottom: 0; margin-top: 0px; }
-.tab8 .row.PostsSettings_section .options .first.chcklbl { float: left !important; width: 35% !important; }
-.tab8 .row.PostsSettings_section .options .chckwpr { width:58%; float:right; }
-.tab8 .row.PostsSettings_section .options { width:100%; margin:0; font-family: 'helveticaneue-light'; float: left; margin-bottom: 10px}
+.tab8 .tab_3_icns.shwthmbfraftr .options > label { width:356px !important; margin:0; width: auto; margin-bottom: 0; margin-top: 0px; }
+.tab8 .row.PostsSettings_section .options .first.chcklbl { float: left !important; width: 335px !important; }
+.tab8 .row.PostsSettings_section .options .chckwpr { width:538px; float:right; }
+.tab8 .row.PostsSettings_section .options {
+	width:100%; 
+	margin:0; 
+	font-family: 'helveticaneue-light'; 
+	float: left; 
+	margin-bottom: 10px; 
+	max-width: 895px; 
+	border-left: none;
+}
+.toggleonlystndrshrng { margin-bottom: 30px !important}
 .tab8 .row.PostsSettings_section .options.shareicontextfld { margin: 15px 0; }
 .tab8 .tab_3_icns.flthmonpg .radio { margin-top:55px !important; }
-.tab8 .radiodisplaysection { float: left; margin-bottom: 50px}
+.tab8 .radiodisplaysection { float: left;}
 
 
 
@@ -3381,6 +3401,7 @@ ul.cstmskin_iconlist {
     float: left;
     padding: 11px 0 40px 8px;
     width: 100%;
+	max-width: 1000px;
 	margin: 0
 }
 /*modify by palak*/
@@ -3393,7 +3414,7 @@ ul.cstmskin_iconlist {
 /*modify by palak*/
 .right_info label.sub-subtitle
 {
-	font-size: 13px;
+	font-size: 17px !important;
 	font-weight: normal;
 }
 ul.icn_listing li .right_info label.sub-subtitle a 
@@ -3415,6 +3436,10 @@ ul.icn_listing li .right_info label.sub-subtitle a
 	padding-bottom: 15px
 }
 
+.tab8 ul.icn_listing8 li .tab_3_icns.shwthmbfraftr>li:nth-child(1),
+.tab8 ul.icn_listing8 li .tab_3_icns.shwthmbfraftr>li:nth-child(2)  { width: 50% !important}
+
+
 #accordion .tab8 .icn_listing8 li .right_info p { display: table}
 
 /*modify by palak*/
@@ -3430,17 +3455,14 @@ ul.icn_listing li .right_info label.sub-subtitle a
 	width: 100%;
 }
 /*modify by palak*/
-.tab8 .icons_size 
-{
-    padding-top: 15px;
-}
-.tab8 .icons_size { position: relative; font-family: 'helveticaneue-light' }
+.tab8 .icons_size { margin-top: -12px; }
+.tab8 .icons_size { position: relative; font-family: 'helveticaneue-light'; width: 540px; float: right }
 .tab8 .icons_size span  {
     display: block;
     float: left;
     font-size: 20px;
     font-weight: 400;
-    line-height: 46px;
+    line-height: 42px;
     margin-right: 18px;
 }
 
@@ -3455,6 +3477,7 @@ ul.icn_listing li .right_info label.sub-subtitle a
     font-weight: 400;
     margin-right: 25px;
     text-decoration: none;
+	margin-bottom: 20px;
 }
 .tab8 .social_icon_like1 {
     float: left;
@@ -3472,9 +3495,10 @@ ul.icn_listing li .right_info label.sub-subtitle a
 .tab8 .social_icon_like1 li {
     display: inline-block;
     list-style: outside none none;
-    margin: 0 20px;
+    margin: 0 0 0 45px !important;
     padding: 0;
-    width: auto;
+    width: auto !important;
+	min-width: 100px !important;
 }
 .tab8 .social_icon_like1 li a {
     color: #5a6570;
@@ -3597,11 +3621,8 @@ ul.icn_listing li .right_info label.sub-subtitle a
 	font-size: 18px;
 	line-height: 30px;
 }
-.snglchckcntr
-{
-	width:50%;
-	float:left;
-}
+.chckwpr .snglchckcntr:first-child { float:left; }
+.chckwpr .snglchckcntr:last-child { float:right; }
 .chckwpr
 {
 	width:100%;
@@ -3617,14 +3638,12 @@ ul.icn_listing li .right_info label.sub-subtitle a
 {
 	font-size: 20px;
 }
-#accordion .tab8 ul.tab_3_icns
-{
-	margin-top: 25px;
-}
+#accordion .tab8 ul.tab_3_icns { margin-top: 25px; }
+#accordion .tab8 ul.tab_3_icns.flthmonpg { margin-left: 45px}
 #accordion .tab8 .icn_listing8 li .right_info p.cstmdisplaysharingtxt { padding-top: 5px; display: inline;}
 #accordion .tab8 ul.shwthmbfraftr .labelhdng4, 
 #accordion .tab8 ul.shwthmbfraftr .row h4.labelhdng4 { color: #555; font-size: 20px; margin-left: 20px; font-family: 'helveticaregular'}
-.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section { margin-top: 75px}
+.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section { margin-top: 75px; border-left: 105px solid transparent;}
 .tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section>.labelhdng4 { margin-bottom: 20px !important} 
 
 
@@ -3633,8 +3652,9 @@ ul.icn_listing li .right_info label.sub-subtitle a
 	font-weight: normal;
 	font-size: 18px;
 	color: #69737c;
+	float: left
 }
-.tab8 .row.PostsSettings_section .options .seconds.chcklbl { float: right; width: 58% !important; }
+.tab8 .row.PostsSettings_section .options .seconds.chcklbl { float: right; width: 538px !important; }
 .sfsibeforpstwpr, .sfsiaftrpstwpr
 {
 	width: 100%;
