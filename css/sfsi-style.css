@@ -400,7 +400,7 @@ body {
     text-align: center;
 }
 .tab5 .new_wind .row_onl ul.enough_waffling {
-    margin: 14px 0 0 167px;
+    margin: 20px 0 0 0;
     padding: 0;
     list-style: none;
     height: 38px;
@@ -3404,6 +3404,8 @@ ul.cstmskin_iconlist {
 	max-width: 1000px;
 	margin: 0
 }
+.placethemanulywpr { max-width: 98% !important} 
+
 /*modify by palak*/
 /*modify by palak*/
 .tab8 ul.icn_listing8 {
@@ -3438,6 +3440,7 @@ ul.icn_listing li .right_info label.sub-subtitle a
 
 .tab8 ul.icn_listing8 li .tab_3_icns.shwthmbfraftr>li:nth-child(1),
 .tab8 ul.icn_listing8 li .tab_3_icns.shwthmbfraftr>li:nth-child(2)  { width: 50% !important}
+.disblfltonmbl p.list { width: 100%; margin-bottom: 28px}
 
 
 #accordion .tab8 .icn_listing8 li .right_info p { display: table}
@@ -3456,7 +3459,7 @@ ul.icn_listing li .right_info label.sub-subtitle a
 }
 /*modify by palak*/
 .tab8 .icons_size { margin-top: -12px; }
-.tab8 .icons_size { position: relative; font-family: 'helveticaneue-light'; width: 540px; float: right }
+.tab8 .icons_size { position: relative; font-family: 'helveticaneue-light'; width: 538px; float: right }
 .tab8 .icons_size span  {
     display: block;
     float: left;
@@ -3643,9 +3646,11 @@ ul.icn_listing li .right_info label.sub-subtitle a
 #accordion .tab8 .icn_listing8 li .right_info p.cstmdisplaysharingtxt { padding-top: 5px; display: inline;}
 #accordion .tab8 ul.shwthmbfraftr .labelhdng4, 
 #accordion .tab8 ul.shwthmbfraftr .row h4.labelhdng4 { color: #555; font-size: 20px; margin-left: 20px; font-family: 'helveticaregular'}
-.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section { margin-top: 75px; border-left: 105px solid transparent;}
+.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section { border-left: 105px solid transparent; float: left; padding-top: 0}
+.toggleonlystndrshrng { margin-bottom: 0 !important}
+.radiodisplaysection { float: left}
 .tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section>.labelhdng4 { margin-bottom: 20px !important} 
-
+.shwthmbfraftr { margin-top: 10px !important}
 
 #accordion .tab8 ul.shwthmbfraftr .row h4 {
 	font-family: 'helveticaneue-light';
@@ -3692,3 +3697,4 @@ ul.icn_listing li .right_info label.sub-subtitle a
 {
 	font-weight: bold;
 }
+.sfsibeforpstwpr iframe{max-width: none;}

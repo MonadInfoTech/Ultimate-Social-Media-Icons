@@ -32,7 +32,7 @@ function sfsi_social_buttons_below($content) {
             $show_count=0;
         } 
         //$txt=(isset($sfsi_section6['sfsi_textBefor_icons']))? $sfsi_section6['sfsi_textBefor_icons'] : "Share this Post with :" ;
-        $txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
+        $txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
 		//$float= $sfsi_section6['sfsi_icons_alignment'];
         $float= $sfsi_section8['sfsi_icons_alignment'];
 		$icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:0 px; line-height: 32px'><span>".$txt."</span></div>";

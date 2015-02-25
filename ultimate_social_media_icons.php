@@ -144,7 +144,7 @@ function show_sfsi_beforaftereposts( $content )
 		$lineheight = $option8['sfsi_post_icons_size'];
 		$lineheight = getlineheighticons($lineheight);
 		$display_button_type = $option8['display_button_type'];
-		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Share this Post with :" ;
+		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
 		$float = $option8['sfsi_icons_alignment'];
 		if($option8['display_before_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
 		{
@@ -211,7 +211,7 @@ function show_sfsi_beforeafterblogposts( $content )
 			{
 				$show_count=0;
 			} 
-			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
+			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
 			$float = $sfsi_section8['sfsi_icons_alignment'];
 			//icon selection
 			$icons_before .= "<div class='sfsibeforpstwpr'>";
@@ -258,7 +258,7 @@ function show_sfsi_beforeafterblogposts( $content )
 			{
 				$show_count=0;
 			} 
-			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Share this Post with :" ;
+			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
 			$float= $sfsi_section8['sfsi_icons_alignment'];
 			//icon selection
 			$icons_after .= "<div class='sfsiaftrpstwpr'>";

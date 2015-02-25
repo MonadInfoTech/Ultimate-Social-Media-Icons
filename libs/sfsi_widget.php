@@ -121,8 +121,7 @@ function sfsi_check_visiblity($isFloter=0)
 		{
 			$Ictop="0";   
 	    }
-             
-		 $jquery.='var s = SFSI(".sfsi_widget");
+         $jquery.='var s = jQuery(".sfsi_widget");
 					var pos = s.position();            
 					jQuery(window).scroll(function(){      
 					sfsi_stick_widget("'.$Ictop.'");
@@ -153,16 +152,16 @@ function sfsi_check_visiblity($isFloter=0)
          }
        	 if($sfsi_section8['float_page_position'] == 'center-right' || $sfsi_section8['float_page_position'] == 'center-left')
 		 {
-        	$jquery.="SFSI( document ).ready(function( $ )
+        	$jquery.="jQuery( document ).ready(function( $ )
 					  {
-						var topalign = ( jQuery(window).height() - SFSI('#sfsi_floater').height() ) / 2;
-						SFSI('#sfsi_floater').css('top',topalign);
+						var topalign = ( jQuery(window).height() - jQuery('#sfsi_floater').height() ) / 2;
+						jQuery('#sfsi_floater').css('top',topalign);
 					  	sfsi_float_widget('".$top."');
 					  });";
 		 }
 		 else
 		 {
-			$jquery.="SFSI( document ).ready(function( $ ) { sfsi_float_widget('".$top."')});"; 
+			$jquery.="jQuery( document ).ready(function( $ ) { sfsi_float_widget('".$top."')});"; 
 		 }
     }
 	  
@@ -173,17 +172,17 @@ function sfsi_check_visiblity($isFloter=0)
 	   {
 	     	$shuffle_time=(isset($sfsi_section3['sfsi_shuffle_intervalTime'])) ? $sfsi_section3['sfsi_shuffle_intervalTime'] : 3;
 			$shuffle_time=$shuffle_time*1000;
-			$jquery.="SFSI( document ).ready(function( $ ) {  SFSI('.sfsi_wDiv').each(function(){ new window.Manipulator( SFSI(this)); });  setTimeout(function(){  SFSI('#sfsi_wDiv').each(function(){ SFSI(this).click(); })},2000);  setInterval(function(){  SFSI('#sfsi_wDiv').each(function(){ SFSI(this).click(); })},".$shuffle_time."); });";
+			$jquery.="jQuery( document ).ready(function( $ ) {  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setTimeout(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},2000);  setInterval(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},".$shuffle_time."); });";
        }
 	   else if($sfsi_section3['sfsi_shuffle_Firstload']=="no" && $sfsi_section3['sfsi_shuffle_interval']=="yes")
        {   
 		   $shuffle_time=(isset($sfsi_section3['sfsi_shuffle_intervalTime'])) ? $sfsi_section3['sfsi_shuffle_intervalTime'] : 3;
 		   $shuffle_time=$shuffle_time*1000; 
-		   $jquery.="SFSI( document ).ready(function( $ ) {  SFSI('.sfsi_wDiv').each(function(){ new window.Manipulator( SFSI(this)); });  setInterval(function(){  SFSI('#sfsi_wDiv').each(function(){ SFSI(this).click(); })},".$shuffle_time."); });";
+		   $jquery.="jQuery( document ).ready(function( $ ) {  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setInterval(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},".$shuffle_time."); });";
         }
         else
         {
-            $jquery.="SFSI( document ).ready(function( $ ) {  SFSI('.sfsi_wDiv').each(function(){ new window.Manipulator( SFSI(this)); });  setTimeout(function(){  SFSI('#sfsi_wDiv').each(function(){ SFSI(this).click(); })},2000); });";
+            $jquery.="jQuery( document ).ready(function( $ ) {  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setTimeout(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},2000); });";
         }    
     }
 	    

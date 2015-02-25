@@ -166,7 +166,7 @@
 
   </div>
   <!--disable float icons-->
-  <div class="space">
+  <div class="space disblfltonmbl">
     <p class="list">Disable float icons on mobile devices</p>	
     <ul class="enough_waffling">
     <li><input name="sfsi_disable_floaticons" <?php echo ($option5['sfsi_disable_floaticons']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>

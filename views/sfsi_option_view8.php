@@ -73,7 +73,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="">
+		<li class="placethemanulywpr">
 			<div class="radio_section tb_4_ck" onclick="checkforinfoslction(this);"><input name="place_item_manually" <?php echo ($option8['place_item_manually']=='yes') ?  'checked="true"' : '' ;?>  id="place_item_manually" type="checkbox" value="yes" class="styled"  /></div>
 			<div class="right_info">
 				<p>
@@ -88,7 +88,7 @@
 						$label_style = 'style="font-size: 15px;"';
 					}
 					?>
-					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label class="sfsi_ckckslctnlbl"><</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">php SHOW_FLOATING_ICONS();</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">></label> in your theme codes or use the shortcode <b>[SHOW_FLOATING_ICONS]</b> to display them wherever you want.</label>
+					<label class="sub-subtitle ckckslctn" <?php echo $label_style;?>>Place <label class="sfsi_ckckslctnlbl"><</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">php DISPLAY_ULTIMATE_SOCIAL_ICONS();</label><label class="sfsi_ckckslctnlbl">?</label><label class="sfsi_ckckslctnlbl">></label> in your theme codes or use the shortcode <b>[DISPLAY_ULTIMATE_SOCIAL_ICONS]</b> to display them wherever you want.</label>
 				</p>
 			</div>
 		</li>
@@ -122,7 +122,7 @@
                     	<?php if ($option8['display_button_type']=='standard_buttons'): $display = "display:block"; else:  $display = "display:none"; endif;?>
 						<div class="radiodisplaysection" style="<?php echo $display; ?>">
 
-                            <p class="cstmdisplaysharingtxt">To make it quick, you can decide to only display the following three buttons: </p>
+                            <p class="cstmdisplaysharingtxt">The following icons will be displayed:</p>
                             <div class="social_icon_like1">
                                 <ul>
                                     <li>
@@ -158,7 +158,7 @@
 					    
                       
                   <li class="row PostsSettings_section">
-                    <h4 class="labelhdng4">Options:</h4>
+                    <!--<h4 class="labelhdng4">Options:</h4>-->
                     
                     <!--Display them options-->
                     <div class="options">

@@ -462,7 +462,7 @@ function sfsi_options_updater8()
 	$sfsi_post_icons_size        = isset($_POST["sfsi_post_icons_size"]) ? $_POST["sfsi_post_icons_size"] : 40;
 	$sfsi_post_icons_spacing     = isset($_POST["sfsi_post_icons_spacing"]) ? $_POST["sfsi_post_icons_spacing"] : 5;
 	$sfsi_show_Onposts         	 = isset($_POST["sfsi_show_Onposts"]) ? $_POST["sfsi_show_Onposts"] : 'no';
-	$sfsi_textBefor_icons        = isset($_POST["sfsi_textBefor_icons"]) ? $_POST["sfsi_textBefor_icons"] : 'Please like & share:';
+	$sfsi_textBefor_icons        = isset($_POST["sfsi_textBefor_icons"]) ? $_POST["sfsi_textBefor_icons"] : 'Please follow and like us:';
 	$sfsi_icons_alignment        = isset($_POST["sfsi_icons_alignment"]) ? $_POST["sfsi_icons_alignment"] : 'center-right';
 	$sfsi_icons_DisplayCounts    = isset($_POST["sfsi_icons_DisplayCounts"]) ? $_POST["sfsi_icons_DisplayCounts"] : 'no'; 
 	$display_before_posts    = isset($_POST["display_before_posts"]) ? $_POST["display_before_posts"] : 'no'; 

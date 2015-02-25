@@ -146,7 +146,7 @@ function sfsi_activate_plugin()
         'sfsi_icons_postPositon'=>'source',
         'sfsi_icons_alignment'=>'center-right',
         'sfsi_rss_countsDisplay'=>'no',
-        'sfsi_textBefor_icons'=>'Please like & share:',
+        'sfsi_textBefor_icons'=>'Please follow and like us:',
         'sfsi_icons_DisplayCounts'=>'no');
 	add_option('sfsi_section6_options',  serialize($options6));       
     /* icons pop options */
@@ -182,7 +182,7 @@ function sfsi_activate_plugin()
 		$display_button_type = '';
 	}
 	$options8=array(
-		'show_via_widget'=>'yes',
+		'show_via_widget'=>'no',
         'float_on_page'=> $option5['sfsi_icons_float'],
         'float_page_position'=>$option5['sfsi_icons_floatPosition'],
         'sfsi_post_icons_size'=>$option5['sfsi_icons_size'],
