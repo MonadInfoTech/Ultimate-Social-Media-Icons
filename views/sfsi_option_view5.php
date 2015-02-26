@@ -134,7 +134,7 @@
    
      <!-- icon's floating and stick section start here -->	
     <div class="row sticking">
-	<h4>Sticking</h4>
+	<h4>Sticking & Disable on mobile</h4>
 	<p>If you decided to show your icons via a widget, you can add the effect that when the user scrolls down, the icons will stick at the  top of the screen so that they are still displayed even if the user scrolled all the way down. Do you want to do that?</p>
 	<!--<div class="space">
 	<p class="list">Make icons float?</p>	

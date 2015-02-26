@@ -98,7 +98,7 @@
 				<p>
 					<span class="toglepstpgspn">Show them before or after posts</span>
                     <br>
-                    <label class="sub-subtitle" style="font-size: 15px;">Here you have two options:</label>
+                    <label class="sub-subtitle toglpstpgsbttl" style="font-size: 15px;">Here you have two options:</label>
 				</p>
 				
 				<ul class="tab_3_icns shwthmbfraftr" <?php echo ($option8['show_item_onposts'] != "yes")? 'style="display: none";' : '' ;?>>

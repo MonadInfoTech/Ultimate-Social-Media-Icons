@@ -2857,7 +2857,6 @@ h2.optional {
 }
 .sfsi_Sicons .sf_fb {
     position: relative;
-    z-index: 1;
     width: 75px;
 }
 .sfsi_Sicons .fb_iframe_widget {
@@ -2868,11 +2867,9 @@ h2.optional {
 .sfsi_Sicons .sf_fb .fb_iframe_widget>span {
     position: absolute;
     /*width: 450px!important;*/
-    z-index: 1;
 }
 .sfsi_Sicons .sf_addthis, .sfsi_Sicons .sf_google {
     position: relative;
-    z-index: 99;
 }
 .wrapper .sfsi_Sicons .sf_addthis {
     margin: 7px 0 0 4px!important;
@@ -3650,8 +3647,8 @@ ul.icn_listing li .right_info label.sub-subtitle a
 .toggleonlystndrshrng { margin-bottom: 0 !important}
 .radiodisplaysection { float: left}
 .tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section>.labelhdng4 { margin-bottom: 20px !important} 
-.shwthmbfraftr { margin-top: 10px !important}
-
+.shwthmbfraftr { margin-top: 5px !important}
+label.toglpstpgsbttl { float: left; margin-top: 5px !important}
 #accordion .tab8 ul.shwthmbfraftr .row h4 {
 	font-family: 'helveticaneue-light';
 	font-weight: normal;
@@ -3697,4 +3694,4 @@ ul.icn_listing li .right_info label.sub-subtitle a
 {
 	font-weight: bold;
 }
-.sfsibeforpstwpr iframe{max-width: none;}
+.sfsibeforpstwpr iframe, .sfsiaftrpstwpr iframe{max-width: none;}
