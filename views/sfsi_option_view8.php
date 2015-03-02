@@ -24,7 +24,9 @@
 			</div>
 		</li>
 		<li class="">
-        <div class="radio_section tb_4_ck" onclick="toggleflotpage(this);"><input name="float_on_page" <?php echo ($option8['float_on_page']=='yes') ?  'checked="true"' : '' ;?>  id="float_on_page" type="checkbox" value="yes" class="styled"  /></div>
+        <div class="radio_section tb_4_ck cstmfltonpgstck" onclick="toggleflotpage(this);">
+        	<input name="float_on_page" <?php echo ($option8['float_on_page']=='yes') ?  'checked="true"' : '' ;?>  id="float_on_page" type="checkbox" value="yes" class="styled" />
+        </div>
 			<div class="right_info">
 				<p>
 					<span class="toglepstpgspn">Float them on the page</span>

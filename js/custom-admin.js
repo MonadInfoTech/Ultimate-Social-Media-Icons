@@ -1106,7 +1106,8 @@ SFSI(document).ready(function(s) {
         "Read more" == SFSI(this).text() ? (SFSI(this).siblings("p").children("label").fadeIn("slow"), 
         SFSI(this).text("Collapse")) :(SFSI(this).siblings("p").children("label").fadeOut("slow"), 
         SFSI(this).text("Read more"));
-    }), SFSI(".radio").live("click", function() {
+    }), SFSI(".radio").live("click", function()
+	{
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_icons_float" == s.attr("name") && "yes" == s.val() && (SFSI(".float_options").slideDown("slow"), 
         SFSI('input[name="sfsi_icons_stick"][value="no"]').attr("checked", !0), SFSI('input[name="sfsi_icons_stick"][value="yes"]').removeAttr("checked"), 
@@ -1127,6 +1128,24 @@ SFSI(document).ready(function(s) {
         SFSI('input[name="sfsi_shuffle_icons"]').attr("checked", "checked")), "sfsi_shuffle_icons" == s.attr("name") && "checked" != s.attr("checked") && (SFSI('input[name="sfsi_shuffle_Firstload"]').removeAttr("checked"), 
         SFSI('input[name="sfsi_shuffle_Firstload"]').parent().find("span").css("background-position", "0px 0px"), 
         SFSI('input[name="sfsi_shuffle_interval"]').removeAttr("checked"), SFSI('input[name="sfsi_shuffle_interval"]').parent().find("span").css("background-position", "0px 0px"));
+    });
+	SFSI(".checkbox").live("click", function()
+	{
+        var s = SFSI(this).parent().find("input:checkbox:first");
+        "float_on_page" == s.attr("name") && "yes" == s.val() && ( 
+        SFSI('input[name="sfsi_icons_stick"][value="no"]').attr("checked", !0), SFSI('input[name="sfsi_icons_stick"][value="yes"]').removeAttr("checked"), 
+        SFSI('input[name="sfsi_icons_stick"][value="no"]').parent().find("span").attr("style", "background-position:0px -41px;"), 
+        SFSI('input[name="sfsi_icons_stick"][value="yes"]').parent().find("span").attr("style", "background-position:0px -0px;"));
+    });
+	SFSI(".radio").live("click", function()
+	{
+        var s = SFSI(this).parent().find("input:radio:first");
+		var a = SFSI(".cstmfltonpgstck");
+		("sfsi_icons_stick" == s.attr("name") && "yes" == s.val()) && (
+        SFSI('input[name="float_on_page"][value="no"]').prop("checked", !0), SFSI('input[name="float_on_page"][value="yes"]').prop("checked", !1), 
+        SFSI('input[name="float_on_page"][value="no"]').parent().find("span.checkbox").attr("style", "background-position:0px -41px;"), 
+        SFSI('input[name="float_on_page"][value="yes"]').parent().find("span.checkbox").attr("style", "background-position:0px -0px;"),
+		jQuery(a).children(".checkbox").css("background-position", "0px 0px" ), toggleflotpage(a));
     });
 });
 

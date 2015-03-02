@@ -346,6 +346,13 @@ function sfsi_options_updater5()
     $sfsi_linkedinIcon_order        = isset($_POST["sfsi_linkedinIcon_order"]) ? $_POST["sfsi_linkedinIcon_order"] : '9';
     $sfsi_custom_MouseOverTexts     = isset($_POST["sfsi_custom_MouseOverTexts"]) ? serialize($_POST["sfsi_custom_MouseOverTexts"]) : '';
     
+	if($sfsi_icons_stick == 'yes')
+	{
+		$option8 = unserialize(get_option('sfsi_section8_options'));
+		$option8['float_on_page'] = 'no';
+		update_option('sfsi_section8_options',serialize($option8));
+	}
+	
     /* size and spacing of icons */
     $up_option5=array(
         'sfsi_icons_size'=>$sfsi_icons_size,
@@ -453,9 +460,9 @@ function sfsi_options_updater7()
 add_action('wp_ajax_updateSrcn8','sfsi_options_updater8');        
 function sfsi_options_updater8()
 {
-    $show_via_widget           = isset($_POST["show_via_widget"]) ? $_POST["show_via_widget"] : 'no'; 
+	$show_via_widget           = isset($_POST["show_via_widget"]) ? $_POST["show_via_widget"] : 'no'; 
     $float_on_page           	 = isset($_POST["float_on_page"]) ? $_POST["float_on_page"] : 'no'; 
-    $float_page_position         = isset($_POST["float_page_position"]) ? $_POST["float_page_position"] : 'no'; 
+	$float_page_position         = isset($_POST["float_page_position"]) ? $_POST["float_page_position"] : 'no'; 
     $place_item_manually         = isset($_POST["place_item_manually"]) ? $_POST["place_item_manually"] : 'no'; 
     $show_item_onposts         	 = isset($_POST["show_item_onposts"]) ? $_POST["show_item_onposts"] : 'no';
 	$display_button_type         = isset($_POST["display_button_type"]) ? $_POST["display_button_type"] : 'no';
@@ -472,6 +479,12 @@ function sfsi_options_updater8()
 	$display_before_blogposts    = isset($_POST["display_before_blogposts"]) ? $_POST["display_before_blogposts"] : 'no'; 
 	$display_after_blogposts    = isset($_POST["display_after_blogposts"]) ? $_POST["display_after_blogposts"] : 'no';
     //post options
+	if($float_on_page == 'yes')
+	{
+		$option5 = unserialize(get_option('sfsi_section5_options'));
+		$option5['sfsi_icons_stick'] = 'no';
+		update_option('sfsi_section5_options',serialize($option5));
+	}
     $up_option8=array(
                 'show_via_widget'=>$show_via_widget,
                 'float_on_page'=>$float_on_page,

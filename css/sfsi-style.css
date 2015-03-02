@@ -2513,7 +2513,7 @@ h2.optional {
 }
 .fb_tool_bdr .sfsi_inside .icon1 {
     margin: 2px 0 2px 0;
-    height: 20px;
+    height: 28px;
     display: inline-block;
     float: none;
     width: 62px;
@@ -2582,7 +2582,7 @@ h2.optional {
     margin: 2px 0;
     display: inline-block;
     float: none;
-    height: 24px;
+    height: 29px;
     width: 76px;
 }
 .gpls_tool_bdr .sfsi_inside .icon2 {
@@ -2619,7 +2619,6 @@ h2.optional {
     float: none;
     width: 62px;
     overflow: hidden;
-    height: 20px;
 }
 .twt_tool_bdr .sfsi_inside .icon1 {
     margin: 2px 0!important;
@@ -2695,29 +2694,36 @@ h2.optional {
     display: inline-block;
     float: none;
     height: 20px;
-    width: 66px;
+    width: 100%;
 }
 .linkedin_tool_bdr .sfsi_inside .icon2{
     margin: 2px 0;
     display: inline-block;
     float: none;
     height: 20px;
-    width: 66px;
+    width: 100%;
 }
 .linkedin_tool_bdr .sfsi_inside .icon3 {
     margin: 2px 0;
     display: inline-block;
     float: none;
     height: 20px;
-    width: 99px;
+    width: 100%;
 }
+
+ 
 .linkedin_tool_bdr .sfsi_inside .icon4 {
     margin: 2px 0;
     display: inline-block;
     float: none;
-    height: 20px;
-    width: 66px;
+    height: 28px;
+    width: 100%;
 }
+.sfsi_FrntInner .linkedin_tool_bdr .sfsi_inside .icon1{ margin: 7px 0;}
+.sfsi_widget .linkedin_tool_bdr .sfsi_inside .icon4,
+.sfsi_widget .gpls_tool_bdr .sfsi_inside .icon1,
+.sfsi_widget .fb_tool_bdr .sfsi_inside .icon1 { height: auto}
+
 .linkedin_tool_bdr .linkin_1, .linkedin_tool_bdr .linkin_2, .linkedin_tool_bdr .linkin_3, .linkedin_tool_bdr .linkin_4 {
     margin: 9px 0 0!important;
     height: 20px;
