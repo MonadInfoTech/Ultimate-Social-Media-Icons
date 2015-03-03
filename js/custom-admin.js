@@ -1129,7 +1129,7 @@ SFSI(document).ready(function(s) {
         SFSI('input[name="sfsi_shuffle_Firstload"]').parent().find("span").css("background-position", "0px 0px"), 
         SFSI('input[name="sfsi_shuffle_interval"]').removeAttr("checked"), SFSI('input[name="sfsi_shuffle_interval"]').parent().find("span").css("background-position", "0px 0px"));
     });
-	SFSI(".checkbox").live("click", function()
+	/*SFSI(".checkbox").live("click", function()
 	{
         var s = SFSI(this).parent().find("input:checkbox:first");
         "float_on_page" == s.attr("name") && "yes" == s.val() && ( 
@@ -1146,7 +1146,7 @@ SFSI(document).ready(function(s) {
         SFSI('input[name="float_on_page"][value="no"]').parent().find("span.checkbox").attr("style", "background-position:0px -41px;"), 
         SFSI('input[name="float_on_page"][value="yes"]').parent().find("span.checkbox").attr("style", "background-position:0px -0px;"),
 		jQuery(a).children(".checkbox").css("background-position", "0px 0px" ), toggleflotpage(a));
-    });
+    });*/
 });
 
 //for utube channel name and id
