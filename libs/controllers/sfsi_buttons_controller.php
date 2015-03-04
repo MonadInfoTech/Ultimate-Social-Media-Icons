@@ -346,12 +346,12 @@ function sfsi_options_updater5()
     $sfsi_linkedinIcon_order        = isset($_POST["sfsi_linkedinIcon_order"]) ? $_POST["sfsi_linkedinIcon_order"] : '9';
     $sfsi_custom_MouseOverTexts     = isset($_POST["sfsi_custom_MouseOverTexts"]) ? serialize($_POST["sfsi_custom_MouseOverTexts"]) : '';
     
-	if($sfsi_icons_stick == 'yes')
+	/*if($sfsi_icons_stick == 'yes')
 	{
 		$option8 = unserialize(get_option('sfsi_section8_options'));
 		$option8['float_on_page'] = 'no';
 		update_option('sfsi_section8_options',serialize($option8));
-	}
+	}*/
 	
     /* size and spacing of icons */
     $up_option5=array(
@@ -479,12 +479,12 @@ function sfsi_options_updater8()
 	$display_before_blogposts    = isset($_POST["display_before_blogposts"]) ? $_POST["display_before_blogposts"] : 'no'; 
 	$display_after_blogposts    = isset($_POST["display_after_blogposts"]) ? $_POST["display_after_blogposts"] : 'no';
     //post options
-	if($float_on_page == 'yes')
+	/*if($float_on_page == 'yes')
 	{
 		$option5 = unserialize(get_option('sfsi_section5_options'));
 		$option5['sfsi_icons_stick'] = 'no';
 		update_option('sfsi_section5_options',serialize($option5));
-	}
+	}*/
     $up_option8=array(
                 'show_via_widget'=>$show_via_widget,
                 'float_on_page'=>$float_on_page,
@@ -504,8 +504,8 @@ function sfsi_options_updater8()
 				'display_on_homepage'=>$display_on_homepage,*/
 				'display_before_blogposts'=>$display_before_blogposts,
 				'display_after_blogposts'=>$display_after_blogposts,
-                 );
-     update_option('sfsi_section8_options',serialize($up_option8));
+    );
+    update_option('sfsi_section8_options',serialize($up_option8));
     header('Content-Type: application/json');
     echo  json_encode(array("success")); exit;
 } 

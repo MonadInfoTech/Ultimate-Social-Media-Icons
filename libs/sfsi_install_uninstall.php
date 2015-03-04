@@ -182,7 +182,7 @@ function sfsi_activate_plugin()
 		$display_button_type = '';
 	}
 	$options8=array(
-		'show_via_widget'=>'no',
+		'show_via_widget'=>'yes',
         'float_on_page'=> $option5['sfsi_icons_float'],
         'float_page_position'=>$option5['sfsi_icons_floatPosition'],
         'sfsi_post_icons_size'=>$option5['sfsi_icons_size'],
