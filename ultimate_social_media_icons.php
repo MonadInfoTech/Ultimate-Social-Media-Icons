@@ -72,8 +72,10 @@ add_action('wp_head', 'ultimatefbmetatags');
 function ultimatefbmetatags()
 {
    $post_id = get_the_ID();
+   $post = get_post( $post_id );
    $attachment_id = get_post_thumbnail_id($post_id);
-   $description = get_the_content($post_id);
+   $description = $post->post_content;
+   $description = do_shortcode($description);
    $title = get_the_title($post_id);
    $url = get_permalink($post_id);
    echo ' <meta name="viewport" content="width=device-width, initial-scale=1">';
@@ -136,6 +138,7 @@ function ultimatefbmetatags()
 add_filter( 'the_content', 'show_sfsi_beforaftereposts' );
 function show_sfsi_beforaftereposts( $content )
 {
+	$org_content = $content;
 	if( is_single() )
 	{
 		$icons_before = '';
@@ -179,7 +182,7 @@ function show_sfsi_beforaftereposts( $content )
 			$icons_after .= '</div>';
 		}
 	}
-	$content = $icons_before.'</br>'.$content.'</br>'.$icons_after;
+	$content = $icons_before.'</br>'.$org_content.'</br>'.$icons_after;
 	return $content;
 }
 

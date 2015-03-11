@@ -3072,7 +3072,7 @@ h1.abt_titl {
     text-align: center;
     margin: 19% 0 0;
 }
-.sfcm.sfsi_wicon { padding: 0; width: 100%;}
+.sfcm.sfsi_wicon { padding: 0; width: 100%; border: medium none;}
 .fb_iframe_widget span {
     vertical-align: top!important;
 }
