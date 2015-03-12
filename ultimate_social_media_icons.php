@@ -149,16 +149,26 @@ function show_sfsi_beforaftereposts( $content )
 		$display_button_type = $option8['display_button_type'];
 		$txt=(isset($option8['sfsi_textBefor_icons']))? $option8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
 		$float = $option8['sfsi_icons_alignment'];
+		if($float == "center")
+		{
+			$style_parent= 'text-align: center;';
+			$style = 'float:none; display: inline-block;';
+		}
+		else
+		{
+			$style_parent= '';
+			$style = 'float:'.$float;
+		}
 		if($option8['display_before_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
 		{
-			$icons_before .= '<div class="sfsiaftrpstwpr">';
+			$icons_before .= '<div class="sfsiaftrpstwpr" style="'.$style_parent.'">';
 				if($display_button_type == 'standard_buttons')
 				{
 					$icons_before .= sfsi_social_buttons_below($content = null);
 				}
 				else
 				{
-					$icons_before .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+					$icons_before .= "<div class='sfsi_Sicons' style='".$style."'>";
 						$icons_before .= "<div style='float:left;margin:0 0px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
 						$icons_before .= sfsi_check_posts_visiblity(0);
 					$icons_before .= "</div>";
@@ -167,14 +177,14 @@ function show_sfsi_beforaftereposts( $content )
 		}
 		if($option8['display_after_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
 		{
-			$icons_after .= '<div class="sfsiaftrpstwpr">';
+			$icons_after .= '<div class="sfsiaftrpstwpr"  style="'.$style_parent.'">';
 				if($display_button_type == 'standard_buttons')
 				{
 					$icons_after .= sfsi_social_buttons_below($content = null);
 				}
 				else
 				{
-					$icons_after .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+					$icons_after .= "<div class='sfsi_Sicons' style='".$style."'>";
 						$icons_after .= "<div style='float:left;margin:0 0px; line-height:".$lineheight."px'><span>".$txt."</span></div>";
 						$icons_after .= sfsi_check_posts_visiblity(0);
 					$icons_after .= "</div>";
@@ -197,28 +207,40 @@ function show_sfsi_beforeafterblogposts( $content )
 		$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
 		$lineheight = $sfsi_section8['sfsi_post_icons_size'];
 		$lineheight = getlineheighticons($lineheight);
+		
+		global $id, $post;
+		$display_button_type = $sfsi_section8['display_button_type'];
+		$show_item_onposts = $sfsi_section8['show_item_onposts'];
+		$permalink = get_permalink($post->ID);
+		$post_title = $post->post_title;
+		$sfsiLikeWith="45px;";
+		if($sfsi_section8['sfsi_icons_DisplayCounts']=="yes")
+		{
+			$show_count=1;
+			$sfsiLikeWith="75px;";
+		}   
+		else
+		{
+			$show_count=0;
+		} 
+		$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
+		$float = $sfsi_section8['sfsi_icons_alignment'];
+		if($float == "center")
+		{
+			$style_parent= 'text-align: center;';
+			$style = 'float:none; display: inline-block;';
+		}
+		else
+		{
+			$style_parent= '';
+			$style = 'float:'.$float;
+		}
+		
 		if($sfsi_section8['display_before_blogposts'] == "yes" && $sfsi_section8['show_item_onposts'] == "yes")
 		{
-			global $id, $post;
-			$display_button_type = $sfsi_section8['display_button_type'];
-			$show_item_onposts = $sfsi_section8['show_item_onposts'];
-			$permalink = get_permalink($post->ID);
-			$post_title = $post->post_title;
-        	$sfsiLikeWith="45px;";
-			if($sfsi_section8['sfsi_icons_DisplayCounts']=="yes")
-			{
-				$show_count=1;
-				$sfsiLikeWith="75px;";
-			}   
-			else
-			{
-				$show_count=0;
-			} 
-			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
-			$float = $sfsi_section8['sfsi_icons_alignment'];
 			//icon selection
-			$icons_before .= "<div class='sfsibeforpstwpr'>";
-				$icons_before .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+			$icons_before .= "<div class='sfsibeforpstwpr' style='".$style_parent."'>";
+				$icons_before .= "<div class='sfsi_Sicons' style='".$style."'>";
 					
 					if($display_button_type == 'standard_buttons')
 					{
@@ -246,26 +268,9 @@ function show_sfsi_beforeafterblogposts( $content )
 		}
 		if($sfsi_section8['display_after_blogposts'] == "yes" && $sfsi_section8['show_item_onposts'] == "yes")
 		{
-			global $post;
-         	$show_item_onposts = $sfsi_section8['show_item_onposts'];
-			$display_button_type = $sfsi_section8['display_button_type'];
-			$permalink = get_permalink($post->ID);
-			$post_title = $post->post_title;
-        	$sfsiLikeWith="45px;";
-			if($sfsi_section8['sfsi_icons_DisplayCounts']=="yes")
-			{
-				$show_count=1;
-				$sfsiLikeWith="75px;";
-			}   
-			else
-			{
-				$show_count=0;
-			} 
-			$txt=(isset($sfsi_section8['sfsi_textBefor_icons']))? $sfsi_section8['sfsi_textBefor_icons'] : "Please follow and like us:" ;
-			$float= $sfsi_section8['sfsi_icons_alignment'];
 			//icon selection
-			$icons_after .= "<div class='sfsiaftrpstwpr'>";
-				$icons_after .= "<div class='sfsi_Sicons' style='float:".$float."'>";
+			$icons_after .= "<div class='sfsiaftrpstwpr' style='".$style_parent."'>";
+				$icons_after .= "<div class='sfsi_Sicons' style='".$style."'>";
 					
 					if($display_button_type == 'standard_buttons')
 					{
