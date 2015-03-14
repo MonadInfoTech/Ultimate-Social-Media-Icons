@@ -24,46 +24,52 @@ function sfsiplugin_back_enqueue_script()
 		
 		//wp_register_script('SFSIJquery', 'http://code.jquery.com/jquery-1.9.1.js', array('jquery'));
    		//wp_enqueue_script("SFSIJquery");
-		wp_enqueue_script('jquery');
-	 
-		wp_register_script('SFSIMigrate',  SFSI_PLUGURL . 'js/jquery-migrate-1.1.0.min.js', '', '', true);
-		wp_enqueue_script("SFSIMigrate");
-		
-		wp_enqueue_script('media-upload');
-		wp_enqueue_script('thickbox'); 
-		
-		wp_register_script('SFSIjquery.ui.min', SFSI_PLUGURL . 'js/jquery-ui-min.js', '', '', true);
-		wp_enqueue_script("SFSIjquery.ui.min");	
-		
-		
-		wp_register_script('SFSIJqueryFRM', SFSI_PLUGURL . 'js/jquery.form-min.js', '', '', true);
-		wp_enqueue_script("SFSIJqueryFRM");
-		
-		wp_register_script('SFSIJqueryColorPicker', SFSI_PLUGURL . 'js/color-picker/colorpicker-min.js', '', '', true);
-		wp_enqueue_script("SFSIJqueryColorPicker");
-		
-		wp_register_script('SFSIJqueryEye', SFSI_PLUGURL . 'js/color-picker/eye-min.js', '', '', true);
-		//wp_enqueue_script("SFSIJqueryEye");
-		
-		wp_register_script('SFSIJqueryLayout', SFSI_PLUGURL . 'js/color-picker/layout-min.js', '', '', true);
-		//wp_enqueue_script("SFSIJqueryLayout");
-		
-		wp_register_script('SFSIJqueryutils', SFSI_PLUGURL . 'js/color-picker/utils-min.js', '', '', true);
-		//wp_enqueue_script("SFSIJqueryutils");
-		
-		wp_register_script('SFSICustomFormJs', SFSI_PLUGURL . 'js/custom-form-min.js', '', '', true);
-		wp_enqueue_script("SFSICustomFormJs");
-		
-		wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom-admin.js', '', '', true);
-		wp_enqueue_script("SFSICustomJs");
-		
-		wp_register_script('SFSICustomValidateJs', SFSI_PLUGURL . 'js/customValidate-min.js', '', '', true);
-		wp_enqueue_script("SFSICustomValidateJs");
-		/* end cusotm js */
-		
-		/* initilaize the ajax url in javascript */
-		wp_localize_script( 'SFSICustomJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-		wp_localize_script( 'SFSICustomValidateJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
+		if(isset($_GET['page']))
+		{
+			if($_GET['page'] == 'sfsi-options')
+			{
+				wp_enqueue_script('jquery');
+			 
+				wp_register_script('SFSIMigrate',  SFSI_PLUGURL . 'js/jquery-migrate-1.1.0.min.js', '', '', true);
+				wp_enqueue_script("SFSIMigrate");
+				
+				wp_enqueue_script('media-upload');
+				wp_enqueue_script('thickbox'); 
+				
+				wp_register_script('SFSIjquery.ui.min', SFSI_PLUGURL . 'js/jquery-ui-min.js', '', '', true);
+				wp_enqueue_script("SFSIjquery.ui.min");	
+				
+				
+				wp_register_script('SFSIJqueryFRM', SFSI_PLUGURL . 'js/jquery.form-min.js', '', '', true);
+				wp_enqueue_script("SFSIJqueryFRM");
+				
+				wp_register_script('SFSIJqueryColorPicker', SFSI_PLUGURL . 'js/color-picker/colorpicker-min.js', '', '', true);
+				wp_enqueue_script("SFSIJqueryColorPicker");
+				
+				wp_register_script('SFSIJqueryEye', SFSI_PLUGURL . 'js/color-picker/eye-min.js', '', '', true);
+				//wp_enqueue_script("SFSIJqueryEye");
+				
+				wp_register_script('SFSIJqueryLayout', SFSI_PLUGURL . 'js/color-picker/layout-min.js', '', '', true);
+				//wp_enqueue_script("SFSIJqueryLayout");
+				
+				wp_register_script('SFSIJqueryutils', SFSI_PLUGURL . 'js/color-picker/utils-min.js', '', '', true);
+				//wp_enqueue_script("SFSIJqueryutils");
+				
+				wp_register_script('SFSICustomFormJs', SFSI_PLUGURL . 'js/custom-form-min.js', '', '', true);
+				wp_enqueue_script("SFSICustomFormJs");
+				
+				wp_register_script('SFSICustomJs', SFSI_PLUGURL . 'js/custom-admin.js', '', '', true);
+				wp_enqueue_script("SFSICustomJs");
+				
+				wp_register_script('SFSICustomValidateJs', SFSI_PLUGURL . 'js/customValidate-min.js', '', '', true);
+				wp_enqueue_script("SFSICustomValidateJs");
+				/* end cusotm js */
+				
+				/* initilaize the ajax url in javascript */
+				wp_localize_script( 'SFSICustomJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+				wp_localize_script( 'SFSICustomValidateJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
+			}
+		}
 }
 add_action( 'admin_enqueue_scripts', 'sfsiplugin_back_enqueue_script' );
 

@@ -75,7 +75,7 @@ function ultimatefbmetatags()
    $post = get_post( $post_id );
    $attachment_id = get_post_thumbnail_id($post_id);
    $description = $post->post_content;
-   $description = do_shortcode($description);
+   $description = string_sanitize($description);
    $title = get_the_title($post_id);
    $url = get_permalink($post_id);
    echo ' <meta name="viewport" content="width=device-width, initial-scale=1">';
@@ -341,5 +341,11 @@ function getlineheighticons($lineheight)
 	}
 	$lineheight = $lineheight+6;
 	return $lineheight;
+}
+
+//sanitizing values
+function string_sanitize($s) {
+    $result = preg_replace("/[^a-zA-Z0-9]+/", "", html_entity_decode($s, ENT_QUOTES));
+    return $result;
 }
 ?>

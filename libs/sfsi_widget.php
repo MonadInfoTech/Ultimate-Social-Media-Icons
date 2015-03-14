@@ -25,14 +25,14 @@ class Sfsi_Widget extends WP_Widget
 			global $is_floter;	      
 			echo $before_widget;
 			?>
-				<div class="sfsi_widget">   
+				<div class="sfsi_widget" data-position="widget">   
 					<div id='sfsi_wDiv'></div>
 						<?php /* Display the widget title */
 							if ( $title ) echo $before_title . $title . $after_title;
 								/* Link the main icons function */
 								 echo sfsi_check_visiblity(0);
 						  ?>
-					<div style="clear: both;"></div>
+                    <div style="clear: both;"></div>
 				</div>
 				<?php
 					if ( is_active_widget( false, false, $this->id_base, true ) ) { }
@@ -109,6 +109,16 @@ function sfsi_check_visiblity($isFloter=0)
     $position='position:absolute;';
     $position1='position:absolute;';
     $jquery='<script>';
+	
+	$jquery .= 'jQuery(".sfsi_widget").each(function( index ) {
+					if(jQuery(this).attr("data-position") == "widget")
+					{
+						var wdgt_hght = jQuery(this).children(".norm_row.sfsi_wDiv").height();
+						var title_hght = jQuery(this).children(".widget-title").height();
+						var totl_hght = parseInt( title_hght ) + parseInt( wdgt_hght );
+						jQuery(this).parent(".widget.sfsi").css("min-height", totl_hght+"px");
+					}
+				});';
     
 	/* check if icons shuffling is activated in admin or not */
     if($sfsi_section5['sfsi_icons_stick']=="yes")
@@ -262,6 +272,7 @@ function sfsi_check_visiblity($isFloter=0)
     $icons_float='';
 	if($sfsi_section8['float_on_page']=="yes" && $isFloter==1)
     {
+
 	  $icons_float='<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:'.$width.'px;text-align:'.$icons_alignment.';'.$position.'">';
 	  $icons_float.=$icons;
 	  $icons_float.="<input type='hidden' id='sfsi_floater_sec' value='".$sfsi_section8['float_page_position']."' />";

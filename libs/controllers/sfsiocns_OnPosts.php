@@ -105,8 +105,8 @@ function sfsi_Addthis_blogpost($show_count, $permalink, $post_title)
 { 
    $atiocn=' <script type="text/javascript">
 var addthis_config = {
-     url: '.$permalink.',
-   	 title: '.$post_title.'
+     url: "'.$permalink.'",
+   	 title: "'.$post_title.'"
 }
 </script>';
 if($show_count==1)
