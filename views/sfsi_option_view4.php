@@ -1,7 +1,7 @@
 <?php
   /* unserialize all saved option for  section 4 options */
-    $option4=  unserialize(get_option('sfsi_section4_options',false));
-    $option2=  unserialize(get_option('sfsi_section2_options',false));
+    $option4=  unserialize(get_option('sfsi_plus_section4_options',false));
+    $option2=  unserialize(get_option('sfsi_plus_section2_options',false));
     $counts=sfsi_getCounts(); /* fetch counts for admin sections */
     /* check for email icon display */
     $email_image="email.png";

@@ -1,6 +1,6 @@
 <?php
   /* unserialize all saved option for second section options */
-    $option3=  unserialize(get_option('sfsi_section3_options',false));
+    $option3=  unserialize(get_option('sfsi_plus_section3_options',false));
    
 ?>
 <!-- Section 3 "What design & animation do you want to give your icons?" main div Start -->

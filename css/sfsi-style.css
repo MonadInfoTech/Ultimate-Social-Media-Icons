@@ -3701,3 +3701,4 @@ label.toglpstpgsbttl { float: left; margin-top: 5px !important}
 	font-weight: bold;
 }
 .sfsibeforpstwpr iframe, .sfsiaftrpstwpr iframe{max-width: none;}
+.sfwp_fivestar_ul li { display: inline-block; padding-right: 20px; }

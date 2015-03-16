@@ -17,7 +17,7 @@
 	<p>This plugin is 100% FREE and will fulfill all your subscription/sharing/liking needs!</p>
 	<p>Get started by clicking on the first question below. Once done, go to the <a href="<?php //echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
     <p> If you have any questions, <a  href="mailto:support@ultimatelysocial.com" title="support@ultimatelysocial.com" alt="support@ultimatelysocial.com" class="lit_txt">let us know</a>, we‘ll help you out!</p>-->
-    <h1>Welcome to the Ultimate Floating Button & Share Plugin!</h1>
+    <h1>Welcome to the Ultimate Social Media Icons PLUS plugin!</h1>
 	<p>This plugin is 100% FREE and will fulfill all your subscription/sharing/liking needs!</p>
 	<p>Simply answer the questions below (at least the first 3) by clicking on them - that's it!</p>
     <p> If you have any questions, <a  href="mailto:support@ultimatelysocial.com" title="support@ultimatelysocial.com" alt="support@ultimatelysocial.com" class="lit_txt">let us know</a>, we‘ll help you out!</p>
@@ -78,7 +78,7 @@
 	 </div>
          <p class="red_txt errorMsg" style="display:none"> </p>
          <p class="green_txt sucMsg" style="display:none"> </p>
-	 <p style="margin-top: 30px;">This plugin is 100% free. Please do us a BIG favor and give us a 5 star rating <a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new">here</a>. If you're not happy, please <a href="mailto:support@ultimatelysocial.com">get in touch with us</a>, so that we can sort it out.Thank you!</p>
+	 <!--<p style="margin-top: 30px;">This plugin is 100% free. Please do us a BIG favor and give us a 5 star rating <a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new">here</a>. If you're not happy, please <a href="mailto:support@ultimatelysocial.com">get in touch with us</a>, so that we can sort it out.Thank you!</p>-->
           
     </div>
  <!-- all pops of plugin under sfsi_pop_content.php file --> 

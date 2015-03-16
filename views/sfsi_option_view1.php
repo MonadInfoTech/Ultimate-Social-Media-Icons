@@ -1,6 +1,6 @@
 <?php
      /* unserialize all saved option for first options */
-    $option1=  unserialize(get_option('sfsi_section1_options',false));
+    $option1=  unserialize(get_option('sfsi_plus_section1_options',false));
 ?>
 <!-- Section 1 "Which icons do you want to show on your site? " main div Start -->
 <div class="tab1" >
@@ -24,7 +24,7 @@
         <span class="sfsicls_email">Email</span> 
         <div class="right_info">
         <p><span>"Mandatory":</span> Email is the most effective tool to build up a followership.
-	    <span style="float: right;margin-right: 13px; margin-top: -3px;"><?php if(get_option('sfsi_footer_sec')=="yes") { ?> <a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" >Remove credit link</a> <?php } ?></span>
+	    <span style="float: right;margin-right: 13px; margin-top: -3px;"><?php if(get_option('sfsi_plus_footer_sec')=="yes") { ?> <a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" >Remove credit link</a> <?php } ?></span>
             <label class="expanded-area" >Everybody uses email – that’s why it’s <a href="http://www.entrepreneur.com/article/230949" target="_new">much more effective than social media </a> to make people follow you. Not offering an email subscription option means losing out on future traffic to your site.</label>
         </p>
          <a href="javascript:;" class="expand-area" >Read more</a>	 

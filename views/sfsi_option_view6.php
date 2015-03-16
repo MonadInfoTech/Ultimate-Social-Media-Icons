@@ -1,6 +1,6 @@
 <?php
 /* unserialize all saved option for  section 6 options */
-    $option6=  unserialize(get_option('sfsi_section6_options',false));
+    $option6=  unserialize(get_option('sfsi_plus_section6_options',false));
    
 ?>
 <!-- Section 6 "Do you want to display icons at the end of every post?" main div Start -->

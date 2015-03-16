@@ -3,12 +3,12 @@
 
 function sfsi_social_buttons_below($content) {
 	global $post;
-         $sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
+         $sfsi_section6=  unserialize(get_option('sfsi_plus_section6_options',false));
 		 
 		 //new options that are added on the third questions
 		 //so in this function we are replacing all the past options 
 		 //that were saved under option6 by new settings saved under option8 
-		 $sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+		 $sfsi_section8=  unserialize(get_option('sfsi_plus_section8_options',false));
 		 $show_item_onposts = $sfsi_section8['show_item_onposts'];
 		 //new options that are added on the third questions
         
@@ -125,8 +125,8 @@ if($show_count==1)
 	
 /* add all external javascript to wp_footer */        
  function sfsi_footer_script() {
-	  $sfsi_section1=  unserialize(get_option('sfsi_section1_options',false));
-	  $sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
+	  $sfsi_section1=  unserialize(get_option('sfsi_plus_section1_options',false));
+	  $sfsi_section6=  unserialize(get_option('sfsi_plus_section6_options',false));
 	if($sfsi_section1['sfsi_facebook_display']=="yes")
 	{
 	?>
@@ -182,7 +182,7 @@ if($show_count==1)
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 	<?php }
 	/* activate footer credit link */
-        if(get_option('sfsi_footer_sec')=="yes")
+        if(get_option('sfsi_plus_footer_sec')=="yes")
         {
 	    if(!is_admin())
 	    {

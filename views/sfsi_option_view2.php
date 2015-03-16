@@ -1,7 +1,7 @@
 <?php
   /* unserialize all saved option for second section options */
-	$option4=  unserialize(get_option('sfsi_section4_options',false));
-    $option2=  unserialize(get_option('sfsi_section2_options',false));
+	$option4=  unserialize(get_option('sfsi_plus_section4_options',false));
+    $option2=  unserialize(get_option('sfsi_plus_section2_options',false));
   
 ?>
 <!-- Section 2 "What do you want the icons to do?" main div Start -->
@@ -18,7 +18,7 @@
     </div><!-- END RSS ICON -->
     
     <!-- EMAIL ICON -->
-    <?php $feedId=get_option('sfsi_feed_id',false);?>
+    <?php $feedId=get_option('sfsi_plus_feed_id',false);?>
     <div class="row email_section">
         <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">

@@ -260,7 +260,7 @@ public function sfsi_Googlelike($permalink)
 	} 
  /* create on page youtube subscribe icon */       
  public function sfsi_YouTubeSub($yuser) {
-	 	$option4=  unserialize(get_option('sfsi_section4_options',false));
+	 	$option4=  unserialize(get_option('sfsi_plus_section4_options',false));
 		if($option4['sfsi_youtubeusernameorid'] == 'name')
 		{
 			$yuser = $option4['sfsi_youtube_user'];

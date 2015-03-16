@@ -263,7 +263,7 @@ function sfsi_UploadIcons()
 		
 		$ImageName = preg_replace("/\\.[^.\\s]{3,4}$/", "", $iconName);
 		
-		$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;        
+		$sec_options= (get_option('sfsi_plus_section1_options',false)) ? unserialize(get_option('sfsi_plus_section1_options',false)) : '' ;        
 		$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
 		if(empty($icons))
 		{   
@@ -283,13 +283,13 @@ function sfsi_UploadIcons()
 		{
 			 	//update database information 
 				$AccressImagePath=$AcceessUrl.$NewIconName;                                        
-				$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;
+				$sec_options= (get_option('sfsi_plus_section1_options',false)) ? unserialize(get_option('sfsi_plus_section1_options',false)) : '' ;
 				$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
 				$icons[] = $AccressImagePath;
 				
 				$sec_options['sfsi_custom_files'] = serialize($icons);
 				$total_uploads = count($icons); end($icons); $key = key($icons);
-				update_option('sfsi_section1_options',serialize($sec_options));
+				update_option('sfsi_plus_section1_options',serialize($sec_options));
 				die(json_encode(array('res'=>'success','img_path'=>$AccressImagePath,'element'=>$total_uploads,'key'=>$key)));
 	   }
 	   else
@@ -308,8 +308,8 @@ function sfsi_deleteIcons()
    {
        /* get icons details to delete it from plugin folder */ 
        $custom_icon=explode('_',$_POST['icon_name']);  
-       $sec_options1= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : array() ;
-       $sec_options2= (get_option('sfsi_section2_options',false)) ? unserialize(get_option('sfsi_section2_options',false)) : array() ;
+       $sec_options1= (get_option('sfsi_plus_section1_options',false)) ? unserialize(get_option('sfsi_plus_section1_options',false)) : array() ;
+       $sec_options2= (get_option('sfsi_plus_section2_options',false)) ? unserialize(get_option('sfsi_plus_section2_options',false)) : array() ;
        $up_icons= (is_array(unserialize($sec_options1['sfsi_custom_files']))) ? unserialize($sec_options1['sfsi_custom_files']) : array();
        $icons_links= (is_array(unserialize($sec_options2['sfsi_CustomIcon_links']))) ? unserialize($sec_options2['sfsi_CustomIcon_links']) : array();
        $icon_path=$up_icons[$custom_icon[1]];  
@@ -343,8 +343,8 @@ function sfsi_deleteIcons()
          $key=(key($up_icons))? key($up_icons) :$custom_icon[1] ;
          $total_uploads=count($up_icons);
          
-        update_option('sfsi_section1_options',serialize($sec_options1));
-        update_option('sfsi_section2_options',serialize($sec_options2));
+        update_option('sfsi_plus_section1_options',serialize($sec_options1));
+        update_option('sfsi_plus_section2_options',serialize($sec_options2));
           
        die(json_encode(array('res'=>'success','last_index'=>$key,'total_up'=>$total_uploads)));
    }

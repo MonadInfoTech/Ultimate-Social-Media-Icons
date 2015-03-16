@@ -16,7 +16,7 @@ function sfsi_activate_plugin()
           'sfsi_youtube_display'=>'no',  
           'sfsi_custom_display'=>'',
           'sfsi_custom_files'=>'');
-	add_option('sfsi_section1_options',  serialize($options1));
+	add_option('sfsi_plus_section1_options',  serialize($options1));
     $sffeeds=SFSI_getFeedUrl();
     /* Links and icons  options */	 
     $options2=array('sfsi_rss_url'=>get_bloginfo('rss2_url'),
@@ -53,7 +53,7 @@ function sfsi_activate_plugin()
         'sfsi_linkedin_recommendCompany'=>'',
         'sfsi_linkedin_recommendProductId'=>'',
         'sfsi_CustomIcon_links'=>'');
-	add_option('sfsi_section2_options',  serialize($options2));
+	add_option('sfsi_plus_section2_options',  serialize($options2));
     /* Design and animation option  */
 	$options3=array('sfsi_mouseOver'=>'yes',
         'sfsi_mouseOver_effect'=>'fade_in',
@@ -62,7 +62,7 @@ function sfsi_activate_plugin()
         'sfsi_shuffle_interval'=>'no',
         'sfsi_shuffle_intervalTime'=>'',                              
         'sfsi_actvite_theme'=>'default');
-	add_option('sfsi_section3_options',  serialize($options3));
+	add_option('sfsi_plus_section3_options',  serialize($options3));
 	/* display counts options */         
     $options4=array('sfsi_display_counts'=>'no',
         'sfsi_email_countsDisplay'=>'no',
@@ -106,7 +106,7 @@ function sfsi_activate_plugin()
         'sfsi_shares_countsDisplay'=>'no',
         'sfsi_shares_countsFrom'=>'manual',
         'sfsi_shares_manualCounts'=>'20');
-	add_option('sfsi_section4_options',  serialize($options4));
+	add_option('sfsi_plus_section4_options',  serialize($options4));
   
     $options5=array('sfsi_icons_size'=>'40',
         'sfsi_icons_spacing'=>'5',
@@ -139,7 +139,7 @@ function sfsi_activate_plugin()
         'sfsi_youtube_MouseOverText'=>'YouTube',
         'sfsi_share_MouseOverText'=>'Share',
         'sfsi_custom_MouseOverTexts'=>'');
-	add_option('sfsi_section5_options',  serialize($options5));
+	add_option('sfsi_plus_section5_options',  serialize($options5));
     /* post options */	                
     $options6=array('sfsi_show_Onposts'=>'no',
         'sfsi_show_Onbottom'=>'no',
@@ -148,7 +148,7 @@ function sfsi_activate_plugin()
         'sfsi_rss_countsDisplay'=>'no',
         'sfsi_textBefor_icons'=>'Please follow and like us:',
         'sfsi_icons_DisplayCounts'=>'no');
-	add_option('sfsi_section6_options',  serialize($options6));       
+	add_option('sfsi_plus_section6_options',  serialize($options6));       
     /* icons pop options */
     $options7=array('sfsi_show_popup'=>'no',
         'sfsi_popup_text'=>'Enjoy this blog? Please spread the word :)',
@@ -165,14 +165,14 @@ function sfsi_activate_plugin()
         'sfsi_Shown_pop'=>'ETscroll',
         'sfsi_Shown_popupOnceTime'=>'',
         'sfsi_Shown_popuplimitPerUserTime'=>'');
-	add_option('sfsi_section7_options',  serialize($options7));
+	add_option('sfsi_plus_section7_options',  serialize($options7));
 	/*options that are added in the third question*/
-	if(get_option('sfsi_section4_options',false))
-		$option4=  unserialize(get_option('sfsi_section4_options',false));
-	if(get_option('sfsi_section5_options',false))	
-		$option5=  unserialize(get_option('sfsi_section5_options',false));
-	if(get_option('sfsi_section6_options',false))	
-		$option6=  unserialize(get_option('sfsi_section6_options',false));
+	if(get_option('sfsi_plus_section4_options',false))
+		$option4=  unserialize(get_option('sfsi_plus_section4_options',false));
+	if(get_option('sfsi_plus_section5_options',false))	
+		$option5=  unserialize(get_option('sfsi_plus_section5_options',false));
+	if(get_option('sfsi_plus_section6_options',false))	
+		$option6=  unserialize(get_option('sfsi_plus_section6_options',false));
 	if($option6['sfsi_show_Onposts'] == 'yes')
 	{
 		$display_button_type = 'standard_buttons';
@@ -201,17 +201,17 @@ function sfsi_activate_plugin()
 		'display_on_homepage'=>'no',
 		'display_before_blogposts'=>'no',
 		'display_after_blogposts'=>'no');
-	add_option('sfsi_section8_options',  serialize($options8));		
+	add_option('sfsi_plus_section8_options',  serialize($options8));		
 		
-	update_option('sfsi_feed_id',$sffeeds->feed_id);
-	add_option('sfsi_installDate',date('Y-m-d h:i:s'));
-	add_option('sfsi_RatingDiv','no');
-	add_option('sfsi_footer_sec','no');
-	update_option('sfsi_activate', 1);
+	update_option('sfsi_plus_feed_id',$sffeeds->feed_id);
+	add_option('sfsi_plus_installDate',date('Y-m-d h:i:s'));
+	add_option('sfsi_plus_RatingDiv','no');
+	add_option('sfsi_plus_footer_sec','no');
+	update_option('sfsi_plus_activate', 1);
 	
-	$get_option2 = unserialize(get_option('sfsi_section2_options',falase));
+	$get_option2 = unserialize(get_option('sfsi_plus_section2_options',falase));
 	$get_option2['sfsi_email_url'] = $sffeeds->redirect_url;
-	update_option('sfsi_section2_options', serialize($get_option2));
+	update_option('sfsi_plus_section2_options', serialize($get_option2));
 	sfsi_setUpfeeds($sffeeds->feed_id);
 	sfsi_updateFeedPing('N',$sffeeds->feed_id);
 }
@@ -220,7 +220,7 @@ function sfsi_activate_plugin()
 function sfsi_deactivate_plugin()
 {
      global $wpdb;
-     sfsi_updateFeedPing('Y',get_option('sfsi_feed_id'));
+     sfsi_updateFeedPing('Y',get_option('sfsi_plus_feed_id'));
      
 } /* end function  */
 function sfsi_updateFeedPing($status,$feed_id)
@@ -247,17 +247,17 @@ function sfsi_updateFeedPing($status,$feed_id)
 function sfsi_Unistall_plugin()
 {   global $wpdb;
     /* Delete option for which icons to display */
-    delete_option('sfsi_section1_options');
-    delete_option('sfsi_section2_options');
-    delete_option('sfsi_section3_options');
-    delete_option('sfsi_section4_options');
-    delete_option('sfsi_section5_options');
-    delete_option('sfsi_section6_options');
-    delete_option('sfsi_section7_options');
-	delete_option('sfsi_section8_options');
-    delete_option('sfsi_feed_id');
-    delete_option('sfsi_footer_sec');
-    delete_option('sfsi_activate');
+    delete_option('sfsi_plus_section1_options');
+    delete_option('sfsi_plus_section2_options');
+    delete_option('sfsi_plus_section3_options');
+    delete_option('sfsi_plus_section4_options');
+    delete_option('sfsi_plus_section5_options');
+    delete_option('sfsi_plus_section6_options');
+    delete_option('sfsi_plus_section7_options');
+	delete_option('sfsi_plus_section8_options');
+    delete_option('sfsi_plus_feed_id');
+    delete_option('sfsi_plus_footer_sec');
+    delete_option('sfsi_plus_activate');
     
 } /* end function */
 /* check CUrl */
@@ -269,7 +269,7 @@ function curl_enable_notice(){
 	
 /* add admin menus */
 function sfsi_admin_menu() {
-add_menu_page('Ultimate Social Media Icons', 'Ultimate Social Media Icons', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
+add_menu_page('Ultimate Social Media PLUS', 'Ultimate Social Media PLUS', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
 //add_submenu_page('sfsi-options', 'Subscription Options', 'Settings','administrator', 'sfsi-options', 'sfsi_options_page');
 //add_submenu_page('sfsi-options', 'Specific About Us', 'About','administrator', 'sfsi-about', 'sfsi_about_page');
 }
@@ -373,12 +373,12 @@ function sfsi_activation_msg()
 {
       global $wp_version;
      
-    if(get_option('sfsi_activate',false)==1)
+    if(get_option('sfsi_plus_activate',false)==1)
      {
-	echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Ultimate Social Media Icons</b> Plugin. Please go to the <a href=\"admin.php?page=sfsi-options\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfsi_activate',0);
+	echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Ultimate Social Media PLUS</b> Plugin. Please go to the <a href=\"admin.php?page=sfsi-options\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfsi_plus_activate',0);
      }
      $path=pathinfo($_SERVER['REQUEST_URI']);
-     update_option('sfsi_activate',0);		
+     update_option('sfsi_plus_activate',0);		
      if($wp_version<3.5 &&  $path['basename']=="admin.php?page=sfsi-options")
      {
 	echo "<div class=\"update-nag\" >" . "<p ><b>You're using an old Wordpress version, which may cause several of your plugins to not work correctly. Please upgrade</b></p></div>"; 
@@ -388,17 +388,17 @@ function sfsi_activation_msg()
 function sfsi_rating_msg()
 {
     global $wp_version;
-    $install_date = get_option('sfsi_installDate');
+    $install_date = get_option('sfsi_plus_installDate');
     $display_date = date('Y-m-d h:i:s');
 	$datetime1 = new DateTime($install_date);
 	$datetime2 = new DateTime($display_date);
 	$diff_inrval = round(($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
-    if($diff_inrval >= 30 && get_option('sfsi_RatingDiv')=="no")
+    if($diff_inrval >= 30 && get_option('sfsi_plus_RatingDiv')=="no")
     {
 	 echo '
 <div class="sfwp_fivestar">
-    	<p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. For using it 100% for free, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
-        <ul>
+    	<p>We noticed you\'ve been using the Ultimate Social Media PLUS Plugin for more than 30 days. For using it 100% for free, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
+        <ul class="sfwp_fivestar_ul">
         	<li><a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
             <li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
             <li><a href="javascript:void(0);" class="sfsiHideRating" title="No, not good enough">No, not good enough</a></li>
@@ -430,7 +430,7 @@ function sfsi_rating_msg()
 }
 add_action('wp_ajax_hideRating','sfsi_HideRatingDiv');
 function sfsi_HideRatingDiv(){
-    update_option('sfsi_RatingDiv','yes');
+    update_option('sfsi_plus_RatingDiv','yes');
     echo  json_encode(array("success")); exit;
 }
 /* add all admin message */
@@ -462,7 +462,7 @@ function sfsi_pingVendor( $post_id )
 			$count++;	
 		 }
 		$postto_array = array(
-					'feed_id'=>get_option('sfsi_feed_id'),
+					'feed_id'=>get_option('sfsi_plus_feed_id'),
 					'title'=>$post_data['post_title'],
 					'description'=>$post_data['post_content'],
 					'link'=>$post_data['guid'],

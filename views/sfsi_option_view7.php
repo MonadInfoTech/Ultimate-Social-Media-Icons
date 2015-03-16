@@ -1,6 +1,6 @@
 <?php
 /* unserialize all saved option for  section 7 options */
-    $option7=  unserialize(get_option('sfsi_section7_options',false));
+    $option7=  unserialize(get_option('sfsi_plus_section7_options',false));
    
 ?>
 <!-- Section 7 "Do you want to display a pop-up, asking people to subscribe?" main div Start -->

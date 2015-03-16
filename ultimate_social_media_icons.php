@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Ultimate Social Media Icons and Share Plugin (Facebook, Twitter, Google Plus, Instagram, Pinterest etc.)
+Plugin Name: Ultimate Social Media PLUS and Share Plugin (Facebook, Twitter, Google Plus, Instagram, Pinterest etc.)
 Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
@@ -34,13 +34,13 @@ register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
 //shortcode for the ultimate social icons {Monad}
-add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
-function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
+add_shortcode("DISPLAY_ULTIMATE_PLUS", "DISPLAY_ULTIMATE_PLUS");
+function DISPLAY_ULTIMATE_PLUS($args = null, $content = null)
 {
 	$instance = array("showf" => 1, "title" => '');
-	$sfsi_section8_options = get_option("sfsi_section8_options");
-	$sfsi_section8_options = unserialize($sfsi_section8_options);
-	$place_item_manually = $sfsi_section8_options['place_item_manually'];
+	$sfsi_plus_section8_options = get_option("sfsi_plus_section8_options");
+	$sfsi_plus_section8_options = unserialize($sfsi_plus_section8_options);
+	$place_item_manually = $sfsi_plus_section8_options['place_item_manually'];
 		
 	if($place_item_manually == "yes")
 	{
@@ -143,7 +143,7 @@ function show_sfsi_beforaftereposts( $content )
 	{
 		$icons_before = '';
 		$icons_after = '';
-		$option8=  unserialize(get_option('sfsi_section8_options',false));
+		$option8=  unserialize(get_option('sfsi_plus_section8_options',false));
 		$lineheight = $option8['sfsi_post_icons_size'];
 		$lineheight = getlineheighticons($lineheight);
 		$display_button_type = $option8['display_button_type'];
@@ -174,9 +174,11 @@ function show_sfsi_beforaftereposts( $content )
 					$icons_before .= "</div>";
 				}
 			$icons_before .= '</div>';
+			$icons_before .= '</br>';
 		}
 		if($option8['display_after_posts'] == "yes" && $option8['show_item_onposts'] == "yes")
 		{
+			$icons_after .= '</br>';
 			$icons_after .= '<div class="sfsiaftrpstwpr"  style="'.$style_parent.'">';
 				if($display_button_type == 'standard_buttons')
 				{
@@ -192,7 +194,7 @@ function show_sfsi_beforaftereposts( $content )
 			$icons_after .= '</div>';
 		}
 	}
-	$content = $icons_before.'</br>'.$org_content.'</br>'.$icons_after;
+	$content = $icons_before.$org_content.$icons_after;
 	return $content;
 }
 
@@ -204,7 +206,7 @@ function show_sfsi_beforeafterblogposts( $content )
 	{
 		$icons_before = '';
 		$icons_after = '';
-		$sfsi_section8=  unserialize(get_option('sfsi_section8_options',false));
+		$sfsi_section8=  unserialize(get_option('sfsi_plus_section8_options',false));
 		$lineheight = $sfsi_section8['sfsi_post_icons_size'];
 		$lineheight = getlineheighticons($lineheight);
 		
@@ -299,14 +301,14 @@ function show_sfsi_beforeafterblogposts( $content )
 add_action('admin_init', 'check_sfsfiupdatedoptions');
 function check_sfsfiupdatedoptions()
 {
-	$option4=  unserialize(get_option('sfsi_section4_options',false));
-	$option8=  unserialize(get_option('sfsi_section8_options',false));
-	$option5=  unserialize(get_option('sfsi_section5_options',false));
-	$option6=  unserialize(get_option('sfsi_section6_options',false));
+	$option4=  unserialize(get_option('sfsi_plus_section4_options',false));
+	$option8=  unserialize(get_option('sfsi_plus_section8_options',false));
+	$option5=  unserialize(get_option('sfsi_plus_section5_options',false));
+	$option6=  unserialize(get_option('sfsi_plus_section6_options',false));
 	if(!isset($option4['sfsi_youtubeusernameorid']) || $option4['sfsi_youtubeusernameorid'] == '')
 	{
 		$option4['sfsi_youtubeusernameorid']= 'name';
-    	update_option('sfsi_section4_options',serialize($option4));
+    	update_option('sfsi_plus_section4_options',serialize($option4));
 	}
 }
 
