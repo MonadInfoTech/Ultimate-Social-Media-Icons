@@ -1,8 +1,8 @@
 <?php
   /* unserialize all saved option for  section 4 options */
-    $option4=  unserialize(get_option('sfsi_plus_section4_options',false));
-    $option2=  unserialize(get_option('sfsi_plus_section2_options',false));
-    $counts=sfsi_getCounts(); /* fetch counts for admin sections */
+    $option4 =  unserialize(get_option('sfsi_section4_options',false));
+    $option2 =  unserialize(get_option('sfsi_section2_options',false));
+    $counts = sfsi_getCounts(); /* fetch counts for admin sections */
     /* check for email icon display */
     $email_image="email.png";
     if($option2['sfsi_rss_icons']=="sfsi")
@@ -14,7 +14,7 @@
 <!-- Section 4 "Do you want to display "counts" next to your icons?" main div Start -->
 <div class="tab4">
   <p>It’s a psychological fact that people like to follow other people (as explained well in Robert Cialdini’s book “<a href="http://www.amazon.com/Influence-Psychology-Persuasion-Revised-Edition/dp/006124189X" target="_blank" class="lit_txt">Influence</a>”), so when they see that your site has already a good number of Facebook likes, it’s more likely that they will subscribe/like/share your site than if it had 0. </p>
-  <p>Therefore, you can select to display the count next to your main icons, for your main icons, not those next to the posts which will look like this:</p>
+  <p>Therefore, you can select to display the count next to your main icons, which will look like this:</p>
 	<!-- sample icons --> 
 	<ul class="like_icon">
         <li class="rss_section"><a href="#" title="RSS"><img src="<?php echo SFSI_PLUGURL ?>images/rss.png" alt="RSS" /></a><span>12k</span></li>
@@ -249,7 +249,7 @@
     <div class="listing">
     	<ul>
             <li><input name="sfsi_shares_countsFrom" <?php echo ($option4['sfsi_shares_countsFrom']=='shares') ?  'checked="true"' : '' ;?>  type="radio" value="shares" class="styled" />Retrieve the number of shares</li>
-            <li><input name="sfsi_shares_countsFrom" <?php echo ($option4['sfsi_shares_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" /><label class="high_prb">Enter the figure manually</label><input name="sfsi_shares_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_pinterest_manualCounts']!='') ?  $option4['sfsi_pinterest_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_shares_countsFrom']=='shares') ?  'display:none;' : '' ;?>" /></li>
+            <li><input name="sfsi_shares_countsFrom" <?php echo ($option4['sfsi_shares_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" /><label class="high_prb">Enter the figure manually</label><input name="sfsi_shares_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_shares_manualCounts']!='') ?  $option4['sfsi_shares_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_shares_countsFrom']=='shares') ?  'display:none;' : '' ;?>" /></li>
         </ul>
     </div>    
   </div>  <!-- END ADDTHIS ICON COUNT SECTION-->

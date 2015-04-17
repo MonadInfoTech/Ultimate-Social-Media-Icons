@@ -1,6 +1,6 @@
 <?php
 /* unserialize all saved option for  section 7 options */
-    $option7=  unserialize(get_option('sfsi_plus_section7_options',false));
+    $option7=  unserialize(get_option('sfsi_section7_options',false));
    
 ?>
 <!-- Section 7 "Do you want to display a pop-up, asking people to subscribe?" main div Start -->
@@ -21,7 +21,7 @@
         <li class="pinterest_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/pinterest.png" alt="Pinterest" /><span class="sfsi_Cdisplay" id="sfsi_pinterest_countsDisplay">12k</span></div></li>
         <li class="linkedin_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/linked_in.png" alt="Linked In" /><span class="sfsi_Cdisplay" id="sfsi_linkedIn_countsDisplay">12k</span></div></li>
 	<li class="instagram_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/instagram.png" alt="Instagram" /><span class="sfsi_Cdisplay" id="sfsi_instagram_countsDisplay">12k</span></div></li>
-	<?php
+    <?php
 		if(isset($icons) && !empty($icons))
 		{
 			foreach($icons as $icn =>$img)
@@ -64,7 +64,7 @@
                         </div>
 		</div>
 		<div class="row_tab">
-			<label>Font style:</label>
+        	<label>Font style:</label>
 			<div class="field">
                             <select name="sfsi_popup_fontStyle" id="sfsi_popup_fontStyle" class="styled">
                                 <option value="normal" <?php echo ($option7['sfsi_popup_fontStyle']=='normal') ?  'selected="true"' : '' ;?>>Normal</option>
@@ -107,7 +107,7 @@
 		</div>
 		<div class="row_tab">
 			<label>Border<br />
-			Thinckness:</label>
+			Thickness:</label>
 			<div class="field"><input name="sfsi_popup_border_thickness" type="text" value="<?php echo ($option7['sfsi_popup_border_thickness']!='') ?  $option7['sfsi_popup_border_thickness'] : '' ;?>" class="small" />
 			</div>
 		</div>

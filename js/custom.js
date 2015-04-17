@@ -31,7 +31,7 @@ function sfsi_make_popBox() {
 }
 
 function sfsi_stick_widget(s) {
-    0 == initTop.length && (SFSI(".sfsi_widget").each(function(s) {
+	0 == initTop.length && (SFSI(".sfsi_widget").each(function(s) {
         initTop[s] = SFSI(this).position().top;
     }), console.log(initTop));
     var i = SFSI(window).scrollTop(), e = [], t = [];
@@ -100,7 +100,7 @@ function sfsi_float_widget(s) {
 	{
 		var t = parseInt(s);
 	}
-    var n = 50, o = .1, a = 0, r = 0;
+	var n = 50, o = .1, a = 0, r = 0;
     SFSI("#sfsi_floater"), window.onscroll = e;
 }
 
@@ -249,7 +249,7 @@ SFSI(document).ready(function(s) {
             "z-index":10
         }), SFSI(this).parentsUntil("div").siblings("div.sfsi_tool_tip_2").show());
     }), SFSI("div.sfsi_wicons").on("mouseleave", function() {
-		SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && "fade_in" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && SFSI(this).children("div.inerCnt").find("a.sficn").css("opacity", "0.6"), 
+        SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && "fade_in" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && SFSI(this).children("div.inerCnt").find("a.sficn").css("opacity", "0.6"), 
         SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && "scale" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && SFSI(this).children("div.inerCnt").find("a.sficn").removeClass("scale"), 
         SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && "combo" == SFSI(this).children("div.inerCnt").children("a.sficn").attr("effect") && (SFSI(this).children("div.inerCnt").find("a.sficn").css("opacity", "0.6"), 
         SFSI(this).children("div.inerCnt").find("a.sficn").removeClass("scale")), "sfsiid_google" == SFSI(this).children("div.inerCnt").find("a.sficn").attr("id") ? SFSI("body").on("click", function() {

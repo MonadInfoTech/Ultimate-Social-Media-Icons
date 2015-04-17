@@ -1,11 +1,13 @@
 <?php
 /* unserialize all saved option for  section 5 options */
-     
+ 
+  //$icons =  unserialize(get_option('sfsi_section1_options'));
+  //$icons =  unserialize($icons['sfsi_custom_files']);	 
   $icons = ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
-   $option3=  unserialize(get_option('sfsi_plus_section3_options',false));
-  $option5 =  unserialize(get_option('sfsi_plus_section5_options',false));
-  $custom_icons_order = unserialize($option5['sfsi_CustomIcons_order']);
-  $icons_order = array($option5['sfsi_rssIcon_order']=>'rss',
+  $option3=  unserialize(get_option('sfsi_section3_options',false));
+  $option5=  unserialize(get_option('sfsi_section5_options',false));
+  $custom_icons_order=unserialize($option5['sfsi_CustomIcons_order']);
+  $icons_order=array($option5['sfsi_rssIcon_order']=>'rss',
                      $option5['sfsi_emailIcon_order']=>'email',
                      $option5['sfsi_facebookIcon_order']=>'facebook',
                      $option5['sfsi_googleIcon_order']=>'google',
@@ -14,7 +16,9 @@
                      $option5['sfsi_youtubeIcon_order']=>'youtube',
                      $option5['sfsi_pinterestIcon_order']=>'pinterest',
                      $option5['sfsi_linkedinIcon_order']=>'linkedin',
-		     		 $option5['sfsi_instagramIcon_order']=>'instagram') ;
+		     $option5['sfsi_instagramIcon_order']=>'instagram'
+                    ) ;
+  
   if(is_array($custom_icons_order) ) 
   {
 	  foreach($custom_icons_order as $data)
@@ -30,7 +34,7 @@
 	<h4>Order of your icons</h4>
     <!-- icon drag drop  section start here -->	
     <ul class="share_icon_order" >
-     <?php 
+            <?php 
 	 	$ctn = 0;
 	 	foreach($icons_order as $index=>$icn) :
           
@@ -52,49 +56,40 @@
                 	<a href="#" title="Facebook"><img src="<?php echo SFSI_PLUGURL; ?>images/facebook.png" alt="Facebook" /></a>
                 </li>
           <?php break; ?>
-          
           <?php case 'google' :?>
           		<li class="google_section " data-index="<?php echo $index; ?>" id="sfsi_googleIcon_order">
                 	<a href="#" title="Google Plus" ><img src="<?php echo SFSI_PLUGURL; ?>images/google_plus.png" alt="Google Plus" /></a>
                 </li>
           <?php break; ?>
-          
           <?php case 'twitter' :?>
           		<li class="twitter_section " data-index="<?php echo $index; ?>" id="sfsi_twitterIcon_order">
                 	<a href="#" title="Twitter" ><img src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" alt="Twitter" /></a>
                 </li>
           <?php break; ?>
-          
           <?php case 'share' : ?>
           		<li class="share_section " data-index="<?php echo $index; ?>"  id="sfsi_shareIcon_order">
                 	<a href="#" title="Share" ><img src="<?php echo SFSI_PLUGURL; ?>images/share.png" alt="Share" /></a>
                 </li>
           <?php break; ?>
-          
           <?php case 'youtube' :?>
           		<li class="youtube_section " data-index="<?php echo $index; ?>" id="sfsi_youtubeIcon_order">
                 	<a href="#" title="YouTube" ><img src="<?php echo SFSI_PLUGURL; ?>images/youtube.png" alt="YouTube" /></a>
                 </li>
           <?php break; ?>
-          
           <?php case 'pinterest' :?>
           		<li class="pinterest_section " data-index="<?php echo $index; ?>" id="sfsi_pinterestIcon_order">
                 	<a href="#" title="Pinterest" ><img src="<?php echo SFSI_PLUGURL; ?>images/pinterest.png" alt="Pinterest" /></a>
                 </li>
-          <?php break; ?>
-          
           <?php case 'linkedin' :?>
           		<li class="linkedin_section " data-index="<?php echo $index; ?>" id="sfsi_linkedinIcon_order">
                 	<a href="#" title="Linked In" ><img src="<?php echo SFSI_PLUGURL; ?>images/linked_in.png" alt="Linked In" /></a>
                 </li>
           <?php break; ?>
-          
           <?php case 'instagram' :?>
           		<li class="instagram_section " data-index="<?php echo $index; ?>" id="sfsi_instagramIcon_order">
                 	<a href="#" title="Instagram" ><img src="<?php echo SFSI_PLUGURL; ?>images/instagram.png" alt="Instagram" /></a>
                 </li>
           <?php break; ?>
-                  
           <?php default   :?>
           		<?php if(isset($icons[$icn['ele']]) && !empty($icons[$icn['ele']]) && filter_var($icons[$icn['ele']], FILTER_VALIDATE_URL) ): ?>
           		<li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" >
@@ -102,7 +97,6 @@
                 </li> 
                 <?php endif; ?>
           <?php break; ?>
-            
          <?php  endswitch; ?>   
     <?php endforeach; ?> 
      
@@ -134,16 +128,30 @@
    
      <!-- icon's floating and stick section start here -->	
     <div class="row sticking">
-	<h4>Sticking & Disable on mobile</h4>
-	<p>If you decided to show your icons via a widget, you can add the effect that when the user scrolls down, the icons will stick at the  top of the screen so that they are still displayed even if the user scrolled all the way down. Do you want to do that?</p>
-	<!--<div class="space">
+	<h4>Sticking &amp; floating</h4>
+	<div class="space">
 	<p class="list">Make icons float?</p>	
-	<ul class="enough_waffling"><li><input name="sfsi_icons_float" <?php //echo ($option5['sfsi_icons_float']=='yes') ?  'checked="true"' : '' ;?>  type="radio" value="yes" class="styled"  /><label>Yes</label></li><li><input name="sfsi_icons_float" <?php //echo ($option5['sfsi_icons_float']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li></ul>
+	<ul class="enough_waffling">
+	    <li><input name="sfsi_icons_float" <?php echo ($option5['sfsi_icons_float']=='yes') ?  'checked="true"' : '' ;?>  type="radio" value="yes" class="styled"  /><label>Yes</label></li>
+	    <li><input name="sfsi_icons_float" <?php echo ($option5['sfsi_icons_float']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
+	</ul>
       </div>
-      <div class="clear float_options" <?php //if($option5['sfsi_icons_stick']=='yes' || $option5['sfsi_icons_float']=='no') :?> style="display:none" <?php //endif;?>><div class="float">Where shall they float?</div><select name="sfsi_icons_floatPosition" id="sfsi_icons_floatPosition" class="styled"><option value="top-left" <?php //echo ($option5['sfsi_icons_floatPosition']=='top-left') ?  'selected="selected"' : '' ;?> >Top - Left</option><option value="top-right" <?php //echo ($option5['sfsi_icons_floatPosition']=='top-right') ?  'selected="selected"' : '' ;?> >Top - Right</option><option value="center-left" <?php //echo ($option5['sfsi_icons_floatPosition']=='center-left') ?  'selected="selected"' : '' ;?> >Center - Left</option><option value="center-right" <?php //echo ($option5['sfsi_icons_floatPosition']=='center-right') ?  'selected="selected"' : '' ;?> >Center - Right</option><option value="bottom-left" <?php //echo ($option5['sfsi_icons_floatPosition']=='bottom-left') ?  'selected="selected"' : '' ;?> >Bottom - Left</option><option value="bottom-right" <?php //echo ($option5['sfsi_icons_floatPosition']=='bottom-right') ?  'selected="selected"' : '' ;?> >Bottom - Right</option></select></div></div>-->
+      <div class="clear float_options" <?php if($option5['sfsi_icons_stick']=='yes' || $option5['sfsi_icons_float']=='no') :?> style="display:none" <?php endif;?>>
+	<div class="float">Where shall they float?</div>
+	<div class="field " >
+	    <select name="sfsi_icons_floatPosition" id="sfsi_icons_floatPosition" class="styled">
+		<option value="top-left" <?php echo ($option5['sfsi_icons_floatPosition']=='top-left') ?  'selected="selected"' : '' ;?> >Top - Left</option>
+		<option value="top-right" <?php echo ($option5['sfsi_icons_floatPosition']=='top-right') ?  'selected="selected"' : '' ;?> >Top - Right</option>
+		<option value="center-left" <?php echo ($option5['sfsi_icons_floatPosition']=='center-left') ?  'selected="selected"' : '' ;?> >Center - Left</option>
+		<option value="center-right" <?php echo ($option5['sfsi_icons_floatPosition']=='center-right') ?  'selected="selected"' : '' ;?> >Center - Right</option>
+		<option value="bottom-left" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-left') ?  'selected="selected"' : '' ;?> >Bottom - Left</option>
+		<option value="bottom-right" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-right') ?  'selected="selected"' : '' ;?> >Bottom - Right</option>
+	    </select>
+	</div>
+  </div> 
   
   <div class="space">
-    <!--<p class="list">Make icons stick?</p>-->	
+    <p class="list">Make icons stick?</p>	
     <ul class="enough_waffling">
   	<li><input name="sfsi_icons_stick" <?php echo ($option5['sfsi_icons_stick']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
 	<li><input name="sfsi_icons_stick" <?php echo ($option5['sfsi_icons_stick']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
@@ -240,7 +248,6 @@ here what text will be displayed if a user moves his mouse over the icon:</p>
 	</div>
 
 	</div> <!-- END mouse over text section -->
-    
      <!-- SAVE BUTTON SECTION   --> 
      <div class="save_button">
          <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />

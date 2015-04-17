@@ -1,20 +1,20 @@
 <?php
   /* unserialize all saved option for second section options */
-    $option3=  unserialize(get_option('sfsi_plus_section3_options',false));
+    $option3=  unserialize(get_option('sfsi_section3_options',false));
    
 ?>
 <!-- Section 3 "What design & animation do you want to give your icons?" main div Start -->
 <div class="tab3">
-		<!--Content of 4-->
-        <div class="row mouse_txt tab3">
-        <p>A good & well-fitting design is not only nice to look at, but it increases chances that people will subscribe and/or share your site with friends:</p>
-    
-        <ul class="tab_3_list">
-            <li>It comes across as <span>more professional/</span> gives your site <span>more “credit”</span></li>
-            <li>A smart automatic animation can <span>make your visitors aware of your icons</span> in an unintrusive manner</li> 
-            <!--<li>Animated icons can trigger <span>a positive emotion for </span> the viewer, getting them into a state in which they are more likely 		to subscribe</li> -->
-        </ul>
-        <div class="row">
+<p>A good & well-fitting design is not only nice to look at, but it increases chances that people will subscribe and/or share your site with friends:</p>
+
+	<ul class="tab_3_list">
+    <li>It comes across as <span>more professional/</span> gives your site <span>more “credit”</span></li>
+	<li>A smart automatic animation can <span>make your visitors aware of your icons</span> in an unintrusive manner</li> 
+	<!--<li>Animated icons can trigger <span>a positive emotion for </span> the viewer, getting them into a state in which they are more likely 		to subscribe</li> -->
+</ul>
+
+
+    <div class="row">
     <h3>Theme options</h3>
         <!--icon themes section start -->
         <ul class="tab_3_icns">
@@ -165,7 +165,7 @@
 	  
              <!--icon Animation section   start -->	  
             <div class="sub_row stand sec_new" style="margin-left: 0px;">
-            <h3>Animate them (your main icons)</h3>
+            <h3>Animate them</h3>
             <p class="radio_section tab_3_option">
                 <input name="sfsi_mouseOver" <?php echo ( $option3['sfsi_mouseOver']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Mouse-Over effects</label><div class="drop_lsts"><select name="sfsi_mouseOver_effect"  id="sfsi_mouseOver_effect" class="styled"> <option value="fade_in" <?php echo ( $option3['sfsi_mouseOver_effect']=='fade_in') ?  'selected="true"' : '' ;?>>Fade In</option><option value="scale" <?php echo ( $option3['sfsi_mouseOver_effect']=='scale') ?  'selected="true"' : '' ;?>>Scale</option><option value="combo" <?php echo ( $option3['sfsi_mouseOver_effect']=='combo') ?  'selected="true"' : '' ;?>>Combo</option></select></div></p>
             <div class="Shuffle_auto"><p class="radio_section tab_3_option"><input name="sfsi_shuffle_icons" <?php echo ( $option3['sfsi_shuffle_icons']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Shuffle them automatically</label></p>
@@ -177,8 +177,6 @@
             </div> <!--END icon Animation section   start -->
                       
     </div>
-    </div>
-    	<!--Content of 4-->    
     
 	   <!-- SAVE BUTTON SECTION   --> 
 	<div class="save_button tab_3_sav">

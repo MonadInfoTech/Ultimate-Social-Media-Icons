@@ -11,14 +11,14 @@ function sfsi_activate_plugin()
           'sfsi_google_display'=>'yes',
           'sfsi_share_display'=>'yes',
           'sfsi_pinterest_display'=>'no',
-	  	  'sfsi_instagram_display'=>'no',
+	  'sfsi_instagram_display'=>'no',
           'sfsi_linkedin_display'=>'no',
           'sfsi_youtube_display'=>'no',  
           'sfsi_custom_display'=>'',
-          'sfsi_custom_files'=>'');
-	add_option('sfsi_plus_section1_options',  serialize($options1));
-    $sffeeds=SFSI_getFeedUrl();
-    /* Links and icons  options */	 
+          'sfsi_custom_files'=>''  
+        ); add_option('sfsi_section1_options',  serialize($options1));
+         $sffeeds=SFSI_getFeedUrl();
+     /* Links and icons  options */	 
     $options2=array('sfsi_rss_url'=>get_bloginfo('rss2_url'),
         'sfsi_rss_icons'=>'email', 
         'sfsi_email_url'=>$sffeeds->redirect_url,
@@ -42,9 +42,9 @@ function sfsi_activate_plugin()
         'sfsi_pinterest_page'=>'no',
         'sfsi_pinterest_pageUrl'=>'',
         'sfsi_pinterest_pingBlog'=>'',
-	 	'sfsi_instagram_page'=>'no',
+	 'sfsi_instagram_page'=>'no',
         'sfsi_instagram_pageUrl'=>'',
-		'sfsi_linkedin_page'=>'no',
+	'sfsi_linkedin_page'=>'no',
         'sfsi_linkedin_pageURL'=>'',
         'sfsi_linkedin_follow'=>'no',
         'sfsi_linkedin_followCompany'=>'',
@@ -52,18 +52,22 @@ function sfsi_activate_plugin()
         'sfsi_linkedin_recommendBusines'=>'no',
         'sfsi_linkedin_recommendCompany'=>'',
         'sfsi_linkedin_recommendProductId'=>'',
-        'sfsi_CustomIcon_links'=>'');
-	add_option('sfsi_plus_section2_options',  serialize($options2));
+        'sfsi_CustomIcon_links'=>''
+        ); add_option('sfsi_section2_options',  serialize($options2));
+                
+		
     /* Design and animation option  */
-	$options3=array('sfsi_mouseOver'=>'yes',
+	
+    $options3=array('sfsi_mouseOver'=>'yes',
         'sfsi_mouseOver_effect'=>'fade_in',
         'sfsi_shuffle_icons'=>'no',
         'sfsi_shuffle_Firstload'=>'no',
         'sfsi_shuffle_interval'=>'no',
         'sfsi_shuffle_intervalTime'=>'',                              
-        'sfsi_actvite_theme'=>'default');
-	add_option('sfsi_plus_section3_options',  serialize($options3));
-	/* display counts options */         
+        'sfsi_actvite_theme'=>'default'    
+                ); add_option('sfsi_section3_options',  serialize($options3));
+		
+    /* display counts options */         
     $options4=array('sfsi_display_counts'=>'no',
         'sfsi_email_countsDisplay'=>'no',
         'sfsi_email_countsFrom'=>'source',
@@ -99,14 +103,16 @@ function sfsi_activate_plugin()
         'sfsi_pinterest_manualCounts'=>'20',
         'sfsi_pinterest_user'=>'',
         'sfsi_pinterest_board'=>'',
-		'sfsi_instagram_countsFrom'=>'manual',
-		'sfsi_instagram_countsDisplay'=>'no',
-		'sfsi_instagram_manualCounts'=>'20',
-		'sfsi_instagram_User'=>'',
+	
+	'sfsi_instagram_countsFrom'=>'manual',
+	'sfsi_instagram_countsDisplay'=>'no',
+	'sfsi_instagram_manualCounts'=>'20',
+	'sfsi_instagram_User'=>'',
+	
         'sfsi_shares_countsDisplay'=>'no',
         'sfsi_shares_countsFrom'=>'manual',
-        'sfsi_shares_manualCounts'=>'20');
-	add_option('sfsi_plus_section4_options',  serialize($options4));
+        'sfsi_shares_manualCounts'=>'20'
+        ); add_option('sfsi_section4_options',  serialize($options4));
   
     $options5=array('sfsi_icons_size'=>'40',
         'sfsi_icons_spacing'=>'5',
@@ -126,7 +132,7 @@ function sfsi_activate_plugin()
         'sfsi_youtubeIcon_order'=>'7',
         'sfsi_pinterestIcon_order'=>'8',
         'sfsi_linkedinIcon_order'=>'9',
-		'sfsi_instagramIcon_order'=>'10',
+	'sfsi_instagramIcon_order'=>'10',
         'sfsi_CustomIcons_order'=>'',
         'sfsi_rss_MouseOverText'=>'RSS',
         'sfsi_email_MouseOverText'=>'Follow by Email',
@@ -135,11 +141,12 @@ function sfsi_activate_plugin()
         'sfsi_google_MouseOverText'=>'Google+',
         'sfsi_linkedIn_MouseOverText'=>'LinkedIn',
         'sfsi_pinterest_MouseOverText'=>'Pinterest',
-		'sfsi_instagram_MouseOverText'=>'Instagram',
+	'sfsi_instagram_MouseOverText'=>'Instagram',
         'sfsi_youtube_MouseOverText'=>'YouTube',
         'sfsi_share_MouseOverText'=>'Share',
-        'sfsi_custom_MouseOverTexts'=>'');
-	add_option('sfsi_plus_section5_options',  serialize($options5));
+        'sfsi_custom_MouseOverTexts'=>'',
+        ); add_option('sfsi_section5_options',  serialize($options5));
+               
     /* post options */	                
     $options6=array('sfsi_show_Onposts'=>'no',
         'sfsi_show_Onbottom'=>'no',
@@ -147,8 +154,8 @@ function sfsi_activate_plugin()
         'sfsi_icons_alignment'=>'center-right',
         'sfsi_rss_countsDisplay'=>'no',
         'sfsi_textBefor_icons'=>'Please follow and like us:',
-        'sfsi_icons_DisplayCounts'=>'no');
-	add_option('sfsi_plus_section6_options',  serialize($options6));       
+        'sfsi_icons_DisplayCounts'=>'no'
+        ); add_option('sfsi_section6_options',  serialize($options6));       
     /* icons pop options */
     $options7=array('sfsi_show_popup'=>'no',
         'sfsi_popup_text'=>'Enjoy this blog? Please spread the word :)',
@@ -164,65 +171,29 @@ function sfsi_activate_plugin()
         'sfsi_Show_popupOn_PageIDs'=>'',
         'sfsi_Shown_pop'=>'ETscroll',
         'sfsi_Shown_popupOnceTime'=>'',
-        'sfsi_Shown_popuplimitPerUserTime'=>'');
-	add_option('sfsi_plus_section7_options',  serialize($options7));
-	/*options that are added in the third question*/
-	if(get_option('sfsi_plus_section4_options',false))
-		$option4=  unserialize(get_option('sfsi_plus_section4_options',false));
-	if(get_option('sfsi_plus_section5_options',false))	
-		$option5=  unserialize(get_option('sfsi_plus_section5_options',false));
-	if(get_option('sfsi_plus_section6_options',false))	
-		$option6=  unserialize(get_option('sfsi_plus_section6_options',false));
-	if($option6['sfsi_show_Onposts'] == 'yes')
-	{
-		$display_button_type = 'standard_buttons';
-	}
-	else
-	{
-		$display_button_type = '';
-	}
-	$options8=array(
-		'show_via_widget'=>'yes',
-        'float_on_page'=> $option5['sfsi_icons_float'],
-        'float_page_position'=>$option5['sfsi_icons_floatPosition'],
-        'sfsi_post_icons_size'=>$option5['sfsi_icons_size'],
-        'sfsi_post_icons_spacing'=>$option5['sfsi_icons_spacing'],
-		'sfsi_show_Onposts'=>$option6['sfsi_show_Onposts'],
-		'sfsi_textBefor_icons'=>$option6['sfsi_textBefor_icons'],
-		'sfsi_icons_alignment'=>$option6['sfsi_icons_alignment'],
-		'sfsi_icons_DisplayCounts'=>$option6['sfsi_icons_DisplayCounts'],
-		'place_item_manually'=>'no',
-        /*'show_item_onposts'=>'no',*/
-		'show_item_onposts'=> $option6['sfsi_show_Onposts'],
-		'display_button_type'=> $display_button_type,
-        'display_before_posts'=>'no',
-		'display_after_posts'=>$option6['sfsi_show_Onposts'],
-		'display_on_postspage'=>'no',
-		'display_on_homepage'=>'no',
-		'display_before_blogposts'=>'no',
-		'display_after_blogposts'=>'no');
-	add_option('sfsi_plus_section8_options',  serialize($options8));		
-		
-	update_option('sfsi_plus_feed_id',$sffeeds->feed_id);
-	add_option('sfsi_plus_installDate',date('Y-m-d h:i:s'));
-	add_option('sfsi_plus_RatingDiv','no');
-	add_option('sfsi_plus_footer_sec','no');
-	update_option('sfsi_plus_activate', 1);
-	
-	$get_option2 = unserialize(get_option('sfsi_plus_section2_options',falase));
-	$get_option2['sfsi_email_url'] = $sffeeds->redirect_url;
-	update_option('sfsi_plus_section2_options', serialize($get_option2));
-	sfsi_setUpfeeds($sffeeds->feed_id);
-	sfsi_updateFeedPing('N',$sffeeds->feed_id);
+        'sfsi_Shown_popuplimitPerUserTime'=>'',
+        ); add_option('sfsi_section7_options',  serialize($options7));
+        update_option('sfsi_feed_id',$sffeeds->feed_id);
+        add_option('sfsi_installDate',date('Y-m-d h:i:s'));
+        add_option('sfsi_RatingDiv','no');
+        add_option('sfsi_footer_sec','no');
+	update_option('sfsi_activate', 1);
+	$get_option2=unserialize(get_option('sfsi_section2_options',falase));
+	$get_option2['sfsi_email_url']=$sffeeds->redirect_url;
+	update_option('sfsi_section2_options', serialize($get_option2));
+        sfsi_setUpfeeds($sffeeds->feed_id);
+        sfsi_updateFeedPing('N',$sffeeds->feed_id);
 }
 /* end function  */
+
 /* deactivate plugin */
 function sfsi_deactivate_plugin()
 {
      global $wpdb;
-     sfsi_updateFeedPing('Y',get_option('sfsi_plus_feed_id'));
-     
-} /* end function  */
+     sfsi_updateFeedPing('Y',get_option('sfsi_feed_id'));
+}
+/* end function  */
+
 function sfsi_updateFeedPing($status,$feed_id)
 {
     $curl = curl_init();  
@@ -243,25 +214,26 @@ function sfsi_updateFeedPing($status,$feed_id)
         curl_close($curl);
         
 }
-/* unistall plugin function */	
+/* unistall plugin function */
+
 function sfsi_Unistall_plugin()
 {   global $wpdb;
     /* Delete option for which icons to display */
-    delete_option('sfsi_plus_section1_options');
-    delete_option('sfsi_plus_section2_options');
-    delete_option('sfsi_plus_section3_options');
-    delete_option('sfsi_plus_section4_options');
-    delete_option('sfsi_plus_section5_options');
-    delete_option('sfsi_plus_section6_options');
-    delete_option('sfsi_plus_section7_options');
-	delete_option('sfsi_plus_section8_options');
-    delete_option('sfsi_plus_feed_id');
-    delete_option('sfsi_plus_footer_sec');
-    delete_option('sfsi_plus_activate');
-    
-} /* end function */
+    delete_option('sfsi_section1_options');
+    delete_option('sfsi_section2_options');
+    delete_option('sfsi_section3_options');
+    delete_option('sfsi_section4_options');
+    delete_option('sfsi_section5_options');
+    delete_option('sfsi_section6_options');
+    delete_option('sfsi_section7_options');
+    delete_option('sfsi_feed_id');
+    delete_option('sfsi_footer_sec');
+    delete_option('sfsi_activate');
+}/* end function */
+
 /* check CUrl */
-function curl_enable_notice(){
+function curl_enable_notice()
+{
     if(!function_exists('curl_init')) {
 	echo '<div class="error"><p> Error: It seems that CURL is disabled on your server. Please contact your server administrator to install / enable CURL.</p></div>'; die;
     }
@@ -269,7 +241,7 @@ function curl_enable_notice(){
 	
 /* add admin menus */
 function sfsi_admin_menu() {
-add_menu_page('Ultimate Social Media PLUS', 'Ultimate Social Media PLUS', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
+add_menu_page('Ultimate Social Media Icons', 'Ultimate Social Media Icons', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
 //add_submenu_page('sfsi-options', 'Subscription Options', 'Settings','administrator', 'sfsi-options', 'sfsi_options_page');
 //add_submenu_page('sfsi-options', 'Specific About Us', 'About','administrator', 'sfsi-about', 'sfsi_about_page');
 }
@@ -373,12 +345,12 @@ function sfsi_activation_msg()
 {
       global $wp_version;
      
-    if(get_option('sfsi_plus_activate',false)==1)
+    if(get_option('sfsi_activate',false)==1)
      {
-	echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Ultimate Social Media PLUS</b> Plugin. Please go to the <a href=\"admin.php?page=sfsi-options\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfsi_plus_activate',0);
+	echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Ultimate Social Media Icons</b> Plugin. Please go to the <a href=\"admin.php?page=sfsi-options\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfsi_activate',0);
      }
      $path=pathinfo($_SERVER['REQUEST_URI']);
-     update_option('sfsi_plus_activate',0);		
+     update_option('sfsi_activate',0);		
      if($wp_version<3.5 &&  $path['basename']=="admin.php?page=sfsi-options")
      {
 	echo "<div class=\"update-nag\" >" . "<p ><b>You're using an old Wordpress version, which may cause several of your plugins to not work correctly. Please upgrade</b></p></div>"; 
@@ -388,49 +360,48 @@ function sfsi_activation_msg()
 function sfsi_rating_msg()
 {
     global $wp_version;
-    $install_date = get_option('sfsi_plus_installDate');
+    $install_date = get_option('sfsi_installDate');
     $display_date = date('Y-m-d h:i:s');
 	$datetime1 = new DateTime($install_date);
 	$datetime2 = new DateTime($display_date);
 	$diff_inrval = round(($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
-    if($diff_inrval >= 30 && get_option('sfsi_plus_RatingDiv')=="no")
+	if($diff_inrval >= 30 && get_option('sfsi_RatingDiv')=="no")
     {
-	 echo '
-<div class="sfwp_fivestar">
-    	<p>We noticed you\'ve been using the Ultimate Social Media PLUS Plugin for more than 30 days. For using it 100% for free, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
-        <ul class="sfwp_fivestar_ul">
-        	<li><a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
-            <li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
-            <li><a href="javascript:void(0);" class="sfsiHideRating" title="No, not good enough">No, not good enough</a></li>
-        </ul>
-    </div>
+	 echo '<div class="sfwp_fivestar">
+				<p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. For using it 100% for free, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
+				<ul>
+					<li><a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
+					<li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
+					<li><a href="javascript:void(0);" class="sfsiHideRating" title="No, not good enough">No, not good enough</a></li>
+				</ul>
+			</div>
     <script>
     jQuery( document ).ready(function( $ ) {
-    jQuery(\'.sfsiHideRating\').click(function(){
-        var data={\'action\':\'hideRating\'}
-             jQuery.ajax({
-        
-        url: "'.admin_url( 'admin-ajax.php' ).'",
-        type: "post",
-        data: data,
-        dataType: "json",
-        async: !0,
-        success: function(e) {
-            if (e=="success") {
-               jQuery(\'.sfwp_fivestar\').slideUp(\'slow\');
-            }
-        }
-         });
-        })
-    
+		jQuery(\'.sfsiHideRating\').click(function(){
+			var data={\'action\':\'sfsi_hideRating\'}
+			jQuery.ajax({
+				url: "'.admin_url( 'admin-ajax.php' ).'",
+				type: "post",
+				data: data,
+				dataType: "json",
+				async: !0,
+				success: function(e)
+				{
+					if (e=="success") {
+					   jQuery(\'.sfwp_fivestar\').slideUp(\'slow\');
+					}
+				}
+			 });
+     	})
     });
     </script>
     ';
    }
 }
-add_action('wp_ajax_hideRating','sfsi_HideRatingDiv');
-function sfsi_HideRatingDiv(){
-    update_option('sfsi_plus_RatingDiv','yes');
+add_action('wp_ajax_sfsi_hideRating','sfsi_HideRatingDiv', 0);
+function sfsi_HideRatingDiv()
+{
+    update_option('sfsi_RatingDiv','yes');
     echo  json_encode(array("success")); exit;
 }
 /* add all admin message */
@@ -446,45 +417,47 @@ function sfsi_pingVendor( $post_id )
 		return;
 	$post_data=get_post($post_id,ARRAY_A);
 	if($post_data['post_status']=='publish' && $post_data['post_type']=='post') : 
-		 $categories = wp_get_post_categories($post_data['ID']);
-		 $cats='';
-		 $total=count($categories);
-		 $count=1;
-		 foreach($categories as $c)
-		 {	
-			$cat_data = get_category( $c );
-			if($count==$total)
-			{
-				$cats.=$cat_data->name;
-			}else{
-				$cats.=$cat_data->name.',';	
-			}
-			$count++;	
-		 }
-		$postto_array = array(
-					'feed_id'=>get_option('sfsi_plus_feed_id'),
-					'title'=>$post_data['post_title'],
-					'description'=>$post_data['post_content'],
-					'link'=>$post_data['guid'],
-					'author'=>get_the_author_meta('user_login', $post_data['post_author']),
-					'category'=>$cats,
-					'pubDate'=>$post_data['post_modified'],
-					'rssurl'=>get_bloginfo('rss2_url'));
-		
-		$curl = curl_init();  
-		curl_setopt_array($curl, array(
-			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/addpostdata ',
-			CURLOPT_USERAGENT => 'sf rss request',
-			CURLOPT_POST => 1,
-			CURLOPT_POSTFIELDS => $postto_array
-		));
-		// Send the request & save response to $resp
-		$resp = curl_exec($curl);
-		$resp=json_decode($resp);
-		curl_close($curl);
-		return true;
+	 $categories = wp_get_post_categories($post_data['ID']);
+	 $cats='';
+	 $total=count($categories);
+	 $count=1;
+	 foreach($categories as $c)
+	 {	
+	 	$cat_data = get_category( $c );
+	    if($count==$total)
+	    {
+		 	$cats.=$cat_data->name;
+	    }
+		else
+		{
+		  $cats.=$cat_data->name.',';	
+	    }
+	  	$count++;	
+	 }
+	$postto_array = array('feed_id'=>get_option('sfsi_feed_id'),
+						  'title'=>$post_data['post_title'],
+						  'description'=>$post_data['post_content'],
+						  'link'=>$post_data['guid'],
+						  'author'=>get_the_author_meta('user_login', $post_data['post_author']),
+						  'category'=>$cats,
+						  'pubDate'=>$post_data['post_modified'],
+                          'rssurl'=>get_bloginfo('rss2_url'));
+	$curl = curl_init();  
+     
+	curl_setopt_array($curl, array(
+		CURLOPT_RETURNTRANSFER => 1,
+		CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/addpostdata ',
+		CURLOPT_USERAGENT => 'sf rss request',
+		CURLOPT_POST => 1,
+		CURLOPT_POSTFIELDS => $postto_array
+	));
+    // Send the request & save response to $resp
+	$resp = curl_exec($curl);
+	$resp=json_decode($resp);
+	curl_close($curl);
+      
+       return true;
     endif;
 }
-add_action( 'save_post', 'sfsi_pingVendor' );			
+add_action( 'save_post', 'sfsi_pingVendor' );	
 ?>

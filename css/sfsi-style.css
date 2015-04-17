@@ -13,7 +13,6 @@
     font-weight: 400;
     font-style: normal;
 }
-
 @font-face {
     font-family: helveticaneue-light;
     src: url(fonts/helveticaneue-light.eot);
@@ -24,7 +23,6 @@
     font-weight: 400;
     font-style: normal;
 }
-
 body {
     margin: 0;
     padding: 0;
@@ -52,7 +50,8 @@ body {
     border: 0;
 }
 .main_contant p, .ui-accordion .ui-accordion-header {
-    font-family: 'helveticaneue-light';
+    /*font-family: helveticaregular;*/
+	font-family: 'helveticaneue-light';
 }
 .sfsi_mainContainer input, .sfsi_mainContainer select {
     outline: 0;
@@ -97,11 +96,16 @@ body {
 #accordion p, #accordion1 p {
     color: #5a6570;
     text-align: left;
+    /*font-family: helveticaregular;*/
     font-family: 'helveticaneue-light';
-    font-size: 17px;
+	font-size: 17px;
     line-height: 26px;
     padding-top: 19px;
 }
+.sfsibeforpstwpr iframe, .sfsiaftrpstwpr iframe{max-width: none;}
+.sfwp_fivestar_ul li { display: inline-block; padding-right: 20px; }
+.shwthmbfraftr { margin-top: 5px !important}
+label.toglpstpgsbttl { float: left; margin-top: 5px !important}
 .tab_3_icns.shwthmbfraftr .cstmdisplaysharingtxt { float: left; }
 #accordion p:first-child, #accordion1 p:first-child {
     padding-top: 0;
@@ -117,9 +121,6 @@ body {
 #accordion h4:first-child, #accordion1 h4:first-child {
     padding-top: 0;
 }
-
-#accordion .tab8 h4:first-child, #accordion1 h4:first-child { margin-left: 0 !important}
-
 .tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7 {
     color: #5a6570;
     text-align: left;
@@ -315,7 +316,6 @@ body {
     text-decoration: none;
 }
 .save_button a:hover { background:#079345 }
-
 .tab5 ul.share_icon_order {
     margin: 0;
     padding: 0;
@@ -400,11 +400,13 @@ body {
     text-align: center;
 }
 .tab5 .new_wind .row_onl ul.enough_waffling {
-    margin: 20px 0 0 0;
+    /*margin: 14px 0 0 167px;*/
+	margin: 20px 0 0 0;
     padding: 0;
     list-style: none;
     height: 38px;
-    text-align: left;
+    text-align: center;
+	width: 61%;
 }
 .tab5 ul.enough_waffling li {
     margin: 0 22px;
@@ -512,7 +514,7 @@ body {
     list-style: none;
     display: inline-block;
 }
-.tab6 .social_icon_like1 li span, .tab8 .social_icon_like1 li span {
+.tab6 .social_icon_like1 li span {
     margin: 0;
     width: 44px;
     display: block;
@@ -583,7 +585,7 @@ body {
     display: block;
     width: 100%;
     float: left;
-    font-family: helveticaregular;
+    font-family: "Helvetica CE 35 Thin";
     line-height: 42px;
 }
 .tab6 .options {
@@ -988,10 +990,6 @@ ul.icn_listing li .tb_4_ck {
     float: left;
     margin: 10px 0 0;
 }
-ul.icn_listing8 li .tb_4_ck {
-    float: left;
-    margin: 10px 0 0;
-}
 .tab1 ul.icn_listing li .custom, .tab1 ul.icn_listing li .sfsicls_email, .tab1 ul.icn_listing li .sfsicls_facebook, .tab1 ul.icn_listing li .sfsicls_ggle_pls, .tab1 ul.icn_listing li .sfsicls_instagram, .tab1 ul.icn_listing li .sfsicls_linkdin, .tab1 ul.icn_listing li .sfsicls_pinterest, .tab1 ul.icn_listing li .sfsicls_rs_s, .tab1 ul.icn_listing li .sfsicls_share, .tab1 ul.icn_listing li .sfsicls_twt, .tab1 ul.icn_listing li .sfsicls_utube {
     background: url(../images/tab_1_icn_list.png) no-repeat;
     float: left;
@@ -1053,11 +1051,6 @@ ul.icn_listing8 li .tb_4_ck {
     margin-right: 13px;
 }
 ul.icn_listing li .right_info a {
-    text-decoration: underline;
-    color: #a4a9ad;
-    font-size: 16px;
-}
-ul.icn_listing8 li .right_info a {
     text-decoration: underline;
     color: #a4a9ad;
     font-size: 16px;
@@ -1242,6 +1235,7 @@ ul.tab_2_email_sec li .radio {
     overflow: hidden;
 }
 .tab3 .row {
+    /*border-top: 1px solid #EAEBEE;*/
     padding: 15px 0;
     clear: both;
     overflow: hidden;
@@ -1249,9 +1243,6 @@ ul.tab_2_email_sec li .radio {
 .tab3 ul.tab_3_list {
     overflow: hidden;
     margin: 4px 0 11px;
-}
-.tab8 .toglepstpgspn {
-	font-weight: bold;
 }
 ul.tab_3_list li {
     background: url(../images/tab_3_list_bg.jpg) 13px 7px no-repeat;
@@ -1284,6 +1275,7 @@ ul.tab_3_icns li {
 ul.tab_3_icns label {
     float: left;
     line-height: 42px;
+    /*margin: 0 20px;*/
     color: #69737C;
     font-size: 18px;
     font-family: helveticaregular;
@@ -2068,10 +2060,6 @@ ul.icn_listing li .right_info a {
     outline: 0;
     font-family: helveticaregular;
 }
-ul.icn_listing8 li .right_info a {
-    outline: 0;
-    font-family: helveticaregular;
-}
 .upload_pop_up .upload_butt {
     line-height: 27px;
     margin-left: 6px;
@@ -2619,6 +2607,7 @@ h2.optional {
     float: none;
     width: 62px;
     overflow: hidden;
+    /*height: 20px;*/
 }
 .twt_tool_bdr .sfsi_inside .icon1 {
     margin: 2px 0!important;
@@ -2710,8 +2699,6 @@ h2.optional {
     height: 20px;
     width: 100%;
 }
-
- 
 .linkedin_tool_bdr .sfsi_inside .icon4 {
     margin: 2px 0;
     display: inline-block;
@@ -2723,7 +2710,6 @@ h2.optional {
 .sfsi_widget .linkedin_tool_bdr .sfsi_inside .icon4,
 .sfsi_widget .gpls_tool_bdr .sfsi_inside .icon1,
 .sfsi_widget .fb_tool_bdr .sfsi_inside .icon1 { height: auto}
-
 .linkedin_tool_bdr .linkin_1, .linkedin_tool_bdr .linkin_2, .linkedin_tool_bdr .linkin_3, .linkedin_tool_bdr .linkin_4 {
     margin: 9px 0 0!important;
     height: 20px;
@@ -2762,7 +2748,10 @@ h2.optional {
 .tab3 ul.tab_3_icns li .radio {
     margin-top: 7px;
 }
-.tab3 ul.tab_3_icns li label { line-height: 50px!important; margin-left: 20px;}
+.tab3 ul.tab_3_icns li label {
+    line-height: 50px!important;
+	margin-left: 20px;
+}
 .sfsi_mainContainer input[type=email], .sfsi_mainContainer input[type=number], .sfsi_mainContainer input[type=password], .sfsi_mainContainer input[type=search], .sfsi_mainContainer input[type=tel], .sfsi_mainContainer input[type=text], .sfsi_mainContainer input[type=url], .sfsi_mainContainer select, .sfsi_mainContainer textarea {
     color: #5a6570!important;
 }
@@ -2863,6 +2852,7 @@ h2.optional {
 }
 .sfsi_Sicons .sf_fb {
     position: relative;
+    /*z-index: 1;*/
     width: 75px;
 }
 .sfsi_Sicons .fb_iframe_widget {
@@ -2872,10 +2862,12 @@ h2.optional {
 }
 .sfsi_Sicons .sf_fb .fb_iframe_widget>span {
     position: absolute;
-    /*width: 450px!important;*/
+    /*width: 450px!important;
+    z-index: 1;*/
 }
 .sfsi_Sicons .sf_addthis, .sfsi_Sicons .sf_google {
     position: relative;
+    /*z-index: 99;*/
 }
 .wrapper .sfsi_Sicons .sf_addthis {
     margin: 7px 0 0 4px!important;
@@ -3072,7 +3064,11 @@ h1.abt_titl {
     text-align: center;
     margin: 19% 0 0;
 }
-.sfcm.sfsi_wicon { padding: 0; width: 100%; border: medium none;}
+.sfcm.sfsi_wicon {
+    padding: 0;
+	width: 100%;
+	border: medium none;
+}
 .fb_iframe_widget span {
     vertical-align: top!important;
 }
@@ -3164,9 +3160,12 @@ ul.SFSI_instructions li {
 }
 ul.cstmskin_iconlist {
     float: left;
-    margin-top: 10px;
+    padding: 11px 0 40px 8px;
     width: 100%;
+	max-width: 1000px;
+	margin: 0
 }
+.placethemanulywpr { max-width: 98% !important}
 .cstmskin_iconlist > li {
     float: left;
     margin: 3px 0;
@@ -3333,372 +3332,9 @@ ul.cstmskin_iconlist {
     font-family: helveticaregular;
 }
 
-.tab8 ul.icn_listing8 li .right_info {
-    font-family: helveticaregular;
-}
-.tab8 ul.icn_listing8 li .right_info p label.ckckslctn
-{
-	display: none;
-}
-
-.tab8 .tab_3_icns.shwthmbfraftr > li {
-	width:100% !important; 
-	max-width:100% !important; 
-	border-left: 45px solid transparent;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-		box-sizing: border-box;
-}
-
-.tab8 .icons_size > input {
-	background:none repeat scroll 0 0 #e5e5e5;
-	width:80px;
-	float:left;
-	padding:10px 0;
-	text-align:center;
-}
-.tab8 .icons_size > ins { margin-left:19px; }
-.tab8 .icons_size > span.last { width: auto !important; clear: left }
-.tab8 .radio_section.tb_4_ck { margin: 0 20px 0 0 !important; }
-.tab8 .tab_3_icns.shwthmbfraftr .row, 
-.tab8 .tab_3_icns.shwthmbfraftr p, 
-.tab8 .options {
-	float: none; 
-	width: 100%;
-	border-left: 60px solid transparent; 
-	-webkit-box-sizing: border-box; 
-	-moz-box-sizing: border-box; 
-	-o-box-sizing: border-box; 
-	-ms-box-sizing: border-box;
-		box-sizing: border-box;
-}
-.tab8 .tab_3_icns.shwthmbfraftr label { width: auto; }
-
-.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 ul { margin-left: 15px}
-.tab8 .tab_3_icns.shwthmbfraftr .social_icon_like1 li { width: auto; max-width: auto; min-width: auto; margin: 0 50px 0 0 }
-.tab8 .tab_3_icns.shwthmbfraftr .usually > li { width:85% !important;  max-width: 100% !important; margin-left: 70px; font-family: 'helveticaneue-light'; padding-bottom: 5px}
-.tab8 .tab_3_icns.shwthmbfraftr .options > label { width:356px !important; margin:0; width: auto; margin-bottom: 0; margin-top: 0px; }
-.tab8 .row.PostsSettings_section .options .first.chcklbl { float: left !important; width: 335px !important; }
-.tab8 .row.PostsSettings_section .options .chckwpr { width:538px; float:right; }
-.tab8 .row.PostsSettings_section .options {
-	width:100%; 
-	margin:0; 
-	font-family: 'helveticaneue-light'; 
-	float: left; 
-	margin-bottom: 10px; 
-	max-width: 895px; 
-	border-left: none;
-}
-.toggleonlystndrshrng { margin-bottom: 30px !important}
-.tab8 .row.PostsSettings_section .options.shareicontextfld { margin: 15px 0; }
-.tab8 .tab_3_icns.flthmonpg .radio { margin-top:55px !important; }
-.tab8 .radiodisplaysection { float: left;}
-
-
-
-/*palak css end*/
-/*modify by palak*/
-.tab8 ul.icn_listing8 li {
-    float: left;
-    padding: 11px 0 40px 8px;
-    width: 100%;
-	max-width: 1000px;
-	margin: 0
-}
-.placethemanulywpr { max-width: 98% !important} 
-
-/*modify by palak*/
-/*modify by palak*/
-.tab8 ul.icn_listing8 {
-    list-style: outside none none;
-    margin: 5px 0 0;
-    overflow: hidden;
-}
-/*modify by palak*/
-.right_info label.sub-subtitle
-{
-	font-size: 17px !important;
-	font-weight: normal;
-}
-ul.icn_listing li .right_info label.sub-subtitle a 
-{
-	font-size: 13px;
-}
-.tab8 ul.tab_3_icns li .radio {
-    margin-top: 7px;
-}
-
-.tab8 ul.tab_3_icns li label {
-    line-height: 50px !important;
-}
-.tab8 ul.icn_listing8 li .tab_3_icns li {
-    width: 50%;
-	max-width: 450px;
-	min-width: 420px;
-	padding-left: 0;
-	padding-bottom: 15px
-}
-
-.tab8 ul.icn_listing8 li .tab_3_icns.shwthmbfraftr>li:nth-child(1),
-.tab8 ul.icn_listing8 li .tab_3_icns.shwthmbfraftr>li:nth-child(2)  { width: 50% !important}
-.disblfltonmbl p.list { width: 100%; margin-bottom: 28px}
-
-
-#accordion .tab8 .icn_listing8 li .right_info p { display: table}
-
-/*modify by palak*/
-.tab8 .row
-{
-	clear: both;
-	display: block;
-	float: left;
-	font-family: helveticaregular;
-	line-height: 42px;
-	margin-top: 25px;
-	padding-top: 15px;
-	width: 100%;
-}
-/*modify by palak*/
-.tab8 .icons_size { margin-top: -12px; }
-.tab8 .icons_size { position: relative; font-family: 'helveticaneue-light'; width: 538px; float: right }
-.tab8 .icons_size span  {
-    display: block;
-    float: left;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 42px;
-    margin-right: 18px;
-}
-
-.tab8.icons_size span.last
-{
-    margin-left: 55px;
-}
-.tab8 .icons_size ins
- {
-    float: left;
-    font-size: 17px;
-    font-weight: 400;
-    margin-right: 25px;
-    text-decoration: none;
-	margin-bottom: 20px;
-}
-.tab8 .social_icon_like1 {
-    float: left;
-    margin: 0;
-    padding: 30px 0 0;
-    text-align: center;
-    width: 100%;
-}
-.tab8 .social_icon_like1 ul {
-    list-style: outside none none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-.tab8 .social_icon_like1 li {
-    display: inline-block;
-    list-style: outside none none;
-    margin: 0 0 0 45px !important;
-    padding: 0;
-    width: auto !important;
-	min-width: 100px !important;
-}
-.tab8 .social_icon_like1 li a {
-    color: #5a6570;
-    display: block;
-    text-decoration: none;
-}
-.tab8 .social_icon_like1 li img {
-    display: block;
-    float: left;
-    margin-right: 5px;
-}
-.tab8 ul.usually {
-    list-style: outside none none;
-    margin: 28px 0 15px 60px;
-    padding: 0;
-	float: left
-}
-.tab8 ul.usually li {
-    font-size: 17px;
-    list-style: outside none none;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    width: auto;
-}
-.tab8 ul.enough_waffling {
-    list-style: outside none none;
-    margin: 25px 0 0;
-    padding: 0;
-    text-align: center;
-}
-.tab8 ul.enough_waffling li {
-    display: inline-block;
-    list-style: outside none none;
-    margin: 0 22px;
-    padding: 0;
-}
-.tab8 ul.enough_waffling li span {
-    float: left;
-}
-.tab8 ul.enough_waffling li label {
-    color: #5a6570;
-    float: left;
-    font-family: helveticaregular;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 38px;
-    margin: 0 0 0 20px;
-    text-align: center;
-}
-/*modify by palak*/
-.tab8 .row {
-/*    border-top: 1px solid #eaebee;*/
-    clear: both;
-    display: block;
-    float: left;
-    font-family: helveticaregular;
-    line-height: 42px;
-    margin-top: 0px;
-    padding-top: 10px;
-    width: 100%;
-}
-/*modify by palak*/
-.tab8 .options {
-    clear: both;
-    float: left;
-    margin-top: 25px;
-    width: auto;
-	float: none;
-}
-.tab8 .options label.first {
-    font-family: 'helveticaneue-light';
-    font-size: 18px;
-}
-.tab8 .options label {
-    color: #5a6570;
-    float: left;
-    font-family: 'helveticaneue-light';
-    font-size: 18px;
-    line-height: 46px;
-    width: 345px;
-}
-.tab8 .options input {
-    background: none repeat scroll 0 0 #e5e5e5;
-    border: 0 none;
-    box-shadow: 2px 2px 3px #dcdcdc inset;
-    float: left;
-    padding: 10px;
-    width: 308px;
-}
-.tab8 .options .field {
-    float: left;
-    position: relative;
-    width: 223px;
-}
-.tab8 .options .field .select {
-    background: url(../images/select_bg1.jpg) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: block;
-    font-family: helveticaregular;
-    padding-left: 17px;
-    width: 207px;
-}
-.tab8 .options .field select.styled {
-    height: 46px;
-    left: 0;
-    line-height: 46px;
-    position: absolute;
-    top: 0;
-    width: 213px;
-}
-.tab8 .options .field select.styled {
-    line-height: 46px;
-}
-.tab8 ul.icn_listing8 li .snglchckcntr .right_info {
-	float: left;
-    margin-right: 0;
-    text-align: left;
-    width: auto;
-	font-family: 'helveticaneue-light';
-	font-size: 18px;
-	line-height: 30px;
-}
-.chckwpr .snglchckcntr:first-child { float:left; }
-.chckwpr .snglchckcntr:last-child { float:right; }
-.chckwpr
-{
-	width:100%;
-	float:left;
-}
 .cstmutbchnlidwpr .utbe_instruction,.cstmutbchnlnmewpr .utbe_instruction, .lnkdin_instruction {
     float: left;
     line-height: 22px;
     margin-top: 10px;
     width: 100%;
 }
-#accordion .tab8 .icn_listing8 li .right_info p
-{
-	font-size: 20px;
-}
-#accordion .tab8 ul.tab_3_icns { margin-top: 25px; }
-#accordion .tab8 ul.tab_3_icns.flthmonpg { margin-left: 45px}
-#accordion .tab8 .icn_listing8 li .right_info p.cstmdisplaysharingtxt { padding-top: 5px; display: inline;}
-#accordion .tab8 ul.shwthmbfraftr .labelhdng4, 
-#accordion .tab8 ul.shwthmbfraftr .row h4.labelhdng4 { color: #555; font-size: 20px; margin-left: 20px; font-family: 'helveticaregular'}
-.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section { border-left: 105px solid transparent; float: left; padding-top: 0}
-.toggleonlystndrshrng { margin-bottom: 0 !important}
-.radiodisplaysection { float: left}
-.tab8 .tab_3_icns.shwthmbfraftr .row.PostsSettings_section>.labelhdng4 { margin-bottom: 20px !important} 
-.shwthmbfraftr { margin-top: 5px !important}
-label.toglpstpgsbttl { float: left; margin-top: 5px !important}
-#accordion .tab8 ul.shwthmbfraftr .row h4 {
-	font-family: 'helveticaneue-light';
-	font-weight: normal;
-	font-size: 18px;
-	color: #69737c;
-	float: left
-}
-.tab8 .row.PostsSettings_section .options .seconds.chcklbl { float: right; width: 538px !important; }
-.sfsibeforpstwpr, .sfsiaftrpstwpr
-{
-	width: 100%;
-	float: left;
-	line-height: 18px;
-}
-.sfsibeforpstwpr .sfsi_Sicons span, .sfsiaftrpstwpr .sfsi_Sicons span
-{
-	font-size: 20px;
-}
-.sfsibeforpstwpr .sfsi_Sicons, .sfsiaftrpstwpr .sfsi_Sicons
-{
-	/*width: 100%;*/
-}
-.sfsibeforpstwpr .norm_row.sfsi_wDivothr, .sfsiaftrpstwpr .norm_row.sfsi_wDivothr
-{
-	width: auto;
-	float: left;
-}
-.sfsibeforpstwpr .norm_row.sfsi_wDivothr .sfsi_wicons, .sfsiaftrpstwpr .norm_row.sfsi_wDivothr .sfsi_wicons
-{
-	float: left;
-}
-.sfsi_flicnsoptn3
-{
-	color: #69737c;
-    float: left;
-    font-size: 20px;
-    margin: 62px 5px 0 20px;
-	font-family: 'helveticaneue-light';
-    width: 120px;
-}
-
-.sfsi_ckckslctnlbl
-{
-	font-weight: bold;
-}
-.sfsibeforpstwpr iframe, .sfsiaftrpstwpr iframe{max-width: none;}
-.sfwp_fivestar_ul li { display: inline-block; padding-right: 20px; }

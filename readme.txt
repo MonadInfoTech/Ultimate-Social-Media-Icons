@@ -1,10 +1,10 @@
-=== Ultimate Social Media and Share Icons (Twitter, Facebook, Google+, Instagram, Pinterest etc.) ===
+=== Ultimate Social Media and Share Icons ===
 Contributors: socialdude
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=arpan%40monadinfotech%2ecom
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=seb.richter%40gmx%2enet
 Tags: social media, social media icons, sidebar, admin, icons, sharing icons, social media widget, social icon widget, socialmedia, fb widget, facebook, facebook icon, facebook button, facebook share button, facebook like button, twitter, twitter icon, twitter button, google+, google, google plus, google plus icon, google plus button, pinterest, pinterest icon, pinterest button, instagram, Instagram icon, Instagram button, youtube, youtube icon, youtube button, linkedin, linkedin icon, linkedin button, subscription popup, pop-up, ultimate, email, rss, rss2email, subscription icons, subscription icon, social media pop-up, free, newsletter, email newsletter, follow, follow me, counter, feed, feeds, filter, links, link, media, plugin, social, widget, tweet button, email button, email icon, socialize, facebook like, facebook recommend
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 1.1.1.5
+Tested up to: 4.1
+Stable tag: 1.1.1.9
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,23 @@ Note: This plugin requires CURL to be activated/installed on your server (which 
 
 
 == Changelog ==
+
+= 1.1.1.8 =
+* Plugin's menu button now has less aggressive colors 
+* Sometimes sharing via facebook returned error messages, this is fixed now
+* Conflicts with WooTheme Whitelight resolved
+* Occasional problems with https-sites previously, now compatibile 
+
+= 1.1.1.7 =
+* The "counts" were not always correct, fixed now
+* Conflicts with page editor resolved
+* Last plugin update fixed Youtube points, however the "channel" was as default, set back to "username"
+* Mouseover-text for social icons now correct
+* Some layout adjustment in the admin area (menu-button will also be adjusted in next release)
+* Setting order of icons sometimes didnt work properly when custom icons got uploaded, this is fixed now
+
+= 1.1.1.6 =
+* jQuery updated, now most conflicts with other plugins should be resolved
 
 = 1.1.1.5 =
 * Conflicts with several plugins sorted
@@ -168,5 +185,5 @@ Note: This plugin requires CURL to be activated/installed on your server (which 
 
 == Upgrade Notice ==
 
-= 1.1.1.5 =
-Several points fixed (see changelog)
+= 1.1.1.8 =
+Several points fixed, however no need to upgrade if you didn't experience any problems

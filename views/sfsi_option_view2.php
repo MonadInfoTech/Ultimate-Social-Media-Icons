@@ -1,7 +1,7 @@
 <?php
   /* unserialize all saved option for second section options */
-	$option4=  unserialize(get_option('sfsi_plus_section4_options',false));
-    $option2=  unserialize(get_option('sfsi_plus_section2_options',false));
+	$option4=  unserialize(get_option('sfsi_section4_options',false));
+    $option2=  unserialize(get_option('sfsi_section2_options',false));
   
 ?>
 <!-- Section 2 "What do you want the icons to do?" main div Start -->
@@ -12,13 +12,13 @@
         <div class="inr_cont">
             <p>When clicked on, users can subscribe via RSS</p>
             <div class="rss_url_row">
-                <h4>RSS URL</h4> <input name="sfsi_rss_url"  id="sfsi_rss_url" class="add" type="url" value="<?php echo ($option2['sfsi_rss_url']!='') ?  $option2['sfsi_rss_url'] : '' ;?>" placeholder="E.g http://www.yoursite.com/feed" /> <span class="sfrsTxt" >For most blogs it’s <strong>http://blogname.com/feed</strong></span>
+                <h4>RSS URL</h4> <input name="sfsi_rss_url" id="sfsi_rss_url" class="add" type="url" value="<?php echo ($option2['sfsi_rss_url']!='') ?  $option2['sfsi_rss_url'] : '' ;?>" placeholder="E.g http://www.yoursite.com/feed"/> <span class="sfrsTxt" >For most blogs it’s <strong>http://blogname.com/feed</strong></span>
             </div>
         </div>    
     </div><!-- END RSS ICON -->
     
     <!-- EMAIL ICON -->
-    <?php $feedId=get_option('sfsi_plus_feed_id',false);?>
+    <?php $feedId=get_option('sfsi_feed_id',false);?>
     <div class="row email_section">
         <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">
