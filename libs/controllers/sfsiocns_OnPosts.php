@@ -99,9 +99,10 @@ function sfsi_Addthis($show_count, $permalink, $post_title)
 }
 	
 /* add all external javascript to wp_footer */        
- function sfsi_footer_script() {
-	  $sfsi_section1=  unserialize(get_option('sfsi_section1_options',false));
-	  $sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
+function sfsi_footer_script()
+{
+	$sfsi_section1=  unserialize(get_option('sfsi_section1_options',false));
+	$sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
 	if($sfsi_section1['sfsi_facebook_display']=="yes")
 	{?>
         <div id="fb-root"></div>

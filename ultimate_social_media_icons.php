@@ -9,14 +9,11 @@ Version: 1.1.1.8
 License: GPLv2 or later
 
 */
-
 global $wpdb;
 /* define the Root for URL and Document */
-
 define('SFSI_DOCROOT',    dirname(__FILE__));
 define('SFSI_PLUGURL',    plugin_dir_url(__FILE__));
 define('SFSI_WEBROOT',    str_replace(getcwd(), home_url(), dirname(__FILE__)));
-
 /* load all files  */
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_socialhelper.php');
 include(SFSI_DOCROOT.'/libs/sfsi_install_uninstall.php');
@@ -27,12 +24,10 @@ include(SFSI_DOCROOT.'/libs/controllers/sfsi_floater_icons.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_frontpopUp.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsiocns_OnPosts.php');
 include(SFSI_DOCROOT.'/libs/sfsi_widget.php');
-
 /* plugin install and uninstall hooks */ 
 register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
-
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
@@ -127,11 +122,15 @@ add_action('admin_init', 'check_sfsfiupdatedoptions');
 function check_sfsfiupdatedoptions()
 {
 	$option4=  unserialize(get_option('sfsi_section4_options',false));
-	if(!isset($option4['sfsi_youtubeusernameorid']) || $option4['sfsi_youtubeusernameorid'] == '')
-	{
-		$option4['sfsi_youtubeusernameorid']= 'name';
-    	update_option('sfsi_section4_options',serialize($option4));
-	}
+	 if(isset($option4['sfsi_youtubeusernameorid']) && !empty($option4['sfsi_youtubeusernameorid']))
+	 {
+	  //
+	 }
+	 else
+	 {
+	  $option4['sfsi_youtubeusernameorid'] = 'name';
+		 update_option('sfsi_section4_options',serialize($option4));
+	 }
 }
 
 //sanitizing values

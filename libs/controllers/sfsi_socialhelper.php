@@ -206,13 +206,17 @@ public function sfsi_FBlike($permalink)
 	$send = 'false';
 	$width = 180;
 	$show_count=0;
-	$fb_like_html = '<fb:like href="'.$permalink.'" width="'.$width.'" send="'.$send.'" showfaces="false" ';
+	/*$fb_like_html = '<fb:like href="'.$permalink.'" width="'.$width.'" send="'.$send.'" showfaces="false" ';
 	if($show_count) { 
 			$fb_like_html .= 'layout="button"';
 	} else {
 			$fb_like_html .= 'layout="button"';
 	}
-	$fb_like_html .= ' action="like"></fb:like>';
+	$fb_like_html .= ' action="like"></fb:like>';*/
+	$fb_like_html = '';
+	$fb_like_html .= '<div class="fb-like" data-href="'.$permalink.'"';
+	$fb_like_html .= ($show_count==1) ?  ' data-layout="button_count"' : ' data-layout="button"';
+	$fb_like_html .= ' data-action="like" data-show-faces="false" data-share="true"></div>';
 	return $fb_like_html;exit;
 }
  /* create on page facebook share option */
