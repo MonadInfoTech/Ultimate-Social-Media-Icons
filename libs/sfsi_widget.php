@@ -1064,10 +1064,14 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     if($is_front==0)
     {
     	$icons_size = $sfsi_section5_options['sfsi_icons_size'];
+		$itemselector = "sfsi_wicons";
+		$innrselector = "inerCnt";
     }
     else
     {
 	  	$icons_size = 51;
+		$itemselector = "sfsi_wicons";
+		$innrselector = "inerCnt";
     }
 	
     /* spacing and no of icons per row */
@@ -1147,8 +1151,8 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
    $icons.="</div>";*/
    if(isset($icon) && !empty($icon) && filter_var($icon, FILTER_VALIDATE_URL))
 	{
-		$icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='sfsi_wicons ".$cmcls."'>";
-		$icons.= "<div class='inerCnt'>";
+		$icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='".$itemselector." ".$cmcls."'>";
+		$icons.= "<div class='".$innrselector."'>";
 		$icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' . $new_window.  href='".$url."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
 		$icons.= "<img alt='".$alt_text."' title='".$alt_text."' src='".$icon."' width='".$icons_size."' style='".$border_radius.$padding_top."' class='sfcm sfsi_wicon' effect='".$mouse_hover_effect."'   />"; 
 		$icons.= '</a>';

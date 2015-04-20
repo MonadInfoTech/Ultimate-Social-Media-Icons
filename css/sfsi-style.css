@@ -2706,7 +2706,7 @@ h2.optional {
     height: 28px;
     width: 100%;
 }
-.sfsi_FrntInner .linkedin_tool_bdr .sfsi_inside .icon1{ margin: 7px 0;}
+.sfsi_FrntInner_chg .linkedin_tool_bdr .sfsi_inside .icon1{ margin: 7px 0;}
 .sfsi_widget .linkedin_tool_bdr .sfsi_inside .icon4,
 .sfsi_widget .gpls_tool_bdr .sfsi_inside .icon1,
 .sfsi_widget .fb_tool_bdr .sfsi_inside .icon1 { height: auto}
@@ -2952,7 +2952,7 @@ ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_p
     display: block;
     text-align: center;
 }
-.sfsi_outr_div .sfsi_FrntInner {
+.sfsi_outr_div .sfsi_FrntInner_chg {
     display: inline-block;
     padding: 15px 17px 27px 18px;
     background: #FFF;
@@ -2961,7 +2961,7 @@ ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_p
     margin: 20px;
 	position: relative;
 }
-.sfsi_FrntInner .sfsiclpupwpr
+.sfsi_FrntInner_chg .sfsiclpupwpr
 {
     position: absolute;
     right: -10px;
@@ -2969,7 +2969,7 @@ ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_p
     width: 25px;
 	cursor: pointer;
 }
-.sfsi_FrntInner .sfsiclpupwpr img
+.sfsi_FrntInner_chg .sfsiclpupwpr img
 {
 	width: auto;
 	float: left;
@@ -3027,7 +3027,7 @@ ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_p
     color: #5a6570;
     text-decoration: none;
 }
-.sfsi_outr_div .sfsi_FrntInner .sfsi_wicons {
+.sfsi_outr_div .sfsi_FrntInner_chg .sfsi_wicons {
     margin-bottom: 0;
 }
 .sfsi_outr_div ul {
@@ -3050,7 +3050,7 @@ a.sfsiColbtn {
 .tab3 a.sfsiColbtn {
     margin-top: -55px;
 }
-.sfsi_FrntInner ul li:first-of-type .sfsi_wicons {
+.sfsi_FrntInner_chg ul li:first-of-type .sfsi_wicons {
     margin-left: 0!important;
 }
 ul.tab_3_icns li .trans_bg {
@@ -3072,10 +3072,10 @@ h1.abt_titl {
 .fb_iframe_widget span {
     vertical-align: top!important;
 }
-.sfsi_outr_div .sfsi_FrntInner ul {
+.sfsi_outr_div .sfsi_FrntInner_chg ul {
     margin: 0 0 0 3px;
 }
-.sfsi_outr_div .sfsi_FrntInner ul li {
+.sfsi_outr_div .sfsi_FrntInner_chg ul li {
     margin: 0 3px 0 0;
 }
 @-moz-document url-prefix() {
@@ -3093,11 +3093,11 @@ h1.abt_titl {
 }
 .sfsi_outr_div {
     top: 10%}
-.sfsi_FrntInner .sfsi_wicons {
+.sfsi_FrntInner_chg .sfsi_wicons {
     width: 31px!important;
     height: 31px!important;
 }
-.sfsi_FrntInner .sfsi_wicons img {
+.sfsi_FrntInner_chg .sfsi_wicons img {
     width: 100%}
 }@media (max-width:320px) {
     .sfsi_tool_tip_2, .tool_tip {
@@ -3107,11 +3107,11 @@ h1.abt_titl {
     margin-bottom: 18px;
     clear: both;
 }
-.sfsi_FrntInner .sfsi_wicons {
+.sfsi_FrntInner_chg .sfsi_wicons {
     width: 31px!important;
     height: 31px!important;
 }
-.sfsi_FrntInner .sfsi_wicons img {
+.sfsi_FrntInner_chg .sfsi_wicons img {
     width: 100%}
 }ul.SFSI_lsngfrm {
     float: left;

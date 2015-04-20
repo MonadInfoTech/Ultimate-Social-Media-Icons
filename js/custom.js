@@ -151,7 +151,7 @@ SFSI(document).ready(function(s) {
     SFSI("head").append('<meta http-equiv="Pragma" content="no-cache" />'), SFSI("head").append('<meta http-equiv="Expires" content="0" />'), 
     SFSI(document).click(function(s) {
         var i = SFSI(".sfsi_FrntInner"), e = SFSI(".sfsi_wDiv"), t = SFSI("#at15s");
-        i.is(s.target) || 0 !== i.has(s.target).length || e.is(s.target) || 0 !== e.has(s.target).length || t.is(s.target) || 0 !== t.has(s.target).length || i.fadeOut();
+		i.is(s.target) || 0 !== i.has(s.target).length || e.is(s.target) || 0 !== e.has(s.target).length || t.is(s.target) || 0 !== t.has(s.target).length || i.fadeOut();
     }), SFSI(".sfsi_outr_div").find(".addthis_button").mousemove(function() {
         var s = SFSI(".sfsi_outr_div").find(".addthis_button").offset().top + 10;
         SFSI("#at15s").css({
@@ -282,7 +282,6 @@ SFSI(document).ready(function(s) {
 //hiding popup on close button
 function sfsihidemepopup()
 {
-	SFSI(".sfsi_FrntInner").fadeOut();
+	SFSI(".sfsi_FrntInner_chg").fadeOut();
 }
-
 var initTop = new Array();

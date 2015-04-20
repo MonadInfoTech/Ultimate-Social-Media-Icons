@@ -1,8 +1,6 @@
 <?php
 /* unserialize all saved option for  section 5 options */
  
-  //$icons =  unserialize(get_option('sfsi_section1_options'));
-  //$icons =  unserialize($icons['sfsi_custom_files']);	 
   $icons = ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
   $option3=  unserialize(get_option('sfsi_section3_options',false));
   $option5=  unserialize(get_option('sfsi_section5_options',false));
@@ -56,40 +54,49 @@
                 	<a href="#" title="Facebook"><img src="<?php echo SFSI_PLUGURL; ?>images/facebook.png" alt="Facebook" /></a>
                 </li>
           <?php break; ?>
+          
           <?php case 'google' :?>
           		<li class="google_section " data-index="<?php echo $index; ?>" id="sfsi_googleIcon_order">
                 	<a href="#" title="Google Plus" ><img src="<?php echo SFSI_PLUGURL; ?>images/google_plus.png" alt="Google Plus" /></a>
                 </li>
           <?php break; ?>
+          
           <?php case 'twitter' :?>
           		<li class="twitter_section " data-index="<?php echo $index; ?>" id="sfsi_twitterIcon_order">
                 	<a href="#" title="Twitter" ><img src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" alt="Twitter" /></a>
                 </li>
           <?php break; ?>
+          
           <?php case 'share' : ?>
           		<li class="share_section " data-index="<?php echo $index; ?>"  id="sfsi_shareIcon_order">
                 	<a href="#" title="Share" ><img src="<?php echo SFSI_PLUGURL; ?>images/share.png" alt="Share" /></a>
                 </li>
           <?php break; ?>
+          
           <?php case 'youtube' :?>
           		<li class="youtube_section " data-index="<?php echo $index; ?>" id="sfsi_youtubeIcon_order">
                 	<a href="#" title="YouTube" ><img src="<?php echo SFSI_PLUGURL; ?>images/youtube.png" alt="YouTube" /></a>
                 </li>
           <?php break; ?>
+          
           <?php case 'pinterest' :?>
           		<li class="pinterest_section " data-index="<?php echo $index; ?>" id="sfsi_pinterestIcon_order">
                 	<a href="#" title="Pinterest" ><img src="<?php echo SFSI_PLUGURL; ?>images/pinterest.png" alt="Pinterest" /></a>
                 </li>
+          <?php break; ?>
+                
           <?php case 'linkedin' :?>
           		<li class="linkedin_section " data-index="<?php echo $index; ?>" id="sfsi_linkedinIcon_order">
                 	<a href="#" title="Linked In" ><img src="<?php echo SFSI_PLUGURL; ?>images/linked_in.png" alt="Linked In" /></a>
                 </li>
           <?php break; ?>
+          
           <?php case 'instagram' :?>
           		<li class="instagram_section " data-index="<?php echo $index; ?>" id="sfsi_instagramIcon_order">
                 	<a href="#" title="Instagram" ><img src="<?php echo SFSI_PLUGURL; ?>images/instagram.png" alt="Instagram" /></a>
                 </li>
           <?php break; ?>
+          
           <?php default   :?>
           		<?php if(isset($icons[$icn['ele']]) && !empty($icons[$icn['ele']]) && filter_var($icons[$icn['ele']], FILTER_VALIDATE_URL) ): ?>
           		<li class="custom_iconOrder sfsiICON_<?php echo $icn['ele']; ?>" data-index="<?php echo $index; ?>" element-id="<?php echo $icn['ele']; ?>" >

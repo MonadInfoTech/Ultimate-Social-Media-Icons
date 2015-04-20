@@ -590,7 +590,7 @@ function sfsi_validationStep2()
         }    
   }
   /* youtube validation */
-    if(sfsi_validator(SFSI('input[name="sfsi_youtube_page"]'),'activte') && sfsi_validator(SFSI('input[name="sfsi_youtube_page"]'),'checked'))
+  if(sfsi_validator(SFSI('input[name="sfsi_youtube_page"]'),'activte') && sfsi_validator(SFSI('input[name="sfsi_youtube_page"]'),'checked'))
   {     
          if(!sfsi_validator(SFSI('input[name="sfsi_youtube_pageUrl"]'),'blank') )
         {   showErrorSuc("error","Error : Invalid youtube Url ",2);
@@ -601,8 +601,15 @@ function sfsi_validationStep2()
   /* youtube validation */
   if(sfsi_validator(SFSI('input[name="sfsi_youtube_page"]'),'activte') && sfsi_validator(SFSI('input[name="sfsi_youtube_follow"]'),'checked'))
   {     
-         if(!sfsi_validator(SFSI('input[name="sfsi_ytube_user"]'),'blank') )
-        {   showErrorSuc("error","Error : Invalid youtube user ",2);
+        cls = SFSI("input[name='sfsi_youtubeusernameorid']:checked").val();
+        if(cls == 'name' && !sfsi_validator(SFSI('input[name="sfsi_ytube_user"]'),'blank') )
+        {   showErrorSuc("error","Error : Invalid youtube user name",2);
+            SFSI('input[name="sfsi_ytube_user"]').addClass('inputError');
+            return false;
+        }
+		
+		if(cls == 'id' && !sfsi_validator(SFSI('input[name="sfsi_ytube_chnlid"]'),'blank') )
+        {   showErrorSuc("error","Error : Invalid youtube Channel ID ",2);
             SFSI('input[name="sfsi_ytube_user"]').addClass('inputError');
             return false;
         }    
@@ -1013,7 +1020,6 @@ function sfsi_validationStep7()
 
 }
 
-
 function sfsi_validator(element,valType)
 {  
     var Vurl = new RegExp("^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
@@ -1232,7 +1238,7 @@ SFSI(document).ready(function(s) {
         i.children(".ui-icon").toggleClass("ui-icon-triangle-1-e", s).toggleClass("ui-icon-triangle-1-s", !s), 
         e.toggleClass("accordion-content-active", !s), s ? e.slideUp() :e.slideDown();
     }), SFSI(document).click(function(s) {
-        var i = SFSI(".sfsi_FrntInner"), e = SFSI(".sfsi_wDiv"), t = SFSI("#at15s");
+        var i = SFSI(".sfsi_FrntInner_chg"), e = SFSI(".sfsi_wDiv"), t = SFSI("#at15s");
         i.is(s.target) || 0 !== i.has(s.target).length || e.is(s.target) || 0 !== e.has(s.target).length || t.is(s.target) || 0 !== t.has(s.target).length || i.fadeOut();
     }), SFSI(".sfsi_outr_div").find(".addthis_button").mousemove(function() {
         var s = SFSI(".sfsi_outr_div").find(".addthis_button").offset().top + 10;
