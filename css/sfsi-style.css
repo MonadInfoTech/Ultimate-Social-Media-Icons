@@ -3289,6 +3289,10 @@ ul.cstmskin_iconlist {
 	min-width:35px;
 	min-height: 20px;
 }
+.sf_google > div
+{ 
+	float: left !important;
+}
 .sfsi_socialwpr .sf_addthis
 {
 	float:left;

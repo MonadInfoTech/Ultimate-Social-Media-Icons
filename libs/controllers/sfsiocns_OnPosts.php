@@ -57,10 +57,10 @@ function sfsi_googlePlus($permalink,$show_count)
 /* create fb like button */
 function sfsi_FBlike($permalink,$show_count)
 {
-	/*$send = 'false';
+	$send = 'false';
 	$width = 180;
 
-	$fb_like_html = '<fb:like href="'.$permalink.'" width="'.$width.'" send="'.$send.'" showfaces="false" ';
+	/*$fb_like_html = '<fb:like href="'.$permalink.'" width="'.$width.'" send="'.$send.'" showfaces="false" ';
 	if($show_count==1) { 
 			$fb_like_html .= 'layout="button_count"';
 	} else {
@@ -68,9 +68,9 @@ function sfsi_FBlike($permalink,$show_count)
 	}
 	$fb_like_html .= ' action="like"></fb:like>';*/
 	$fb_like_html = '';
-	$fb_like_html .= '<div class="fb-like" data-href="'.$permalink.'"';
+	$fb_like_html .= '<div class="fb-like" data-href="'.$permalink.'" width="'.$width.'" send="'.$send.'" ';
 	$fb_like_html .= ($show_count==1) ?  ' data-layout="button_count"' : ' data-layout="button"';
-	$fb_like_html .= ' data-action="like" data-show-faces="false" data-share="true"></div>';
+	$fb_like_html .= ' data-action="like" data-show-faces="false" data-share="false"></div>';
 	return $fb_like_html;
 }
 /* create add this  button */

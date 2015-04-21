@@ -45,13 +45,13 @@ function theme_back_enqueue_script()
 				wp_register_script('SFSIJqueryColorPicker', SFSI_PLUGURL . 'js/color-picker/colorpicker-min.js', '', '', true);
 				wp_enqueue_script("SFSIJqueryColorPicker");
 				
-				wp_register_script('SFSIJqueryEye', SFSI_PLUGURL . 'js/color-picker/eye-min.js', '', '', true);
+				//wp_register_script('SFSIJqueryEye', SFSI_PLUGURL . 'js/color-picker/eye-min.js', '', '', true);
 				//wp_enqueue_script("SFSIJqueryEye");
 				
-				wp_register_script('SFSIJqueryLayout', SFSI_PLUGURL . 'js/color-picker/layout-min.js', '', '', true);
+				//wp_register_script('SFSIJqueryLayout', SFSI_PLUGURL . 'js/color-picker/layout-min.js', '', '', true);
 				//wp_enqueue_script("SFSIJqueryLayout");
 				
-				wp_register_script('SFSIJqueryutils', SFSI_PLUGURL . 'js/color-picker/utils-min.js', '', '', true);
+				//wp_register_script('SFSIJqueryutils', SFSI_PLUGURL . 'js/color-picker/utils-min.js', '', '', true);
 				//wp_enqueue_script("SFSIJqueryutils");
 				
 				wp_register_script('SFSICustomFormJs', SFSI_PLUGURL . 'js/custom-form-min.js', '', '', true);

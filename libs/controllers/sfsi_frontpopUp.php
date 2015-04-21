@@ -11,6 +11,7 @@ function sfsi_check_PopUp($content)
 {
      global $post; global $wpdb; 
      $sfsi_section7_options=  unserialize(get_option('sfsi_section7_options',false));
+	 
      if($sfsi_section7_options['sfsi_Show_popupOn']=="blogpage")
      {   
 	   if(!is_feed() && !is_home() && !is_page())
