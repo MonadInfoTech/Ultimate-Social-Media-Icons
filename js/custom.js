@@ -1,5 +1,25 @@
 jQuery(document).ready(function(e) {
     jQuery("#sfsi_floater").attr("data-top",jQuery(document).height());
+	
+	//removing confliction from yoast plugin
+	var metas = document.getElementsByTagName("meta");
+	var img_found = 0;
+	for (var i=0; i<metas.length; ++i)
+	{
+  		var meta = metas[i];
+		if(meta.getAttribute("property") === "og:image")
+		{
+			img_found++;
+			if(img_found == 2)
+			{
+				if(meta.getAttribute("data-id") === "sfsi")
+				{
+					jQuery("meta[data-id=sfsi]").remove();
+				}
+			}
+		}
+	}
+	//removing confliction from yoast plugin
 });
 
 function showErrorSuc(s, i, e) {

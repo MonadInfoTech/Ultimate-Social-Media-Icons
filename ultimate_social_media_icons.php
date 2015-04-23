@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.1.1.8
+Version: 1.1.1.10
 License: GPLv2 or later
 
 */
@@ -59,7 +59,7 @@ function ultimatefbmetatags()
    $post = get_post( $post_id );
    $attachment_id = get_post_thumbnail_id($post_id);
    $description = $post->post_content;
-   $description = string_sanitize($description);
+   $description = sfsi_string_sanitize($description);
    $title = get_the_title($post_id);
    $url = get_permalink($post_id);
    echo ' <meta name="viewport" content="width=device-width, initial-scale=1">';
@@ -68,11 +68,11 @@ function ultimatefbmetatags()
 	   $feat_image = wp_get_attachment_url( $attachment_id );
 	   if (preg_match('/https/',$feat_image))
 	   {
-			   echo '<meta property="og:image:secure_url" content="'.$feat_image.'">';
+			   echo '<meta property="og:image:secure_url" content="'.$feat_image.'" data-id="sfsi">';
 	   }
 	   else
 	   {
-			   echo '<meta property="og:image" content="'.$feat_image.'">';
+			   echo '<meta property="og:image" content="'.$feat_image.'" data-id="sfsi">';
 	   }
 	   $metadata = wp_get_attachment_metadata( $attachment_id );
 	   if(!isset($metadata) && !empty($metadata))
@@ -108,12 +108,12 @@ function ultimatefbmetatags()
 			$width = '';
 			$height = '';  
 	   }  
-	   echo '<meta property="og:image:type" content="'.$image_type.'" />';
-	   echo '<meta property="og:image:width" content="'.$width.'" />';
-	   echo '<meta property="og:image:height" content="'.$height.'" />';
-	   echo '<meta property="og:description" content="'.$description.'"/>';
-	   echo '<meta property="og:title" content="'.$title.'" />';
-	   echo '<meta property="og:url" content="'.$url.'" />';
+	   echo '<meta property="og:image:type" content="'.$image_type.'" data-id="sfsi" />';
+	   echo '<meta property="og:image:width" content="'.$width.'" data-id="sfsi" />';
+	   echo '<meta property="og:image:height" content="'.$height.'" data-id="sfsi" />';
+	   echo '<meta property="og:description" content="'.$description.'" data-id="sfsi" />';
+	   echo '<meta property="og:title" content="'.$title.'" data-id="sfsi" />';
+	   echo '<meta property="og:url" content="'.$url.'" data-id="sfsi" />';
    }
 }
 
@@ -134,7 +134,7 @@ function check_sfsfiupdatedoptions()
 }
 
 //sanitizing values
-function string_sanitize($s) {
+function sfsi_string_sanitize($s) {
     $result = preg_replace("/[^a-zA-Z0-9]+/", " ", html_entity_decode($s, ENT_QUOTES));
     return $result;
 }
