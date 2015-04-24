@@ -3342,3 +3342,7 @@ ul.cstmskin_iconlist {
     margin-top: 10px;
     width: 100%;
 }
+.fb_iframe_widget iframe
+{
+ max-width: none;
+}
