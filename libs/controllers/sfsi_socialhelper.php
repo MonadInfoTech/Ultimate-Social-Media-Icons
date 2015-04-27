@@ -17,13 +17,18 @@ function sfsi_get_tweets($username,$tw_settings)
     );
     // Replace the four parameters below with the information from your Twitter developer application.
     $twitterConnection = new TwitterOAuth($tw_settings['tw_consumer_key'],$tw_settings['tw_consumer_secret'], $tw_settings['tw_oauth_access_token_secret']);
-
     // Send the API request
     $twitterData = $twitterConnection->get('users/show', array('screen_name' =>$username));
-    
-	// Extract the follower and tweet counts
-    $followerCount = $twitterData->followers_count;
-    return $followerCount;
+    // Extract the follower and tweet counts
+	if(isset($twitterData->followers_count))
+	{
+    	$followerCount = $twitterData->followers_count;
+    	return $followerCount;
+	}
+	else
+	{
+		return 0;
+	}
 }
 /* get linkedIn counts */
 function sfsi_get_linkedin($url)
@@ -40,7 +45,10 @@ function sfsi_getlinkedin_follower($ln_company,$APIsettings)
    $url=$scheme.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
    $linkedin = new LinkedIn($APIsettings['ln_api_key'], $APIsettings['ln_secret_key'],$APIsettings['ln_oAuth_user_token'], $url );
    $followers = $linkedin->getCompanyFollowersByName($ln_company); 
-   return  strip_tags($followers);
+   if (strpos($followers, '404') === false)
+   {   return  strip_tags($followers); }
+   else
+   {   return  0; }
 }
 /* get facebook likes */
 function sfsi_get_fb($url)
