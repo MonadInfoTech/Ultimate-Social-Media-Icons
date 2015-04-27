@@ -68,6 +68,7 @@
          <p class="red_txt errorMsg" style="display:none"> </p>
          <p class="green_txt sucMsg" style="display:none"> </p>
 	 <p style="margin-top: 30px;">This plugin is 100% free. Please do us a BIG favor and give us a 5 star rating <a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new">here</a>. If you're not happy, please <a href="mailto:support@ultimatelysocial.com">get in touch with us</a>, so that we can sort it out.Thank you!</p>
+     <p class="sucMsg bldtxtmsg">Need top-notch Wordpress development work at a competitive price? Visit us at <a href="ultimatelysocial.com">ultimatelysocial.com</a></p>
           
     </div>
  <!-- all pops of plugin under sfsi_pop_content.php file --> 

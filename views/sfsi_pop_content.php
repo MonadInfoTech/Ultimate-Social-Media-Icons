@@ -45,7 +45,7 @@ define('rss_readmore_text2', $rss_readmore_text2);
    <script type="text/javascript">
    function upload_image_icon(ref)
    {
-	    formfield = jQuery(ref).prev("input").attr('name');
+	    formfield = jQuery(ref).attr('name');
 		tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
 		window.send_to_editor = function(html) {
 			var url = jQuery('img',html).attr('src');
