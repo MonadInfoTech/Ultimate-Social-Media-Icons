@@ -3347,3 +3347,4 @@ ul.cstmskin_iconlist {
  max-width: none;
 }
 .sfsi_mainContainer p.bldtxtmsg{float: left; font-size: 15px; font-weight: bold; margin-top: 12px; width: 100%;}
+.addthis_toolbox a{border: medium none !important; float: left;}
