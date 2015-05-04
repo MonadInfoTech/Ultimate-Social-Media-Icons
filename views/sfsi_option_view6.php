@@ -27,8 +27,18 @@
 	<ul class="enough_waffling">
 		<li><input name="sfsi_show_Onposts" <?php echo ($option6['sfsi_show_Onposts']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
 		<li><input name="sfsi_show_Onposts" <?php echo ($option6['sfsi_show_Onposts']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" /><label>No</label></li>
-        </ul><!-- icons display section -->
+    </ul><!-- icons display section -->
 	
+    <p class="clear">
+    	We've created a <a href="https://wordpress.org/plugins/ultimate-social-media-plus/">new plugin</a> which alse allows to place this icons...
+    </p>
+	<ul class="usually">
+		<li>1. ...you selected above (instead of the three standard icons)</li>
+		<li>2. ...also on yours homepage (instead of only on th posts' pages)</li>
+		<li>3. ...before post (instead of only after)</li>
+	</ul>
+    <p>Check it out <a href="https://wordpress.org/plugins/ultimate-social-media-plus/">here</a></p>
+    
   <!-- icons position section -->	
   <div class="row PostsSettings_section">
   	<h4>Options:</h4>

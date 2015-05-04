@@ -81,18 +81,18 @@ function sfsi_check_visiblity($isFloter=0)
 {
   	global $wpdb;
     /* Access the saved settings in database  */
-    $sfsi_section1_options=  unserialize(get_option('sfsi_section1_options',false));
-    $sfsi_section3=  unserialize(get_option('sfsi_section3_options',false));
-    $sfsi_section5=  unserialize(get_option('sfsi_section5_options',false));
+    $sfsi_section1_options =  unserialize(get_option('sfsi_section1_options',false));
+    $sfsi_section3 =  unserialize(get_option('sfsi_section3_options',false));
+    $sfsi_section5 =  unserialize(get_option('sfsi_section5_options',false));
        
     /* calculate the width and icons display alignments */
-    $icons_space=$sfsi_section5['sfsi_icons_spacing'];
-    $icons_size=$sfsi_section5['sfsi_icons_size'];
-    $icons_per_row=($sfsi_section5['sfsi_icons_perRow'])? $sfsi_section5['sfsi_icons_perRow'] : '';
+    $icons_space = $sfsi_section5['sfsi_icons_spacing'];
+    $icons_size = $sfsi_section5['sfsi_icons_size'];
+    $icons_per_row = ($sfsi_section5['sfsi_icons_perRow'])? $sfsi_section5['sfsi_icons_perRow'] : '';
     
-    $icons_alignment=$sfsi_section5['sfsi_icons_Alignment'];
-    $position='position:absolute;';
-    $position1='position:absolute;';
+    $icons_alignment = $sfsi_section5['sfsi_icons_Alignment'];
+    $position = 'position:absolute;';
+    $position1 = 'position:absolute;';
     $jquery='<script>';
 	
 	$jquery .= 'jQuery(".sfsi_widget").each(function( index ) {
@@ -110,11 +110,11 @@ function sfsi_check_visiblity($isFloter=0)
 	{
 	    if(is_admin_bar_showing())
 		{
-		    $Ictop="30px";
+		    $Ictop = "30px";
 	    }
 	    else
 		{
-			$Ictop="0";   
+			$Ictop = "0";
 	    }
              
 		 $jquery.='var s = jQuery(".sfsi_widget");
@@ -127,7 +127,7 @@ function sfsi_check_visiblity($isFloter=0)
     /* check if icons floating  is activated in admin */
     if($sfsi_section5['sfsi_icons_float']=="yes")
 	{
-         $top="15";
+         $top = "15";
          switch($sfsi_section5['sfsi_icons_floatPosition'])
          {
              case "top-left" : if(is_admin_bar_showing()) :  $position.="position:absolute;left:30px;top:35px;"; $top="35"; else : $position.="position:absolute;left:10px;top:2%"; $top="10"; endif;                                                
@@ -182,7 +182,7 @@ function sfsi_check_visiblity($isFloter=0)
 	    
    /* magnage the icons in saved order in admin */ 
    $custom_icons_order = unserialize($sfsi_section5['sfsi_CustomIcons_order']);
-   $icons=  unserialize($sfsi_section1_options['sfsi_custom_files']);
+   $icons = unserialize($sfsi_section1_options['sfsi_custom_files']);
    $icons_order = array(
    					 '0' => '',
 					 $sfsi_section5['sfsi_rssIcon_order']=>'rss',
@@ -213,12 +213,12 @@ function sfsi_check_visiblity($isFloter=0)
    }
    else
    {
-		$main_width="35%";
+		$main_width = "35%";
    }
 	
     /* built the main widget div */
-    $icons_main='<div class="norm_row sfsi_wDiv"  style="width:'.$main_width.';text-align:'.$icons_alignment.';'.$position1.'">';
-    $icons="";
+    $icons_main = '<div class="norm_row sfsi_wDiv"  style="width:'.$main_width.';text-align:'.$icons_alignment.';'.$position1.'">';
+    $icons = "";
     /* loop through icons and bulit the icons with all settings applied in admin */
 	foreach($icons_order  as $index => $icn) :
 	if(is_array($icn)) { $icon_arry=$icn; $icn="custom" ; } 
@@ -268,27 +268,27 @@ function sfsi_check_visiblity($isFloter=0)
 function sfsi_prepairIcons($icon_name,$is_front=0)
 {  
     global $wpdb; global $socialObj;
-    $mouse_hover_effect=''; 
-    $active_theme='official';
-    $sfsi_shuffle_Firstload='no';
-    $sfsi_display_counts="no";
-    $icon='';
-    $url='';
-    $alt_text='';
-    $new_window='';
-    $class='';
+    $mouse_hover_effect = ''; 
+    $active_theme = 'official';
+    $sfsi_shuffle_Firstload = 'no';
+    $sfsi_display_counts = "no";
+    $icon = '';
+    $url = '';
+    $alt_text = '';
+    $new_window = '';
+    $class = '';
     /* access  all saved settings in admin */
-    $sfsi_section1_options= unserialize(get_option('sfsi_section1_options',false));
-    $sfsi_section2_options=  unserialize(get_option('sfsi_section2_options',false));
-    $sfsi_section3_options=  unserialize(get_option('sfsi_section3_options',false));
-    $sfsi_section4_options=  unserialize(get_option('sfsi_section4_options',false));
-    $sfsi_section5_options=  unserialize(get_option('sfsi_section5_options',false));
-    $sfsi_section6_options=  unserialize(get_option('sfsi_section6_options',false));
-    $sfsi_section7_options=  unserialize(get_option('sfsi_section7_options',false));
+    $sfsi_section1_options =  unserialize(get_option('sfsi_section1_options',false));
+    $sfsi_section2_options =  unserialize(get_option('sfsi_section2_options',false));
+    $sfsi_section3_options =  unserialize(get_option('sfsi_section3_options',false));
+    $sfsi_section4_options =  unserialize(get_option('sfsi_section4_options',false));
+    $sfsi_section5_options =  unserialize(get_option('sfsi_section5_options',false));
+    $sfsi_section6_options =  unserialize(get_option('sfsi_section6_options',false));
+    $sfsi_section7_options =  unserialize(get_option('sfsi_section7_options',false));
 
 	 /* get active theme */
      $border_radius='';
-     $active_theme=$sfsi_section3_options['sfsi_actvite_theme'];
+     $active_theme = $sfsi_section3_options['sfsi_actvite_theme'];
     
     
     /* shuffle effect */   
@@ -301,22 +301,22 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
         }
     }
      /* define the main url for icon access */ 
-     $icons_baseUrl=SFSI_PLUGURL."/images/icons_theme/".$active_theme."/";
-     $visit_iconsUrl= SFSI_PLUGURL."/images/visit_icons/";   
-     $hoverSHow=0;
+     $icons_baseUrl = SFSI_PLUGURL."images/icons_theme/".$active_theme."/";
+     $visit_iconsUrl = SFSI_PLUGURL."images/visit_icons/";   
+     $hoverSHow = 0;
    
    /* check is icon is a custom icon or default icon */  
    if(is_numeric($icon_name)) { $icon_n=$icon_name; $icon_name="custom" ; } 
-    $counts='';
-    $twit_tolCls="";
-    $twt_margin="";
-    $icons_space=$sfsi_section5_options['sfsi_icons_spacing'];
-    $padding_top='';
+    $counts = '';
+    $twit_tolCls = "";
+    $twt_margin = "";
+    $icons_space = $sfsi_section5_options['sfsi_icons_spacing'];
+    $padding_top = '';
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
-	$current_url= $scheme.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-	$url="#";
-    $cmcls='';
-    $toolClass='';
+	$current_url = $scheme.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+	$url = "#";
+    $cmcls = '';
+    $toolClass = '';
     
 	switch($icon_name)
     {
@@ -352,7 +352,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				 else
 				 {
 					$active_theme = 'default';
-					$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+					$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 					$icon=$icons_baseUrl.$active_theme."_rss.png"; 
 				 }
 			 }
@@ -402,7 +402,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			 else
 			 {
 				$active_theme = 'default';
-				$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+				$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 				$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png"; 
 			 }
 			}
@@ -487,7 +487,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				 else
 				 {
 					$active_theme = 'default';
-					$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+					$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 					$icon=$icons_baseUrl.$active_theme."_facebook.png";
 				 }
 			}
@@ -575,7 +575,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_google.png";
 					 }
 				}
@@ -661,7 +661,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_twitter.png";
 					 }
 				}
@@ -714,7 +714,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_share.png";
 					 }
 				}
@@ -789,7 +789,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_youtube.png";
 					 }
 				}
@@ -868,7 +868,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_pinterest.png";
 					 }
 				}
@@ -923,7 +923,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_instagram.png";
 					 }
 				}
@@ -1015,7 +1015,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 else
 					 {
 						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."/images/icons_theme/default/";
+						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
 						$icon=$icons_baseUrl.$active_theme."_linkedin.png";
 					 }
 				}
@@ -1064,7 +1064,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     if($is_front==0)
     {
     	$icons_size = $sfsi_section5_options['sfsi_icons_size'];
-		$itemselector = "sfsi_wicons";
+		$itemselector = "sfsi_wicons shuffeldiv";
 		$innrselector = "inerCnt";
     }
     else
@@ -1129,27 +1129,8 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 		$margin_bot = "30px;";
     }
     
-	/*$icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='sfsi_wicons ".$cmcls."'>";
-    $icons.= "<div class='inerCnt'>";
-    $icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' . $new_window.  href='".$url."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
-    $icons.= "<img alt='".$alt_text."' title='".$alt_text."' src='".$icon."' width='".$icons_size."' style='".$border_radius.$padding_top."' class='sfcm sfsi_wicon' effect='".$mouse_hover_effect."'   />"; 
-    $icons.= '</a>';
-   
-   if(isset($counts) &&  $counts!='')
-   {
-    	$icons.= '<span class="bot_no '.$bt_class.'">'.$counts.'</span>';  
-   }
-     
-   if($hoverSHow && !empty($hoverdiv))
-   {	
-		$icons.= '<div class="sfsi_tool_tip_2 '.$toolClass.' '.$toolT_cls.'" style="width:'.$width.'px ;opacity:0;z-index:-1;margin-left:-'.$twt_margin.'px;" id="sfsiid_'.$icon_name.'">';
-		$icons.= '<span class="bot_arow '.$arrow_class.'"></span>';
-		$icons.= '<div class="sfsi_inside">'.$hoverdiv."</div>";
-		$icons.= "</div>";
-   }
-   $icons.="</div>";
-   $icons.="</div>";*/
-   if(isset($icon) && !empty($icon) && filter_var($icon, FILTER_VALIDATE_URL))
+	
+    if(isset($icon) && !empty($icon) && filter_var($icon, FILTER_VALIDATE_URL))
 	{
 		$icons.= "<div style='width:".$icon_width."px; height:".$icon_width."px;margin-left:".$icons_space."px;margin-bottom:".$margin_bot."' class='".$itemselector." ".$cmcls."'>";
 		$icons.= "<div class='".$innrselector."'>";

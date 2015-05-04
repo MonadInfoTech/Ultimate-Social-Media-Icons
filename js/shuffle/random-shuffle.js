@@ -13,14 +13,14 @@ window.Manipulator = function(e) {
     };
     n.prototype.initShuffle = function() {
         this.$el.shuffle({
-            itemSelector: ".sfsi_wicons",
+            itemSelector: ".shuffeldiv",
             speed: 250,
             easing: "ease",
             columnWidth: function(t) {
-                return parseInt(e(".sfsi_wicons").css("width"))
+                return parseInt(e(".shuffeldiv").css("width"))
             },
             gutterWidth: function(t) {
-                return parseInt(e(".sfsi_wicons").css("margin-left"))
+                return parseInt(e(".shuffeldiv").css("margin-left"))
             }
         });
         this.shuffle = this.$el.data("shuffle")
@@ -45,7 +45,7 @@ window.Manipulator = function(e) {
         for (f = 0; f < n; f++) {
             l = Math.random();
             a = document.createElement("div");
-            a.className = "sfsi_wicons";
+            a.className = "shuffeldiv";
             if (l > .8) {
                 c = Math.floor(Math.random() * 3);
                 a.className = a.className + " " + u[c]
