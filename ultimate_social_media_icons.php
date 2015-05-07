@@ -81,7 +81,7 @@ function ultimatefbmetatags()
 	   }
 	   
 	   $metadata = wp_get_attachment_metadata( $attachment_id );
-	   if(!isset($metadata) && !empty($metadata))
+	   if(isset($metadata) && !empty($metadata))
 	   {
 		   if(isset($metadata['sizes']['post-thumbnail']))
 		   {
