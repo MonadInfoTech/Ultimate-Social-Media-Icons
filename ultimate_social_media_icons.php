@@ -56,70 +56,133 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
 }
 
 //adding some meta tags for facebook news feed {Monad}
+function file_getcontentscurl_sfsi($url)
+{
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	return $data;
+}
+
+function sfsi_checkmetas()
+{
+	if($_SERVER["HTTPS"] == 'on')
+	{
+		$protocol = 'https';
+	}
+	else
+	{
+		$protocol = 'http';
+	}
+	$url =  $protocol.'://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	$tags = file_getcontentscurl_sfsi($url);
+	$doc = new DOMDocument();
+	@$doc->loadHTML($tags);
+	$metas = $doc->getElementsByTagName('meta');
+	$imagetag = array();
+	$urltag = array();
+	$desctag = array();
+	for ($i = 0; $i < $metas->length; $i++)
+	{
+		$meta = $metas->item($i);
+		if($meta->getAttribute('property') == 'og:image')
+			$imagetag[] = $meta->getAttribute('content');
+		if($meta->getAttribute('property') == 'og:url')
+			$urltag[] = $meta->getAttribute('content');
+		if($meta->getAttribute('property') == 'og:description')
+			$desctag[] = $meta->getAttribute('content');		
+	}
+	
+	update_option("adding_imgtags", serialize($imagetag));
+	update_option("adding_urltags", serialize($urltag));
+	update_option("adding_desctags", serialize($desctag));
+}
+if ( ! is_admin() )
+{
+	sfsi_checkmetas();
+}
+
 add_action('wp_head', 'ultimatefbmetatags');
 function ultimatefbmetatags()
 {
 	$post_id = get_the_ID();
 	$post = get_post( $post_id );
 	$attachment_id = get_post_thumbnail_id($post_id);
-	$description = strip_tags($post->post_content);
-	$description = string_sanitize($description);
-	$title = strip_tags(get_the_title($post_id));
-	$url = get_permalink($post_id);
+	$title = str_replace('"', "", strip_tags(get_the_title($post_id)));
 	
-	echo ' <meta name="viewport" content="width=device-width, initial-scale=1">';
+	$imagetag = unserialize(get_option("adding_imgtags"));
+	$urltag = unserialize(get_option("adding_urltags"));
+	$desctag = unserialize(get_option("adding_desctags"));
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 	if($attachment_id)
 	{
-	   $feat_image = wp_get_attachment_url( $attachment_id );
-	   if (preg_match('/https/',$feat_image))
+	   if(count($imagetag) <= 1)
 	   {
-		   echo '<meta property="og:image:secure_url" content="'.$feat_image.'" data-id="sfsi">';
-	   }
-	   else
-	   {
-		   echo '<meta property="og:image" content="'.$feat_image.'" data-id="sfsi">';
+		   $feat_image = wp_get_attachment_url( $attachment_id );
+		   if (preg_match('/https/',$feat_image))
+		   {
+				echo '<meta property="og:image:secure_url" content="'.$feat_image.'" data-id="sfsi">';
+		   }
+		   else
+		   {
+				echo '<meta property="og:image" content="'.$feat_image.'" data-id="sfsi">';
+		   }
+		   $metadata = wp_get_attachment_metadata( $attachment_id );
+		   if(isset($metadata) && !empty($metadata))
+		   {
+			   if(isset($metadata['sizes']['post-thumbnail']))
+			   {
+					$image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
+			   }
+			   else
+			   {
+					$image_type = '';  
+			   }
+			   if(isset($metadata['width']))
+			   {
+					$width = $metadata['width'];
+			   }
+			   else
+			   {
+					$width = '';  
+			   }
+			   if(isset($metadata['height']))
+			   {
+					$height = $metadata['height'];
+			   }
+			   else
+			   {
+					$height = '';  
+			   }
+		   }
+		   else
+		   {
+				$image_type = '';
+				$width = '';
+				$height = '';  
+		   }  
+		   echo '<meta property="og:image:type" content="'.$image_type.'" data-id="sfsi" />';
+		   echo '<meta property="og:image:width" content="'.$width.'" data-id="sfsi" />';
+		   echo '<meta property="og:image:height" content="'.$height.'" data-id="sfsi" />';
 	   }
 	   
-	   $metadata = wp_get_attachment_metadata( $attachment_id );
-	   if(isset($metadata) && !empty($metadata))
+	   if(count($urltag) <= 1 )
 	   {
-		   if(isset($metadata['sizes']['post-thumbnail']))
-		   {
-				$image_type = $metadata['sizes']['post-thumbnail']['mime-type'];
-		   }
-		   else
-		   {
-				$image_type = '';  
-		   }
-		   if(isset($metadata['width']))
-		   {
-				$width = $metadata['width'];
-		   }
-		   else
-		   {
-				$width = '';  
-		   }
-		   if(isset($metadata['height']))
-		   {
-				$height = $metadata['height'];
-		   }
-		   else
-		   {
-				$height = '';  
-		   }
+		   $url = get_permalink($post_id);
+		   echo '<meta property="og:url" content="'.$url.'" data-id="sfsi" />'; 
 	   }
-	   else
+	   
+	   if(count($desctag) <= 1 )
 	   {
-			$image_type = '';
-			$width = '';
-			$height = '';  
+		   $description = $post->post_content;
+		   $description = str_replace('"', "", strip_tags($description));
+		   echo '<meta property="og:description" content="'.$description.'" data-id="sfsi" />';
 	   }
-	   echo '<meta property="og:image:type" content="'.$image_type.'" data-id="sfsi" />';
-	   echo '<meta property="og:image:width" content="'.$width.'" data-id="sfsi" />';
-	   echo '<meta property="og:image:height" content="'.$height.'" data-id="sfsi" />';
-	   echo '<meta property="og:description" content="'.$description.'" data-id="sfsi" />';
 	   echo '<meta property="og:title" content="'.$title.'" data-id="sfsi" />';
-	   echo '<meta property="og:url" content="'.$url.'" data-id="sfsi" />';
 	}
 }
 
