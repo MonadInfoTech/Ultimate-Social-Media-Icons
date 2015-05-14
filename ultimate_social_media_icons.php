@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.1.1.10
+Version: 1.1.1.11
 License: GPLv2 or later
 
 */
@@ -56,50 +56,28 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
 }
 
 //adding some meta tags for facebook news feed {Monad}
-function file_getcontentscurl_sfsi($url)
-{
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_HEADER, 0);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-	$data = curl_exec($ch);
-	curl_close($ch);
-	return $data;
-}
-
 function sfsi_checkmetas()
 {
-	if($_SERVER["HTTPS"] == 'on')
+	if ( ! function_exists( 'get_plugins' ) )
 	{
-		$protocol = 'https';
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 	}
-	else
+	$all_plugins = get_plugins();
+	foreach($all_plugins as $key => $plugin)
 	{
-		$protocol = 'http';
-	}
-	$url =  $protocol.'://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-	$tags = file_getcontentscurl_sfsi($url);
-	$doc = new DOMDocument();
-	@$doc->loadHTML($tags);
-	$metas = $doc->getElementsByTagName('meta');
-	$imagetag = array();
-	$urltag = array();
-	$desctag = array();
-	for ($i = 0; $i < $metas->length; $i++)
-	{
-		$meta = $metas->item($i);
-		if($meta->getAttribute('property') == 'og:image')
-			$imagetag[] = $meta->getAttribute('content');
-		if($meta->getAttribute('property') == 'og:url')
-			$urltag[] = $meta->getAttribute('content');
-		if($meta->getAttribute('property') == 'og:description')
-			$desctag[] = $meta->getAttribute('content');		
-	}
-	
-	update_option("adding_imgtags", serialize($imagetag));
-	update_option("adding_urltags", serialize($urltag));
-	update_option("adding_desctags", serialize($desctag));
+		if(is_plugin_active($key))
+		{
+			if(preg_match("/(seo|search engine optimization|meta tag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag)/im", $plugin['Description']))
+			{
+				update_option("adding_tags", "no");
+				break;
+			}
+			else
+			{
+				update_option("adding_tags", "yes");
+			}
+		}
+	}	
 }
 if ( ! is_admin() )
 {
@@ -109,19 +87,20 @@ if ( ! is_admin() )
 add_action('wp_head', 'ultimatefbmetatags');
 function ultimatefbmetatags()
 {
-	$post_id = get_the_ID();
-	$post = get_post( $post_id );
-	$attachment_id = get_post_thumbnail_id($post_id);
-	$title = str_replace('"', "", strip_tags(get_the_title($post_id)));
-	
-	$imagetag = unserialize(get_option("adding_imgtags"));
-	$urltag = unserialize(get_option("adding_urltags"));
-	$desctag = unserialize(get_option("adding_desctags"));
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-	if($attachment_id)
+	$metarequest = get_option("adding_tags");
+	if($metarequest == 'yes')
 	{
-	   if(count($imagetag) <= 1)
-	   {
+		$post_id = get_the_ID();
+		$post = get_post( $post_id );
+		$attachment_id = get_post_thumbnail_id($post_id);
+		$title = str_replace('"', "", strip_tags(get_the_title($post_id)));
+		$url = get_permalink($post_id);
+		$description = $post->post_content;
+		$description = str_replace('"', "", strip_tags($description));
+		   
+		echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+		if($attachment_id)
+		{
 		   $feat_image = wp_get_attachment_url( $attachment_id );
 		   if (preg_match('/https/',$feat_image))
 		   {
@@ -168,21 +147,10 @@ function ultimatefbmetatags()
 		   echo '<meta property="og:image:type" content="'.$image_type.'" data-id="sfsi" />';
 		   echo '<meta property="og:image:width" content="'.$width.'" data-id="sfsi" />';
 		   echo '<meta property="og:image:height" content="'.$height.'" data-id="sfsi" />';
-	   }
-	   
-	   if(count($urltag) <= 1 )
-	   {
-		   $url = get_permalink($post_id);
 		   echo '<meta property="og:url" content="'.$url.'" data-id="sfsi" />'; 
-	   }
-	   
-	   if(count($desctag) <= 1 )
-	   {
-		   $description = $post->post_content;
-		   $description = str_replace('"', "", strip_tags($description));
 		   echo '<meta property="og:description" content="'.$description.'" data-id="sfsi" />';
-	   }
-	   echo '<meta property="og:title" content="'.$title.'" data-id="sfsi" />';
+		   echo '<meta property="og:title" content="'.$title.'" data-id="sfsi" />';
+		}
 	}
 }
 
