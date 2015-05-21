@@ -258,7 +258,8 @@ here what text will be displayed if a user moves his mouse over the icon:</p>
      <!-- SAVE BUTTON SECTION   --> 
      <div class="save_button">
          <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
-         <a href="javascript:;" id="sfsi_save5" title="Save">Save</a>
+         <?php  $nonce = wp_create_nonce("update_step5"); ?>
+         <a href="javascript:;" id="sfsi_save5" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
      </div><!-- END SAVE BUTTON SECTION   -->
      <a class="sfsiColbtn closeSec" href="javascript:;" >Collapse area</a>
      <label class="closeSec"></label>

@@ -67,7 +67,7 @@ function sfsi_checkmetas()
 	{
 		if(is_plugin_active($key))
 		{
-			if(preg_match("/(seo|search engine optimization|meta tag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag)/im", $plugin['Description']))
+			if(preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Description']))
 			{
 				update_option("adding_tags", "no");
 				break;

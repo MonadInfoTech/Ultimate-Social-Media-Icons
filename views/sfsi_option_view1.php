@@ -24,7 +24,7 @@
         <span class="sfsicls_email">Email</span> 
         <div class="right_info">
         <p><span>"Mandatory":</span> Email is the most effective tool to build up a followership.
-	    <span style="float: right;margin-right: 13px; margin-top: -3px;"><?php if(get_option('sfsi_footer_sec')=="yes") { ?> <a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" >Remove credit link</a> <?php } ?></span>
+	    <span style="float: right;margin-right: 13px; margin-top: -3px;"><?php if(get_option('sfsi_footer_sec')=="yes") { $nonce = wp_create_nonce("remove_footer"); ?> <a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" data-nonce="<?php echo $nonce;?>">Remove credit link</a> <?php } ?></span>
             <label class="expanded-area" >Everybody uses email – that’s why it’s <a href="http://www.entrepreneur.com/article/230949" target="_new">much more effective than social media </a> to make people follow you. Not offering an email subscription option means losing out on future traffic to your site.</label>
         </p>
          <a href="javascript:;" class="expand-area" >Read more</a>	 
@@ -160,7 +160,8 @@
   <!-- SAVE BUTTON SECTION   -->
  <div class="save_button tab_1_sav">
    <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
-   <a href="javascript:;" id="sfsi_save1" title="Save">Save</a>
+   <?php  $nonce = wp_create_nonce("update_step1"); ?>
+   <a href="javascript:;" id="sfsi_save1" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
  </div><!-- END SAVE BUTTON SECTION   -->
  <a class="sfsiColbtn closeSec" href="javascript:;" >Collapse area</a>
  <!-- ERROR AND SUCCESS MESSAGE AREA-->
