@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.1.1.12
+Version: 1.2.0
 License: GPLv2 or later
 
 */
@@ -88,17 +88,18 @@ add_action('wp_head', 'ultimatefbmetatags');
 function ultimatefbmetatags()
 {
 	$metarequest = get_option("adding_tags");
-	if($metarequest == 'yes')
+	$post_id = get_the_ID();
+	if($metarequest == 'yes' && !empty($post_id))
 	{
-		$post_id = get_the_ID();
 		$post = get_post( $post_id );
 		$attachment_id = get_post_thumbnail_id($post_id);
 		$title = str_replace('"', "", strip_tags(get_the_title($post_id)));
 		$url = get_permalink($post_id);
 		$description = $post->post_content;
 		$description = str_replace('"', "", strip_tags($description));
-		   
+		
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+		
 		if($attachment_id)
 		{
 		   $feat_image = wp_get_attachment_url( $attachment_id );

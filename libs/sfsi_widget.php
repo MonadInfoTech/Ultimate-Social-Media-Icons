@@ -475,7 +475,13 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 $counts=$socialObj->format_num($fb_data['share_count']);
 					
 				 }
-			 } 
+				 else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="mypage")
+				 {
+					 $current_url = $sfsi_section4_options['sfsi_facebook_mypageCounts'];
+					 $fb_data=$socialObj->sfsi_get_fb_pagelike($current_url);
+					 $counts=$socialObj->format_num($fb_data);
+				}
+			} 
 			
 			//Custom Skin Support {Monad}	 
 			if($active_theme == 'custom_support')

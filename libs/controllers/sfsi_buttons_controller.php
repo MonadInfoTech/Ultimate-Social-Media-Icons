@@ -205,7 +205,8 @@ function sfsi_options_updater4()
     
     $sfsi_facebook_countsDisplay     = isset($_POST["sfsi_facebook_countsDisplay"]) ? $_POST["sfsi_facebook_countsDisplay"] : 'no'; 
     $sfsi_facebook_countsFrom       = isset($_POST["sfsi_facebook_countsFrom"]) ? $_POST["sfsi_facebook_countsFrom"] : 'manual';
-    $sfsi_facebook_manualCounts      = isset($_POST["sfsi_facebook_manualCounts"]) ? trim($_POST["sfsi_facebook_manualCounts"]) : '';
+    $sfsi_facebook_mypageCounts      = isset($_POST["sfsi_facebook_mypageCounts"]) ? trim($_POST["sfsi_facebook_mypageCounts"]) : '';
+	$sfsi_facebook_manualCounts      = isset($_POST["sfsi_facebook_manualCounts"]) ? trim($_POST["sfsi_facebook_manualCounts"]) : '';
     $sfsi_facebook_PageLink          = isset($_POST["sfsi_facebook_PageLink"]) ? trim($_POST["sfsi_facebook_PageLink"]) : '';
     
     $sfsi_twitter_countsDisplay      = isset($_POST["sfsi_twitter_countsDisplay"]) ? $_POST["sfsi_twitter_countsDisplay"] : 'no';
@@ -263,6 +264,7 @@ function sfsi_options_updater4()
    
    'sfsi_facebook_countsDisplay'=>$sfsi_facebook_countsDisplay,
    'sfsi_facebook_countsFrom'=>$sfsi_facebook_countsFrom,
+   'sfsi_facebook_mypageCounts'=>$sfsi_facebook_mypageCounts,
    'sfsi_facebook_manualCounts'=>$sfsi_facebook_manualCounts,
    //'sfsi_facebook_PageLink'=>$sfsi_facebook_PageLink,
    
@@ -514,6 +516,12 @@ function sfsi_getCounts()
        {
           $scounts['fb_count']=(string) "0";
        }
+   }
+   else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="mypage" )
+   {
+       $url = $sfsi_section4_options['sfsi_facebook_mypageCounts'];
+       $fb_data = $socialObj->sfsi_get_fb_pagelike($url);
+       $scounts['fb_count']= $fb_data;
    }
    else
    {

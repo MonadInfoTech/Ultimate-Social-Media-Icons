@@ -450,7 +450,7 @@ I want to see how it works</a></div>
                     </div>
                 </li>
                 <li>
-                	<div class="cstm_icnname">Pintrest</div>
+                	<div class="cstm_icnname">Pinterest</div>
                     <div class="cstmskins_btn">
                     	<?php 
 							if(get_option("pintrest_skin"))

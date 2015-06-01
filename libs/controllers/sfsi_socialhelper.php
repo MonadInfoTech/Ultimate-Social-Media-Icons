@@ -57,6 +57,13 @@ function sfsi_get_fb($url)
    $json = json_decode($json_string, true);
    return isset($json[0])? $json[0]:0;
 }
+/* get facebook page likes */
+function sfsi_get_fb_pagelike($url)
+{
+   $json_string = $this->file_get_contents_curl('http://graph.facebook.com/'.$url);
+   $json = json_decode($json_string, true);
+   return isset($json['likes'])? $json['likes']:0;
+}
 /* get google+ follwers  */
 function sfsi_get_google($url,$google_api_key)
 {   

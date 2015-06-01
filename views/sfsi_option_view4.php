@@ -1,6 +1,10 @@
 <?php
   /* unserialize all saved option for  section 4 options */
     $option4 =  unserialize(get_option('sfsi_section4_options',false));
+	if(!isset($option4['sfsi_facebook_mypageCounts']))
+	{
+		$option4['sfsi_facebook_mypageCounts'] = '';
+	}
     $option2 =  unserialize(get_option('sfsi_section2_options',false));
     $counts = sfsi_getCounts(); /* fetch counts for admin sections */
     /* check for email icon display */
@@ -77,13 +81,14 @@
   	<div class="radio_section"><input name="sfsi_facebook_countsDisplay" <?php echo ($option4['sfsi_facebook_countsDisplay']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /></div>
     <div class="social_icon_like">
     	<ul class="like_icon">
-    	<li><a title="Facebook"><img src="<?php echo SFSI_PLUGURL ?>images/facebook.png" alt="Facebook" /><span><?php echo $counts['fb_count']; ?></span></a></li>
+        <li><a title="Facebook"><img src="<?php echo SFSI_PLUGURL ?>images/facebook.png" alt="Facebook" /><span><?php echo $counts['fb_count']; ?></span></a></li>
     </ul>
     </div>
     <div class="listing">
     	<ul>
-            <li><input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='likes') ?  'checked="true"' : '' ;?>  type="radio" value="likes" class="styled"  />Retrieve the number of facebook likes (on your blog)</li>
-            <li><input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" />Enter the figure manually<input name="sfsi_facebook_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_facebook_manualCounts']!='') ?  $option4['sfsi_facebook_manualCounts'] : '' ;?>"  style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers') ?  'display:none;' : '' ;?>" /></li>
+            <li><input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='likes') ?  'checked="true"' : '' ;?>  type="radio" value="likes" class="styled"  />Retrieve the number of likes <strong>of your blog</strong></li>
+            <li><input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='mypage') ?  'checked="true"' : '' ;?>  type="radio" value="mypage" class="styled"  />Retrieve the number of likes <strong>of your facebook page</strong><br><div class="sfsi_fbpgidwpr" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>">Facebook page ID:</div> <input name="sfsi_facebook_mypageCounts" type="text" class="input mypginpt" value="<?php echo ($option4['sfsi_facebook_mypageCounts']!='') ?  $option4['sfsi_facebook_mypageCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>" /><div class="sfsi_fbpgidwpr sfsi_fbpgiddesc" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>">(You'll find it at the bottom of the <code><<</code>About<code>>></code>-tab on your facebook page)</div></li>
+            <li><input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" />Enter the figure manually<input name="sfsi_facebook_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_facebook_manualCounts']!='') ?  $option4['sfsi_facebook_manualCounts'] : '' ;?>"  style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='mypage') ?  'display:none;' : '' ;?>" /></li>
         </ul>
     </div>    
   </div>   <!-- END FACEBOOK ICON COUNT SECTION-->
