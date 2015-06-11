@@ -18,14 +18,15 @@ class Sfsi_Widget extends WP_Widget
 		$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
 		global $is_floter;	      
 		echo $before_widget;
+		/* Display the widget title */
+		if ( $title ) echo $before_title . $title . $after_title;
         ?>
             <div class="sfsi_widget" data-position="widget">   
 				<div id='sfsi_wDiv'></div>
-                    <?php /* Display the widget title */
-						if ( $title ) echo $before_title . $title . $after_title;
-							/* Link the main icons function */
-               				 echo sfsi_check_visiblity(0);
-             		  ?>
+                    <?php 
+						/* Link the main icons function */
+               			echo sfsi_check_visiblity(0);
+             		?>
 	      		<div style="clear: both;"></div>
             </div>
             <?php

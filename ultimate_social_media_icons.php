@@ -45,12 +45,14 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
 	$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
 	global $is_floter;	      
 	$return.= $before_widget;
-		$return .= '<div class="sfsi_widget"><div id="sfsi_wDiv"></div>';
 		/* Display the widget title */
 		if ( $title ) $return .= $before_title . $title . $after_title;
+		$return .= '<div class="sfsi_widget">';
+			$return .= '<div id="sfsi_wDiv"></div>';
 			/* Link the main icons function */
 			$return .= sfsi_check_visiblity(0);
-	   $return .= '<div style="clear: both;"></div></div>';
+	   		$return .= '<div style="clear: both;"></div>';
+	    $return .= '</div>';
 	$return .= $after_widget;
 	return $return;
 }

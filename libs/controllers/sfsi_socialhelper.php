@@ -114,12 +114,17 @@ function sfsi_getPlus1($url)
 /* get youtube subscribers  */
 function sfsi_get_youtube($user)
 {
-    $xmlData = @file_get_contents('http://gdata.youtube.com/feeds/api/users/' . $user);
-    if($xmlData)
+	//following api is depreacated
+    /*$xmlData = @file_get_contents('http://gdata.youtube.com/feeds/api/users/' . $user);*/
+    $xmlData = @file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='.$user.'&key=AIzaSyA_SqAZGCpZ22vHzOUr3St5xf5XMy78oTY');
+	if($xmlData)
     {   
-        $xmlData = str_replace('yt:', 'yt', $xmlData);
+        /*$xmlData = str_replace('yt:', 'yt', $xmlData);
         $xml = new SimpleXMLElement($xmlData);
         $subs = $xml->ytstatistics['subscriberCount'];
+        $subs=$this->format_num($subs);*/
+		$xmlData = json_decode($xmlData);
+		$subs = $xmlData->items[0]->statistics->subscriberCount;
         $subs=$this->format_num($subs);
     }
     else
