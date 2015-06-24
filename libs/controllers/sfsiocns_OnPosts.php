@@ -5,6 +5,28 @@ function sfsi_social_buttons_below($content)
 {
   global $post;
   $sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
+  //checking for standard icons
+		if(!isset($sfsi_section6['sfsi_rectsub']))
+		{
+			$sfsi_section6['sfsi_rectsub'] = 'no';
+		}
+		if(!isset($sfsi_section6['sfsi_rectfb']))
+		{
+			$sfsi_section6['sfsi_rectfb'] = 'yes';
+		}
+		if(!isset($sfsi_section6['sfsi_rectgp']))
+		{
+			$sfsi_section6['sfsi_rectgp'] = 'yes';
+		}
+		if(!isset($sfsi_section6['sfsi_rectshr']))
+		{
+			$sfsi_section6['sfsi_rectshr'] = 'yes';
+		}
+		if(!isset($sfsi_section6['sfsi_recttwtr']))
+		{
+			$sfsi_section6['sfsi_recttwtr'] = 'no';
+		}
+		//checking for standard icons
         
   /* check if option activated in admin or not */ 
   if($sfsi_section6['sfsi_show_Onposts']=="yes")
@@ -24,14 +46,39 @@ function sfsi_social_buttons_below($content)
         } 
         $txt=(isset($sfsi_section6['sfsi_textBefor_icons']))? $sfsi_section6['sfsi_textBefor_icons'] : "Please follow and like us:" ;
         $float= $sfsi_section6['sfsi_icons_alignment'];
-        $icons="<div class='sfsi_Sicons' style='float:".$float."'><div style='float:left;margin:0 px; line-height: 32px'><span>".$txt."</span></div>";
-        
+		if($sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectgp'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes')
+		{
+        	$icons="<div class='sfsi_Sicons ".$float."' style='float:".$float."'><div style='float:left;margin:0px 8px 0px 0px; line-height: 24px'><span>".$txt."</span></div>";
+		}
 		//adding wrapper div
 		$icons.="<div class='sfsi_socialwpr'>";
-			$icons.="<div class='sf_fb' style='width:".$sfsiLikeWith."'>".sfsi_FBlike($permalink,$show_count)."</div>";
-			$icons.="<div class='sf_google'>".sfsi_googlePlus($permalink,$show_count)."</div>";
-			$icons.="<div class='sf_addthis'>".sfsi_Addthis($show_count, $permalink, $title)."</div>";
-      	$icons.="</div>";
+			if($sfsi_section6['sfsi_rectsub'] == 'yes')
+			{
+				if($show_count){$sfsiLikeWithsub = "93px";}else{$sfsiLikeWithsub = "64px";}
+				if(!isset($sfsiLikeWithsub)){$sfsiLikeWithsub = $sfsiLikeWith;}
+				$icons.="<div class='sf_subscrbe' style='float:left;width:".$sfsiLikeWithsub."'>".sfsi_Subscribelike($permalink,$show_count)."</div>";
+			}
+			if($sfsi_section6['sfsi_rectfb'] == 'yes')
+			{
+				if($show_count){}else{$sfsiLikeWithfb = "49px";}
+				if(!isset($sfsiLikeWithfb)){$sfsiLikeWithfb = $sfsiLikeWith;}
+				$icons.="<div class='sf_fb' style='width:".$sfsiLikeWithfb."'>".sfsi_FBlike($permalink,$show_count)."</div>";
+			}
+			if($sfsi_section6['sfsi_rectgp'] == 'yes')
+			{
+				$icons.="<div class='sf_google' style='float:left;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+			}
+			if($sfsi_section6['sfsi_recttwtr'] == 'yes')
+			{
+				if($show_count){$sfsiLikeWithtwtr = "78px";}else{$sfsiLikeWithtwtr = "58px";}
+				if(!isset($sfsiLikeWithtwtr)){$sfsiLikeWithtwtr = $sfsiLikeWith;}
+				$icons.="<div class='sf_twiter' style='float:left;width:".$sfsiLikeWithtwtr."'>".sfsi_twitterlike($permalink,$show_count)."</div>";
+			}
+			if($sfsi_section6['sfsi_rectshr'] == 'yes')
+			{
+				$icons.="<div class='sf_addthis'>".sfsi_Addthis($show_count, $permalink, $title)."</div>";
+			}
+		$icons.="</div>";
 		//closing wrapper div
 	$icons.="</div>";
     if(!is_feed() && !is_home() && !is_page()) {
@@ -41,6 +88,60 @@ function sfsi_social_buttons_below($content)
 	return $content;
 }
 
+/*subscribe like*/
+function sfsi_Subscribelike($permalink, $show_count)
+{
+	global $socialObj;
+	$socialObj = new sfsi_SocialHelper();
+	
+	$sfsi_section2_options=  unserialize(get_option('sfsi_section2_options',false));
+	$sfsi_section4_options = unserialize(get_option('sfsi_section4_options',false));
+	$sfsi_section6_options=  unserialize(get_option('sfsi_section6_options',false));
+	$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'javascript:void(0);';
+	
+	if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
+	{
+		$feed_id = get_option('sfsi_feed_id',false);
+		$feed_data = $socialObj->SFSI_getFeedSubscriber($feed_id);
+		$counts= $socialObj->format_num($feed_data);
+        if(empty($scounts['email_count']))
+        {
+          $counts=(string) "0";
+        }
+   }
+   else
+   {
+		$counts=$sfsi_section4_options['sfsi_email_manualCounts'];
+   } 
+	 
+   if($sfsi_section6_options['sfsi_icons_DisplayCounts']=="yes")
+   {
+	 	$icon = '<a href="'.$url.'" target="_blank"><img src="'.SFSI_PLUGURL.'images/follow_subscribe.png" /></a><span class="bot_no">'.$counts.'</span>';
+   }
+   else
+   {
+	   $icon = '<a href="'.$url.'" target="_blank"><img src="'.SFSI_PLUGURL.'images/follow_subscribe.png" /></a>';
+   }
+   return $icon;
+}
+/*subscribe like*/
+/*twitter like*/
+function sfsi_twitterlike($permalink, $show_count)
+{
+	global $socialObj;
+	$socialObj = new sfsi_SocialHelper();
+	$twitter_text = '';
+	if(!empty($permalink))
+	{
+		$postid = url_to_postid( $permalink );
+	}
+	if(!empty($postid))
+	{
+		$twitter_text = get_the_title($postid);
+	}
+	return $socialObj->sfsi_twitterSharewithcount($permalink,$twitter_text, $show_count);
+}
+/*twitter like*/
 /* create google+ button */
 function sfsi_googlePlus($permalink,$show_count)
 {
@@ -103,7 +204,27 @@ function sfsi_footer_script()
 {
 	$sfsi_section1=  unserialize(get_option('sfsi_section1_options',false));
 	$sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
-	if($sfsi_section1['sfsi_facebook_display']=="yes")
+	if(!isset($sfsi_section6['sfsi_rectsub']))
+	{
+		$sfsi_section6['sfsi_rectsub'] = 'no';
+	}
+	if(!isset($sfsi_section6['sfsi_rectfb']))
+	{
+		$sfsi_section6['sfsi_rectfb'] = 'yes';
+	}
+	if(!isset($sfsi_section6['sfsi_rectgp']))
+	{
+		$sfsi_section6['sfsi_rectgp'] = 'yes';
+	}
+	if(!isset($sfsi_section6['sfsi_rectshr']))
+	{
+		$sfsi_section6['sfsi_rectshr'] = 'yes';
+	}
+	if(!isset($sfsi_section6['sfsi_recttwtr']))
+	{
+		$sfsi_section6['sfsi_recttwtr'] = 'no';
+	}
+	if($sfsi_section1['sfsi_facebook_display']=="yes" || $sfsi_section6['sfsi_rectfb'] == "yes")
 	{?>
         <div id="fb-root"></div>
 		<script>(function(d, s, id) {
@@ -125,7 +246,7 @@ function sfsi_footer_script()
         }(document, 'script', 'facebook-jssdk'));</script>-->
  	<?php
 	}
-	if($sfsi_section1['sfsi_google_display']=="yes" || $sfsi_section1['sfsi_youtube_display']=="yes")
+	if($sfsi_section1['sfsi_google_display']=="yes" || $sfsi_section1['sfsi_youtube_display']=="yes" || $sfsi_section6['sfsi_rectgp'] == "yes")
 	{ ?>
          <!--google share and  like and e js -->
         <script type="text/javascript">
@@ -156,7 +277,7 @@ function sfsi_footer_script()
         <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 	<?php
 	}
-	if($sfsi_section1['sfsi_share_display']=="yes" || $sfsi_section6['sfsi_show_Onposts']=="yes")
+	if($sfsi_section1['sfsi_share_display']=="yes" || $sfsi_section6['sfsi_show_Onposts']=="yes" || $sfsi_section6['sfsi_rectshr'] == "yes")
 	{ ?>
 	 	<!-- Addthis js -->
         <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
@@ -172,7 +293,7 @@ function sfsi_footer_script()
 	
 	<?php
 	}
-	if($sfsi_section1['sfsi_twitter_display']=="yes")
+	if($sfsi_section1['sfsi_twitter_display']=="yes" || $sfsi_section6['sfsi_recttwtr'] == "yes")
 	{?>
 		<!-- twitter JS End -->
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	

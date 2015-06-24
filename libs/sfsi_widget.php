@@ -100,7 +100,7 @@ function sfsi_check_visiblity($isFloter=0)
 					if(jQuery(this).attr("data-position") == "widget")
 					{
 						var wdgt_hght = jQuery(this).children(".norm_row.sfsi_wDiv").height();
-						var title_hght = jQuery(this).children(".widget-title").height();
+						var title_hght = jQuery(this).parent(".widget.sfsi").children(".widget-title").height();
 						var totl_hght = parseInt( title_hght ) + parseInt( wdgt_hght );
 						jQuery(this).parent(".widget.sfsi").css("min-height", totl_hght+"px");
 					}
@@ -404,12 +404,36 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			 {
 				$active_theme = 'default';
 				$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
-				$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png"; 
+				//$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png"; 
+				if($sfsi_section2_options['sfsi_rss_icons']=="sfsi")
+				{
+					$icon = $icons_baseUrl.$active_theme."_sf.png";					
+				}
+				elseif($sfsi_section2_options['sfsi_rss_icons']=="email")
+				{
+					$icon = $icons_baseUrl.$active_theme."_email.png";
+				}
+				else
+				{
+					$icon = $icons_baseUrl.$active_theme."_subscribe.png";
+				}
 			 }
 			}
 			else
 			{
-				$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png";
+				//$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png";
+				if($sfsi_section2_options['sfsi_rss_icons']=="sfsi")
+				{
+					$icon = $icons_baseUrl.$active_theme."_sf.png";					
+				}
+				elseif($sfsi_section2_options['sfsi_rss_icons']=="email")
+				{
+					$icon = $icons_baseUrl.$active_theme."_email.png";
+				}
+				else
+				{
+					$icon = $icons_baseUrl.$active_theme."_subscribe.png";
+				}
 			}
         break;
         

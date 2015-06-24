@@ -151,7 +151,12 @@ function sfsi_activate_plugin()
         'sfsi_icons_alignment'=>'center-right',
         'sfsi_rss_countsDisplay'=>'no',
         'sfsi_textBefor_icons'=>'Please follow and like us:',
-        'sfsi_icons_DisplayCounts'=>'no'
+        'sfsi_icons_DisplayCounts'=>'no',
+		'sfsi_rectsub'=>'yes',
+		'sfsi_rectfb'=>'yes',
+		'sfsi_rectgp'=>'yes',
+		'sfsi_rectshr'=>'yes',
+		'sfsi_recttwtr'=>'yes'
         );
 	add_option('sfsi_section6_options',  serialize($options6));       
     /* icons pop options */

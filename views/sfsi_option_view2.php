@@ -23,10 +23,26 @@
         <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">
          <p>When people click on this icon, they will see <a href="http://www.specificfeeds.com/widget/emailsubscribe/<?php echo base64_encode($feedId); ?>/<?php echo base64_encode(8); ?>" target="_new">your subscription screen</a> where they can select which messages they want to receive from your RSS feed (by email).  The service is 100% FREE, fully automatic and also makes sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>. </p>
-         <p>As this service is powered by SpecificFeeds we suggest to use the SpecificFeeds-icon, however you can also decide to show a regular email icon:</p>
+         <p>Please pick which icon type you want to use:</p>
            <ul class="tab_2_email_sec">
-            <li><input name="sfsi_rss_icons" <?php echo ($option2['sfsi_rss_icons']=='sfsi') ?  'checked="true"' : '' ;?> type="radio" value="sfsi" class="styled"  /><span class="sf_arow"></span><label>Use SpecificFeeds icon</label></li>
-            <li><input name="sfsi_rss_icons" <?php echo ($option2['sfsi_rss_icons']=='email') ?  'checked="true"' : '' ;?> type="radio" value="email" class="styled" /><span class="email_icn"></span><label>Use Email icon</label></li>
+            <li>
+            	<div class="sfsiicnsdvwrp">
+                	<input name="sfsi_rss_icons" <?php echo ($option2['sfsi_rss_icons']=='email') ?  'checked="true"' : '' ;?> type="radio" value="email" class="styled" /><span class="email_icn"></span>
+                </div>
+                <label>Email icon</label>
+            </li>
+            <li>
+            	<div class="sfsiicnsdvwrp">
+                	<input name="sfsi_rss_icons" <?php echo ($option2['sfsi_rss_icons']=='subscribe') ?  'checked="true"' : '' ;?> type="radio" value="subscribe" class="styled" /><span class="subscribe_icn"></span>
+                </div>
+                <label>Follow icon<span class="sficndesc"> (increases sign-ups)</span></label>
+            </li>
+            <li>
+            	<div class="sfsiicnsdvwrp">
+            		<input name="sfsi_rss_icons" <?php echo ($option2['sfsi_rss_icons']=='sfsi') ?  'checked="true"' : '' ;?> type="radio" value="sfsi" class="styled"  /><span class="sf_arow"></span>
+                </div>
+                <label>SpecificFeeds icon<span class="sfplsdesc"> (provider of the service)</span></label>
+            </li>
           </ul>
         </div>
     </div><!-- END EMAIL ICON -->
@@ -92,7 +108,7 @@
                 $sfsi_youtubeusernameorid = $option4['sfsi_youtubeusernameorid'];
 				?>
             	<div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
-                	<p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>" placeholder="Youtube username" class="add" /></p>
+                	<p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option2['sfsi_ytube_user']) && $option2['sfsi_ytube_user']!='') ?  $option2['sfsi_ytube_user'] : '' ;?>" placeholder="Youtube username" class="add" /></p>
                     <div class="utbe_instruction">
                     	To find your Username go to "My channel" in Youtube menu bar on the left & Select the "About" tab and take your user name from URL there (e.g. https://www.youtube.com/user/<b>Myusername</b>/about).
                     </div>

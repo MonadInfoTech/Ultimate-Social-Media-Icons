@@ -239,6 +239,19 @@ public function sfsi_FBlike($permalink)
 	$fb_like_html .= ' data-action="like" data-show-faces="false" data-share="true"></div>';
 	return $fb_like_html;exit;
 }
+/*subscribe like*/
+function sfsi_Subscribelike($permalink, $show_count)
+{
+
+}
+/*subscribe like*/
+/*twitter like*/
+function sfsi_twitterlike($permalink, $show_count)
+{
+	$twitter_text = '';
+	return sfsi_twitterShare($permalink,$twitter_text);
+}
+/*twitter like*/
  /* create on page facebook share option */
  public function sfsiFB_Share($permalink)
  {
@@ -281,12 +294,29 @@ public function sfsi_FBlike($permalink)
 	$twitter_html = '<a rel="nofollow" href="http://twitter.com/share" data-count="none" class="sr-twitter-button twitter-share-button" lang="en" data-url="'.$permalink.'" data-text="'.$tweettext.'" ></a>';
 	return $twitter_html;
  } 
+ 
+ 	/* create on page twitter share icon with count */
+ public function sfsi_twitterSharewithcount($permalink,$tweettext, $show_count) {
+		if($show_count)
+		{
+			$twitter_html = '<a href="http://twitter.com/share" class="sr-twitter-button twitter-share-button" lang="en" data-counturl="'.$permalink.'" data-url="'.$permalink.'" data-text="'.$tweettext.'" ></a>';
+		}
+		else
+		{
+			$twitter_html = '<a href="http://twitter.com/share" data-count="none" class="sr-twitter-button twitter-share-button" lang="en" data-url="'.$permalink.'" data-text="'.$tweettext.'" ></a>';
+		}
+	   return $twitter_html;
+	}
+ 
  /* create on page youtube subscribe icon */       
  public function sfsi_YouTubeSub($yuser)
  {
 	 	$option4=  unserialize(get_option('sfsi_section4_options',false));
+		$option2=  unserialize(get_option('sfsi_section2_options',false));
 		if($option4['sfsi_youtubeusernameorid'] == 'name')
 		{
+			$yuser = $option2['sfsi_ytube_user'];
+			if(!isset($yuser))
 			$yuser = $option4['sfsi_youtube_user'];
 			$youtube_html = '<div class="g-ytsubscribe" data-channel="'.$yuser.'" data-layout="default" data-count="hidden"></div>';
 		}
@@ -347,17 +377,17 @@ public function  SFSI_getFeedSubscriber($feedid)
      	
 		/* Send the request & save response to $resp */
         $resp = curl_exec($curl);
-        $resp=json_decode($resp);
-        curl_close($curl);
-		if(isset($resp) && !empty($resp))
+        if(!empty($resp))
 		{
-			$feeddata = stripslashes_deep($resp->subscriber_count);
-        	return $this->format_num($feeddata);exit;
-		}
+        	$resp=json_decode($resp);
+        	curl_close($curl);
+			$feeddata=stripslashes_deep($resp->subscriber_count);
+        }
 		else
 		{
-			return '';exit;
-		}			
+			$feeddata = 0;
+		}
+		return $this->format_num($feeddata);exit;			
 }
 /* check response from a url */
 private function sfsi_get_http_response_code($url)

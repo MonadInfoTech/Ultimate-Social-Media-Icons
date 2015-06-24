@@ -63,18 +63,58 @@ function sfsi_depened_sections() {
             var s = i + 1, e = 74 * i;
             SFSI(".row_" + s + "_2").css("background-position", "-588px -" + e + "px");
         }
-        var t = SFSI(".icon_img").attr("src"), n = t.replace("email.png", "sf_arow_icn.png");
-        SFSI(".icon_img").attr("src", n);
-    } else {
-        for (SFSI(".row_1_2").css("background-position", "-58px 0"), i = 0; 16 > i; i++) {
-            var s = i + 1, e = 74 * i;
-            SFSI(".row_" + s + "_2").css("background-position", "-58px -" + e + "px");
-        }
         var t = SFSI(".icon_img").attr("src");
-        if (t) {
-            var n = t.replace("sf_arow_icn.png", "email.png");
-            SFSI(".icon_img").attr("src", n);
-        }
+		if(t)
+		{
+			if (t.indexOf("subscribe") !=-1)
+			{
+				var n = t.replace("subscribe.png", "sf_arow_icn.png");
+			}
+			else
+			{
+				var n = t.replace("email.png", "sf_arow_icn.png");
+			}
+			SFSI(".icon_img").attr("src", n);
+		}	
+    } else {
+        if("email" == SFSI("input[name='sfsi_rss_icons']:checked").val())
+		{
+			for (SFSI(".row_1_2").css("background-position", "-58px 0"), i = 0; 16 > i; i++) {
+				var s = i + 1, e = 74 * i;
+				SFSI(".row_" + s + "_2").css("background-position", "-58px -" + e + "px");
+			}
+			var t = SFSI(".icon_img").attr("src");
+			if (t) {
+				if (t.indexOf("sf_arow_icn") !=-1)
+				{
+					var n = t.replace("sf_arow_icn.png", "email.png");
+				}
+				else
+				{
+					var n = t.replace("subscribe.png", "email.png");
+				}
+				SFSI(".icon_img").attr("src", n);
+			}
+		}
+		else
+		{
+			for (SFSI(".row_1_2").css("background-position", "-649px 0"), i = 0; 16 > i; i++) {
+				var s = i + 1, e = 74 * i;
+				SFSI(".row_" + s + "_2").css("background-position", "-649px -" + e + "px");
+			}
+			var t = SFSI(".icon_img").attr("src");
+			if (t) {
+				if (t.indexOf("email") !=-1)
+				{
+					var n = t.replace("email.png", "subscribe.png");
+				}
+				else
+				{
+					var n = t.replace("sf_arow_icn.png", "subscribe.png");
+				}
+				SFSI(".icon_img").attr("src", n);
+			}
+		}		
     }
     SFSI("input[name='sfsi_rss_display']").prop("checked") ? sfsi_section_Display("rss_section", "show") :sfsi_section_Display("rss_section", "hide"), 
     SFSI("input[name='sfsi_email_display']").prop("checked") ? sfsi_section_Display("email_section", "show") :sfsi_section_Display("email_section", "hide"), 
@@ -528,12 +568,26 @@ function sfsi_update_step5() {
 function sfsi_update_step6() {
 	var nonce = SFSI("#sfsi_save6").attr("data-nonce");
     beForeLoad();
-    var s = SFSI("input[name='sfsi_show_Onposts']:checked").val(), i = SFSI("input[name='sfsi_textBefor_icons']").val(), e = SFSI("#sfsi_icons_alignment").val(), t = SFSI("#sfsi_icons_DisplayCounts").val(), n = {
+    var s = SFSI("input[name='sfsi_show_Onposts']:checked").val(),
+	i = SFSI("input[name='sfsi_textBefor_icons']").val(),
+	e = SFSI("#sfsi_icons_alignment").val(),
+	t = SFSI("#sfsi_icons_DisplayCounts").val(),
+	rsub = SFSI("input[name='sfsi_rectsub']:checked").val(),
+	rfb = SFSI("input[name='sfsi_rectfb']:checked").val(),
+	rgp = SFSI("input[name='sfsi_rectgp']:checked").val(),
+	rshr = SFSI("input[name='sfsi_rectshr']:checked").val(),
+	rtwr = SFSI("input[name='sfsi_recttwtr']:checked").val(),
+	n = {
         action:"updateSrcn6",
         sfsi_show_Onposts:s,
         sfsi_icons_DisplayCounts:t,
         sfsi_icons_alignment:e,
         sfsi_textBefor_icons:i,
+		sfsi_rectsub: rsub,
+		sfsi_rectfb: rfb,
+		sfsi_rectgp: rgp,
+		sfsi_rectshr: rshr,
+		sfsi_recttwtr: rtwr,
 		nonce:nonce
     };
     SFSI.ajax({

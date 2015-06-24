@@ -15,8 +15,8 @@
     <div class="main_contant">
 	<h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
 	<p>This plugin is 100% FREE and will fulfill all your subscription/sharing/liking needs!</p>
-	<p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed. For more palcing options please check out <a target="_blank" href="https://wordpress.org/plugins/ultimate-social-media-plus/">this plugin</a></p>
-    <p> If you have any questions, <a  href="mailto:support@ultimatelysocial.com" title="support@ultimatelysocial.com" alt="support@ultimatelysocial.com" class="lit_txt">let us know</a>, we‘ll help you out!</p>
+	<p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed. For more placing options please check out <a target="_blank" href="https://wordpress.org/plugins/ultimate-social-media-plus/">this plugin</a></p>
+    <p>If you face any issues please check out our <a href="http://ultimatelysocial.com/faq/">FAQ</a>.</p>
     </div> <!-- END Top content area of plugin -->
       
     <!-- step 1 end  here -->

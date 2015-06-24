@@ -118,6 +118,16 @@ label.toglpstpgsbttl { float: left; margin-top: 5px !important}
     line-height: 22px;
     font-family: helveticaregular;
 }
+#accordion1 h4.sfsi_dsplyatend
+{
+	width: 47%;
+	float: left;
+}
+.tab6 ul.enough_waffling.sfsi_dsplyatend
+{
+	width: 24%;
+	float: left;
+}
 #accordion h4:first-child, #accordion1 h4:first-child {
     padding-top: 0;
 }
@@ -1098,7 +1108,15 @@ ul.icn_listing li .right_info a {
 }
 .row ul.tab_2_email_sec li {
     float: left;
-    margin-right: 66px;
+    margin-right: 10px;
+	width: 32%;
+}
+.row ul.tab_2_email_sec li label span
+{
+	font-size: 15px;
+	color: #808080;
+	width: 100%;
+	float: left;
 }
 .row ul.tab_2_email_sec:first-child {
     margin-right: 2%}
@@ -1168,14 +1186,22 @@ ul.tab_2_email_sec .email_icn {
     float: left;
     margin: 0 8px;
 }
+ul.tab_2_email_sec .subscribe_icn {
+    background: url(../images/tab_1_icn_list.png) 0 -860px no-repeat;
+    width: 52px;
+    height: 52px;
+    float: left;
+    margin: 0 0 0 5px;
+}
 ul.tab_2_email_sec li .radio {
     float: left;
     margin: 8px 0 0;
 }
 .row ul.tab_2_email_sec li label {
     margin: 13px 0 0 7px;
-    font-size: 19px;
+    font-size: 16px;
     float: left;
+	width: 160px;
 }
 .inr_cont .fb_url {
     clear: both;
@@ -1996,6 +2022,10 @@ ul.tab_3_icns li .icns_tab_3, ul.tab_3_icns li .radio {
 .sfsi_tool_tip_2 a {
     min-height: 0!important;
 }
+.sfsi_widget
+{
+	min-height: 100px;	
+}
 .sfsi_widget a img {
     box-shadow: none!important;
     outline: 0;
@@ -2049,6 +2079,64 @@ ul.tab_3_icns li .icns_tab_3, ul.tab_3_icns li .radio {
 }
 .sfsi_Sicons {
     float: left;
+}
+.sfsi_Sicons .sf_subscrbe{ margin: 2px 3px 3px 0; line-height: 20px;}
+.sfsi_Sicons .sf_fb{ margin: 0 4px 0 5px; line-height: 20px;}
+.sfsi_Sicons .sf_google{ margin: 0 5px 0 5px; line-height: 20px;}
+.sfsi_Sicons .sf_twiter{ margin: 2px 7px 0 4px; line-height: 17px;}
+.sfsi_Sicons .sf_addthis{ margin: 2px 7px 0 2px; line-height: 20px;}
+
+.sfsi_Sicons.left .sf_subscrbe{ margin: 2px 8px 3px 0; }
+.sfsi_Sicons.left .sf_fb{ margin: 0 8px 0 0; }
+.sfsi_Sicons.left .sf_google{ margin: 0 9px 0 0; }
+.sfsi_Sicons.left .sf_twiter{ margin: 2px 7px 0 0; }
+.sfsi_Sicons.left .sf_addthis{ margin: 2px 7px 0 0; }
+
+.sfsi_Sicons.right .sf_subscrbe{ margin: 2px 0 3px; }
+.sfsi_Sicons.right .sf_fb{ margin: 0 0 0 7px; }
+.sfsi_Sicons.right .sf_google{ margin: 0 0 0 7px; }
+.sfsi_Sicons.right .sf_twiter{ margin: 2px 0 0 8px; }
+.sfsi_Sicons.right .sf_addthis{ margin: 2px 0 0 6px; }
+
+.sfsi_Sicons .sf_subscrbe, .sfsi_Sicons .sf_twiter
+{
+	position: relative;
+	width: 75px;
+}
+.sfsi_Sicons .sf_twiter iframe
+{
+	margin: 0px;
+	height: 20px !important;
+	overflow: visible !important;
+}
+.sfsi_Sicons .sf_twiter iframe #widget
+{
+	overflow: visible !important;
+}
+.sfsi_Sicons .sf_subscrbe a
+{
+	width: auto;
+	float: left;
+	border: medium none;
+	padding-top: 0px;
+}
+.sfsi_Sicons .sf_subscrbe a:focus
+{
+	outline: medium none;
+}
+.sfsi_Sicons .sf_subscrbe a img
+{
+	width: 65px;
+	float: left;
+}
+.sfsi_Sicons .sf_fb {
+    position: relative;
+    width: 75px;
+}
+.sfsi_Sicons .fb_iframe_widget {
+    float: left;
+    width: 73px;
+    margin: 2px 0 0;
 }
 .sfsi_pop_up .button a:hover {
     color: #fff;
@@ -3358,3 +3446,52 @@ ul.cstmskin_iconlist {
 }
 .sfsi_mainContainer p.bldtxtmsg{float: left; font-size: 15px; font-weight: bold; margin-top: 12px; width: 100%;}
 .addthis_toolbox a{border: medium none !important; float: left;}
+.sfsinewplgndesc
+{
+	background: none repeat scroll 0 0 #e5e5e5;
+	float: left;
+	padding: 5px 10px 8px;	
+	margin-top: 25px;
+}
+.sfsinewplgndesc>.clear>a
+{
+	color: #5a6570;
+    font-weight: bold;
+}
+.sfsiicnsdvwrp {
+    float: left;
+    width: 110px;
+}
+
+.tab6 .cstmdsplyulwpr .radio_section.tb_4_ck {
+    margin-right: 10px !important;
+	float: left;
+	width: auto;
+}
+.tab6 .social_icon_like1 li span.checkbox {
+    background: rgba(0, 0, 0, 0) url(../images/check_bg.jpg) no-repeat scroll 0 0;
+    display: inherit;
+    height: 31px;
+    width: 31px;
+}
+.tab6 .cstmdsplyulwpr a {
+	margin-top: 3px;
+	float: left;
+}
+.sf_subscrbe .bot_no
+{
+	background: rgba(0, 0, 0, 0) url(images/count_left_arow.png) no-repeat scroll 0 0 / 27px auto;
+	font-size: 12px !important;
+    left: 67px;
+    line-height: 18px !important;
+    margin-left: 0px;
+    margin-top: 8px;
+    padding: 1px 0;
+    position: absolute;
+    text-align: center;
+    top: -8px;
+    white-space: pre;
+    width: 33px;
+	height: 20px;
+    z-index: 9;
+}
