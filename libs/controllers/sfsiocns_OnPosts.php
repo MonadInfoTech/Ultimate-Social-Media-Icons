@@ -280,7 +280,7 @@ function sfsi_footer_script()
 	if($sfsi_section1['sfsi_share_display']=="yes" || $sfsi_section6['sfsi_show_Onposts']=="yes" || $sfsi_section6['sfsi_rectshr'] == "yes")
 	{ ?>
 	 	<!-- Addthis js -->
-        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-558ac14e7f79bff7"></script>
         <script type="text/javascript">
        		var addthis_config = {  ui_click: true  };
        	</script>
