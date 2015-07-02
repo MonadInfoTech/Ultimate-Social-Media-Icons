@@ -60,9 +60,12 @@ function sfsi_get_fb($url)
 /* get facebook page likes */
 function sfsi_get_fb_pagelike($url)
 {
-   $json_string = $this->file_get_contents_curl('http://graph.facebook.com/'.$url);
-   $json = json_decode($json_string, true);
-   return isset($json['likes'])? $json['likes']:0;
+	$appid = '959456867427268';
+ 	$appsecret = '7cc27f382c47fd5cc3a7203e40d70bf1';
+ 	$json_url ='https://graph.facebook.com/'.$url.'?access_token='.$appid.'|'.$appsecret;
+   	$json_string = $this->file_get_contents_curl($json_url);
+	$json = json_decode($json_string, true);
+	return isset($json['likes'])? $json['likes']:0;
 }
 /* get google+ follwers  */
 function sfsi_get_google($url,$google_api_key)
@@ -178,6 +181,7 @@ private function file_get_contents_curl($url)
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 	curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	$cont = curl_exec($ch);
 	if(curl_error($ch))
 	{
