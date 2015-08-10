@@ -70,34 +70,33 @@ function sfsi_get_fb_pagelike($url)
 /* get google+ follwers  */
 function sfsi_get_google($url,$google_api_key)
 {   
-   if(filter_var($url, FILTER_VALIDATE_URL) && !empty($google_api_key))
-  {
-    $url=parse_url($url);
-    $url_path=explode('/',$url['path']);
-    if(isset($url_path))
-    {     end($url_path);
-          $key=key($url_path);
-          
-    $page_id = $url_path[$key];
-    }
-    if($this->sfsi_get_http_response_code("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key")!="404")
-    {        
-        $data = $this->file_get_contents_curl("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key");     
-        $data = json_decode($data, true);
-      
-        return $this->format_num($data['circledByCount']); 
-    }
-    else
-    {
-        return 0;
-    }    
-   }
- else {
-      return 0;
-  }
-    
-
-
+	if(filter_var($url, FILTER_VALIDATE_URL) && !empty($google_api_key))
+  	{
+    	$url=parse_url($url);
+    	$url_path=explode('/',$url['path']);
+		if(isset($url_path))
+		{
+			end($url_path);
+			$key = key($url_path);
+			$page_id = $url_path[$key];
+		}
+		
+		if($this->sfsi_get_http_response_code("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key")!="404")
+		{        
+			$data = $this->file_get_contents_curl("https://www.googleapis.com/plus/v1/people/$page_id?key=$google_api_key");     
+			$data = json_decode($data, true);
+		  
+			return $this->format_num($data['circledByCount']); 
+		}
+		else
+		{
+			return 0;
+		}    
+	}
+ 	else
+	{
+    	return 0;
+  	}
 }
 /* get google+ likes */
 function sfsi_getPlus1($url)
@@ -148,6 +147,7 @@ function sfsi_get_atthis()
  /* get pinit counts  */       
 function sfsi_get_pinterest($url)
 {
+	//'https://api.pinterest.com/v3/pidgets/users/[username]/pins/'
 	$return_data = $this->file_get_contents_curl('http://api.pinterest.com/v1/urls/count.json?callback=receiveCount&url='.$url);
 	$json_string = preg_replace('/^receiveCount\((.*)\)$/', "\\1", $return_data);
 	$json = json_decode($json_string, true);

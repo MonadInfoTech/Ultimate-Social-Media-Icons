@@ -17,9 +17,10 @@ function sfsi_activate_plugin()
 			'sfsi_custom_display'=>'',
 			'sfsi_custom_files'=>''  
         );
-		add_option('sfsi_section1_options',  serialize($options1));
+	add_option('sfsi_section1_options',  serialize($options1));
     $sffeeds=SFSI_getFeedUrl();
-    /* Links and icons  options */	 
+    
+	/* Links and icons  options */	 
     $options2=array('sfsi_rss_url'=>get_bloginfo('rss2_url'),
         'sfsi_rss_icons'=>'email', 
         'sfsi_email_url'=>$sffeeds->redirect_url,
@@ -54,9 +55,10 @@ function sfsi_activate_plugin()
         'sfsi_linkedin_recommendCompany'=>'',
         'sfsi_linkedin_recommendProductId'=>'',
         'sfsi_CustomIcon_links'=>''
-        );
+    );
 	add_option('sfsi_section2_options',  serialize($options2));
-    /* Design and animation option  */
+    
+	/* Design and animation option  */
 	$options3=array('sfsi_mouseOver'=>'yes',
         'sfsi_mouseOver_effect'=>'fade_in',
         'sfsi_shuffle_icons'=>'no',
@@ -65,6 +67,7 @@ function sfsi_activate_plugin()
         'sfsi_shuffle_intervalTime'=>'',                              
         'sfsi_actvite_theme'=>'default' );
 	add_option('sfsi_section3_options',  serialize($options3));
+	
 	/* display counts options */         
     $options4=array('sfsi_display_counts'=>'no',
         'sfsi_email_countsDisplay'=>'no',
@@ -110,9 +113,10 @@ function sfsi_activate_plugin()
         'sfsi_shares_countsDisplay'=>'no',
         'sfsi_shares_countsFrom'=>'manual',
         'sfsi_shares_manualCounts'=>'20'
-        );
+    );
 	add_option('sfsi_section4_options',  serialize($options4));
-  	$options5=array('sfsi_icons_size'=>'40',
+  	
+	$options5=array('sfsi_icons_size'=>'40',
         'sfsi_icons_spacing'=>'5',
         'sfsi_icons_Alignment'=>'left',
         'sfsi_icons_perRow'=>'5',
@@ -143,8 +147,10 @@ function sfsi_activate_plugin()
         'sfsi_youtube_MouseOverText'=>'YouTube',
         'sfsi_share_MouseOverText'=>'Share',
         'sfsi_custom_MouseOverTexts'=>'',
-        ); add_option('sfsi_section5_options',  serialize($options5));
-    /* post options */	                
+    );
+	add_option('sfsi_section5_options',  serialize($options5));
+    
+	/* post options */	                
     $options6=array('sfsi_show_Onposts'=>'no',
         'sfsi_show_Onbottom'=>'no',
         'sfsi_icons_postPositon'=>'source',
@@ -159,7 +165,8 @@ function sfsi_activate_plugin()
 		'sfsi_recttwtr'=>'yes'
         );
 	add_option('sfsi_section6_options',  serialize($options6));       
-    /* icons pop options */
+    
+	/* icons pop options */
     $options7=array('sfsi_show_popup'=>'no',
         'sfsi_popup_text'=>'Enjoy this blog? Please spread the word :)',
         'sfsi_popup_background_color'=>'#eff7f7',
@@ -177,12 +184,14 @@ function sfsi_activate_plugin()
         'sfsi_Shown_popuplimitPerUserTime'=>'',
         );
 	add_option('sfsi_section7_options',  serialize($options7));
-    update_option('sfsi_feed_id',$sffeeds->feed_id);
+    
+	update_option('sfsi_feed_id',$sffeeds->feed_id);
     add_option('sfsi_installDate',date('Y-m-d h:i:s'));
     add_option('sfsi_RatingDiv','no');
     add_option('sfsi_footer_sec','no');
 	update_option('sfsi_activate', 1);
-	$get_option2=unserialize(get_option('sfsi_section2_options',falase));
+	
+	$get_option2=unserialize(get_option('sfsi_section2_options',false));
 	$get_option2['sfsi_email_url']=$sffeeds->redirect_url;
 	update_option('sfsi_section2_options', serialize($get_option2));
         sfsi_setUpfeeds($sffeeds->feed_id);
@@ -211,10 +220,10 @@ function sfsi_updateFeedPing($status,$feed_id)
             'status' => $status
         )
     ));
-     // Send the request & save response to $resp
-        $resp = curl_exec($curl);
-        $resp=json_decode($resp);
-        curl_close($curl);
+    // Send the request & save response to $resp
+    $resp = curl_exec($curl);
+    $resp=json_decode($resp);
+    curl_close($curl);
 }
 /* unistall plugin function */
 function sfsi_Unistall_plugin()
@@ -231,7 +240,8 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_feed_id');
     delete_option('sfsi_footer_sec');
     delete_option('sfsi_activate');
-}/* end function */
+}
+/* end function */
 
 /* check CUrl */
 function curl_enable_notice()
@@ -242,16 +252,20 @@ function curl_enable_notice()
 }
 	
 /* add admin menus */
-function sfsi_admin_menu() {
-add_menu_page('Ultimate Social Media Icons', 'Ultimate Social Media Icons', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
-//add_submenu_page('sfsi-options', 'Subscription Options', 'Settings','administrator', 'sfsi-options', 'sfsi_options_page');
-//add_submenu_page('sfsi-options', 'Specific About Us', 'About','administrator', 'sfsi-about', 'sfsi_about_page');
+function sfsi_admin_menu()
+{
+	add_menu_page('Ultimate Social Media Icons', 'Ultimate Social Media Icons', 'administrator','sfsi-options','sfsi_options_page',plugins_url( 'images/logo.png' , dirname(__FILE__) ));
+	//add_submenu_page('sfsi-options', 'Subscription Options', 'Settings','administrator', 'sfsi-options', 'sfsi_options_page');
+	//add_submenu_page('sfsi-options', 'Specific About Us', 'About','administrator', 'sfsi-about', 'sfsi_about_page');
 }
+
 function sfsi_options_page(){ include SFSI_DOCROOT . '/views/sfsi_options_view.php';	} /* end function  */
 function sfsi_about_page(){ include SFSI_DOCROOT . '/views/sfsi_aboutus.php';	} /* end function  */
+
 if ( is_admin() ){
     add_action('admin_menu', 'sfsi_admin_menu');
 }
+
 /* fetch rss url from specificfeeds */ 
 function SFSI_getFeedUrl()
 {
@@ -268,14 +282,15 @@ function SFSI_getFeedUrl()
             'email'=>get_bloginfo('admin_email')
         )
     ));
-     // Send the request & save response to $resp
-        $resp = curl_exec($curl);
-        $resp = json_decode($resp);
-		curl_close($curl);
+    // Send the request & save response to $resp
+	$resp = curl_exec($curl);
+	$resp = json_decode($resp);
+	curl_close($curl);
 		
-		 $feed_url=stripslashes_deep($resp->redirect_url);
-         return $resp;exit;
+	$feed_url=stripslashes_deep($resp->redirect_url);
+	return $resp;exit;
 }
+
 /* add sf tags */
 function sfsi_setUpfeeds($feed_id)
 {
@@ -286,12 +301,13 @@ function sfsi_setUpfeeds($feed_id)
         CURLOPT_USERAGENT => 'sf rss request',
         CURLOPT_POST => 0      
 	));
-        $resp = curl_exec($curl);
-        curl_close($curl);	
+    $resp = curl_exec($curl);
+    curl_close($curl);	
 }
+
 /* admin notice if wp_head is missing in active theme */
-function sfsi_check_wp_head() {
-	
+function sfsi_check_wp_head()
+{
 	$template_directory = get_template_directory();
 	$header = $template_directory . '/header.php';
 	

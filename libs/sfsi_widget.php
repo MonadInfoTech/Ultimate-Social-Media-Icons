@@ -265,6 +265,7 @@ function sfsi_check_visiblity($isFloter=0)
     $icons_data=$icons_main.$icons_float;
     return $icons_data;
 }
+
 /* make all icons with saved settings in admin */
 function sfsi_prepairIcons($icon_name,$is_front=0)
 {  
@@ -278,6 +279,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     $alt_text = '';
     $new_window = '';
     $class = '';
+	
     /* access  all saved settings in admin */
     $sfsi_section1_options =  unserialize(get_option('sfsi_section1_options',false));
     $sfsi_section2_options =  unserialize(get_option('sfsi_section2_options',false));
@@ -287,10 +289,9 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     $sfsi_section6_options =  unserialize(get_option('sfsi_section6_options',false));
     $sfsi_section7_options =  unserialize(get_option('sfsi_section7_options',false));
 
-	 /* get active theme */
-     $border_radius='';
-     $active_theme = $sfsi_section3_options['sfsi_actvite_theme'];
-    
+	/* get active theme */
+    $border_radius='';
+    $active_theme = $sfsi_section3_options['sfsi_actvite_theme'];
     
     /* shuffle effect */   
     if($sfsi_section3_options['sfsi_shuffle_icons']=='yes')
@@ -301,10 +302,11 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
             $sfsi_shuffle_interval = $sfsi_section3_options["sfsi_shuffle_intervalTime"];
         }
     }
-     /* define the main url for icon access */ 
-     $icons_baseUrl = SFSI_PLUGURL."images/icons_theme/".$active_theme."/";
-     $visit_iconsUrl = SFSI_PLUGURL."images/visit_icons/";   
-     $hoverSHow = 0;
+    
+	/* define the main url for icon access */ 
+    $icons_baseUrl = SFSI_PLUGURL."images/icons_theme/".$active_theme."/";
+    $visit_iconsUrl = SFSI_PLUGURL."images/visit_icons/";   
+    $hoverSHow = 0;
    
    /* check is icon is a custom icon or default icon */  
    if(is_numeric($icon_name)) { $icon_n=$icon_name; $icon_name="custom" ; } 
@@ -372,7 +374,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 		       $arrow_class = "bot_eamil_arow";
 		       
 			   /* fecth no of counts if active in admin section */
-		       if($sfsi_section4_options['sfsi_email_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+		       if(
+			   		$sfsi_section4_options['sfsi_email_countsDisplay']=="yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+			   )
 			   {
 				 if($sfsi_section4_options['sfsi_email_countsFrom']=="manual")
 				 {    
@@ -396,28 +401,28 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			//Custom Skin Support {Monad}	 
 			if($active_theme == 'custom_support')
 			{
-			 if(get_option("email_skin"))
-			 {
-				$icon = get_option("email_skin");
-			 }
-			 else
-			 {
-				$active_theme = 'default';
-				$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
-				//$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png"; 
-				if($sfsi_section2_options['sfsi_rss_icons']=="sfsi")
-				{
-					$icon = $icons_baseUrl.$active_theme."_sf.png";					
-				}
-				elseif($sfsi_section2_options['sfsi_rss_icons']=="email")
-				{
-					$icon = $icons_baseUrl.$active_theme."_email.png";
-				}
-				else
-				{
-					$icon = $icons_baseUrl.$active_theme."_subscribe.png";
-				}
-			 }
+				 if(get_option("email_skin"))
+				 {
+					$icon = get_option("email_skin");
+				 }
+				 else
+				 {
+					$active_theme = 'default';
+					$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
+					//$icon=($sfsi_section2_options['sfsi_rss_icons']=="sfsi") ? $icons_baseUrl.$active_theme."_sf.png" : $icons_baseUrl.$active_theme."_email.png"; 
+					if($sfsi_section2_options['sfsi_rss_icons']=="sfsi")
+					{
+						$icon = $icons_baseUrl.$active_theme."_sf.png";					
+					}
+					elseif($sfsi_section2_options['sfsi_rss_icons']=="email")
+					{
+						$icon = $icons_baseUrl.$active_theme."_email.png";
+					}
+					else
+					{
+						$icon = $icons_baseUrl.$active_theme."_subscribe.png";
+					}
+				 }
 			}
 			else
 			{
@@ -458,7 +463,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			$visit_icon = $visit_iconsUrl."facebook.png";
 		    $url = ($sfsi_section2_options['sfsi_facebookPage_url']) ? $sfsi_section2_options['sfsi_facebookPage_url']:'javascript:void(0);';
                     
-			if($sfsi_section2_options['sfsi_facebookLike_option']=="yes" || $sfsi_section2_options['sfsi_facebookShare_option']=="yes" )
+			if(
+				$sfsi_section2_options['sfsi_facebookLike_option']=="yes" ||
+				$sfsi_section2_options['sfsi_facebookShare_option']=="yes"
+			)
 			{
 				 $url=($sfsi_section2_options['sfsi_facebookPage_url']) ? $sfsi_section2_options['sfsi_facebookPage_url']:'javascript:void(0);';
 				 $hoverSHow=1;
@@ -479,7 +487,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			 }
 			 
 			 /* fecth no of counts if active in admin section */
-			 if($sfsi_section4_options['sfsi_facebook_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes" )
+			 if(
+			 	$sfsi_section4_options['sfsi_facebook_countsDisplay']=="yes" &&
+				$sfsi_section4_options['sfsi_display_counts']=="yes"
+			 )
 			 {
 				 if($sfsi_section4_options['sfsi_facebook_countsFrom']=="manual")
 				 {    
@@ -549,7 +560,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				$url = ($sfsi_section2_options['sfsi_google_pageURL'])?$sfsi_section2_options['sfsi_google_pageURL'] : 'javascript:void(0);';
 				
 				/* check for icons to display */     
-				if($sfsi_section2_options['sfsi_googleLike_option']=="yes" || $sfsi_section2_options['sfsi_googleShare_option']=="yes")
+				if(
+					$sfsi_section2_options['sfsi_googleLike_option']=="yes" ||
+					$sfsi_section2_options['sfsi_googleShare_option']=="yes"
+				)
 				{
 					 $hoverSHow=1;
 					 $hoverdiv='';
@@ -568,7 +582,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				 }
 
 				/* fecth no of counts if active in admin section */
-				if($sfsi_section4_options['sfsi_google_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+				if(
+					$sfsi_section4_options['sfsi_google_countsDisplay']=="yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+				)
 				{
 					 if($sfsi_section4_options['sfsi_google_countsFrom']=="manual")
 					 {    
@@ -576,9 +593,9 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 }
 					 else if($sfsi_section4_options['sfsi_google_countsFrom']=="likes")
 					 {
-						$api_key=$sfsi_section4_options['sfsi_google_api_key'];
-						$followers=$socialObj->sfsi_getPlus1($current_url);
-						$counts=$socialObj->format_num($followers);
+						$api_key = $sfsi_section4_options['sfsi_google_api_key'];
+						$followers = $socialObj->sfsi_getPlus1($current_url);
+						$counts = $socialObj->format_num($followers);
 						if(empty($counts))
 						{
 							$counts = (string) "0";
@@ -586,9 +603,9 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 }
 					 else if($sfsi_section4_options['sfsi_google_countsFrom']=="follower")
 					 {
-						$api_key=$sfsi_section4_options['sfsi_google_api_key'];
-						$followers=$socialObj->sfsi_get_google($url,$api_key);
-						$counts=$followers;
+						$api_key = $sfsi_section4_options['sfsi_google_api_key'];
+						$followers = $socialObj->sfsi_get_google($url,$api_key);
+						$counts = $followers;
 						if(empty($counts))
 						{
 							$counts = (string) "0";
@@ -630,7 +647,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
              	/* check for icons to display */
 		     	$hoverdiv='';
 			    
-				 if($sfsi_section2_options['sfsi_twitter_followme']=="yes" || $sfsi_section2_options['sfsi_twitter_aboutPage']=="yes")
+				 if(
+				 	$sfsi_section2_options['sfsi_twitter_followme']=="yes" ||
+					$sfsi_section2_options['sfsi_twitter_aboutPage']=="yes"
+				 )
 				 {
 					 $hoverSHow=1;
 					 //Visit twitter page {Monad}	 
@@ -650,25 +670,27 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				 }
 		      	 
 				 /* fecth no of counts if active in admin section */
-				 if($sfsi_section4_options['sfsi_twitter_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+				 if(
+				 	$sfsi_section4_options['sfsi_twitter_countsDisplay']=="yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+				 )
 				 {
 					 if($sfsi_section4_options['sfsi_twitter_countsFrom']=="manual")
 					 {    
-					 $counts=$socialObj->format_num($sfsi_section4_options['sfsi_twitter_manualCounts']);
+					 	$counts = $socialObj->format_num($sfsi_section4_options['sfsi_twitter_manualCounts']);
 					 }
 					 else if($sfsi_section4_options['sfsi_twitter_countsFrom']=="source")
 					 {
-						$tw_settings=array('tw_consumer_key'=>$sfsi_section4_options['tw_consumer_key'],
+						$tw_settings = array('tw_consumer_key'=>$sfsi_section4_options['tw_consumer_key'],
 										   'tw_consumer_secret'=> $sfsi_section4_options['tw_consumer_secret'],
 										   'tw_oauth_access_token'=> $sfsi_section4_options['tw_oauth_access_token'],
 										   'tw_oauth_access_token_secret'=> $sfsi_section4_options['tw_oauth_access_token_secret']);
-										   
-						$followers=$socialObj->sfsi_get_tweets($twitter_user,$tw_settings);
-						$counts=$socialObj->format_num($followers);
-						 if(empty($counts))
-						 {
+						$followers = $socialObj->sfsi_get_tweets($twitter_user,$tw_settings);
+						$counts = $socialObj->format_num($followers);
+						if(empty($counts))
+						{
 						   $counts=(string) "0";
-						 }
+						}
 					 }
 				 } 
                  
@@ -793,19 +815,22 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				 }
                  
 				 /* fecth no of counts if active in admin section */  
-                 if($sfsi_section4_options['sfsi_youtube_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+                 if(
+				 	$sfsi_section4_options['sfsi_youtube_countsDisplay']=="yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+				 )
                  {
                       if($sfsi_section4_options['sfsi_youtube_countsFrom']=="manual")
                       {    
-                         $counts=$socialObj->format_num($sfsi_section4_options['sfsi_youtube_manualCounts']);
+                         $counts = $socialObj->format_num($sfsi_section4_options['sfsi_youtube_manualCounts']);
                       }
                       else if($sfsi_section4_options['sfsi_youtube_countsFrom']=="subscriber")
                       {
-                             $followers=$socialObj->sfsi_get_youtube($youtube_user);
-                             $counts=$socialObj->format_num($followers);
+                             $followers = $socialObj->sfsi_get_youtube($youtube_user);
+                             $counts = $socialObj->format_num($followers);
                              if(empty($counts))
 							 {
-							   $counts=(string) "0";
+							   $counts = (string) "0";
 							 }
                        }
                   }
@@ -872,7 +897,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			   } 
                
 			   /* fecth no of counts if active in admin section */   
-		   	   if($sfsi_section4_options['sfsi_pinterest_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+		   	   if(
+			   		$sfsi_section4_options['sfsi_pinterest_countsDisplay'] == "yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+			   )
                {
 					 if($sfsi_section4_options['sfsi_pinterest_countsFrom']=="manual")
 					 {    
@@ -880,8 +908,8 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 }
 					 else if($sfsi_section4_options['sfsi_pinterest_countsFrom']=="pins")
 					 {
-						$pins=$socialObj->sfsi_get_pinterest($current_url);
-						$counts=$pins;
+						$pins = $socialObj->sfsi_get_pinterest($current_url);
+						$counts = $pins;
 						if(empty($counts))
 						{
 						   $counts=(string) "0";
@@ -900,7 +928,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 {
 						$active_theme = 'default';
 						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
-						$icon=$icons_baseUrl.$active_theme."_pinterest.png";
+						$icon = $icons_baseUrl.$active_theme."_pinterest.png";
 					 }
 				}
 				else
@@ -928,7 +956,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				     
 		     	$hoverdiv="";
                 /* fecth no of counts if active in admin section */ 
-				if($sfsi_section4_options['sfsi_instagram_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+				if(
+					$sfsi_section4_options['sfsi_instagram_countsDisplay']=="yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+				)
 				{
 					if($sfsi_section4_options['sfsi_instagram_countsFrom']=="manual")
 					{    
@@ -936,7 +967,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					}
 					else if($sfsi_section4_options['sfsi_instagram_countsFrom']=="followers")
 					{
-						$counts=$socialObj->sfsi_get_instagramFollowers($instagram_user_name);
+						$counts = $socialObj->sfsi_get_instagramFollowers($instagram_user_name);
 						if(empty($counts))
 						{
 						   $counts=(string) "0";
@@ -977,7 +1008,11 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				/*check for icons to display */     
 				$url=($sfsi_section2_options['sfsi_linkedin_pageURL'])? $sfsi_section2_options['sfsi_linkedin_pageURL'] : 'javascript:void(0);';         
 		     	
-				if($sfsi_section2_options['sfsi_linkedin_follow']=="yes" || $sfsi_section2_options['sfsi_linkedin_SharePage']=="yes" || $sfsi_section2_options['sfsi_linkedin_recommendBusines']=="yes" )
+				if(
+					$sfsi_section2_options['sfsi_linkedin_follow']=="yes" ||
+					$sfsi_section2_options['sfsi_linkedin_SharePage']=="yes" ||
+					$sfsi_section2_options['sfsi_linkedin_recommendBusines']=="yes"
+				)
                 {
 			 		 $hoverSHow=1;
 					 $hoverdiv='';
@@ -1001,7 +1036,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
                  }
 				  
                  /* fecth no of counts if active in admin section */   
-				 if($sfsi_section4_options['sfsi_linkedIn_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
+				 if(
+				 	$sfsi_section4_options['sfsi_linkedIn_countsDisplay']=="yes" &&
+					$sfsi_section4_options['sfsi_display_counts']=="yes"
+				 )
 				 {
 					 if($sfsi_section4_options['sfsi_linkedIn_countsFrom']=="manual")
 					 {    
@@ -1009,8 +1047,8 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					 }
 					 else if($sfsi_section4_options['sfsi_linkedIn_countsFrom']=="follower")
 					 {
-						 $linkedIn_compay=$sfsi_section4_options['ln_company'];
-						 $ln_settings=array('ln_api_key'=>$sfsi_section4_options['ln_api_key'],
+						 $linkedIn_compay = $sfsi_section4_options['ln_company'];
+						 $ln_settings = array('ln_api_key'=>$sfsi_section4_options['ln_api_key'],
 										  'ln_secret_key'=>$sfsi_section4_options['ln_secret_key'],
 										  'ln_oAuth_user_token'=>$sfsi_section4_options['ln_oAuth_user_token']);
 										  
