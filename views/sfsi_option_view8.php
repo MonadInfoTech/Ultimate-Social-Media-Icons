@@ -1,0 +1,486 @@
+<?php
+	/* unserialize all saved option for  section 8 options */
+    $option8 = unserialize(get_option('sfsi_section8_options',false));
+?>
+<!-- Section 8 "Do you want to show a subscription form (increases sign ups)?" main div Start -->
+<div class="tab8">
+	<p>
+    	In addition to the email- or follow-icon you can also show a subscription form  which maximizes chances that people subscribe to your site.
+    </p>
+	
+    <div class="sfsi_tab8_container">
+    	<!--Section 1-->
+        <div class="sfsi_tab8_subcontainer">
+    		<h3 class="sfsi_section_title">Preview:</h3>
+            <div class="like_pop_box">
+            	<div class="sfsi_subscribe_Popinner">
+                    <form method="post">
+                        <h5>Get new posts by email:</h5>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        </div>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="submit" name="subscribe" value="Subscribe" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!--Section 2-->
+        <div class="sfsi_tab8_subcontainer sfsi_seprater">
+    		<h3 class="sfsi_section_title">Place it on your site</h3>
+            <label class="sfsi_label_text">You can place the form by different methods:</label>
+            <ul class="sfsi_form_info">
+            	<li><b>Widget:</b> Go to the widget settings and drag & drop it to the sidebar</li>
+                <li><b>Shortcode:</b> Use the shortcode <b>[USM_form]</b> to place it into your codes</li>
+                <li><b>Copy & paste HTML code:</b></li>
+            </ul>
+            <div class="sfsi_subscription_html">
+            	<xmp>
+                    <div class="sfsi_subscribe_Popinner">
+                        <form method="post">
+                            <h5>Get new posts by email:</h5>
+                            <div class="sfsi_subscription_form_field">
+                                <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                            </div>
+                            <div class="sfsi_subscription_form_field">
+                                <input type="submit" name="subscribe" value="Subscribe" />
+                            </div>
+                        </form>
+                    </div>
+                </xmp>
+            </div>
+        </div>
+        
+        <!--Section 3-->
+        <div class="sfsi_tab8_subcontainer sfsi_seprater">
+        	<h3 class="sfsi_section_title">Define text & design (optional)</h3>
+            <h5 class="sfsi_section_subtitle">Overall size & border</h5>
+            
+            <!--Left Section-->
+            <div class="sfsi_left_container">
+            	<div class="sfsi_subscribe_Popinner">
+                    <form method="post">
+                        <h5>Get new posts by email:</h5>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        </div>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="submit" name="subscribe" value="Subscribe" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!--Right Section-->
+            <div class="sfsi_right_container">
+            	<div class="row_tab">
+                    <label class="sfsi_heding">Adjust size to space on website?</label>
+					<ul class="border_shadow">
+                    	<li>
+                        	<input type="radio" class="styled" value="yes" name="sfsi_form_adjustment"
+                            	<?php echo isChecked($option8['sfsi_form_adjustment'], 'yes'); ?> >
+                            <label>Yes</label>
+                        </li>
+                        <li>
+                        	<input type="radio" class="styled" value="no" name="sfsi_form_adjustment"
+                            	<?php echo isChecked($option8['sfsi_form_adjustment'], 'no'); ?> >
+                            <label>No</label>
+                        </li>
+                    </ul>
+				</div>
+                <!--Row Section-->
+                <div class="row_tab" style="<?php echo ($option8['sfsi_form_adjustment'] == 'yes')? "display:none": ''; ?>">
+                    <div class="sfsi_field">
+                    	<label>Height</label>
+                        <input name="sfsi_form_height" type="text"
+                        	value="<?php echo ($option8['sfsi_form_height']!='') ?  $option8['sfsi_form_height'] : '' ;?>"
+                            class="small rec-inp" /><span class="pix">pixels</span>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Width</label>
+                        <input name="sfsi_form_width" type="text"
+                        	value="<?php echo ($option8['sfsi_form_width']!='') ?  $option8['sfsi_form_width'] : '' ;?>"
+                            class="small rec-inp" /><span class="pix">pixels</span>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                    <label class="sfsi_heding">Border?</label>
+					<ul class="border_shadow">
+                    	<li>
+                        	<input type="radio" class="styled" value="yes" name="sfsi_form_border"
+                            	<?php echo isChecked($option8['sfsi_form_border'], 'yes'); ?> >
+                            <label>Yes</label>
+                        </li>
+                        <li>
+                        	<input type="radio" class="styled" value="no" name="sfsi_form_border"
+                            	<?php echo isChecked($option8['sfsi_form_border'], 'no'); ?> >
+                            <label>No</label>
+                        </li>
+                    </ul>
+				</div>
+                <!--Row Section-->
+                <div class="row_tab" style="<?php echo ($option8['sfsi_form_border'] == 'no')? "display:none": ''; ?>">
+                	<div class="sfsi_field">
+                    	<label>Thickness</label>
+                        <input name="sfsi_form_border_thickness" type="text"
+                        	value="<?php echo ($option8['sfsi_form_border_thickness']!='')
+										? $option8['sfsi_form_border_thickness'] : '' ;
+									?>"
+                            class="small rec-inp" /><span class="pix">pixels</span>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Color</label>
+                        <input id="sfsi_form_border_color" class="small color-code" type="text" name="sfsi_form_border_color"
+                        	value="<?php echo ($option8['sfsi_form_border_color']!='')
+										? $option8['sfsi_form_border_color'] : '' ;
+									?>">
+                        <div class="color_box">
+                            <div class="corner"></div>
+                            <div id="sfsiFormBorderColor" class="color_box1" style="background: <?php echo ($option8['sfsi_form_border_color']!='')? $option8['sfsi_form_border_color'] : '' ;?>"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                    <label class="sfsi_heding autowidth">Background color:</label>
+					<div class="sfsi_field">
+                    	<input id="sfsi_form_background" class="small color-code" type="text" name="sfsi_form_background"
+                        	value="<?php echo ($option8['sfsi_form_background']!='')
+										? $option8['sfsi_form_background'] : '' ;
+									?>">
+                        <div class="color_box">
+                            <div class="corner"></div>
+                            <div id="sfsiFormBackground" class="color_box1" style="background: <?php echo ($option8['sfsi_form_background']!='')? $option8['sfsi_form_background'] : '' ;?>"></div>
+                        </div>
+                    </div>
+				</div>
+                <!--Row Section-->
+            </div>
+            
+        </div>
+        
+        <!--Section 4-->
+        <div class="sfsi_tab8_subcontainer sfsi_seprater">
+        	<h5 class="sfsi_section_subtitle">Text above entry field</h5>
+            
+            <!--Left Section-->
+            <div class="sfsi_left_container">
+            	<div class="sfsi_subscribe_Popinner">
+                    <form method="post">
+                        <h5>Get new posts by email:</h5>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        </div>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="submit" name="subscribe" value="Subscribe" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!--Right Section-->
+            <div class="sfsi_right_container">
+            	<div class="row_tab">
+                    <label class="sfsi_heding fixwidth sfsi_same_width">Text:</label>
+                    <div class="sfsi_field">
+                        <input type="text" class="small new-inp" name="sfsi_form_heading_text"
+                            value="<?php echo ($option8['sfsi_form_heading_text']!='')
+										? $option8['sfsi_form_heading_text'] : '' ;
+									?>"/>
+                    </div>           
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Font:</label>
+                        <?php sfsi_get_font("sfsi_form_heading_font", $option8['sfsi_form_heading_font']); ?>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Font style:</label>
+                        <?php sfsi_get_fontstyle("sfsi_form_heading_fontstyle", $option8['sfsi_form_heading_fontstyle']); ?>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Font color</label>
+                        <input type="text" name="sfsi_form_heading_fontcolor" class="small color-code" id="sfsi_form_heading_fontcolor" value="<?php echo ($option8['sfsi_form_heading_fontcolor']!='')
+										? $option8['sfsi_form_heading_fontcolor'] : '' ;
+									?>">
+                        <div class="color_box">
+                            <div class="corner"></div>
+                            <div class="color_box1" id="sfsiFormHeadingFontcolor" style="background: <?php echo ($option8['sfsi_form_heading_fontcolor']!='') ? $option8['sfsi_form_heading_fontcolor'] : '' ;
+									?>"></div>
+                        </div>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Font size</label>
+                        <input type="text" class="small rec-inp" name="sfsi_form_heading_fontsize"
+                        	value="<?php echo ($option8['sfsi_form_heading_fontsize']!='')
+										? $option8['sfsi_form_heading_fontsize'] : '' ;?>"/>
+                        <span class="pix">pixels</span>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Alignment:</label>
+                        <?php sfsi_get_alignment("sfsi_form_heading_fontalign", $option8['sfsi_form_heading_fontalign']); ?>
+                    </div>
+                </div>
+                <!--End Section-->
+            </div>
+            
+        </div>
+        
+        <!--Section 5-->
+        <div class="sfsi_tab8_subcontainer sfsi_seprater">
+        	<h5 class="sfsi_section_subtitle">Entry field</h5>
+            
+            <!--Left Section-->
+            <div class="sfsi_left_container">
+            	<div class="sfsi_subscribe_Popinner">
+                    <form method="post">
+                        <h5>Get new posts by email:</h5>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        </div>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="submit" name="subscribe" value="Subscribe" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!--Right Section-->
+            <div class="sfsi_right_container">
+            	<div class="row_tab">
+                    <label class="sfsi_heding fixwidth sfsi_same_width">Text:</label>
+                    <div class="sfsi_field">
+                        <input type="text" class="small new-inp" name="sfsi_form_field_text"
+                            value="<?php echo ($option8['sfsi_form_field_text']!='')
+										? $option8['sfsi_form_field_text'] : '' ;
+									?>"/>
+                    </div>           
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Font:</label>
+                        <?php sfsi_get_font("sfsi_form_field_font", $option8['sfsi_form_field_font']); ?>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Font style:</label>
+                        <?php sfsi_get_fontstyle("sfsi_form_field_fontstyle", $option8['sfsi_form_field_fontstyle']); ?>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Font color</label>
+                        <input type="text" name="sfsi_form_field_fontcolor" class="small color-code" id="sfsi_form_field_fontcolor" value="<?php echo ($option8['sfsi_form_field_fontcolor']!='')
+										? $option8['sfsi_form_field_fontcolor'] : '' ;
+									?>">
+                        <div class="color_box">
+                            <div class="corner"></div>
+                            <div class="color_box1" id="sfsiFormFieldFontcolor" style="background: <?php echo ($option8['sfsi_form_field_fontcolor']!='') ? $option8['sfsi_form_field_fontcolor'] : '' ;
+									?>"></div>
+                        </div>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Font size</label>
+                        <input type="text" class="small rec-inp" name="sfsi_form_field_fontsize"
+                        	value="<?php echo ($option8['sfsi_form_field_fontsize']!='')
+										? $option8['sfsi_form_field_fontsize'] : '' ;?>"/>
+                        <span class="pix">pixels</span>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Alignment:</label>
+                        <?php sfsi_get_alignment("sfsi_form_field_fontalign", $option8['sfsi_form_field_fontalign']); ?>
+                    </div>
+                </div>
+                <!--End Section-->
+            </div>
+            
+        </div>
+        
+        <!--Section 6-->
+        <div class="sfsi_tab8_subcontainer">
+        	<h5 class="sfsi_section_subtitle">Subscribe button</h5>
+            
+            <!--Left Section-->
+            <div class="sfsi_left_container">
+            	<div class="sfsi_subscribe_Popinner">
+                    <form method="post">
+                        <h5>Get new posts by email:</h5>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        </div>
+                        <div class="sfsi_subscription_form_field">
+                            <input type="submit" name="subscribe" value="Subscribe" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!--Right Section-->
+            <div class="sfsi_right_container">
+            	<div class="row_tab">
+                    <label class="sfsi_heding fixwidth sfsi_same_width">Text:</label>
+                    <div class="sfsi_field">
+                        <input type="text" class="small new-inp" name="sfsi_form_button_text"
+                            value="<?php echo ($option8['sfsi_form_button_text']!='')
+										? $option8['sfsi_form_button_text'] : '' ;
+									?>"/>
+                    </div>           
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Font:</label>
+                        <?php sfsi_get_font("sfsi_form_button_font", $option8['sfsi_form_button_font']); ?>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Font style:</label>
+                        <?php sfsi_get_fontstyle("sfsi_form_button_fontstyle", $option8['sfsi_form_button_fontstyle']); ?>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Font color</label>
+                        <input type="text" name="sfsi_form_button_fontcolor" class="small color-code" id="sfsi_form_button_fontcolor" value="<?php echo ($option8['sfsi_form_button_fontcolor']!='')
+										? $option8['sfsi_form_button_fontcolor'] : '' ;
+									?>">
+                        <div class="color_box">
+                            <div class="corner"></div>
+                            <div class="color_box1" id="sfsiFormButtonFontcolor" style="background: <?php echo ($option8['sfsi_form_button_fontcolor']!='') ? $option8['sfsi_form_button_fontcolor'] : '' ;
+									?>"></div>
+                        </div>
+                    </div>
+                    <div class="sfsi_field">
+                    	<label>Font size</label>
+                        <input type="text" class="small rec-inp" name="sfsi_form_button_fontsize"
+                        	value="<?php echo ($option8['sfsi_form_button_fontsize']!='')
+										? $option8['sfsi_form_button_fontsize'] : '' ;?>"/>
+                        <span class="pix">pixels</span>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Alignment:</label>
+                        <?php sfsi_get_alignment("sfsi_form_button_fontalign", $option8['sfsi_form_button_fontalign']); ?>
+                    </div>
+                </div>
+                <!--Row Section-->
+                <div class="row_tab">
+                	<div class="sfsi_field">
+                    	<label class="sfsi_same_width">Button color:</label>
+                        <input type="text" name="sfsi_form_button_background" class="small color-code" id="sfsi_form_button_background" value="<?php echo ($option8['sfsi_form_button_background']!='')
+										? $option8['sfsi_form_button_background'] : '' ;
+									?>">
+                        <div class="color_box">
+                            <div class="corner"></div>
+                            <div class="color_box1" id="sfsiFormButtonBackground" style="background: <?php echo ($option8['sfsi_form_button_background']!='') ? $option8['sfsi_form_button_background'] : '' ;
+									?>"></div>
+                        </div>
+                    </div>
+                </div>    
+                <!--End Section-->
+            </div>
+            
+        </div>
+    	<!--Section End-->
+    </div>
+
+    <!-- SAVE BUTTON SECTION   --> 
+	<div class="save_button">
+	     <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
+         <?php  $nonce = wp_create_nonce("update_step8"); ?>
+	    <a href="javascript:;" id="sfsi_save8" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
+	</div>
+    <!-- END SAVE BUTTON SECTION   -->
+	
+    <a class="sfsiColbtn closeSec" href="javascript:;">Collapse area</a>
+	<label class="closeSec"></label>
+	
+    <!-- ERROR AND SUCCESS MESSAGE AREA-->
+	<p class="red_txt errorMsg" style="display:none"> </p>
+	<p class="green_txt sucMsg" style="display:none"> </p>
+	<div class="clear"></div>
+
+</div>
+<!-- END Section 8 "Do you want to show a subscription form (increases sign ups)?" main div Start -->
+<?php
+function isChecked($givenVal, $value)
+{
+	if($givenVal == $value)
+		return 'checked="true"';
+	else
+		return '';
+}
+function isSeletcted($givenVal, $value)
+{
+	if($givenVal == $value)
+		return 'selected="true"';
+	else
+		return '';
+}
+function sfsi_get_font($name, $value)
+{
+	?>
+		<select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="select-same">
+			<option value="Arial, Helvetica, sans-serif"
+				<?php echo isSeletcted("Arial, Helvetica, sans-serif", $value) ?> >
+				Arial
+			</option>
+			<option value="Arial Black, Gadget, sans-serif"
+				<?php echo isSeletcted("Arial Black, Gadget, sans-serif", $value) ?> >
+				Arial Black
+			</option>
+			<option value="Calibri" <?php echo isSeletcted("Calibri", $value) ?> >Calibri</option>
+			<option value="Comic Sans MS" <?php echo isSeletcted("Comic Sans MS", $value) ?> >Comic Sans MS</option>
+			<option value="Courier New" <?php echo isSeletcted("Courier New", $value) ?> >Courier New</option>
+			<option value="Georgia" <?php echo isSeletcted("Georgia", $value) ?> >Georgia</option>
+			<option value="Helvetica,Arial,sans-serif"
+				<?php echo isSeletcted("Helvetica,Arial,sans-serif", $value) ?> >
+				Helvetica
+			</option>
+			<option value="Impact" <?php echo isSeletcted("Impact", $value) ?> >Impact</option>
+			<option value="Lucida Console" <?php echo isSeletcted("Lucida Console", $value) ?> >Lucida Console</option>
+			<option value="Tahoma,Geneva" <?php echo isSeletcted("Tahoma,Geneva", $value) ?> >Tahoma</option>
+			<option value="Times New Roman" <?php echo isSeletcted("Times New Roman", $value) ?> >Times New Roman</option>
+			<option value="Trebuchet MS" <?php echo isSeletcted("Trebuchet MS", $value) ?> >Trebuchet MS</option>
+			<option value="Verdana" <?php echo isSeletcted("Verdana", $value) ?> >Verdana</option>
+		</select>
+	<?php
+}
+function sfsi_get_fontstyle($name, $value)
+{
+	?>
+	<select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="select-same">
+		<option value="normal" <?php echo isSeletcted("normal", $value) ?> >Normal</option>
+		<option value="inherit" <?php echo isSeletcted("inherit", $value) ?> >Inherit</option>
+		<option value="oblique" <?php echo isSeletcted("oblique", $value) ?> >Oblique</option>
+		<option value="italic" <?php echo isSeletcted("italic", $value) ?> >Italic</option>
+	</select>
+	<?php                     
+}
+function sfsi_get_alignment($name, $value)
+{
+	?>
+	<select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="select-same">
+		<option value="left" <?php echo isSeletcted("left", $value) ?> >Left Align</option>
+		<option value="center" <?php echo isSeletcted("center", $value) ?> >Centered</option>
+		<option value="right" <?php echo isSeletcted("right", $value) ?> >Right Align</option>
+	</select>	
+	<?php
+}
+?>

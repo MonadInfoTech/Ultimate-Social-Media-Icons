@@ -59,15 +59,20 @@
     <h3><span>7</span>Do you want to display a pop-up, asking people to subscribe?</h3>
      <?php include(SFSI_DOCROOT.'/views/sfsi_option_view7.php'); ?>
     <!-- step 7 END here -->
+    
+    <!-- step 8 Start here -->
+    <h3><span>8</span>Do you want to show a subscription form (increases sign ups)?</h3>
+    <?php include(SFSI_DOCROOT.'/views/sfsi_option_view8.php'); ?>
+    <!-- step 8 END here -->
 
-     </div>
-    <div class="tab8">
+    </div>
+    <div class="tab9">
          <div class="save_button">
 		  <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
 		<a href="javascript:;" id="save_all_settings" title="Save All Settings">Save All Settings</a>
 	 </div>
-         <p class="red_txt errorMsg" style="display:none"> </p>
-         <p class="green_txt sucMsg" style="display:none"> </p>
+     <p class="red_txt errorMsg" style="display:none"> </p>
+     <p class="green_txt sucMsg" style="display:none"> </p>
 	 <p style="margin-top: 30px;">This plugin is 100% free. Please do us a BIG favor and give us a 5 star rating <a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new">here</a>. If you're not happy, please <a href="mailto:support@ultimatelysocial.com">get in touch with us</a>, so that we can sort it out.Thank you!</p>
      <p class="sucMsg bldtxtmsg">Need top-notch Wordpress development work at a competitive price? Visit us at <a href="http://www.ultimatelysocial.com">ultimatelysocial.com</a></p>
           
@@ -75,4 +80,3 @@
  <!-- all pops of plugin under sfsi_pop_content.php file --> 
  <?php include(SFSI_DOCROOT.'/views/sfsi_pop_content.php'); ?>
 </div> <!-- START Admin view for plugin-->
-

@@ -25,6 +25,7 @@ include(SFSI_DOCROOT.'/libs/controllers/sfsi_floater_icons.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_frontpopUp.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsiocns_OnPosts.php');
 include(SFSI_DOCROOT.'/libs/sfsi_widget.php');
+include(SFSI_DOCROOT.'/libs/sfsi_subscribe_widget.php');
 
 /* plugin install and uninstall hooks */
 register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
@@ -162,20 +163,82 @@ add_action('admin_init', 'check_sfsfiupdatedoptions');
 function check_sfsfiupdatedoptions()
 {
 	$option4=  unserialize(get_option('sfsi_section4_options',false));
-	 if(isset($option4['sfsi_youtubeusernameorid']) && !empty($option4['sfsi_youtubeusernameorid']))
-	 {
-	  //
-	 }
-	 else
-	 {
-	  $option4['sfsi_youtubeusernameorid'] = 'name';
-		 update_option('sfsi_section4_options',serialize($option4));
-	 }
+	if(isset($option4['sfsi_youtubeusernameorid']) && !empty($option4['sfsi_youtubeusernameorid']))
+	{
+	}
+	else
+	{
+		$option4['sfsi_youtubeusernameorid'] = 'name';
+		update_option('sfsi_section4_options',serialize($option4));
+	}
 }
 
 //sanitizing values
 function string_sanitize($s) {
     $result = preg_replace("/[^a-zA-Z0-9]+/", " ", html_entity_decode($s, ENT_QUOTES));
     return $result;
+}
+
+//Add Subscriber form css
+add_action("wp_head", "addStyleFunction");
+function addStyleFunction()
+{
+	$option8 = unserialize(get_option('sfsi_section8_options',false));
+	?>
+    	<style type="text/css" aria-selected="true">
+			.sfsi_subscribe_Popinner
+			{
+				<?php if($option8['sfsi_form_adjustment'] == 'yes') : ?>
+				width: 100%;
+				height: auto;
+				<?php else: ?>
+				width: <?php echo $option8['sfsi_form_width'] ?>px;
+				height: <?php echo $option8['sfsi_form_height'] ?>px;
+				<?php endif;?>
+				<?php if($option8['sfsi_form_border'] == 'yes') : ?>
+				border: <?php echo $option8['sfsi_form_border_thickness']."px solid ".$option8['sfsi_form_border_color']; ?>;
+				<?php endif;?>
+				float: left;
+				padding: 18px 20px;
+				background-color: <?php echo $option8['sfsi_form_background'] ?>;
+			}
+			.sfsi_subscribe_Popinner h5
+			{
+				font-family: <?php echo $option8['sfsi_form_heading_font'] ?>;
+				font-style: <?php echo $option8['sfsi_form_heading_fontstyle'] ?>;
+				color: <?php echo $option8['sfsi_form_heading_fontcolor'] ?>;
+				font-size: <?php echo $option8['sfsi_form_heading_fontsize']."px" ?>;
+				text-align: <?php echo $option8['sfsi_form_heading_fontalign'] ?>;
+				margin: 0 0 10px;
+    			padding: 0;
+			}
+			.sfsi_subscription_form_field {
+				float: left;
+				margin: 5px 0;
+				width: 100%;
+			}
+			.sfsi_subscription_form_field input {
+				padding: 10px 5px !important;
+				width: 100% !important;
+			}
+			.sfsi_subscribe_Popinner input[type=email]
+			{
+				font-family: <?php echo $option8['sfsi_form_field_font'] ?>;
+				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?>;
+				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?>;
+				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?>;
+				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?>;
+			}
+			.sfsi_subscribe_Popinner input[type=submit]
+			{
+				font-family: <?php echo $option8['sfsi_form_button_font'] ?>;
+				font-style: <?php echo $option8['sfsi_form_button_fontstyle'] ?>;
+				color: <?php echo $option8['sfsi_form_button_fontcolor'] ?>;
+				font-size: <?php echo $option8['sfsi_form_button_fontsize']."px" ?>;
+				text-align: <?php echo $option8['sfsi_form_button_fontalign'] ?>;
+				background-color: <?php echo $option8['sfsi_form_button_background'] ?>;
+			}
+		</style>
+	<?php
 }
 ?>
