@@ -780,4 +780,11 @@ function sfsigetForm()
     <?php
 	die;
 }
+add_action("wp_ajax_notification_read", "notification_read");
+function notification_read()
+{
+	update_option("show_notification", "no");
+	echo "success";
+	die;
+}
 ?>

@@ -1,8 +1,14 @@
 <?php
-
 function sfsi_activate_plugin()
 {
-    /* check for CURL enable at server */
+    if(get_option('sfsi_section1_options'))
+	{
+		if(!get_option('show_notification'))
+		{
+			add_option("show_notification", "yes");
+		}
+	}
+	/* check for CURL enable at server */
     curl_enable_notice();	
     $options1=array('sfsi_rss_display'=>'yes',
 			'sfsi_email_display'=>'yes',

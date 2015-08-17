@@ -13,17 +13,7 @@
         <div class="sfsi_tab8_subcontainer">
     		<h3 class="sfsi_section_title">Preview:</h3>
             <div class="like_pop_box">
-            	<div class="sfsi_subscribe_Popinner">
-                    <form method="post">
-                        <h5>Get new posts by email:</h5>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
-                        </div>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="submit" name="subscribe" value="Subscribe" />
-                        </div>
-                    </form>
-                </div>
+            	<?php get_sfsiSubscriptionForm(); ?>
             </div>
         </div>
         
@@ -32,23 +22,14 @@
     		<h3 class="sfsi_section_title">Place it on your site</h3>
             <label class="sfsi_label_text">You can place the form by different methods:</label>
             <ul class="sfsi_form_info">
-            	<li><b>Widget:</b> Go to the widget settings and drag & drop it to the sidebar</li>
-                <li><b>Shortcode:</b> Use the shortcode <b>[USM_form]</b> to place it into your codes</li>
-                <li><b>Copy & paste HTML code:</b></li>
+            	<li><b>1. Widget:</b> Go to the <a target="_blank" href="<?php echo site_url()?>/wp-admin/widgets.php">widget settings</a> and drag & drop it to the sidebar.
+                </li>
+                <li><b>2. Shortcode:</b> Use the shortcode <b>[USM_form]</b> to place it into your codes</li>
+                <li><b>3. Copy & paste HTML code:</b></li>
             </ul>
             <div class="sfsi_subscription_html">
             	<xmp>
-                    <div class="sfsi_subscribe_Popinner">
-                        <form method="post">
-                            <h5>Get new posts by email:</h5>
-                            <div class="sfsi_subscription_form_field">
-                                <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
-                            </div>
-                            <div class="sfsi_subscription_form_field">
-                                <input type="submit" name="subscribe" value="Subscribe" />
-                            </div>
-                        </form>
-                    </div>
+                    <?php get_sfsiSubscriptionForm(); ?>
                 </xmp>
             </div>
         </div>
@@ -60,17 +41,7 @@
             
             <!--Left Section-->
             <div class="sfsi_left_container">
-            	<div class="sfsi_subscribe_Popinner">
-                    <form method="post">
-                        <h5>Get new posts by email:</h5>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
-                        </div>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="submit" name="subscribe" value="Subscribe" />
-                        </div>
-                    </form>
-                </div>
+            	<?php get_sfsiSubscriptionForm(); ?>
             </div>
             
             <!--Right Section-->
@@ -168,17 +139,7 @@
             
             <!--Left Section-->
             <div class="sfsi_left_container">
-            	<div class="sfsi_subscribe_Popinner">
-                    <form method="post">
-                        <h5>Get new posts by email:</h5>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
-                        </div>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="submit" name="subscribe" value="Subscribe" />
-                        </div>
-                    </form>
-                </div>
+            	<?php get_sfsiSubscriptionForm("h5"); ?>
             </div>
             
             <!--Right Section-->
@@ -242,17 +203,7 @@
             
             <!--Left Section-->
             <div class="sfsi_left_container">
-            	<div class="sfsi_subscribe_Popinner">
-                    <form method="post">
-                        <h5>Get new posts by email:</h5>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
-                        </div>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="submit" name="subscribe" value="Subscribe" />
-                        </div>
-                    </form>
-                </div>
+            	<?php get_sfsiSubscriptionForm("email"); ?>
             </div>
             
             <!--Right Section-->
@@ -316,17 +267,7 @@
             
             <!--Left Section-->
             <div class="sfsi_left_container">
-            	<div class="sfsi_subscribe_Popinner">
-                    <form method="post">
-                        <h5>Get new posts by email:</h5>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="email" name="subscribe_email" placeholder="Enter your email" value="" />
-                        </div>
-                        <div class="sfsi_subscription_form_field">
-                            <input type="submit" name="subscribe" value="Subscribe" />
-                        </div>
-                    </form>
-                </div>
+            	<?php get_sfsiSubscriptionForm("submit"); ?>
             </div>
             
             <!--Right Section-->
@@ -382,7 +323,7 @@
                 <!--Row Section-->
                 <div class="row_tab">
                 	<div class="sfsi_field">
-                    	<label class="sfsi_same_width">Button color:</label>
+                    	<label class="sfsi_same_width"><b>Button color:</b></label>
                         <input type="text" name="sfsi_form_button_background" class="small color-code" id="sfsi_form_button_background" value="<?php echo ($option8['sfsi_form_button_background']!='')
 										? $option8['sfsi_form_button_background'] : '' ;
 									?>">
@@ -482,5 +423,24 @@ function sfsi_get_alignment($name, $value)
 		<option value="right" <?php echo isSeletcted("right", $value) ?> >Right Align</option>
 	</select>	
 	<?php
+}
+function get_sfsiSubscriptionForm($hglht=null)
+{
+	?>
+    	<div class="sfsi_subscribe_Popinner">
+            <div class="form-overlay"></div>
+            <form method="post">
+                <h5 <?php if($hglht=="h5"){ echo 'class="sfsi_highlight"';}?> >Get new posts by email:</h5>
+                <div class="sfsi_subscription_form_field">
+                    <input type="email" name="subscribe_email" placeholder="Enter your email" value=""
+                    	<?php if($hglht=="email"){ echo 'class="sfsi_highlight"';}?> />
+                </div>
+                <div class="sfsi_subscription_form_field">
+                    <input type="submit" name="subscribe" value="Subscribe"
+                     <?php if($hglht=="submit"){ echo 'class="sfsi_highlight"';}?> />
+                </div>
+            </form>
+        </div>
+    <?php
 }
 ?>

@@ -2852,7 +2852,7 @@ h2.optional {
 	margin-left: 20px;
 }
 .sfsi_mainContainer input[type=email], .sfsi_mainContainer input[type=number], .sfsi_mainContainer input[type=password], .sfsi_mainContainer input[type=search], .sfsi_mainContainer input[type=tel], .sfsi_mainContainer input[type=text], .sfsi_mainContainer input[type=url], .sfsi_mainContainer select, .sfsi_mainContainer textarea {
-    color: #5a6570!important;
+    color: #5a6570;
 }
 .adminTooltip {
     left: 142px;
@@ -3528,6 +3528,14 @@ ul.cstmskin_iconlist {
     -webkit-box-shadow: 0 0 5px #ccc;
     border: 1px solid #ededed;
     background: #FFF;
+	position: relative;
+}
+.tab8 .sfsi_subscribe_Popinner .form-overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 .tab8 .like_pop_box .sfsi_subscribe_Popinner {
 	box-shadow: 0 0 5px #ccc;
@@ -3562,14 +3570,14 @@ ul.cstmskin_iconlist {
     width: 100%;
 }
 .tab8 ul.sfsi_form_info {
-    list-style: outside none xi;
-    margin-left: 43px;
+    list-style: none !important;
+    margin-left: 32px;
 }
 .tab8 ul.sfsi_form_info li {
     margin: 3px 0;
 }
 .tab8 .sfsi_subscription_html {
-    background-color: #ccc;
+    background-color: #e5e5e5;
     float: left;
     margin: 12px 0 0 30px;
     width: 90%;
@@ -3706,6 +3714,13 @@ ul.cstmskin_iconlist {
 .tab8 .sfsi_same_width {
     display: inline-block;
     width: 100px !important;
+}
+.sfsi_subscribe_Popinner h5.sfsi_highlight {
+    border: 3px solid red !important;
+    padding: 10px !important;
+}
+.sfsi_subscribe_Popinner .sfsi_highlight {
+    border: 3px solid red !important;
 }
 @media (max-width:1160px) {
 .sfsi_subscription_html xmp {

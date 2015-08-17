@@ -9,10 +9,10 @@ class subscriber_widget extends WP_Widget {
 			'subscriber_widget', 
 	
 			// Widget name will appear in UI
-			__('Ultimate Social Subscribe From', 'subscriber_widget_domain'), 
+			__('Ultimate Social Subscribe Form', 'subscriber_widget_domain'), 
 	
 			// Widget description
-			array( 'description' => __( 'Ultimate Social Subscribe From', 'subscriber_widget_domain' ), ) 
+			array( 'description' => __( 'Ultimate Social Subscribe Form', 'subscriber_widget_domain' ), ) 
 		);
 	}
 

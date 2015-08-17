@@ -1,7 +1,8 @@
 <!-- Loader Image section  -->
 <div id="sfpageLoad" >  
     
-</div><!-- END Loader Image section  -->
+</div>
+<!-- END Loader Image section  -->
 
 <!-- javascript error loader  -->
 <div class="error" id="sfsi_onload_errors" style="margin-left: 60px;display: none;">  
@@ -11,7 +12,44 @@
 <!-- START Admin view for plugin-->
 <div class="wapper sfsi_mainContainer">
 	
-     <!-- Top content area of plugin -->
+    <!-- Get notification bar-->
+	<?php if(get_option("show_notification") == "yes") { ?>
+    <script type="text/javascript">
+		jQuery(document).ready(function(e) {
+            jQuery(".sfsi_show_notification").click(function(){
+				SFSI.ajax({
+					url:ajax_object.ajax_url,
+					type:"post",
+					data: {action: "notification_read"},
+					success:function(msg){
+						if(msg == 'success')
+						{
+							jQuery(".sfsi_show_notification").hide("fast");
+						}
+					}
+				});
+			});
+        });
+	</script>
+    <style type="text/css">
+	.sfsi_show_notification {
+		float: left;
+		margin-bottom: 45px;
+		padding: 12px 13px;
+		width: 98%;
+		background-image: url(<?php echo SFSI_PLUGURL ?>images/notification-close.png);
+		background-position: right 20px center;
+    	background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	</style>	
+	<div class="sfsi_show_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
+    	New: You can now also show a <b>subscription form</b> on your site. Increasing sign ups! (Question 8)
+    </div>
+	<?php } ?>
+    <!-- Get notification bar-->
+    
+    <!-- Top content area of plugin -->
     <div class="main_contant">
 	<h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
 	<p>This plugin is 100% FREE and will fulfill all your subscription/sharing/liking needs!</p>
