@@ -77,9 +77,7 @@ function sfsi_get_subscriberForm()
 					<form method="post">
 						<h5>'.trim($option8['sfsi_form_heading_text']).'</h5>
 						<div class="sfsi_subscription_form_field">
-							<input type="email" name="subscribe_email" value="" placeholder="
-								'.trim($option8['sfsi_form_field_text']).'
-							"/>
+							<input type="email" name="subscribe_email" value="" placeholder="'.trim($option8['sfsi_form_field_text']).'"/>
 						</div>
 						<div class="sfsi_subscription_form_field">
 							<input type="submit" name="subscribe" value="'.$option8['sfsi_form_button_text'].'" />

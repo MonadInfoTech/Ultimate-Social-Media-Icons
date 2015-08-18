@@ -27,8 +27,21 @@
                 <li><b>2. Shortcode:</b> Use the shortcode <b>[USM_form]</b> to place it into your codes</li>
                 <li><b>3. Copy & paste HTML code:</b></li>
             </ul>
+            <div class="sfsi_html" style="display: none;">
+            	<div class="sfsi_subscribe_Popinner" style="float: left; padding: 18px 20px;">
+                    <form method="post">
+                        <h5 style="margin: 0 0 10px; padding: 0;">Get new posts by email:</h5>
+                        <div style="float: left; margin: 5px 0; width: 100%;">
+                            <input style="padding: 10px 5px !important; width: 98% !important;" type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        </div>
+                        <div style="float: left; margin: 5px 0; width: 100%;">
+                            <input style="padding: 10px 5px !important; width: 98% !important;" type="submit" name="subscribe" value="Subscribe" />
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="sfsi_subscription_html">
-            	<xmp>
+            	<xmp id="selectable" onclick="selectText('selectable')">
                     <?php get_sfsiSubscriptionForm(); ?>
                 </xmp>
             </div>
@@ -230,30 +243,29 @@
                 </div>
                 <!--Row Section-->
                 <div class="row_tab">
-                	<div class="sfsi_field">
+                	<input type="hidden" name="sfsi_form_field_fontcolor" value="">
+                    <!--<div class="sfsi_field">
                     	<label class="sfsi_same_width">Font color</label>
-                        <input type="text" name="sfsi_form_field_fontcolor" class="small color-code" id="sfsi_form_field_fontcolor" value="<?php echo ($option8['sfsi_form_field_fontcolor']!='')
-										? $option8['sfsi_form_field_fontcolor'] : '' ;
+                        <input type="text" name="sfsi_form_field_fontcolor" class="small color-code" id="sfsi_form_field_fontcolor" value="<?php //echo ($option8['sfsi_form_field_fontcolor']!='')
+										//? $option8['sfsi_form_field_fontcolor'] : '' ;
 									?>">
                         <div class="color_box">
                             <div class="corner"></div>
-                            <div class="color_box1" id="sfsiFormFieldFontcolor" style="background: <?php echo ($option8['sfsi_form_field_fontcolor']!='') ? $option8['sfsi_form_field_fontcolor'] : '' ;
+                            <div class="color_box1" id="sfsiFormFieldFontcolor" style="background: <?php //echo ($option8['sfsi_form_field_fontcolor']!='') ? $option8['sfsi_form_field_fontcolor'] : '' ;
 									?>"></div>
                         </div>
+                    </div>-->
+                    <div class="sfsi_field">
+                    	<label class="sfsi_same_width">Alignment:</label>
+                        <?php sfsi_get_alignment("sfsi_form_field_fontalign", $option8['sfsi_form_field_fontalign']); ?>
                     </div>
+                    
                     <div class="sfsi_field">
                     	<label>Font size</label>
                         <input type="text" class="small rec-inp" name="sfsi_form_field_fontsize"
                         	value="<?php echo ($option8['sfsi_form_field_fontsize']!='')
 										? $option8['sfsi_form_field_fontsize'] : '' ;?>"/>
                         <span class="pix">pixels</span>
-                    </div>
-                </div>
-                <!--Row Section-->
-                <div class="row_tab">
-                	<div class="sfsi_field">
-                    	<label class="sfsi_same_width">Alignment:</label>
-                        <?php sfsi_get_alignment("sfsi_form_field_fontalign", $option8['sfsi_form_field_fontalign']); ?>
                     </div>
                 </div>
                 <!--End Section-->

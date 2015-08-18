@@ -1420,10 +1420,24 @@ SFSI(window).load(function() {
 });
 
 //changes done {Monad}
+function selectText(containerid) {
+    if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select();
+    } else if (window.getSelection()) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
 function create_suscriber_form()
 {
 	//Popbox customization
 	"no" == SFSI('input[name="sfsi_form_adjustment"]:checked').val() ? SFSI(".sfsi_subscribe_Popinner").css({"width": parseInt(SFSI('input[name="sfsi_form_width"]').val()),"height":parseInt(SFSI('input[name="sfsi_form_height"]').val())}) : SFSI(".sfsi_subscribe_Popinner").css({"width": '',"height": ''});
+	
+	"yes" == SFSI('input[name="sfsi_form_adjustment"]:checked').val() ? SFSI(".sfsi_html > .sfsi_subscribe_Popinner").css({"width": "100%"}): '';
 	
 	"yes" == SFSI('input[name="sfsi_form_border"]:checked').val() ? SFSI(".sfsi_subscribe_Popinner").css({"border": SFSI('input[name="sfsi_form_border_thickness"]').val()+"px solid "+SFSI('input[name="sfsi_form_border_color"]').val()}) : SFSI(".sfsi_subscribe_Popinner").css("border", "none");
 	
@@ -1470,7 +1484,12 @@ function create_suscriber_form()
 	
 	SFSI('input[name="sfsi_form_button_background"]').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("background-color", SFSI('input[name="sfsi_form_button_background"]').val())) : '';
 	
-	var data = {
+	var innerHTML = SFSI(".sfsi_html > .sfsi_subscribe_Popinner").html();
+	var styleCss = SFSI(".sfsi_html > .sfsi_subscribe_Popinner").attr("style");
+	innerHTML = '<div style="'+styleCss+'">'+innerHTML+'</div>';
+	SFSI(".sfsi_subscription_html > xmp").html(innerHTML);
+	
+	/*var data = {
 		action:"getForm",
 		heading: SFSI('input[name="sfsi_form_heading_text"]').val(),
 		placeholder:SFSI('input[name="sfsi_form_field_text"]').val(),
@@ -1483,7 +1502,7 @@ function create_suscriber_form()
         success:function(s) {
 			SFSI(".sfsi_subscription_html").html(s);
 		}
-    });
+    });*/
 }
 
 var global_error = 0;

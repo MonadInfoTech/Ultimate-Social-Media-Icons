@@ -2852,7 +2852,7 @@ h2.optional {
 	margin-left: 20px;
 }
 .sfsi_mainContainer input[type=email], .sfsi_mainContainer input[type=number], .sfsi_mainContainer input[type=password], .sfsi_mainContainer input[type=search], .sfsi_mainContainer input[type=tel], .sfsi_mainContainer input[type=text], .sfsi_mainContainer input[type=url], .sfsi_mainContainer select, .sfsi_mainContainer textarea {
-    color: #5a6570;
+    color: #5a6570 !important;
 }
 .adminTooltip {
     left: 142px;
@@ -3715,12 +3715,14 @@ ul.cstmskin_iconlist {
     display: inline-block;
     width: 100px !important;
 }
-.sfsi_subscribe_Popinner h5.sfsi_highlight {
-    border: 3px solid red !important;
-    padding: 10px !important;
-}
 .sfsi_subscribe_Popinner .sfsi_highlight {
     border: 3px solid red !important;
+}
+.sfsi_subscription_html xmp {
+    display: block;
+    padding: 0 10px;
+    white-space: pre-line;
+    word-wrap: break-word;
 }
 @media (max-width:1160px) {
 .sfsi_subscription_html xmp {
