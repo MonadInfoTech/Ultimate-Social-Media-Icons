@@ -189,56 +189,106 @@ function addStyleFunction()
 			.sfsi_subscribe_Popinner
 			{
 				<?php if($option8['sfsi_form_adjustment'] == 'yes') : ?>
-				width: 100%;
-				height: auto;
+				width: 100% !important;
+				height: auto !important;
 				<?php else: ?>
-				width: <?php echo $option8['sfsi_form_width'] ?>px;
-				height: <?php echo $option8['sfsi_form_height'] ?>px;
+				width: <?php echo $option8['sfsi_form_width'] ?>px !important;
+				height: <?php echo $option8['sfsi_form_height'] ?>px !important;
 				<?php endif;?>
 				<?php if($option8['sfsi_form_border'] == 'yes') : ?>
-				border: <?php echo $option8['sfsi_form_border_thickness']."px solid ".$option8['sfsi_form_border_color']; ?>;
+				border: <?php echo $option8['sfsi_form_border_thickness']."px solid ".$option8['sfsi_form_border_color'];?> !important;
 				<?php endif;?>
-				float: left;
-				padding: 18px 20px;
-				background-color: <?php echo $option8['sfsi_form_background'] ?>;
+				float: left !important;
+				padding: 18px 20px !important;
+				background-color: <?php echo $option8['sfsi_form_background'] ?> !important;
 			}
 			.sfsi_subscribe_Popinner h5
 			{
-				font-family: <?php echo $option8['sfsi_form_heading_font'] ?>;
-				font-style: <?php echo $option8['sfsi_form_heading_fontstyle'] ?>;
-				color: <?php echo $option8['sfsi_form_heading_fontcolor'] ?>;
-				font-size: <?php echo $option8['sfsi_form_heading_fontsize']."px" ?>;
-				text-align: <?php echo $option8['sfsi_form_heading_fontalign'] ?>;
-				margin: 0 0 10px;
-    			padding: 0;
+				font-family: <?php echo $option8['sfsi_form_heading_font'] ?> !important;
+				<?php if($option8['sfsi_form_heading_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_heading_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_heading_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_heading_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_heading_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_heading_fontalign'] ?> !important;
+				margin: 0 0 10px !important;
+    			padding: 0 !important;
 			}
 			.sfsi_subscription_form_field {
-				float: left;
-				margin: 5px 0;
-				width: 100%;
+				float: left !important;
+				margin: 5px 0 !important;
+				width: 100% !important;
 			}
 			.sfsi_subscription_form_field input {
-				padding: 10px 5px !important;
 				width: 100% !important;
+				padding: 10px 0px !important;
 			}
 			.sfsi_subscribe_Popinner input[type=email]
 			{
-				font-family: <?php echo $option8['sfsi_form_field_font'] ?>;
-				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?>;
-				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?>;
-				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?>;
-				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?>;
+				font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
+				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
 			}
 			.sfsi_subscribe_Popinner input[type=submit]
 			{
-				font-family: <?php echo $option8['sfsi_form_button_font'] ?>;
-				font-style: <?php echo $option8['sfsi_form_button_fontstyle'] ?>;
-				color: <?php echo $option8['sfsi_form_button_fontcolor'] ?>;
-				font-size: <?php echo $option8['sfsi_form_button_fontsize']."px" ?>;
-				text-align: <?php echo $option8['sfsi_form_button_fontalign'] ?>;
-				background-color: <?php echo $option8['sfsi_form_button_background'] ?>;
+				font-family: <?php echo $option8['sfsi_form_button_font'] ?> !important;
+				<?php if($option8['sfsi_form_button_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_button_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_button_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_button_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_button_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_button_fontalign'] ?> !important;
+				background-color: <?php echo $option8['sfsi_form_button_background'] ?> !important;
 			}
 		</style>
 	<?php
+}
+add_action('admin_notices', 'sfsi_admin_notice', 1);
+function sfsi_admin_notice()
+{
+	if($_REQUEST['plugin_status'] == 'all')
+	{
+		if(get_option("show_notification_plugin") == "yes")
+		{ ?>
+			<style type="text/css">
+			.sfsi_show_notification {
+				float: left;
+				margin: 30px 0;
+				padding: 12px 13px;
+				width: 97%;
+				background-image: url(<?php echo SFSI_PLUGURL ?>images/notification-close.png);
+				background-position: right 20px center;
+				background-repeat: no-repeat;
+				cursor: pointer;
+			}
+			</style>
+            <div class="updated" style="overflow: hidden;">
+            	<div class="alignleft" style="margin: 9px 0;">
+                	<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="https://wordpress.org/plugins/ultimate-social-media-icons/" style="color:#7AD03A; font-weight:bold;">Check it out</a>
+                </div>
+                <p class="alignright">
+                	<a href="#">Dismiss</a>
+                </p>
+            </div>
+		<?php }
+	}
+}
+add_action('admin_init', 'atw_dismiss_admin_notice');
+function atw_dismiss_admin_notice()
+{
+	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
+	{
+		update_option( 'show_notification_plugin', "no" );
+	}
 }
 ?>

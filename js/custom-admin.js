@@ -1448,7 +1448,16 @@ function create_suscriber_form()
 	
 	SFSI('#sfsi_form_heading_font').val() != "" ? (SFSI(".sfsi_subscribe_Popinner > form > h5").css("font-family", SFSI("#sfsi_form_heading_font").val())) : '';
 	
-	SFSI('#sfsi_form_heading_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner > form > h5").css("font-style", SFSI("#sfsi_form_heading_fontstyle").val())) : '';
+	if(SFSI('#sfsi_form_heading_fontstyle').val() != 'bold')
+	{
+		SFSI('#sfsi_form_heading_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner > form > h5").css("font-style", SFSI("#sfsi_form_heading_fontstyle").val())) : '';
+		SFSI(".sfsi_subscribe_Popinner > form > h5").css("font-weight", '');
+	}
+	else
+	{
+		SFSI('#sfsi_form_heading_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner > form > h5").css("font-weight","bold")) : '';
+		SFSI(".sfsi_subscribe_Popinner > form > h5").css("font-style", '');
+	}
 	
 	SFSI('input[name="sfsi_form_heading_fontcolor"]').val() != "" ? (SFSI(".sfsi_subscribe_Popinner > form > h5").css("color", SFSI('input[name="sfsi_form_heading_fontcolor"]').val())) : '';
 	
@@ -1461,7 +1470,16 @@ function create_suscriber_form()
 	
 	SFSI('#sfsi_form_field_font').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("font-family", SFSI("#sfsi_form_field_font").val())) : '';
 	
-	SFSI('#sfsi_form_field_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("font-style", SFSI("#sfsi_form_field_fontstyle").val())) : '';
+	if(SFSI('#sfsi_form_field_fontstyle').val() != "bold")
+	{
+		SFSI('#sfsi_form_field_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("font-style", SFSI("#sfsi_form_field_fontstyle").val())) : '';
+		SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("font-weight", '');
+	}
+	else
+	{
+		SFSI('#sfsi_form_field_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("font-weight", 'bold')) : '';
+		SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("font-style", '');
+	}
 	
 	SFSI('input[name="sfsi_form_field_fontcolor"]').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe_email"]').css("color", SFSI('input[name="sfsi_form_field_fontcolor"]').val())) : '';
 	
@@ -1474,7 +1492,16 @@ function create_suscriber_form()
 	
 	SFSI('#sfsi_form_button_font').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("font-family", SFSI("#sfsi_form_button_font").val())) : '';
 	
-	SFSI('#sfsi_form_button_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("font-style", SFSI("#sfsi_form_button_fontstyle").val())) : '';
+	if(SFSI('#sfsi_form_button_fontstyle').val() != "bold")
+	{
+		SFSI('#sfsi_form_button_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("font-style", SFSI("#sfsi_form_button_fontstyle").val())) : '';
+		SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("font-weight", '');
+	}
+	else
+	{
+		SFSI('#sfsi_form_button_fontstyle').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("font-weight", 'bold')) : '';
+		SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("font-style", '');
+	}
 	
 	SFSI('input[name="sfsi_form_button_fontcolor"]').val() != "" ? (SFSI(".sfsi_subscribe_Popinner").find('input[name="subscribe"]').css("color", SFSI('input[name="sfsi_form_button_fontcolor"]').val())) : '';
 	

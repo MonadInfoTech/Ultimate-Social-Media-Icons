@@ -32,10 +32,10 @@
                     <form method="post">
                         <h5 style="margin: 0 0 10px; padding: 0;">Get new posts by email:</h5>
                         <div style="float: left; margin: 5px 0; width: 100%;">
-                            <input style="padding: 10px 5px !important; width: 98% !important;" type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                            <input style="padding: 10px 0px !important; width: 100% !important;" type="email" name="subscribe_email" placeholder="Enter your email" value="" />
                         </div>
                         <div style="float: left; margin: 5px 0; width: 100%;">
-                            <input style="padding: 10px 5px !important; width: 98% !important;" type="submit" name="subscribe" value="Subscribe" />
+                            <input style="padding: 10px 0px !important; width: 100% !important;" type="submit" name="subscribe" value="Subscribe" />
                         </div>
                     </form>
                 </div>
@@ -423,6 +423,7 @@ function sfsi_get_fontstyle($name, $value)
 		<option value="inherit" <?php echo isSeletcted("inherit", $value) ?> >Inherit</option>
 		<option value="oblique" <?php echo isSeletcted("oblique", $value) ?> >Oblique</option>
 		<option value="italic" <?php echo isSeletcted("italic", $value) ?> >Italic</option>
+        <option value="bold" <?php echo isSeletcted("bold", $value) ?> >Bold</option>
 	</select>
 	<?php                     
 }

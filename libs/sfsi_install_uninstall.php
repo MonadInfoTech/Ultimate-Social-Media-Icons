@@ -7,6 +7,10 @@ function sfsi_activate_plugin()
 		{
 			add_option("show_notification", "yes");
 		}
+		if(!get_option('show_notification_plugin'))
+		{
+			add_option("show_notification_plugin", "yes");
+		}
 	}
 	/* check for CURL enable at server */
     curl_enable_notice();	
