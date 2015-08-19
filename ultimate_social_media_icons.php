@@ -256,35 +256,25 @@ function addStyleFunction()
 add_action('admin_notices', 'sfsi_admin_notice', 1);
 function sfsi_admin_notice()
 {
-	if($_REQUEST['plugin_status'] == 'all')
+	if(strpos($_SERVER['SCRIPT_NAME'], "plugins.php"))
 	{
 		if(get_option("show_notification_plugin") == "yes")
-		{ ?>
-			<style type="text/css">
-			.sfsi_show_notification {
-				float: left;
-				margin: 30px 0;
-				padding: 12px 13px;
-				width: 97%;
-				background-image: url(<?php echo SFSI_PLUGURL ?>images/notification-close.png);
-				background-position: right 20px center;
-				background-repeat: no-repeat;
-				cursor: pointer;
-			}
-			</style>
-            <div class="updated" style="overflow: hidden;">
+		{ 
+			$url = "?sfsi-dismiss-notice=true";
+			?>
+			<div class="updated" style="overflow: hidden;">
             	<div class="alignleft" style="margin: 9px 0;">
                 	<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="https://wordpress.org/plugins/ultimate-social-media-icons/" style="color:#7AD03A; font-weight:bold;">Check it out</a>
                 </div>
                 <p class="alignright">
-                	<a href="#">Dismiss</a>
+                	<a href="<?php echo $url; ?>">Dismiss</a>
                 </p>
             </div>
 		<?php }
 	}
 }
-add_action('admin_init', 'atw_dismiss_admin_notice');
-function atw_dismiss_admin_notice()
+add_action('admin_init', 'sfsi_dismiss_admin_notice');
+function sfsi_dismiss_admin_notice()
 {
 	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
 	{
