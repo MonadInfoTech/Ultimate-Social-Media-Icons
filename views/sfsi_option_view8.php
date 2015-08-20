@@ -28,14 +28,19 @@
                 <li><b>3. Copy & paste HTML code:</b></li>
             </ul>
             <div class="sfsi_html" style="display: none;">
-            	<div class="sfsi_subscribe_Popinner" style="float: left; padding: 18px 20px;">
-                    <form method="post">
+            	<?php
+				$sfsi_feediid = get_option('sfsi_feed_id');
+				$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
+				$url = $url.$sfsi_feediid.'/8/';
+				?>
+                <div class="sfsi_subscribe_Popinner" style="padding: 18px 0px;">
+                    <form method="post" onsubmit="return sfsi_processfurther(this);" target="popupwindow" action="<?php echo $url?>" style="margin: 0px 20px;">
                         <h5 style="margin: 0 0 10px; padding: 0;">Get new posts by email:</h5>
-                        <div style="float: left; margin: 5px 0; width: 100%;">
-                            <input style="padding: 10px 0px !important; width: 100% !important;" type="email" name="subscribe_email" placeholder="Enter your email" value="" />
+                        <div style="margin: 5px 0; width: 100%;">
+                            <input style="padding: 10px 0px !important; width: 100% !important;" type="email" placeholder="Enter your email" value="" name="data[Widget][email]" />
                         </div>
-                        <div style="float: left; margin: 5px 0; width: 100%;">
-                            <input style="padding: 10px 0px !important; width: 100% !important;" type="submit" name="subscribe" value="Subscribe" />
+                        <div style="margin: 5px 0; width: 100%;">
+                        	<input style="padding: 10px 0px !important; width: 100% !important;" type="submit" name="subscribe" value="Subscribe" /><input type="hidden" name="data[Widget][feed_id]" value="<?php echo $sfsi_feediid ?>"><input type="hidden" name="data[Widget][feedtype]" value="8">
                         </div>
                     </form>
                 </div>
@@ -445,7 +450,7 @@ function get_sfsiSubscriptionForm($hglht=null)
             <form method="post">
                 <h5 <?php if($hglht=="h5"){ echo 'class="sfsi_highlight"';}?> >Get new posts by email:</h5>
                 <div class="sfsi_subscription_form_field">
-                    <input type="email" name="subscribe_email" placeholder="Enter your email" value=""
+                    <input type="email" name="data[Widget][email]" placeholder="Enter your email" value=""
                     	<?php if($hglht=="email"){ echo 'class="sfsi_highlight"';}?> />
                 </div>
                 <div class="sfsi_subscription_form_field">

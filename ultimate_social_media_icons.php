@@ -184,7 +184,29 @@ add_action("wp_head", "addStyleFunction");
 function addStyleFunction()
 {
 	$option8 = unserialize(get_option('sfsi_section8_options',false));
+	$sfsi_feediid = get_option('sfsi_feed_id');
+	$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
+	echo $return = '';
 	?>
+    	<script>
+			function sfsi_processfurther(ref) {
+				var feed_id = <?php echo $sfsi_feediid?>;
+				var feedtype = 8;
+				var email = jQuery(ref).find('input[name="data[Widget][email]"]').val();
+				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				if ((email != "Enter your email") && (filter.test(email))) {
+					if (feedtype == "8") {
+						var url = "'.$url.'"+feed_id+"/"+feedtype;
+						window.open(url, "popupwindow", "scrollbars=yes,width=760,height=460");
+						return true;
+					}
+				} else {
+					alert("Please enter email address");
+					jQuery(ref).find('input[name="data[Widget][email]"]').focus();
+					return false;
+				}
+			}
+		</script>
     	<style type="text/css" aria-selected="true">
 			.sfsi_subscribe_Popinner
 			{
@@ -198,9 +220,12 @@ function addStyleFunction()
 				<?php if($option8['sfsi_form_border'] == 'yes') : ?>
 				border: <?php echo $option8['sfsi_form_border_thickness']."px solid ".$option8['sfsi_form_border_color'];?> !important;
 				<?php endif;?>
-				float: left !important;
-				padding: 18px 20px !important;
+				padding: 18px 0px !important;
 				background-color: <?php echo $option8['sfsi_form_background'] ?> !important;
+			}
+			.sfsi_subscribe_Popinner form
+			{
+				margin: 0 20px !important;
 			}
 			.sfsi_subscribe_Popinner h5
 			{
@@ -217,7 +242,6 @@ function addStyleFunction()
     			padding: 0 !important;
 			}
 			.sfsi_subscription_form_field {
-				float: left !important;
 				margin: 5px 0 !important;
 				width: 100% !important;
 			}

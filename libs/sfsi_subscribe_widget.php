@@ -71,19 +71,23 @@ add_shortcode("USM_form", "sfsi_get_subscriberForm");
 function sfsi_get_subscriberForm()
 {
 	$option8 = unserialize(get_option('sfsi_section8_options',false));
-	
+	$sfsi_feediid = get_option('sfsi_feed_id');
+	$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
 	$return = '';
+	$url = $url.$sfsi_feediid.'/8/';	
 	$return .= '<div class="sfsi_subscribe_Popinner">
-					<form method="post">
+					<form method="post" onsubmit="return sfsi_processfurther(this);" target="popupwindow" action="'.$url.'">
 						<h5>'.trim($option8['sfsi_form_heading_text']).'</h5>
 						<div class="sfsi_subscription_form_field">
-							<input type="email" name="subscribe_email" value="" placeholder="'.trim($option8['sfsi_form_field_text']).'"/>
+							<input type="email" name="data[Widget][email]" value="" placeholder="'.trim($option8['sfsi_form_field_text']).'"/>
 						</div>
 						<div class="sfsi_subscription_form_field">
+							<input type="hidden" name="data[Widget][feed_id]" value="'.$sfsi_feediid.'">
+							<input type="hidden" name="data[Widget][feedtype]" value="8">
 							<input type="submit" name="subscribe" value="'.$option8['sfsi_form_button_text'].'" />
 						</div>
 					</form>
 				</div>';
-	return $return;			
+	return $return;				
 }
 ?>
