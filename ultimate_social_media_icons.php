@@ -7,9 +7,9 @@ Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
 Version: 1.2.4
 License: GPLv2 or later
-
 */
 global $wpdb;
+
 /* define the Root for URL and Document */
 define('SFSI_DOCROOT',    dirname(__FILE__));
 define('SFSI_PLUGURL',    plugin_dir_url(__FILE__));
@@ -197,7 +197,7 @@ function addStyleFunction()
 				if ((email != "Enter your email") && (filter.test(email))) {
 					if (feedtype == "8") {
 						var url = "'.$url.'"+feed_id+"/"+feedtype;
-						window.open(url, "popupwindow", "scrollbars=yes,width=760,height=460");
+						window.open(url, "popupwindow", "scrollbars=yes,width=1080,height=760");
 						return true;
 					}
 				} else {
@@ -244,6 +244,8 @@ function addStyleFunction()
 			.sfsi_subscription_form_field {
 				margin: 5px 0 !important;
 				width: 100% !important;
+				display: inline-flex;
+				display: -webkit-inline-flex;
 			}
 			.sfsi_subscription_form_field input {
 				width: 100% !important;
@@ -252,6 +254,53 @@ function addStyleFunction()
 			.sfsi_subscribe_Popinner input[type=email]
 			{
 				font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
+				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+			}
+			.sfsi_subscribe_Popinner input[type=email]::-webkit-input-placeholder {
+			   font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
+				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+			}
+			
+			.sfsi_subscribe_Popinner input[type=email]:-moz-placeholder { /* Firefox 18- */
+			    font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
+				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+			}
+			
+			.sfsi_subscribe_Popinner input[type=email]::-moz-placeholder {  /* Firefox 19+ */
+			    font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
+				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
+				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php } else{ ?>
+				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				<?php }?>
+				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
+				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
+				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+			}
+			
+			.sfsi_subscribe_Popinner input[type=email]:-ms-input-placeholder {  
+			  	font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
 				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
 				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
 				<?php } else{ ?>
