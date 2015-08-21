@@ -284,6 +284,7 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_section5_options');
     delete_option('sfsi_section6_options');
     delete_option('sfsi_section7_options');
+	delete_option('sfsi_section8_options');
     delete_option('sfsi_feed_id');
     delete_option('sfsi_footer_sec');
     delete_option('sfsi_activate');
