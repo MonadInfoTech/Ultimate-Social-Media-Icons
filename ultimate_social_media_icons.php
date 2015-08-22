@@ -335,7 +335,7 @@ function sfsi_admin_notice()
 		?>
 		<div class="updated" style="overflow: hidden;">
 			<div class="alignleft" style="margin: 9px 0;">
-				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="https://wordpress.org/plugins/ultimate-social-media-icons/" style="color:#7AD03A; font-weight:bold;">Check it out</a>
+				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="<?php echo site_url();?>/wp-admin/admin.php?page=sfsi-options" style="color:#7AD03A; font-weight:bold;">Check it out</a>
 			</div>
 			<p class="alignright">
 				<a href="<?php echo $url; ?>">Dismiss</a>
