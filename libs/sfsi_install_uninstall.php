@@ -12,6 +12,9 @@ function sfsi_activate_plugin()
 			add_option("show_notification_plugin", "yes");
 		}
 	}
+	
+	update_option("sfsi_pluginVersion", "1.2.4");
+	
 	/* check for CURL enable at server */
     curl_enable_notice();	
     $options1=array('sfsi_rss_display'=>'yes',
@@ -288,7 +291,9 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_feed_id');
     delete_option('sfsi_footer_sec');
     delete_option('sfsi_activate');
-}/* end function */
+	delete_option("sfsi_pluginVersion");
+}
+/* end function */
 
 /* check CUrl */
 function curl_enable_notice()
