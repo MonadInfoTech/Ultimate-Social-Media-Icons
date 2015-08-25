@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.2.4
+Version: 1.2.5
 License: GPLv2 or later
 */
 global $wpdb;
@@ -32,9 +32,9 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion'))
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.25)
 {
-	add_action("init", "sfsi_activate_plugin");
+	add_action("init", "sfsi_update_plugin");
 }
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
@@ -330,14 +330,22 @@ function addStyleFunction()
 		</style>
 	<?php
 }
-add_action('admin_notices', 'sfsi_admin_notice', 1);
+add_action('admin_notices', 'sfsi_admin_notice', 10);
 function sfsi_admin_notice()
 {
+	if(isset($_GET['page']) && $_GET['page'] == "sfsi-options")
+	{
+		$style = "overflow: hidden; margin:12px 3px 0px;";
+	}
+	else
+	{
+		$style = "overflow: hidden;"; 
+	}
 	if(get_option("show_notification_plugin") == "yes")
 	{ 
 		$url = "?sfsi-dismiss-notice=true";
 		?>
-		<div class="updated" style="overflow: hidden;">
+		<div class="updated" style="<?php echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
 				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="<?php echo site_url();?>/wp-admin/admin.php?page=sfsi-options" style="color:#7AD03A; font-weight:bold;">Check it out</a>
 			</div>
@@ -353,6 +361,7 @@ function sfsi_dismiss_admin_notice()
 	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
 	{
 		update_option( 'show_notification_plugin', "no" );
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
 	}
 }
 ?>

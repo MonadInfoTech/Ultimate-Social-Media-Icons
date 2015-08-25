@@ -1,21 +1,55 @@
 <?php
-function sfsi_activate_plugin()
+function sfsi_update_plugin()
 {
-    if(get_option('sfsi_section1_options'))
+	//Install version
+	update_option("sfsi_pluginVersion", "1.25");
+	
+	/*show notification*/
+	if(!get_option('show_notification'))
 	{
-		if(!get_option('show_notification'))
-		{
-			add_option("show_notification", "yes");
-		}
-		if(!get_option('show_notification_plugin'))
-		{
-			add_option("show_notification_plugin", "yes");
-		}
+		add_option("show_notification", "yes");
+	}
+	if(!get_option('show_notification_plugin'))
+	{
+		add_option("show_notification_plugin", "yes");
 	}
 	
-	update_option("sfsi_pluginVersion", "1.2.4");
-	
-	/* check for CURL enable at server */
+	/* subscription form */
+    $options8 = array('sfsi_form_adjustment'=>'yes',
+        'sfsi_form_height'=>'180',
+        'sfsi_form_width' =>'230',
+        'sfsi_form_border'=>'yes',
+        'sfsi_form_border_thickness'=>'1',
+        'sfsi_form_border_color'=>'#b5b5b5',
+        'sfsi_form_background'=>'#ffffff',
+		
+        'sfsi_form_heading_text'=>'Get new posts by email',
+        'sfsi_form_heading_font'=>'Helvetica,Arial,sans-serif',
+        'sfsi_form_heading_fontstyle'=>'bold',
+        'sfsi_form_heading_fontcolor'=>'#000000',
+        'sfsi_form_heading_fontsize'=>'16',
+        'sfsi_form_heading_fontalign'=>'center',
+		
+		'sfsi_form_field_text'=>'Enter your email',
+        'sfsi_form_field_font'=>'Helvetica,Arial,sans-serif',
+        'sfsi_form_field_fontstyle'=>'normal',
+        'sfsi_form_field_fontcolor'=>'#000000',
+        'sfsi_form_field_fontsize'=>'14',
+        'sfsi_form_field_fontalign'=>'center',
+		
+		'sfsi_form_button_text'=>'Subscribe',
+        'sfsi_form_button_font'=>'Helvetica,Arial,sans-serif',
+        'sfsi_form_button_fontstyle'=>'bold',
+        'sfsi_form_button_fontcolor'=>'#000000',
+        'sfsi_form_button_fontsize'=>'16',
+        'sfsi_form_button_fontalign'=>'center',
+        'sfsi_form_button_background'=>'#dedede',
+    );
+	add_option('sfsi_section8_options',  serialize($options8));
+}
+function sfsi_activate_plugin()
+{
+    /* check for CURL enable at server */
     curl_enable_notice();	
     $options1=array('sfsi_rss_display'=>'yes',
 			'sfsi_email_display'=>'yes',
@@ -31,9 +65,19 @@ function sfsi_activate_plugin()
 			'sfsi_custom_files'=>''  
         );
 	add_option('sfsi_section1_options',  serialize($options1));
-    $sffeeds=SFSI_getFeedUrl();
-    
-	/* Links and icons  options */	 
+	
+	if(get_option('sfsi_feed_id') && get_option('sfsi_redirect_url'))
+	{
+		$sffeeds["feed_id"] = get_option('sfsi_feed_id');
+		$sffeeds["redirect_url"] = get_option('sfsi_redirect_url');
+		$sffeeds = (object)$sffeeds;
+	}
+    else
+	{
+		$sffeeds = SFSI_getFeedUrl();
+	}
+	
+    /* Links and icons  options */	 
     $options2=array('sfsi_rss_url'=>get_bloginfo('rss2_url'),
         'sfsi_rss_icons'=>'email', 
         'sfsi_email_url'=>$sffeeds->redirect_url,
@@ -198,41 +242,9 @@ function sfsi_activate_plugin()
 	);
 	add_option('sfsi_section7_options',  serialize($options7));
 	
-	/* subscription form */
-    $options8 = array('sfsi_form_adjustment'=>'yes',
-        'sfsi_form_height'=>'180',
-        'sfsi_form_width' =>'230',
-        'sfsi_form_border'=>'yes',
-        'sfsi_form_border_thickness'=>'1',
-        'sfsi_form_border_color'=>'#b5b5b5',
-        'sfsi_form_background'=>'#ffffff',
-		
-        'sfsi_form_heading_text'=>'Get new posts by email',
-        'sfsi_form_heading_font'=>'Helvetica,Arial,sans-serif',
-        'sfsi_form_heading_fontstyle'=>'bold',
-        'sfsi_form_heading_fontcolor'=>'#000000',
-        'sfsi_form_heading_fontsize'=>'16',
-        'sfsi_form_heading_fontalign'=>'center',
-		
-		'sfsi_form_field_text'=>'Enter your email',
-        'sfsi_form_field_font'=>'Helvetica,Arial,sans-serif',
-        'sfsi_form_field_fontstyle'=>'normal',
-        'sfsi_form_field_fontcolor'=>'#000000',
-        'sfsi_form_field_fontsize'=>'14',
-        'sfsi_form_field_fontalign'=>'center',
-		
-		'sfsi_form_button_text'=>'Subscribe',
-        'sfsi_form_button_font'=>'Helvetica,Arial,sans-serif',
-        'sfsi_form_button_fontstyle'=>'bold',
-        'sfsi_form_button_fontcolor'=>'#000000',
-        'sfsi_form_button_fontsize'=>'16',
-        'sfsi_form_button_fontalign'=>'center',
-        'sfsi_form_button_background'=>'#dedede',
-    );
-	add_option('sfsi_section8_options',  serialize($options8));
-    
 	/*Some additional option added*/
 	update_option('sfsi_feed_id',$sffeeds->feed_id);
+	update_option('sfsi_redirect_url',$sffeeds->redirect_url);
     add_option('sfsi_installDate',date('Y-m-d h:i:s'));
     add_option('sfsi_RatingDiv','no');
     add_option('sfsi_footer_sec','no');
