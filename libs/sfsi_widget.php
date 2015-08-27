@@ -3,11 +3,23 @@
 class Sfsi_Widget extends WP_Widget
 {
 
-	function Sfsi_Widget()
+	function __construct()
 	{
-        $widget_ops = array( 'classname' => 'sfsi', 'description' => __('Ultimate Social Media Icons widgets', 'Ultimate Social Media Icons ') );
+		$widget_ops = array( 'classname' => 'sfsi', 'description' => __('Ultimate Social Media Icons widgets', 'Ultimate Social Media Icons ') );
         $control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'sfsi-widget' );
-        $this->WP_Widget( 'sfsi-widget', __('Ultimate Social Media Icons', 'Ultimate Social Media Icons'), $widget_ops, $control_ops );	
+		
+		parent::__construct(
+			// Base ID of your widget
+			'sfsi-widget', 
+	
+			// Widget name will appear in UI
+			__('Ultimate Social Media Icons', 'Ultimate Social Media Icons'), 
+	
+			// Widget description
+			$widget_ops,
+			
+			$control_ops
+		);
 	}
 	
 	function widget( $args, $instance )
@@ -56,7 +68,21 @@ class Sfsi_Widget extends WP_Widget
 	{
 		$defaults = array( 'title' =>"" );
 		$instance = wp_parse_args( (array) $instance, $defaults );
-		if( $instance['showf']==0 && empty($instance['title'])) { $instance['title']='Please follow & like us :)';  } else { $instance['title']; }; 
+		if(isset($instance['showf']) && !empty($instance['showf']))
+		{
+			if( $instance['showf'] == 0 && empty($instance['title']))
+			{
+				$instance['title']='Please follow & like us :)';
+			}
+			else
+			{
+				$instance['title'];
+			}
+		}
+		else
+		{
+			$instance['title']='Please follow & like us :)';
+		}
 		?>
 		<p>
 		    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'Subscription and Social Icons'); ?></label>
