@@ -306,7 +306,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     $new_window = '';
     $class = '';
 	
-    /* access  all saved settings in admin */
+	/* access  all saved settings in admin */
     $sfsi_section1_options =  unserialize(get_option('sfsi_section1_options',false));
     $sfsi_section2_options =  unserialize(get_option('sfsi_section2_options',false));
     $sfsi_section3_options =  unserialize(get_option('sfsi_section3_options',false));
@@ -411,7 +411,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			   	 }
 				 else
 				 {
-					$counts= $socialObj->SFSI_getFeedSubscriber(get_option('sfsi_feed_id',false));           
+					$counts = $socialObj->SFSI_getFeedSubscriber(get_option('sfsi_feed_id',false));
 				 }  
 			   }
 			   

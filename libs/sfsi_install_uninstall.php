@@ -2,7 +2,7 @@
 function sfsi_update_plugin()
 {
 	//Install version
-	update_option("sfsi_pluginVersion", "1.26");
+	update_option("sfsi_pluginVersion", "1.27");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -46,6 +46,14 @@ function sfsi_update_plugin()
         'sfsi_form_button_background'=>'#dedede',
     );
 	add_option('sfsi_section8_options',  serialize($options8));
+	
+	/*Extra important options*/
+	$sfsi_instagram_sf_count = array(
+		"date" => "",
+		"sfsi_sf_count" => "",
+		"sfsi_instagram_count" => ""
+	);
+	add_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
 }
 function sfsi_activate_plugin()
 {
