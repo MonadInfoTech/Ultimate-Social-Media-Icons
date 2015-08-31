@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Ultimate Social Media and Share Icons
+Plugin Name: Social Media and Share Icons (Ultimate Social Media)
 Plugin URI: http://ultimatelysocial.com
-Description: The FREE plugin allows you to add social media & share icons to your blog (esp. Facebook, Twitter, Email, RSS, Pinterest, Instagram, Google+, LinkedIn, Share-button). It offers a wide range of design options and other features. 
+Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
 Version: 1.2.7
