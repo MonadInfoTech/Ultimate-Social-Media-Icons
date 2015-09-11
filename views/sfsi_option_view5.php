@@ -144,17 +144,41 @@
 	</ul>
       </div>
       <div class="clear float_options" <?php if($option5['sfsi_icons_stick']=='yes' || $option5['sfsi_icons_float']=='no') :?> style="display:none" <?php endif;?>>
-	<div class="float">Where shall they float?</div>
-	<div class="field " >
-	    <select name="sfsi_icons_floatPosition" id="sfsi_icons_floatPosition" class="styled">
-		<option value="top-left" <?php echo ($option5['sfsi_icons_floatPosition']=='top-left') ?  'selected="selected"' : '' ;?> >Top - Left</option>
-		<option value="top-right" <?php echo ($option5['sfsi_icons_floatPosition']=='top-right') ?  'selected="selected"' : '' ;?> >Top - Right</option>
-		<option value="center-left" <?php echo ($option5['sfsi_icons_floatPosition']=='center-left') ?  'selected="selected"' : '' ;?> >Center - Left</option>
-		<option value="center-right" <?php echo ($option5['sfsi_icons_floatPosition']=='center-right') ?  'selected="selected"' : '' ;?> >Center - Right</option>
-		<option value="bottom-left" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-left') ?  'selected="selected"' : '' ;?> >Bottom - Left</option>
-		<option value="bottom-right" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-right') ?  'selected="selected"' : '' ;?> >Bottom - Right</option>
-	    </select>
-	</div>
+	<div style="width: 100%; float: left;">
+        <div class="float">Where shall they float?</div>
+        <div class="field " >
+            <select name="sfsi_icons_floatPosition" id="sfsi_icons_floatPosition" class="styled">
+            <option value="top-left" <?php echo ($option5['sfsi_icons_floatPosition']=='top-left') ?  'selected="selected"' : '' ;?> >Top - Left</option>
+            <option value="top-right" <?php echo ($option5['sfsi_icons_floatPosition']=='top-right') ?  'selected="selected"' : '' ;?> >Top - Right</option>
+            <option value="center-left" <?php echo ($option5['sfsi_icons_floatPosition']=='center-left') ?  'selected="selected"' : '' ;?> >Center - Left</option>
+            <option value="center-right" <?php echo ($option5['sfsi_icons_floatPosition']=='center-right') ?  'selected="selected"' : '' ;?> >Center - Right</option>
+            <option value="bottom-left" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-left') ?  'selected="selected"' : '' ;?> >Bottom - Left</option>
+            <option value="bottom-right" <?php echo ($option5['sfsi_icons_floatPosition']=='bottom-right') ?  'selected="selected"' : '' ;?> >Bottom - Right</option>
+            </select>
+        </div>
+    </div>
+    <div style="width: 88%; float: left; margin:25px 0 0 187px">
+    	<h4>Margin From :</h4>
+        <ul class="sfsi_floaticon_nargin_sec">
+        	<li>
+            	<label>Top :</label>
+                <input name="sfsi_icons_floatMargin_top" type="text" value="<?php echo ($option5['sfsi_icons_floatMargin_top']!='') ?  $option5['sfsi_icons_floatMargin_top'] : '' ;?>" /><ins>Pixels</ins>
+            </li>
+            <li>
+            	<label>Bottom :</label>
+                <input name="sfsi_icons_floatMargin_bottom" type="text" value="<?php echo ($option5['sfsi_icons_floatMargin_bottom'] != '') ?  $option5['sfsi_icons_floatMargin_bottom'] : '' ;?>" /><ins>Pixels</ins>
+            </li>
+            <li>
+            	<label>Left :</label>
+                <input name="sfsi_icons_floatMargin_left" type="text" value="<?php echo ($option5['sfsi_icons_floatMargin_left']!='') ?  $option5['sfsi_icons_floatMargin_left'] : '' ;?>" /><ins>Pixels</ins>
+            </li>
+            <li>
+            	<label>Right :</label>
+                <input name="sfsi_icons_floatMargin_right" type="text" value="<?php echo ($option5['sfsi_icons_floatMargin_right']!='') ?  $option5['sfsi_icons_floatMargin_right'] : '' ;?>" /><ins>Pixels</ins>
+            </li>
+        </ul>
+    </div>
+  
   </div> 
   
   <div class="space">

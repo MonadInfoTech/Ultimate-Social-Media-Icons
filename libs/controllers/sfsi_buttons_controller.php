@@ -425,7 +425,7 @@ function sfsi_options_updater6()
                 'sfsi_show_Onposts'=>$sfsi_show_Onposts,
                 'sfsi_icons_postPositon'=>$sfsi_icons_postPositon,
                 'sfsi_icons_alignment'=>$sfsi_icons_alignment,
-                'sfsi_textBefor_icons'=>$sfsi_textBefor_icons,
+                'sfsi_textBefor_icons'=> stripslashes($sfsi_textBefor_icons),
                 'sfsi_icons_DisplayCounts'=>$sfsi_icons_DisplayCounts,
 				'sfsi_rectsub'=>$sfsi_rectsub,
 				'sfsi_rectfb'=>$sfsi_rectfb,
@@ -461,7 +461,7 @@ function sfsi_options_updater7()
   		
     /* icons pop options */
 	$up_option7=array(	
-		'sfsi_popup_text'=>$sfsi_popup_text,
+		'sfsi_popup_text'=> stripslashes($sfsi_popup_text),
 		'sfsi_popup_background_color'=>$sfsi_popup_background_color,
 		'sfsi_popup_border_color'=>$sfsi_popup_border_color,
 		'sfsi_popup_border_thickness'=>$sfsi_popup_border_thickness,
@@ -529,21 +529,21 @@ function sfsi_options_updater8()
 		'sfsi_form_border_color'	=>	$sfsi_form_border_color,
 		'sfsi_form_background'		=>	$sfsi_form_background,
 		
-		'sfsi_form_heading_text'	=>	$sfsi_form_heading_text,
+		'sfsi_form_heading_text'	=>	stripslashes($sfsi_form_heading_text),
 		'sfsi_form_heading_font'	=>	$sfsi_form_heading_font,
 		'sfsi_form_heading_fontstyle'=>	$sfsi_form_heading_fontstyle,
 		'sfsi_form_heading_fontcolor'=>	$sfsi_form_heading_fontcolor,
 		'sfsi_form_heading_fontsize'=>	$sfsi_form_heading_fontsize,
 		'sfsi_form_heading_fontalign'=>	$sfsi_form_heading_fontalign,
 		
-		'sfsi_form_field_text'		=>	$sfsi_form_field_text,
+		'sfsi_form_field_text'		=>	stripslashes($sfsi_form_field_text),
 		'sfsi_form_field_font'		=>	$sfsi_form_field_font,
 		'sfsi_form_field_fontstyle'	=>	$sfsi_form_field_fontstyle,
 		'sfsi_form_field_fontcolor'	=>	$sfsi_form_field_fontcolor,
 		'sfsi_form_field_fontsize'	=>	$sfsi_form_field_fontsize,
 		'sfsi_form_field_fontalign'	=>	$sfsi_form_field_fontalign,
 		
-		'sfsi_form_button_text'		=>	$sfsi_form_button_text,
+		'sfsi_form_button_text'		=>	stripslashes($sfsi_form_button_text),
 		'sfsi_form_button_font'		=>	$sfsi_form_button_font,
 		'sfsi_form_button_fontstyle'=>	$sfsi_form_button_fontstyle,
 		'sfsi_form_button_fontcolor'=>	$sfsi_form_button_fontcolor,

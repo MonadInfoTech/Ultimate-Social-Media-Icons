@@ -3724,6 +3724,31 @@ ul.cstmskin_iconlist {
     white-space: pre-line;
     word-wrap: break-word;
 }
+ul.sfsi_floaticon_nargin_sec li {
+    float: left;
+    width: 300px;
+}
+ul.sfsi_floaticon_nargin_sec label {
+    float: left;
+    font-size: 17px;
+    padding-right: 20px;
+    width: auto;
+}
+ul.sfsi_floaticon_nargin_sec li input {
+    background-color: #dedede;
+    border: medium none;
+    box-shadow: none;
+    padding: 14px 8px;
+    width: 80px;
+	float: left;
+}
+ul.sfsi_floaticon_nargin_sec li ins {
+    float: left;
+    font-size: 17px;
+    font-weight: 400;
+    margin-left: 15px;
+    text-decoration: none;
+}
 @media (max-width:1160px) {
 .sfsi_subscription_html xmp {
     display: block;
