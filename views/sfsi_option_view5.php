@@ -159,7 +159,7 @@
     </div>
     <div style="width: 88%; float: left; margin:25px 0 0 187px">
     	<h4>Margin From :</h4>
-        <ul class="sfsi_floaticon_nargin_sec">
+        <ul class="sfsi_floaticon_margin_sec">
         	<li>
             	<label>Top :</label>
                 <input name="sfsi_icons_floatMargin_top" type="text" value="<?php echo ($option5['sfsi_icons_floatMargin_top']!='') ?  $option5['sfsi_icons_floatMargin_top'] : '' ;?>" /><ins>Pixels</ins>

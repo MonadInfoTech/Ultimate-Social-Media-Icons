@@ -282,11 +282,37 @@ function sfsi_check_visiblity($isFloter=0)
     $icons_float='';
     if($sfsi_section5['sfsi_icons_float']=="yes" && $isFloter==1)
     {
-	  $icons_float='<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:'.$width.'px;text-align:'.$icons_alignment.';'.$position.'">';
-	  $icons_float.=$icons;
-	  $icons_float.="<input type='hidden' id='sfsi_floater_sec' value='".$sfsi_section5['sfsi_icons_floatPosition']."' />";
-	  $icons_float.="</div>".$jquery;
-	  return $icons_float; exit;
+		if($sfsi_section5['sfsi_icons_floatPosition'] = "top-left")
+		{
+			$styleMargin = "margin-top:".$sfsi_section5['sfsi_icons_floatMargin_top']."px;margin-left:".$sfsi_section5['sfsi_icons_floatMargin_left']."px;";
+		}
+		elseif($sfsi_section5['sfsi_icons_floatPosition'] = "top-right")
+		{
+			$styleMargin = "margin-top:".$sfsi_section5['sfsi_icons_floatMargin_top']."px;margin-right:".$sfsi_section5['sfsi_icons_floatMargin_right']."px;";
+		}
+		elseif($sfsi_section5['sfsi_icons_floatPosition'] = "center-left")
+		{
+			$styleMargin = "margin-left:".$sfsi_section5['sfsi_icons_floatMargin_left']."px;";
+		}
+		elseif($sfsi_section5['sfsi_icons_floatPosition'] = "center-right")
+		{
+			$styleMargin = "margin-right:".$sfsi_section5['sfsi_icons_floatMargin_right']."px;";
+		}
+		elseif($sfsi_section5['sfsi_icons_floatPosition'] = "bottom-left")
+		{
+			$styleMargin = "margin-bottom:".$sfsi_section5['sfsi_icons_floatMargin_bottom']."px;margin-left:".$sfsi_section5['sfsi_icons_floatMargin_left']."px;";
+		}
+		elseif($sfsi_section5['sfsi_icons_floatPosition'] = "bottom-right")
+		{
+			$styleMargin = "margin-bottom:".$sfsi_section5['sfsi_icons_floatMargin_bottom']."px;margin-right:".$sfsi_section5['sfsi_icons_floatMargin_right']."px;";
+		}
+		
+		$icons_float = '<style type="text/css">#sfsi_floater { '.$styleMargin.' }</style>';
+		$icons_float .= '<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:'.$width.'px;text-align:'.$icons_alignment.';'.$position.'">';
+		$icons_float .= $icons;
+		$icons_float .= "<input type='hidden' id='sfsi_floater_sec' value='".$sfsi_section5['sfsi_icons_floatPosition']."' />";
+		$icons_float.="</div>".$jquery;
+		return $icons_float; exit;
     }
     $icons_data=$icons_main.$icons_float;
     return $icons_data;

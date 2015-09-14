@@ -2,7 +2,7 @@
 function sfsi_update_plugin()
 {
 	//Install version
-	update_option("sfsi_pluginVersion", "1.27");
+	update_option("sfsi_pluginVersion", "1.28");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -46,6 +46,17 @@ function sfsi_update_plugin()
         'sfsi_form_button_background'=>'#dedede',
     );
 	add_option('sfsi_section8_options',  serialize($options8));
+	
+	/*Float Icon setting*/
+	$option5 = unserialize(get_option('sfsi_section5_options',false));
+	if(isset($option5) && !isset($option5['sfsi_icons_floatMargin_top']))
+	{
+		$option5['sfsi_icons_floatMargin_top'] = '';
+		$option5['sfsi_icons_floatMargin_bottom'] = '';
+		$option5['sfsi_icons_floatMargin_left'] = '';
+		$option5['sfsi_icons_floatMargin_right'] = '';
+		update_option('sfsi_section5_options', serialize($option5));
+	}
 	
 	/*Extra important options*/
 	$sfsi_instagram_sf_count = array(
@@ -189,6 +200,10 @@ function sfsi_activate_plugin()
         'sfsi_icons_float'=>'no',
 		'sfsi_disable_floaticons'=>'no',
         'sfsi_icons_floatPosition'=>'center-right',
+		'sfsi_icons_floatMargin_top'=>'',
+		'sfsi_icons_floatMargin_bottom'=>'',
+		'sfsi_icons_floatMargin_left'=>'',
+		'sfsi_icons_floatMargin_right'=>'',
         'sfsi_icons_stick'=>'no',
         'sfsi_rssIcon_order'=>'1',
         'sfsi_emailIcon_order'=>'2',

@@ -337,6 +337,10 @@ function sfsi_options_updater5()
     $sfsi_icons_float               = isset($_POST["sfsi_icons_float"]) ? $_POST["sfsi_icons_float"] : 'no';
 	$sfsi_disable_floaticons		= isset($_POST["sfsi_disable_floaticons"]) ? $_POST["sfsi_disable_floaticons"] : 'no'; 
     $sfsi_icons_floatPosition       = isset($_POST["sfsi_icons_floatPosition"]) ? $_POST["sfsi_icons_floatPosition"] : 'center-right';
+	$sfsi_icons_floatMargin_top     = isset($_POST["sfsi_icons_floatMargin_top"]) ? $_POST["sfsi_icons_floatMargin_top"] : '';
+	$sfsi_icons_floatMargin_bottom  = isset($_POST["sfsi_icons_floatMargin_bottom"])? $_POST["sfsi_icons_floatMargin_bottom"]:'';
+	$sfsi_icons_floatMargin_left    = isset($_POST["sfsi_icons_floatMargin_left"]) ? $_POST["sfsi_icons_floatMargin_left"] : '';
+	$sfsi_icons_floatMargin_right   = isset($_POST["sfsi_icons_floatMargin_right"]) ? $_POST["sfsi_icons_floatMargin_right"]:''; 
     $sfsi_icons_stick               = isset($_POST["sfsi_icons_stick"]) ? $_POST["sfsi_icons_stick"] : 'no';
     $sfsi_rss_MouseOverText         = isset($_POST["sfsi_rss_MouseOverText"]) ? $_POST["sfsi_rss_MouseOverText"] : '';
     $sfsi_email_MouseOverText       = isset($_POST["sfsi_email_MouseOverText"]) ? $_POST["sfsi_email_MouseOverText"] : '';
@@ -349,7 +353,6 @@ function sfsi_options_updater5()
     $sfsi_youtube_MouseOverText     = isset($_POST["sfsi_youtube_MouseOverText"]) ? $_POST["sfsi_youtube_MouseOverText"] : '';
     $sfsi_share_MouseOverText       = isset($_POST["sfsi_share_MouseOverText"]) ? $_POST["sfsi_share_MouseOverText"] : '';
     $sfsi_custom_orders             = isset($_POST["sfsi_custom_orders"]) ? serialize($_POST["sfsi_custom_orders"]) : '';
-    
     
     $sfsi_rssIcon_order             = isset($_POST["sfsi_rssIcon_order"]) ? $_POST["sfsi_rssIcon_order"] : '1';
     $sfsi_emailIcon_order           = isset($_POST["sfsi_emailIcon_order"]) ? $_POST["sfsi_emailIcon_order"] : '2';
@@ -373,6 +376,10 @@ function sfsi_options_updater5()
         'sfsi_icons_float'=>$sfsi_icons_float,
 		'sfsi_disable_floaticons'=>$sfsi_disable_floaticons,
         'sfsi_icons_floatPosition'=>$sfsi_icons_floatPosition,
+		'sfsi_icons_floatMargin_top'=>$sfsi_icons_floatMargin_top,
+		'sfsi_icons_floatMargin_bottom'=>$sfsi_icons_floatMargin_bottom,
+		'sfsi_icons_floatMargin_left'=>$sfsi_icons_floatMargin_left,
+		'sfsi_icons_floatMargin_right'=>$sfsi_icons_floatMargin_right,
         'sfsi_icons_stick'=>$sfsi_icons_stick,
         /* mouse over texts */
         'sfsi_rss_MouseOverText'=>$sfsi_rss_MouseOverText,

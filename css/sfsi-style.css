@@ -3724,25 +3724,30 @@ ul.cstmskin_iconlist {
     white-space: pre-line;
     word-wrap: break-word;
 }
-ul.sfsi_floaticon_nargin_sec li {
+ul.sfsi_floaticon_margin_sec {
+    float: left;
+    width: 600px;
+}
+ul.sfsi_floaticon_margin_sec li {
     float: left;
     width: 300px;
+	margin-bottom: 20px;
 }
-ul.sfsi_floaticon_nargin_sec label {
+ul.sfsi_floaticon_margin_sec label {
     float: left;
     font-size: 17px;
     padding-right: 20px;
-    width: auto;
+    width: 65px;
 }
-ul.sfsi_floaticon_nargin_sec li input {
-    background-color: #dedede;
+ul.sfsi_floaticon_margin_sec li input {
+    background-color: #E5E5E5;
     border: medium none;
     box-shadow: none;
     padding: 14px 8px;
     width: 80px;
 	float: left;
 }
-ul.sfsi_floaticon_nargin_sec li ins {
+ul.sfsi_floaticon_margin_sec li ins {
     float: left;
     font-size: 17px;
     font-weight: 400;
