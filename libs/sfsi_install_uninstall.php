@@ -1,6 +1,16 @@
 <?php
 function sfsi_update_plugin()
 {
+	if($feed_id = get_option('sfsi_feed_id'))
+	{
+		if(is_numeric($feed_id))
+		{
+			$sfsiId = SFSI_updateFeedUrl();
+			update_option('sfsi_feed_id', $sfsiId->feed_id);
+			update_option('sfsi_redirect_url', $sfsiId->redirect_url);
+		}
+	}
+	
 	//Install version
 	update_option("sfsi_pluginVersion", "1.28");
 	
@@ -294,7 +304,7 @@ function sfsi_deactivate_plugin()
 
 function sfsi_updateFeedPing($status,$feed_id)
 {
-    $curl = curl_init();  
+	$curl = curl_init();  
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/pingfeed',
@@ -372,7 +382,32 @@ function SFSI_getFeedUrl()
 	$resp = json_decode($resp);
 	curl_close($curl);
 	
-	$feed_url=stripslashes_deep($resp->redirect_url);
+	$feed_url = stripslashes_deep($resp->redirect_url);
+	return $resp;exit;
+}
+/* fetch rss url from specificfeeds on */ 
+function SFSI_updateFeedUrl()
+{
+    $curl = curl_init();  
+     
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/updateFeedPlugin',
+        CURLOPT_USERAGENT => 'sf rss request',
+        CURLOPT_POST => 1,
+        CURLOPT_POSTFIELDS => array(
+			'feed_id' => get_option('sfsi_feed_id'),
+            'web_url' => get_bloginfo('url'),
+            'feed_url' => get_bloginfo('rss2_url'),
+            'email'=>get_bloginfo('admin_email')
+        )
+    ));
+ 	// Send the request & save response to $resp
+	$resp = curl_exec($curl);
+	$resp = json_decode($resp);
+	curl_close($curl);
+	
+	$feed_url = stripslashes_deep($resp->redirect_url);
 	return $resp;exit;
 }
 /* add sf tags */

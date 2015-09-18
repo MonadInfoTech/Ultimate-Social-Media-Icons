@@ -22,7 +22,7 @@
     <div class="row email_section">
         <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">
-         <p>Allows people to subscribe to your site on <a href="http://www.specificfeeds.com/widget/emailsubscribe/<?php echo base64_encode($feedId); ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a> and receive new posts automatically. The service is 100% FREE, you get full access to the emails & interesting statistics (please <a target="_new" href="http://www.specificfeeds.com/<?php echo $feedId; ?>?getParam=feeds_claims">claim your feed</a> for that) and it also make sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>. </p>
+         <p>Allows people to subscribe to your site on <a href="http://www.specificfeeds.com/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a> and receive new posts automatically. The service is 100% FREE, you get full access to the emails & interesting statistics (please <a target="_new" href="http://www.specificfeeds.com/<?php echo $feedId; ?>?getParam=feeds_claims">claim your feed</a> for that) and it also make sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>. </p>
          <p>Please pick which icon type you want to use:</p>
            <ul class="tab_2_email_sec">
             <li>

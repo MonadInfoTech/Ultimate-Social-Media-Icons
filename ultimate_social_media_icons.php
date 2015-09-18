@@ -194,7 +194,7 @@ function addStyleFunction()
 	?>
     	<script>
 			function sfsi_processfurther(ref) {
-				var feed_id = <?php echo $sfsi_feediid?>;
+				var feed_id = '<?php echo $sfsi_feediid?>';
 				var feedtype = 8;
 				var email = jQuery(ref).find('input[name="data[Widget][email]"]').val();
 				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
