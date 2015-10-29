@@ -338,6 +338,7 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_footer_sec');
     delete_option('sfsi_activate');
 	delete_option("sfsi_pluginVersion");
+	delete_option('sfsi_verificatiom_code');
 }
 /* end function */
 

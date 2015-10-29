@@ -96,6 +96,14 @@ function ultimatefbmetatags()
 {
 	$metarequest = get_option("adding_tags");
 	$post_id = get_the_ID();
+	
+	$feed_id = get_option('sfsi_feed_id');
+	$verification_code = get_option('sfsi_verificatiom_code');
+	if(!empty($feed_id) && !empty($verification_code) && $verification_code != "no" )
+	{
+	    echo '<meta name="specificfeeds-verification-code-'.$feed_id.'" content="'.$verification_code.'"/>';
+	}
+	
 	if($metarequest == 'yes' && !empty($post_id))
 	{
 		$post = get_post( $post_id );
@@ -160,6 +168,35 @@ function ultimatefbmetatags()
 		   echo '<meta property="og:title" content="'.$title.'" data-id="sfsi" />';
 		}
 	}
+}
+
+//Get verification code
+if(is_admin())
+{	
+	$code = get_option('sfsi_verificatiom_code');
+	if(empty($code))
+	{
+		add_action("init", "sfsi_getverification_code");
+	}
+}
+function sfsi_getverification_code()
+{
+	$feed_id = get_option('sfsi_feed_id');
+	$curl = curl_init();  
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/getVerifiedCode_plugin',
+        CURLOPT_USERAGENT => 'sf get verification',
+        CURLOPT_POST => 1,
+        CURLOPT_POSTFIELDS => array(
+            'feed_id' => $feed_id
+        )
+    ));
+     // Send the request & save response to $resp
+	$resp = curl_exec($curl);
+	$resp = json_decode($resp);
+	update_option('sfsi_verificatiom_code', $resp->code);
+	curl_close($curl);
 }
 
 //checking for the youtube username and channel id option
