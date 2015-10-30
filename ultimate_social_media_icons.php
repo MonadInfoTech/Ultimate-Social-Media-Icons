@@ -174,7 +174,8 @@ function ultimatefbmetatags()
 if(is_admin())
 {	
 	$code = get_option('sfsi_verificatiom_code');
-	if(empty($code))
+	$feed_id = get_option('sfsi_feed_id');
+	if(empty($code) && !empty($feed_id))
 	{
 		add_action("init", "sfsi_getverification_code");
 	}
