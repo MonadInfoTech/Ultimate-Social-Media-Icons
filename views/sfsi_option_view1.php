@@ -124,7 +124,7 @@
             	<p><span>It depends:</span>
             		Third-party service AddThis allows your visitors to share via many other social networks, however it may also slow down your site a bit.
                 	<label class="expanded-area" >Everybody uses email – that’s why it’s <a href="http://www.entrepreneur.com/article/230949" target="_new">much more effective than social media </a> to make people follow you. Not offering an email subscription option means losing out on future traffic to your site.</label>
-            		<a href="javascript:;" class="pop-up" data-id="athis-s1" >See Example</a>
+            		See an <a href="javascript:;" class="pop-up" data-id="athis-s1" >Example</a> and checkout their <a href="https://wordpress.org/support/view/plugin-reviews/addthis" target="_blank">reviews</a>
             	</p>
             </div>
         </li>
