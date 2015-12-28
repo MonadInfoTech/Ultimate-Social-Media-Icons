@@ -125,28 +125,28 @@
                     </div>
                     <div class="sfsi_field">
                     	<label>Color</label>
-                        <input id="sfsi_form_border_color" class="small color-code" type="text" name="sfsi_form_border_color"
+                        <input id="sfsi_form_border_color" data-default-color="#b5b5b5" type="text" name="sfsi_form_border_color"
                         	value="<?php echo ($option8['sfsi_form_border_color']!='')
 										? $option8['sfsi_form_border_color'] : '' ;
 									?>">
-                        <div class="color_box">
+                        <!--div class="color_box">
                             <div class="corner"></div>
-                            <div id="sfsiFormBorderColor" class="color_box1" style="background: <?php echo ($option8['sfsi_form_border_color']!='')? $option8['sfsi_form_border_color'] : '' ;?>"></div>
-                        </div>
+                            <div id="sfsiFormBorderColor" class="color_box1" style="background: <?php //echo ($option8['sfsi_form_border_color']!='')? $option8['sfsi_form_border_color'] : '' ;?>"></div>
+                        </div-->
                     </div>
                 </div>
                 <!--Row Section-->
                 <div class="row_tab">
                     <label class="sfsi_heding autowidth">Background color:</label>
 					<div class="sfsi_field">
-                    	<input id="sfsi_form_background" class="small color-code" type="text" name="sfsi_form_background"
+                    	<input id="sfsi_form_background" data-default-color="#b5b5b5" type="text" name="sfsi_form_background"
                         	value="<?php echo ($option8['sfsi_form_background']!='')
 										? $option8['sfsi_form_background'] : '' ;
 									?>">
-                        <div class="color_box">
+                        <!--div class="color_box">
                             <div class="corner"></div>
-                            <div id="sfsiFormBackground" class="color_box1" style="background: <?php echo ($option8['sfsi_form_background']!='')? $option8['sfsi_form_background'] : '' ;?>"></div>
-                        </div>
+                            <div id="sfsiFormBackground" class="color_box1" style="background: <?php //echo ($option8['sfsi_form_background']!='')? $option8['sfsi_form_background'] : '' ;?>"></div>
+                        </div-->
                     </div>
 				</div>
                 <!--Row Section-->
@@ -189,14 +189,14 @@
                 <div class="row_tab">
                 	<div class="sfsi_field">
                     	<label class="sfsi_same_width">Font color</label>
-                        <input type="text" name="sfsi_form_heading_fontcolor" class="small color-code" id="sfsi_form_heading_fontcolor" value="<?php echo ($option8['sfsi_form_heading_fontcolor']!='')
+                        <input type="text" name="sfsi_form_heading_fontcolor" data-default-color="#b5b5b5" id="sfsi_form_heading_fontcolor" value="<?php echo ($option8['sfsi_form_heading_fontcolor']!='')
 										? $option8['sfsi_form_heading_fontcolor'] : '' ;
 									?>">
-                        <div class="color_box">
+                        <!--div class="color_box">
                             <div class="corner"></div>
-                            <div class="color_box1" id="sfsiFormHeadingFontcolor" style="background: <?php echo ($option8['sfsi_form_heading_fontcolor']!='') ? $option8['sfsi_form_heading_fontcolor'] : '' ;
+                            <div class="color_box1" id="sfsiFormHeadingFontcolor" style="background: <?php //echo ($option8['sfsi_form_heading_fontcolor']!='') ? $option8['sfsi_form_heading_fontcolor'] : '' ;
 									?>"></div>
-                        </div>
+                        </div-->
                     </div>
                     <div class="sfsi_field">
                     	<label>Font size</label>
@@ -316,14 +316,14 @@
                 <div class="row_tab">
                 	<div class="sfsi_field">
                     	<label class="sfsi_same_width">Font color</label>
-                        <input type="text" name="sfsi_form_button_fontcolor" class="small color-code" id="sfsi_form_button_fontcolor" value="<?php echo ($option8['sfsi_form_button_fontcolor']!='')
+                        <input type="text" name="sfsi_form_button_fontcolor" data-default-color="#b5b5b5" id="sfsi_form_button_fontcolor" value="<?php echo ($option8['sfsi_form_button_fontcolor']!='')
 										? $option8['sfsi_form_button_fontcolor'] : '' ;
 									?>">
-                        <div class="color_box">
+                        <!--div class="color_box">
                             <div class="corner"></div>
-                            <div class="color_box1" id="sfsiFormButtonFontcolor" style="background: <?php echo ($option8['sfsi_form_button_fontcolor']!='') ? $option8['sfsi_form_button_fontcolor'] : '' ;
+                            <div class="color_box1" id="sfsiFormButtonFontcolor" style="background: <?php //echo ($option8['sfsi_form_button_fontcolor']!='') ? $option8['sfsi_form_button_fontcolor'] : '' ;
 									?>"></div>
-                        </div>
+                        </div-->
                     </div>
                     <div class="sfsi_field">
                     	<label>Font size</label>
@@ -344,14 +344,14 @@
                 <div class="row_tab">
                 	<div class="sfsi_field">
                     	<label class="sfsi_same_width"><b>Button color:</b></label>
-                        <input type="text" name="sfsi_form_button_background" class="small color-code" id="sfsi_form_button_background" value="<?php echo ($option8['sfsi_form_button_background']!='')
+                        <input type="text" name="sfsi_form_button_background" data-default-color="#b5b5b5" id="sfsi_form_button_background" value="<?php echo ($option8['sfsi_form_button_background']!='')
 										? $option8['sfsi_form_button_background'] : '' ;
 									?>">
-                        <div class="color_box">
+                        <!--div class="color_box">
                             <div class="corner"></div>
-                            <div class="color_box1" id="sfsiFormButtonBackground" style="background: <?php echo ($option8['sfsi_form_button_background']!='') ? $option8['sfsi_form_button_background'] : '' ;
+                            <div class="color_box1" id="sfsiFormButtonBackground" style="background: <?php //echo ($option8['sfsi_form_button_background']!='') ? $option8['sfsi_form_button_background'] : '' ;
 									?>"></div>
-                        </div>
+                        </div-->
                     </div>
                 </div>    
                 <!--End Section-->

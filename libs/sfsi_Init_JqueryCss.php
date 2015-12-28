@@ -15,8 +15,10 @@ function theme_back_enqueue_script()
 				wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
 		
 				wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
-				wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
-				wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
+				
+				//wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
+				//wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
+				wp_enqueue_style("wp-color-picker");
 			}
 		}
 		
@@ -41,15 +43,21 @@ function theme_back_enqueue_script()
 				wp_enqueue_script('media-upload');
 				wp_enqueue_script('thickbox'); 
 				
-				wp_register_script('SFSIjquery.ui.min', SFSI_PLUGURL . 'js/jquery-ui-min.js', '', '', true);
-				wp_enqueue_script("SFSIjquery.ui.min");	
+				//wp_register_script('SFSIjquery.ui.min', SFSI_PLUGURL . 'js/jquery-ui-min.js', '', '', true);
+				//wp_enqueue_script("SFSIjquery.ui.min");	
 				
 				
 				wp_register_script('SFSIJqueryFRM', SFSI_PLUGURL . 'js/jquery.form-min.js', '', '', true);
 				wp_enqueue_script("SFSIJqueryFRM");
 				
-				wp_register_script('SFSIJqueryColorPicker', SFSI_PLUGURL . 'js/color-picker/colorpicker-min.js', '', '', true);
-				wp_enqueue_script("SFSIJqueryColorPicker");
+				
+				wp_enqueue_script("jquery-ui-accordion");	
+				wp_enqueue_script("wp-color-picker");
+				wp_enqueue_script("jquery-effects-core");
+				wp_enqueue_script("jquery-ui-sortable");
+				
+				//wp_register_script('SFSIJqueryColorPicker', SFSI_PLUGURL . 'js/color-picker/colorpicker-min.js', '', '', true);
+				//wp_enqueue_script("SFSIJqueryColorPicker");
 				
 				//wp_register_script('SFSIJqueryEye', SFSI_PLUGURL . 'js/color-picker/eye-min.js', '', '', true);
 				//wp_enqueue_script("SFSIJqueryEye");
