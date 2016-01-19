@@ -3,30 +3,30 @@
 
 function sfsi_social_buttons_below($content)
 {
-  global $post;
-  $sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
-  //checking for standard icons
-		if(!isset($sfsi_section6['sfsi_rectsub']))
-		{
-			$sfsi_section6['sfsi_rectsub'] = 'no';
-		}
-		if(!isset($sfsi_section6['sfsi_rectfb']))
-		{
-			$sfsi_section6['sfsi_rectfb'] = 'yes';
-		}
-		if(!isset($sfsi_section6['sfsi_rectgp']))
-		{
-			$sfsi_section6['sfsi_rectgp'] = 'yes';
-		}
-		if(!isset($sfsi_section6['sfsi_rectshr']))
-		{
-			$sfsi_section6['sfsi_rectshr'] = 'yes';
-		}
-		if(!isset($sfsi_section6['sfsi_recttwtr']))
-		{
-			$sfsi_section6['sfsi_recttwtr'] = 'no';
-		}
-		//checking for standard icons
+  	global $post;
+  	$sfsi_section6=  unserialize(get_option('sfsi_section6_options',false));
+  	//checking for standard icons
+	if(!isset($sfsi_section6['sfsi_rectsub']))
+	{
+		$sfsi_section6['sfsi_rectsub'] = 'no';
+	}
+	if(!isset($sfsi_section6['sfsi_rectfb']))
+	{
+		$sfsi_section6['sfsi_rectfb'] = 'yes';
+	}
+	if(!isset($sfsi_section6['sfsi_rectgp']))
+	{
+		$sfsi_section6['sfsi_rectgp'] = 'yes';
+	}
+	if(!isset($sfsi_section6['sfsi_rectshr']))
+	{
+		$sfsi_section6['sfsi_rectshr'] = 'yes';
+	}
+	if(!isset($sfsi_section6['sfsi_recttwtr']))
+	{
+		$sfsi_section6['sfsi_recttwtr'] = 'no';
+	}
+	//checking for standard icons
         
   /* check if option activated in admin or not */ 
   if($sfsi_section6['sfsi_show_Onposts']=="yes")
@@ -225,17 +225,18 @@ function sfsi_footer_script()
 		$sfsi_section6['sfsi_recttwtr'] = 'no';
 	}
 	if($sfsi_section1['sfsi_facebook_display']=="yes" || $sfsi_section6['sfsi_rectfb'] == "yes")
-	{?>
+	{
+		?>
+        <!--facebook like and share js -->
         <div id="fb-root"></div>
 		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-		  fjs.parentNode.insertBefore(js, fjs);
+			var js, fjs = d.getElementsByTagName(s)[0];
+		  	if (d.getElementById(id)) return;
+		  	js = d.createElement(s); js.id = id;
+		  	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+		  	fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
-		<!--facebook like and share js -->                   
-        <!--<div id="fb-root"></div>
+		<!--<div id="fb-root"></div>
         <script>
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -246,7 +247,11 @@ function sfsi_footer_script()
         }(document, 'script', 'facebook-jssdk'));</script>-->
  	<?php
 	}
-	if($sfsi_section1['sfsi_google_display']=="yes" || $sfsi_section1['sfsi_youtube_display']=="yes" || $sfsi_section6['sfsi_rectgp'] == "yes")
+	if(
+		$sfsi_section1['sfsi_google_display']=="yes" ||
+		$sfsi_section1['sfsi_youtube_display']=="yes" ||
+		$sfsi_section6['sfsi_rectgp'] == "yes"
+	)
 	{ ?>
          <!--google share and  like and e js -->
         <script type="text/javascript">

@@ -1,5 +1,5 @@
 <?php
-require_once(SFSI_DOCROOT.'/helpers/OAuth.php');
+require_once(SFSI_DOCROOT.'/helpers/sfsi_OAuth.php');
 
 class LinkedIn {
 	public $base_url = "http://api.linkedin.com";

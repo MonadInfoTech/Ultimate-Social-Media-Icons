@@ -12,7 +12,7 @@ function sfsi_update_plugin()
 	}
 	
 	//Install version
-	update_option("sfsi_pluginVersion", "1.34");
+	update_option("sfsi_pluginVersion", "1.35");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -107,7 +107,7 @@ function sfsi_activate_plugin()
 	}
 	
     /* Links and icons  options */	 
-    $options2=array('sfsi_rss_url'=>get_bloginfo('rss2_url'),
+    $options2=array('sfsi_rss_url'=>sfsi_get_bloginfo('rss2_url'),
         'sfsi_rss_icons'=>'email', 
         'sfsi_email_url'=>$sffeeds->redirect_url,
         'sfsi_facebookPage_option'=>'no',
@@ -375,9 +375,9 @@ function SFSI_getFeedUrl()
         CURLOPT_USERAGENT => 'sf rss request',
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => array(
-            'web_url' => get_bloginfo('url'),
-            'feed_url' => get_bloginfo('rss2_url'),
-            'email'=>get_bloginfo('admin_email')
+            'web_url' 	=> get_bloginfo('url'),
+            'feed_url'	=> sfsi_get_bloginfo('rss2_url'),
+            'email'		=> get_bloginfo('admin_email')
         )
     ));
  	// Send the request & save response to $resp
@@ -404,10 +404,10 @@ function SFSI_updateFeedUrl()
         CURLOPT_USERAGENT => 'sf rss request',
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => array(
-			'feed_id' => get_option('sfsi_feed_id'),
-            'web_url' => get_bloginfo('url'),
-            'feed_url' => get_bloginfo('rss2_url'),
-            'email'=>get_bloginfo('admin_email')
+			'feed_id'	=> get_option('sfsi_feed_id'),
+            'web_url' 	=> get_bloginfo('url'),
+            'feed_url' 	=> sfsi_get_bloginfo('rss2_url'),
+            'email'		=> get_bloginfo('admin_email')
         )
     ));
  	// Send the request & save response to $resp
@@ -576,14 +576,14 @@ function sfsi_pingVendor( $post_id )
 	    }
 	  	$count++;	
 	 }
-	$postto_array = array('feed_id'=>get_option('sfsi_feed_id'),
-						  'title'=>$post_data['post_title'],
-						  'description'=>$post_data['post_content'],
-						  'link'=>$post_data['guid'],
-						  'author'=>get_the_author_meta('user_login', $post_data['post_author']),
-						  'category'=>$cats,
-						  'pubDate'=>$post_data['post_modified'],
-                          'rssurl'=>get_bloginfo('rss2_url'));
+	$postto_array = array('feed_id'	=> get_option('sfsi_feed_id'),
+						  'title'	=> $post_data['post_title'],
+						  'description'=> $post_data['post_content'],
+						  'link'	=> $post_data['guid'],
+						  'author'	=> get_the_author_meta('user_login', $post_data['post_author']),
+						  'category'=> $cats,
+						  'pubDate'	=> $post_data['post_modified'],
+                          'rssurl'	=> sfsi_get_bloginfo('rss2_url'));
 	$curl = curl_init();  
      
 	curl_setopt_array($curl, array(

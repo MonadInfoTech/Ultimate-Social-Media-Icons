@@ -7,7 +7,7 @@
  */
 
 /* Load OAuth lib. You can find it at http://oauth.net */
-require_once(SFSI_DOCROOT.'/helpers/OAuth.php');
+require_once(SFSI_DOCROOT.'/helpers/sfsi_OAuth.php');
 
 /**
  * Twitter OAuth class

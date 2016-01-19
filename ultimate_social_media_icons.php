@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.3.4
+Version: 1.3.5
 License: GPLv2 or later
 */
 global $wpdb;
@@ -32,10 +32,11 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.34)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.35)
 {
 	add_action("init", "sfsi_update_plugin");
 }
+
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
@@ -423,5 +424,17 @@ function sfsi_dismiss_admin_notice()
 		update_option( 'show_notification_plugin', "no" );
 		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
 	}
+}
+
+function sfsi_get_bloginfo($url)
+{
+	$web_url = get_bloginfo($url);
+	
+	//Block to use feedburner url
+	if (preg_match("/(feedburner)/im", $web_url, $match))
+	{
+		$web_url = site_url()."/feed";
+	}
+	return $web_url;
 }
 ?>
