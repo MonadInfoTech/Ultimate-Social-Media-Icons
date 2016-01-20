@@ -237,7 +237,8 @@ function sfsi_options_updater4()
     $sfsi_youtube_countsFrom         = isset($_POST["sfsi_youtube_countsFrom"]) ? $_POST["sfsi_youtube_countsFrom"] : 'manual';
     $sfsi_youtube_manualCounts       = isset($_POST["sfsi_youtube_manualCounts"]) ? $_POST["sfsi_youtube_manualCounts"] : '';
     $sfsi_youtube_user               = isset($_POST["sfsi_youtube_user"]) ? trim($_POST["sfsi_youtube_user"]) : '';
-    
+    $sfsi_youtube_channelId          = isset($_POST["sfsi_youtube_channelId"]) ? trim($_POST["sfsi_youtube_channelId"]) : '';
+	
     $sfsi_pinterest_countsDisplay    = isset($_POST["sfsi_pinterest_countsDisplay"]) ? $_POST["sfsi_pinterest_countsDisplay"] : 'no';
     $sfsi_pinterest_countsFrom       = isset($_POST["sfsi_pinterest_countsFrom"]) ? $_POST["sfsi_pinterest_countsFrom"] : 'manual';
     $sfsi_pinterest_manualCounts     = isset($_POST["sfsi_pinterest_manualCounts"]) ? trim($_POST["sfsi_pinterest_manualCounts"]) : '';
@@ -296,6 +297,7 @@ function sfsi_options_updater4()
    'sfsi_youtube_countsFrom'=>$sfsi_youtube_countsFrom,
    'sfsi_youtube_manualCounts'=>$sfsi_youtube_manualCounts,
    'sfsi_youtube_user'     =>$sfsi_youtube_user,
+   'sfsi_youtube_channelId'=>$sfsi_youtube_channelId,
    
    'sfsi_pinterest_countsDisplay'=>$sfsi_pinterest_countsDisplay,
    'sfsi_pinterest_countsFrom'=>$sfsi_pinterest_countsFrom,
