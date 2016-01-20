@@ -1078,9 +1078,13 @@ function sfsi_validationStep4()
   {    
         if(SFSI('input[name="sfsi_youtube_countsFrom"]:checked').val()=='subscriber' )
         {   
-          if(!sfsi_validator(SFSI('input[name="sfsi_youtube_user"]'),'blank'))
-            {   showErrorSuc("error","Error : Please Enter a youtube user name",4);
+          	if(
+				!sfsi_validator(SFSI('input[name="sfsi_youtube_user"]'),'blank') &&
+				!sfsi_validator(SFSI('input[name="sfsi_youtube_channelId"]'),'blank')
+		  	)
+           	{   showErrorSuc("error","Error : Please Enter a youtube user name or channel id",4);
                 SFSI('input[name="sfsi_youtube_user"]').addClass('inputError');
+				SFSI('input[name="sfsi_youtube_channelId"]').addClass('inputError');
                 return false;
             }      
         }

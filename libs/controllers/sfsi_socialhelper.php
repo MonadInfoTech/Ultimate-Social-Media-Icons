@@ -137,18 +137,36 @@ class sfsi_SocialHelper
 	/* get youtube subscribers  */
 	function sfsi_get_youtube($user)
 	{
-		//following api is depreacated
-		/*$xmlData = @file_get_contents('http://gdata.youtube.com/feeds/api/users/' . $user);*/
-		$xmlData = @file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='.$user.'&key=AIzaSyA_SqAZGCpZ22vHzOUr3St5xf5XMy78oTY');
+		if($user == 'SpecificFeeds')
+		{
+			$sfsi_section4_options =  unserialize(get_option('sfsi_section4_options',false));
+			$user = (
+				isset($sfsi_section4_options['sfsi_youtube_channelId']) &&
+				!empty($sfsi_section4_options['sfsi_youtube_channelId'])
+			) ? $sfsi_section4_options['sfsi_youtube_channelId'] : 'UCYQyWnJPrY4XY3Avc7BU9aA';
+			
+			$xmlData = @file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='.$user.'&key=AIzaSyA_SqAZGCpZ22vHzOUr3St5xf5XMy78oTY');
+		}
+		else
+		{
+			$xmlData = @file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='.$user.'&key=AIzaSyA_SqAZGCpZ22vHzOUr3St5xf5XMy78oTY');
+		}
+		
 		if($xmlData)
 		{   
-			/*$xmlData = str_replace('yt:', 'yt', $xmlData);
-			$xml = new SimpleXMLElement($xmlData);
-			$subs = $xml->ytstatistics['subscriberCount'];
-			$subs=$this->format_num($subs);*/
 			$xmlData = json_decode($xmlData);
-			$subs = $xmlData->items[0]->statistics->subscriberCount;
-			$subs=$this->format_num($subs);
+			if(
+				isset($xmlData->items) &&
+				!empty($xmlData->items)
+			)
+			{
+				$subs = $xmlData->items[0]->statistics->subscriberCount;
+				$subs = $this->format_num($subs);
+			}
+			else
+			{
+				$subs=0;
+			}
 		}
 		else
 		{

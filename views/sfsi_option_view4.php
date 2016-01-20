@@ -332,8 +332,19 @@
     <div class="listing">
     	<ul>
         	<li><input name="sfsi_youtube_countsFrom" type="radio" value="subscriber" <?php echo ($option4['sfsi_youtube_countsFrom']=='subscriber') ?  'checked="true"' : '' ;?>  class="styled"  />Retrieve the number of Subscribers</li>
-                <li class="youtube_options" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'display:none;' : '' ;?>"><label>Enter Youtube User name</label><input name="sfsi_youtube_user" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>"  /> </li>
-                <li><input name="sfsi_youtube_countsFrom" type="radio" value="manual" <?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  class="styled" />Enter the figure manually<input name="sfsi_youtube_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_youtube_manualCounts']!='') ?  $option4['sfsi_youtube_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='subscriber') ?  'display:none;' : '' ;?>" /></li>
+                <li class="youtube_options" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'display:none;' : '' ;?>">
+                	<div>
+                		<label>Enter Youtube User name</label>
+                		<input name="sfsi_youtube_user" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>"  />
+                    </div>
+                    <div>
+                		<label>Enter Youtube Channel Id</label>
+                		<input name="sfsi_youtube_channelId" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_channelId']) && $option4['sfsi_youtube_channelId']!='') ?  $option4['sfsi_youtube_channelId'] : '' ;?>"  />
+                    </div>
+                    
+                </li>
+                <li>
+                	<input name="sfsi_youtube_countsFrom" type="radio" value="manual" <?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  class="styled" />Enter the figure manually<input name="sfsi_youtube_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_youtube_manualCounts']!='') ?  $option4['sfsi_youtube_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='subscriber') ?  'display:none;' : '' ;?>" /></li>
         </ul>
     </div>    
   </div><!-- END YOUTUBE ICON COUNT SECTION-->

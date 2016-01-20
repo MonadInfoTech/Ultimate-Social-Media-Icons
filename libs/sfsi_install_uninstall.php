@@ -68,6 +68,14 @@ function sfsi_update_plugin()
 		update_option('sfsi_section5_options', serialize($option5));
 	}
 	
+	/*Youtube Channelid settings*/
+	$option4 = unserialize(get_option('sfsi_section4_options',false));
+	if(isset($option4) && !empty($option4) && !isset($option4['sfsi_youtube_channelId']))
+	{
+		$option4['sfsi_youtube_channelId'] = '';
+		update_option('sfsi_section4_options', serialize($option4));
+	}
+	
 	/*Extra important options*/
 	$sfsi_instagram_sf_count = array(
 		"date" => "",
@@ -181,6 +189,7 @@ function sfsi_activate_plugin()
         'ln_company'=>'',
 		'sfsi_youtubeusernameorid'=>'name',
         'sfsi_youtube_user'=>'',
+		'sfsi_youtube_channelId' =>'',
 		'sfsi_ytube_chnlid'=>'',
         'sfsi_youtube_countsDisplay'=>'no',
         'sfsi_youtube_countsFrom'=>'manual',
