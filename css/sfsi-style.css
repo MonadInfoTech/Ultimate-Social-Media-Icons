@@ -2100,23 +2100,26 @@ h2.optional {
     line-height: 41px;
     margin-right: 8px;
 }
-.icon2 .fb_iframe_widget span {
+.sfsi_inside .icon2 .fb_iframe_widget span {
     width: 500px!important;
 }
 @media (max-width:767px) {
-    .icon2 .fb_iframe_widget span {
-    width: auto;
+    .sfsi_inside .icon2 .fb_iframe_widget span {
+		width: auto;
+	}
+	.sfsi_outr_div
+	{
+		top: 10%
+	}
+	.sfsi_outr_div h2 {
+		font-size: 22px!important;
+		line-height: 28px;
+	}
+	.sfsi_wicons {
+		padding-top: 0;
+	}
 }
-.sfsi_outr_div {
-    top: 10%}
-.sfsi_outr_div h2 {
-    font-size: 22px!important;
-    line-height: 28px;
-}
-.sfsi_wicons {
-    padding-top: 0;
-}
-}.specify_counts .listing li .high_prb {
+.specify_counts .listing li .high_prb {
     height: 41px;
 }
 .sfsi_Sicons {
@@ -2633,7 +2636,7 @@ ul.cstmskin_iconlist {
 	margin-top: 3px;
 	float: left;
 }
-.sf_subscrbe .bot_no
+.sfsi_Sicons .sf_subscrbe .bot_no
 {
 	background: rgba(0, 0, 0, 0) url(images/count_left_arow.png) no-repeat scroll 0 0 / 27px auto;
 	font-size: 12px !important;
