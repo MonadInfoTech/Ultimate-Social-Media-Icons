@@ -232,6 +232,9 @@ function addStyleFunction()
 	echo $return = '';
 	?>
     	<script>
+			jQuery(document).ready(function(e) {
+                jQuery("body").addClass("sfsi_<?php echo get_option("sfsi_pluginVersion");?>")
+            });
 			function sfsi_processfurther(ref) {
 				var feed_id = '<?php echo $sfsi_feediid?>';
 				var feedtype = 8;

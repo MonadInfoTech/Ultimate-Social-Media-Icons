@@ -10,14 +10,8 @@ function theme_back_enqueue_script()
 			{
 				/* include CSS for backend  */
   				wp_enqueue_style('thickbox');
-		
-				//wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style-min.css' );
 				wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
-		
 				wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
-				
-				//wp_enqueue_style("SFSIColorCss", SFSI_PLUGURL . 'css/colorpicker/css/colorpicker-min.css' );
-				//wp_enqueue_style("SFSILayoutCss", SFSI_PLUGURL . 'css/colorpicker/css/layout-min.css' );
 				wp_enqueue_style("wp-color-picker");
 			}
 		}
@@ -90,7 +84,6 @@ function theme_front_enqueue_script()
 		
 		/* include CSS for front-end and backend  */
 		wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
-		wp_enqueue_style("SFSIJqueryCSS", SFSI_PLUGURL . 'css/jquery-ui-1.10.4/jquery-ui-min.css' );
 		
 		//including floating option css
 		$option5=  unserialize(get_option('sfsi_section5_options',false));

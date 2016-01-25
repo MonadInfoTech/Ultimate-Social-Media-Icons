@@ -893,7 +893,8 @@ function sfsi_validationStep2()
   var er=0;
   SFSI("input[name='sfsi_CustomIcon_links[]']").each(function(){
 	  
-	 if(!sfsi_validator(SFSI(this),'blank') || !sfsi_validator(SFSI(SFSI(this)),'url') )
+	 //if(!sfsi_validator(SFSI(this),'blank') || !sfsi_validator(SFSI(SFSI(this)),'url') )
+	 if(!sfsi_validator(SFSI(this),'blank') )
 	 {      
 	 	showErrorSuc("error","Error : Please Enter a valid Custom link ",2);
 		SFSI(this).addClass('inputError');  
