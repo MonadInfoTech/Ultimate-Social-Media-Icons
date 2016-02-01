@@ -23,6 +23,10 @@ function sfsi_update_plugin()
 	{
 		add_option("show_notification_plugin", "yes");
 	}
+	if(!get_option('sfsi_languageNotice'))
+	{
+		add_option("sfsi_languageNotice", "yes");
+	}
 	
 	/* subscription form */
     $options8 = array('sfsi_form_adjustment'=>'yes',

@@ -42,17 +42,18 @@
             	<img src="<?php echo SFSI_PLUGURL; ?>images/like.jpg" alt="Facebook Like" />
         	</a>
         </li>
-		<li>
-        	<div class="radio_section tb_4_ck"><input name="sfsi_rectgp" <?php echo ($option6['sfsi_rectgp']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_rectgp" type="checkbox" value="yes" class="styled"  /></div>
-        	<a href="#" title="Google Plus">
-            	<img src="<?php echo SFSI_PLUGURL; ?>images/google_plus1.jpg" alt="Google Plus" />
-            </a>
-        </li>
 		
         <li>
         	<div class="radio_section tb_4_ck"><input name="sfsi_recttwtr" <?php echo ($option6['sfsi_recttwtr']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_recttwtr" type="checkbox" value="yes" class="styled"  /></div>
             <a href="#" title="twitter" class="cstmdspltwtr">
                 <img src="<?php echo SFSI_PLUGURL; ?>images/twiiter.png" alt="Twitter like" />
+            </a>
+        </li>
+        
+        <li>
+        	<div class="radio_section tb_4_ck"><input name="sfsi_rectgp" <?php echo ($option6['sfsi_rectgp']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_rectgp" type="checkbox" value="yes" class="styled"  /></div>
+        	<a href="#" title="Google Plus">
+            	<img src="<?php echo SFSI_PLUGURL; ?>images/google_plus1.jpg" alt="Google Plus" />
             </a>
         </li>
         

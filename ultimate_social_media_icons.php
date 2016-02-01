@@ -375,6 +375,8 @@ function addStyleFunction()
 add_action('admin_notices', 'sfsi_admin_notice', 10);
 function sfsi_admin_notice()
 {
+	$language = get_option("WPLANG");
+	
 	if(isset($_GET['page']) && $_GET['page'] == "sfsi-options")
 	{
 		$style = "overflow: hidden; margin:12px 3px 0px;";
@@ -383,6 +385,20 @@ function sfsi_admin_notice()
 	{
 		$style = "overflow: hidden;"; 
 	}
+	
+	if(get_option("show_notification_plugin") == "yes")
+	{ 
+		$url = "?sfsi-dismiss-notice=true";
+		?>
+		<div class="updated" style="<?php echo $style; ?>">
+			<div class="alignleft" style="margin: 9px 0;">
+				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="<?php echo site_url();?>/wp-admin/admin.php?page=sfsi-options" style="color:#7AD03A; font-weight:bold;">Check it out</a>
+			</div>
+			<p class="alignright">
+				<a href="<?php echo $url; ?>">Dismiss</a>
+			</p>
+		</div>
+	<?php }
 	
 	if(get_option("sfsi_curlErrorNotices") == "yes")
 	{ 
@@ -399,13 +415,18 @@ function sfsi_admin_notice()
 		</div>
 	<?php }
 	
-	if(get_option("show_notification_plugin") == "yes")
+	if(
+		!empty($language) &&
+		isset($_GET['page']) &&
+		$_GET['page'] == "sfsi-options" &&
+		get_option("sfsi_languageNotice") == "yes"
+	)
 	{ 
-		$url = "?sfsi-dismiss-notice=true";
+		$url = "?sfsi-dismiss-languageNotice=true";
 		?>
 		<div class="updated" style="<?php echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
-				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="<?php echo site_url();?>/wp-admin/admin.php?page=sfsi-options" style="color:#7AD03A; font-weight:bold;">Check it out</a>
+				We detected that you're using a language other than English in Wordpress. We created also the <a target="_blank" href="https://wordpress.org/plugins/ultimate-social-media-plus/">Ultimate Social Media PLUS</a> plugin (still FREE) which allows you to select buttons in non-English languages (under question 6).
 			</div>
 			<p class="alignright">
 				<a href="<?php echo $url; ?>">Dismiss</a>
@@ -416,15 +437,21 @@ function sfsi_admin_notice()
 add_action('admin_init', 'sfsi_dismiss_admin_notice');
 function sfsi_dismiss_admin_notice()
 {
+	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
+	{
+		update_option( 'show_notification_plugin', "no" );
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
+	}
+	
 	if ( isset($_REQUEST['sfsi-dismiss-curlNotice']) && $_REQUEST['sfsi-dismiss-curlNotice'] == 'true' )
 	{
 		update_option( 'sfsi_curlErrorNotices', "no" );
 		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
 	}
 	
-	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
+	if ( isset($_REQUEST['sfsi-dismiss-languageNotice']) && $_REQUEST['sfsi-dismiss-languageNotice'] == 'true' )
 	{
-		update_option( 'show_notification_plugin', "no" );
+		update_option( 'sfsi_languageNotice', "no" );
 		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
 	}
 }
