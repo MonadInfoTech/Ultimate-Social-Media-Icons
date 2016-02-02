@@ -5,9 +5,12 @@
 ?>
 <!-- Section 8 "Do you want to show a subscription form (increases sign ups)?" main div Start -->
 <div class="tab8">
-	<p>
+	<?php
+		$connectToFeed = "http://www.specificfeeds.com/?".base64_encode("userprofile=wordpress&feed_id=".$feedId);
+	?>
+    <p>
 		In addition to the email- or follow-icon you can also show a subscription form which maximizes chances that people subscribe to your site. To get access to the emails who subscribe, please
-		 <a href="http://www.specificfeeds.com/<?php echo $feedId; ?>?getParam=feeds_claims" target="_blank">claim your feed.</a>
+		<a target="_new" href="<?php echo $connectToFeed; ?>">claim your feed</a>
     </p>
 	
 	
