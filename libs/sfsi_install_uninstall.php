@@ -12,7 +12,7 @@ function sfsi_update_plugin()
 	}
 	
 	//Install version
-	update_option("sfsi_pluginVersion", "1.36");
+	update_option("sfsi_pluginVersion", "1.37");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -157,7 +157,7 @@ function sfsi_activate_plugin()
 	add_option('sfsi_section2_options',  serialize($options2));
     
 	/* Design and animation option  */
-	$options3=array('sfsi_mouseOver'=>'yes',
+	$options3=array('sfsi_mouseOver'=>'no',
         'sfsi_mouseOver_effect'=>'fade_in',
         'sfsi_shuffle_icons'=>'no',
         'sfsi_shuffle_Firstload'=>'no',

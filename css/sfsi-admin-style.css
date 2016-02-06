@@ -1101,14 +1101,41 @@ ul.tab_2_email_sec li .radio {
 	background-repeat:no-repeat;
 	background-position:right 15px center; 
 }
-.tab8 .sfsi_same_width {
+.sfsi_mainContainer .tab8 .sfsi_same_width {
     display: inline-block;
     width: 100px !important;
 }
-.sfsi_subscribe_Popinner .sfsi_highlight {
+.sfsi_mainContainer  .tab7 .wp-picker-container input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    border: 1px solid #ccc!important;
+    box-shadow: none !important;
+    float: left !important;
+    height: auto !important;
+    padding: 0 !important;
+    width: auto !important;
+}
+.sfsi_mainContainer  .tab7 .wp-picker-container input[type="text"]{
+	padding: 3px !important;
+}
+.sfsi_mainContainer  .tab7 .wp-picker-container input[type="button"]{
+	padding: 0 5px !important;
+}
+.sfsi_mainContainer .tab7 .wp-picker-open .wp-picker-input-wrap, .sfsi_mainContainer .tab8 .wp-picker-open .wp-picker-input-wrap {
+    vertical-align: middle !important;
+}
+.sfsi_mainContainer .tab7 .wp-color-result, .sfsi_mainContainer .tab8 .wp-color-result
+{
+	margin: 0 6px 0 0 !important;
+}
+.sfsi_mainContainer .tab7 .wp-picker-holder, .sfsi_mainContainer .tab8 .wp-picker-holder
+{
+	position: absolute !important;
+	z-index: 999;
+}
+.sfsi_mainContainer .sfsi_subscribe_Popinner .sfsi_highlight {
     border: 3px solid red !important;
 }
-.sfsi_subscription_html xmp {
+.sfsi_mainContainer .sfsi_subscription_html xmp {
     display: block;
     padding: 0 10px;
     white-space: pre-line;
