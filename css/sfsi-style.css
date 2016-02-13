@@ -27,8 +27,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
-
 .clear {
     clear: both;
 }
@@ -1259,19 +1257,16 @@ ul.tab_3_icns li .icns_tab_3, ul.tab_3_icns li .radio {
 .sfsi_Sicons .sf_google{ margin: 0 5px 0 5px; line-height: 20px;}
 .sfsi_Sicons .sf_twiter{ margin: 2px 7px 0 4px; line-height: 17px;}
 .sfsi_Sicons .sf_addthis{ margin: 2px 7px 0 2px; line-height: 20px;}
-
 .sfsi_Sicons.left .sf_subscrbe{ margin: 2px 8px 3px 0; }
 .sfsi_Sicons.left .sf_fb{ margin: 0 8px 0 0; }
 .sfsi_Sicons.left .sf_google{ margin: 0 9px 0 0; }
 .sfsi_Sicons.left .sf_twiter{ margin: 2px 7px 0 0; }
 .sfsi_Sicons.left .sf_addthis{ margin: 2px 7px 0 0; }
-
 .sfsi_Sicons.right .sf_subscrbe{ margin: 2px 0 3px; }
 .sfsi_Sicons.right .sf_fb{ margin: 0 0 0 7px; }
 .sfsi_Sicons.right .sf_google{ margin: 0 0 0 7px; }
 .sfsi_Sicons.right .sf_twiter{ margin: 2px 0 0 8px; }
 .sfsi_Sicons.right .sf_addthis{ margin: 2px 0 0 6px; }
-
 .sfsi_Sicons .sf_subscrbe, .sfsi_Sicons .sf_twiter
 {
 	position: relative;
@@ -2192,7 +2187,6 @@ h2.optional {
     left: 50%;
     width: 15px;
 }
-
 .sfsi_outr_div {
     position: fixed;
     width: 100%;
@@ -2430,8 +2424,6 @@ ul.cstmskin_iconlist {
     width: 30%;
 }
 .cstmskins_btn > img {
-
-
     float: left;
     margin-right: 25px;
 }
@@ -2591,7 +2583,6 @@ ul.cstmskin_iconlist {
     color: #5a6570;
     font-family: helveticaregular;
 }
-
 .cstmutbchnlidwpr .utbe_instruction,.cstmutbchnlnmewpr .utbe_instruction, .lnkdin_instruction {
     float: left;
     line-height: 22px;
@@ -2620,7 +2611,6 @@ ul.cstmskin_iconlist {
     float: left;
     width: 110px;
 }
-
 .tab6 .cstmdsplyulwpr .radio_section.tb_4_ck {
     margin-right: 10px !important;
 	float: left;
@@ -2652,4 +2642,9 @@ ul.cstmskin_iconlist {
     width: 33px;
 	height: 20px;
     z-index: 9;
+}
+.sfsi_wicons a.sficn, .sfsi_wicons .sfsi_inside a, .sfsi_Sicons div a
+{
+	box-shadow: none;
+ 	border: none;
 }

@@ -12,7 +12,7 @@ function sfsi_update_plugin()
 	}
 	
 	//Install version
-	update_option("sfsi_pluginVersion", "1.37");
+	update_option("sfsi_pluginVersion", "1.38");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -523,7 +523,7 @@ function sfsi_rating_msg()
 	if($diff_inrval >= 30 && get_option('sfsi_RatingDiv')=="no")
     {
 	 echo '<div class="sfwp_fivestar">
-				<p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. For using it 100% for free, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
+				<p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. If you\'re happy with it, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
 				<ul>
 					<li><a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
 					<li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
