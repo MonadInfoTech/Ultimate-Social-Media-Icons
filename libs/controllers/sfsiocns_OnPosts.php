@@ -38,7 +38,7 @@ function sfsi_social_buttons_below($content)
         if($sfsi_section6['sfsi_icons_DisplayCounts']=="yes")
         {
             $show_count=1;
-	    	$sfsiLikeWith="75px;";
+	    	$sfsiLikeWith="125px;";
 	    }   
         else
         {
@@ -60,7 +60,7 @@ function sfsi_social_buttons_below($content)
 			}
 			if($sfsi_section6['sfsi_rectfb'] == 'yes')
 			{
-				if($show_count){}else{$sfsiLikeWithfb = "49px";}
+				if($show_count){}else{$sfsiLikeWithfb = "98px";}
 				if(!isset($sfsiLikeWithfb)){$sfsiLikeWithfb = $sfsiLikeWith;}
 				$icons.="<div class='sf_fb' style='width:".$sfsiLikeWithfb."'>".sfsi_FBlike($permalink,$show_count)."</div>";
 			}
@@ -171,7 +171,7 @@ function sfsi_FBlike($permalink,$show_count)
 	$fb_like_html = '';
 	$fb_like_html .= '<div class="fb-like" data-href="'.$permalink.'" width="'.$width.'" send="'.$send.'" ';
 	$fb_like_html .= ($show_count==1) ?  ' data-layout="button_count"' : ' data-layout="button"';
-	$fb_like_html .= ' data-action="like" data-show-faces="false" data-share="false"></div>';
+	$fb_like_html .= ' data-action="like" data-show-faces="false" data-share="true"></div>';
 	return $fb_like_html;
 }
 /* create add this  button */
@@ -264,9 +264,8 @@ function sfsi_footer_script()
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
             })();
         </script>
-		<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
-        <script type='text/javascript' src='https://apis.google.com/js/platform.js'></script>
-        <!-- google share -->
+		
+		<!-- google share -->
         <script type="text/javascript">
           (function() {
             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
