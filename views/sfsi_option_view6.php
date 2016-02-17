@@ -21,6 +21,10 @@
 	{
 		$option6['sfsi_recttwtr'] = 'no';
 	}
+	if(!isset($option6['sfsi_rectpinit']))
+	{
+		$option6['sfsi_rectpinit'] = 'no';
+	}
    
 ?>
 <!-- Section 6 "Do you want to display icons at the end of every post?" main div Start -->
@@ -47,6 +51,13 @@
         	<div class="radio_section tb_4_ck"><input name="sfsi_recttwtr" <?php echo ($option6['sfsi_recttwtr']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_recttwtr" type="checkbox" value="yes" class="styled"  /></div>
             <a href="#" title="twitter" class="cstmdspltwtr">
                 <img src="<?php echo SFSI_PLUGURL; ?>images/twiiter.png" alt="Twitter like" />
+            </a>
+        </li>
+		
+		<li>
+        	<div class="radio_section tb_4_ck"><input name="sfsi_rectpinit" <?php echo ($option6['sfsi_rectpinit']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_rectpinit" type="checkbox" value="yes" class="styled"  /></div>
+        	<a href="#" title="Pin It">
+            	<img src="<?php echo SFSI_PLUGURL; ?>images/pinit.png" alt="Pin It" />
             </a>
         </li>
         

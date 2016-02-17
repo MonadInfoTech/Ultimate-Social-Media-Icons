@@ -80,6 +80,13 @@ function sfsi_update_plugin()
 		update_option('sfsi_section4_options', serialize($option4));
 	}
 	
+	$option6=  unserialize(get_option('sfsi_section6_options',false));
+	if(isset($option6) && !empty($option6) && !isset($option6['sfsi_rectpinit']))
+	{
+		$option6['sfsi_rectpinit'] = '';
+		update_option('sfsi_section6_options', serialize($option6));
+	}
+	
 	/*Extra important options*/
 	$sfsi_instagram_sf_count = array(
 		"date" => "",
@@ -265,7 +272,8 @@ function sfsi_activate_plugin()
 		'sfsi_rectfb'=>'yes',
 		'sfsi_rectgp'=>'yes',
 		'sfsi_rectshr'=>'no',
-		'sfsi_recttwtr'=>'yes'
+		'sfsi_recttwtr'=>'yes',
+		'sfsi_rectpinit'=>'yes'
         );
 	add_option('sfsi_section6_options',  serialize($options6));       
     

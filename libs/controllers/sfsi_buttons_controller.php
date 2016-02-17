@@ -429,6 +429,7 @@ function sfsi_options_updater6()
 	$sfsi_rectgp    = isset($_POST["sfsi_rectgp"]) ? $_POST["sfsi_rectgp"] : 'no';
 	$sfsi_rectshr    = isset($_POST["sfsi_rectshr"]) ? $_POST["sfsi_rectshr"] : 'no';
 	$sfsi_recttwtr    = isset($_POST["sfsi_recttwtr"]) ? $_POST["sfsi_recttwtr"] : 'no';
+	$sfsi_rectpinit  =  isset($_POST["sfsi_rectpinit"]) ? $_POST["sfsi_rectpinit"] : 'no';
     /* post options */
     $up_option6=array(
                 'sfsi_show_Onposts'=>$sfsi_show_Onposts,
@@ -440,7 +441,8 @@ function sfsi_options_updater6()
 				'sfsi_rectfb'=>$sfsi_rectfb,
 				'sfsi_rectgp'=>$sfsi_rectgp,
 				'sfsi_rectshr'=>$sfsi_rectshr,
-				'sfsi_recttwtr'=>$sfsi_recttwtr	
+				'sfsi_recttwtr'=>$sfsi_recttwtr,
+				'sfsi_rectpinit'=>$sfsi_rectpinit
                  );
      update_option('sfsi_section6_options',serialize($up_option6));
     header('Content-Type: application/json');

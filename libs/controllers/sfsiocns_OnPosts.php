@@ -26,6 +26,10 @@ function sfsi_social_buttons_below($content)
 	{
 		$sfsi_section6['sfsi_recttwtr'] = 'no';
 	}
+	if(!isset($sfsi_section6['sfsi_rectpinit']))
+	{
+		$sfsi_section6['sfsi_rectpinit'] = 'no';
+	}
 	//checking for standard icons
         
   /* check if option activated in admin or not */ 
@@ -46,7 +50,7 @@ function sfsi_social_buttons_below($content)
         } 
         $txt=(isset($sfsi_section6['sfsi_textBefor_icons']))? $sfsi_section6['sfsi_textBefor_icons'] : "Please follow and like us:" ;
         $float= $sfsi_section6['sfsi_icons_alignment'];
-		if($sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectgp'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes')
+		if($sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectgp'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes' || $sfsi_section6['sfsi_rectpinit'] == 'yes')
 		{
         	$icons="<div class='sfsi_Sicons ".$float."' style='float:".$float."'><div style='float:left;margin:0px 8px 0px 0px; line-height: 24px'><span>".$txt."</span></div>";
 		}
@@ -70,6 +74,12 @@ function sfsi_social_buttons_below($content)
 				if(!isset($sfsiLikeWithtwtr)){$sfsiLikeWithtwtr = $sfsiLikeWith;}
 				$icons.="<div class='sf_twiter' style='float:left;width:".$sfsiLikeWithtwtr."'>".sfsi_twitterlike($permalink,$show_count)."</div>";
 			}
+			
+			if($sfsi_section6['sfsi_rectpinit'] == 'yes')
+			{
+				$icons.="<div class='sf_pinit' style='float:left;width:97px'>".sfsi_pinterest($permalink,$show_count)."</div>";
+			}
+			
 			if($sfsi_section6['sfsi_rectgp'] == 'yes')
 			{
 				$icons.="<div class='sf_google' style='float:left;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
@@ -155,6 +165,23 @@ function sfsi_googlePlus($permalink,$show_count)
 	return $google_html;
 }
 
+/* create pinit button */
+function sfsi_pinterest($permalink,$show_count)
+{
+	$pinit_html = '<a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" ';
+	if($show_count)
+	{
+		$pinit_html .= 'count-layout="horizontal"';
+	}
+	else
+	{
+		$pinit_html .= 'count-layout="none"';
+	}
+	$pinit_html .= '><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+		</a>';
+	return $pinit_html;
+}
+
 /* create fb like button */
 function sfsi_FBlike($permalink,$show_count)
 {
@@ -224,6 +251,10 @@ function sfsi_footer_script()
 	{
 		$sfsi_section6['sfsi_recttwtr'] = 'no';
 	}
+	if(!isset($sfsi_section6['sfsi_rectpinit']))
+	{
+		$sfsi_section6['sfsi_rectpinit'] = 'no';
+	}
 	if($sfsi_section1['sfsi_facebook_display']=="yes" || $sfsi_section6['sfsi_rectfb'] == "yes")
 	{
 		?>
@@ -290,11 +321,10 @@ function sfsi_footer_script()
        	</script>
 	<?php
 	}
-	if($sfsi_section1['sfsi_pinterest_display']=="yes")
+	if($sfsi_section1['sfsi_pinterest_display']=="yes" || $sfsi_section6['sfsi_rectpinit'] == "yes")
 	{?>
 		<!--pinit js -->
 		<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-	
 	<?php
 	}
 	if($sfsi_section1['sfsi_twitter_display']=="yes" || $sfsi_section6['sfsi_recttwtr'] == "yes")

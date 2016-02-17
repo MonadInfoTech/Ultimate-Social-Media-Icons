@@ -463,4 +463,15 @@ function cropImage($CurWidth,$CurHeight,$iSize,$DestFolder,$SrcImage,$Quality,$I
 		return false;
 	}
 }
+add_action('wp_ajax_sfsi_feedbackForm','sfsi_feedbackForm');
+function sfsi_feedbackForm()
+{
+	$to      = "pooja@monadinfotech.com";
+	$subject = $_POST["action"];
+	$from    = $_POST["email"];
+	$msg     = $_POST["msg"];
+	
+	$mail = mail($to, $subject, $msg, $from);
+	die;
+}
 ?>

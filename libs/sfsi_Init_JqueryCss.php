@@ -92,5 +92,52 @@ function theme_front_enqueue_script()
 			wp_enqueue_style("disable_sfsi", SFSI_PLUGURL . 'css/disable_sfsi.css' );
 		}
 }
-add_action( 'wp_enqueue_scripts', 'theme_front_enqueue_script' );		
+add_action( 'wp_enqueue_scripts', 'theme_front_enqueue_script' );
+
+function sfsi_footerScript()
+{
+    wp_enqueue_style('wp-pointer');
+    wp_enqueue_script('wp-pointer');
+    wp_enqueue_script('utils'); // for user settings
+	
+	$html = '<h3>Social Media and Share Icons</h3>';
+	$html .= '<div>';
+		$html .= '<label>Reason for de-activating our plugin ?</label>';
+		$html .= '<textarea id="sfsi_feedbackMsg" name="reason"></textarea>';
+	$html .= '</div>';
+	?>
+    <script type="text/javascript">
+		jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').click(function(){
+			jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').pointer({
+				content: '<form method="post" id="sfsi_feedbackForm"><?php echo $html; ?><div><input type="button" name="sfsi_sendFeedback" value="Submit" class="button primary-button" /><a id="everything" class="button" href="'+jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').attr('href')+'">Deactivate plugin</a></div></form>',
+				position: {
+					edge:'top',
+					align:'left',
+				},
+				close: function() {
+					//
+				}
+			}).pointer('open');
+			return false;
+		});
+		jQuery("body").on("click","input[name='sfsi_sendFeedback']", function(){
+			var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+			var e = {
+				action:"sfsi_feedbackForm",
+				email: '<?php echo get_option("admin_email"); ?>',
+				msg:jQuery("#sfsi_feedbackMsg").val()
+			};
+			jQuery.ajax({
+				url:ajaxurl,
+				type:"post",
+				data:e,
+				success:function(responce) {
+					//alert(responce);
+				}
+			});
+		});
+	</script>
+	<?php
+}
+add_action( 'admin_footer', 'sfsi_footerScript' );
 ?>
