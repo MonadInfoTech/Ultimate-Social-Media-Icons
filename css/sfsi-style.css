@@ -2286,3 +2286,10 @@ ul.cstmskin_iconlist {
 	box-shadow: none;
  	border: none;
 }
+.sfsi_Sicons .sf_pinit > span {
+	height: 23px !important;
+}
+.sfsi_Sicons .sf_pinit > span > span {
+	width: 49px !important;
+	right: -49px !important;
+}

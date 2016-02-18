@@ -78,7 +78,7 @@ function sfsi_social_buttons_below($content)
 			if($sfsi_section6['sfsi_rectpinit'] == 'yes')
 			{
 				$sfsi_pinwidth = "47px";
-				if($show_count){$sfsi_pinwidth = "89px";}else{$sfsi_pinwidth = "47px";}
+				if($show_count){$sfsi_pinwidth = "95px";}else{$sfsi_pinwidth = "47px";}
 				$icons.="<div class='sf_pinit' style='float:left;width:".$sfsi_pinwidth."'>".sfsi_pinterest($permalink,$show_count)."</div>";
 			}
 			
