@@ -1227,7 +1227,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
       $bt_class="";
 	  $toolT_cls="sfsiTlleft";
     }
-    
+	
 	if($toolClass=="rss_tool_bdr" || $toolClass=='email_tool_bdr' || $toolClass=="custom_lkn" ||   $toolClass=="instagram_tool_bdr" )
     {
     	$new_window = sfsi_checkNewWindow();
@@ -1235,15 +1235,23 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
     }
     else if($hoverSHow)
     {
-		$new_window = '';
-		$url = "javascript:void(0)";
-    }
-    else
+		if(!wp_is_mobile())
+		{
+			$new_window = sfsi_checkNewWindow();
+			$url = $url;
+		}
+		else
+		{
+			$new_window = '';
+			$url = "javascript:void(0)";
+		}
+	}
+	 else
     {
 	 	$new_window = sfsi_checkNewWindow();
 	 	$url = $url;
     }
-    
+	    
 	$margin_bot="5px;";
     if($sfsi_section4_options['sfsi_display_counts']=="yes")
 	{

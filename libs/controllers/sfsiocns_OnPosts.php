@@ -70,14 +70,16 @@ function sfsi_social_buttons_below($content)
 			}
 			if($sfsi_section6['sfsi_recttwtr'] == 'yes')
 			{
-				if($show_count){$sfsiLikeWithtwtr = "78px";}else{$sfsiLikeWithtwtr = "58px";}
+				if($show_count){$sfsiLikeWithtwtr = "62px";}else{$sfsiLikeWithtwtr = "62px";}
 				if(!isset($sfsiLikeWithtwtr)){$sfsiLikeWithtwtr = $sfsiLikeWith;}
 				$icons.="<div class='sf_twiter' style='float:left;width:".$sfsiLikeWithtwtr."'>".sfsi_twitterlike($permalink,$show_count)."</div>";
 			}
 			
 			if($sfsi_section6['sfsi_rectpinit'] == 'yes')
 			{
-				$icons.="<div class='sf_pinit' style='float:left;width:97px'>".sfsi_pinterest($permalink,$show_count)."</div>";
+				$sfsi_pinwidth = "47px";
+				if($show_count){$sfsi_pinwidth = "89px";}else{$sfsi_pinwidth = "47px";}
+				$icons.="<div class='sf_pinit' style='float:left;width:".$sfsi_pinwidth."'>".sfsi_pinterest($permalink,$show_count)."</div>";
 			}
 			
 			if($sfsi_section6['sfsi_rectgp'] == 'yes')

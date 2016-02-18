@@ -466,12 +466,18 @@ function cropImage($CurWidth,$CurHeight,$iSize,$DestFolder,$SrcImage,$Quality,$I
 add_action('wp_ajax_sfsi_feedbackForm','sfsi_feedbackForm');
 function sfsi_feedbackForm()
 {
-	$to      = "pooja@monadinfotech.com";
-	$subject = $_POST["action"];
-	$from    = $_POST["email"];
-	$msg     = $_POST["msg"];
+	$useremail	= "uninstall@ultimatelysocial.com";
+	$subject 	= "Feedback from Ultimate Social Media Icons ".get_option('sfsi_pluginVersion')." user";
+	$from    	= $_POST["email"];
+	$message    = empty($_POST["msg"]) ? "No reason provided by user when deactivating." : $_POST["msg"];
+	$sitename 	= get_bloginfo("name");
 	
-	$mail = mail($to, $subject, $msg, $from);
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text;charset=iso-8859-1" . "\r\n";
+	$headers .= sprintf('From: %s <%s>', $sitename, $from). "\r\n";
+	$headers .= "X-Mailer: PHP/" . phpversion();
+	
+	mail($useremail,$subject,$message,$headers);
 	die;
 }
 ?>

@@ -94,22 +94,21 @@ function theme_front_enqueue_script()
 }
 add_action( 'wp_enqueue_scripts', 'theme_front_enqueue_script' );
 
-function sfsi_footerScript()
+function sfsi_footerFeedbackScript()
 {
     wp_enqueue_style('wp-pointer');
     wp_enqueue_script('wp-pointer');
     wp_enqueue_script('utils'); // for user settings
 	
-	$html = '<h3>Social Media and Share Icons</h3>';
-	$html .= '<div>';
-		$html .= '<label>Reason for de-activating our plugin ?</label>';
+	$html = '<div>';
+		$html .= '<label>Optional: Please tell us why you deactivate our plugin so that we can make it better!</label>';
 		$html .= '<textarea id="sfsi_feedbackMsg" name="reason"></textarea>';
 	$html .= '</div>';
 	?>
     <script type="text/javascript">
 		jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').click(function(){
 			jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').pointer({
-				content: '<form method="post" id="sfsi_feedbackForm"><?php echo $html; ?><div><input type="button" name="sfsi_sendFeedback" value="Submit" class="button primary-button" /><a id="everything" class="button" href="'+jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').attr('href')+'">Deactivate plugin</a></div></form>',
+				content: '<form method="post" id="sfsi_feedbackForm"><?php echo $html; ?><div><input type="button" name="sfsi_sendFeedback" value="Submit & Deactivate" class="button primary-button" /></div><img id="sfsi_loadergif" src="<?php echo site_url()."/wp-includes/images/spinner.gif"; ?>" /></form>',
 				position: {
 					edge:'top',
 					align:'left',
@@ -122,22 +121,26 @@ function sfsi_footerScript()
 		});
 		jQuery("body").on("click","input[name='sfsi_sendFeedback']", function(){
 			var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+			var deactivateUrl = jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').attr('href');
 			var e = {
 				action:"sfsi_feedbackForm",
 				email: '<?php echo get_option("admin_email"); ?>',
 				msg:jQuery("#sfsi_feedbackMsg").val()
 			};
+			jQuery("#sfsi_loadergif").show();
 			jQuery.ajax({
 				url:ajaxurl,
 				type:"post",
 				data:e,
 				success:function(responce) {
 					//alert(responce);
+					jQuery("#sfsi_loadergif").hide();
+					window.location.href = deactivateUrl;
 				}
 			});
 		});
 	</script>
 	<?php
 }
-add_action( 'admin_footer', 'sfsi_footerScript' );
+add_action( 'admin_footer', 'sfsi_footerFeedbackScript' );
 ?>
