@@ -103,7 +103,7 @@
     <!-- step 7 END here -->
     
     <!-- step 8 Start here -->
-    <h3><span>8</span>Do you want to show a subscription form (increases sign ups)?</h3>
+    <h3><span>8</span>Do you want to show a subscription form (<b>increases sign ups</b>)?</h3>
     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view8.php'); ?>
     <!-- step 8 END here -->
 
