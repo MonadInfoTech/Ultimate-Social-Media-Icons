@@ -467,4 +467,12 @@ function sfsi_get_bloginfo($url)
 	}
 	return $web_url;
 }
+
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLinks", -10 );
+function sfsi_actionLinks($links)
+{
+	$links[] = '<a href="javascript:" id="sfsi_deactivateButton">Deactivate with feedback</a>';
+	$links[] = '<a href="http://www.ultimatelysocial.com/faq" target="_blank">Have issues? Check the FAQ</a>';
+	return $links;
+}
 ?>

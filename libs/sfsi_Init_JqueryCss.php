@@ -106,9 +106,9 @@ function sfsi_footerFeedbackScript()
 	$html .= '</div>';
 	?>
     <script type="text/javascript">
-		jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').click(function(){
-			jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').pointer({
-				content: '<form method="post" id="sfsi_feedbackForm"><?php echo $html; ?><div><input type="button" name="sfsi_sendFeedback" value="Submit & Deactivate" class="button primary-button" /></div><img id="sfsi_loadergif" src="<?php echo site_url()."/wp-includes/images/spinner.gif"; ?>" /></form>',
+		jQuery('#sfsi_deactivateButton').click(function(){
+			jQuery('#sfsi_deactivateButton').pointer({
+				content: '<form method="post" id="sfsi_feedbackForm"><?php echo $html; ?><div><input type="button" name="sfsi_sendFeedback" value="Deactivate" class="button primary-button" /></div><img id="sfsi_loadergif" src="<?php echo site_url()."/wp-includes/images/spinner.gif"; ?>" /></form>',
 				position: {
 					edge:'top',
 					align:'left',
