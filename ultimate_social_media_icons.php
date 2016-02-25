@@ -472,7 +472,12 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLi
 function sfsi_actionLinks($links)
 {
 	$links[] = '<a href="javascript:" id="sfsi_deactivateButton">Deactivate with feedback</a>';
+	$links[] = $links["deactivate"];
+	$links[] = $links["edit"];
 	$links[] = '<a href="http://www.ultimatelysocial.com/faq" target="_blank">Have issues? Check the FAQ</a>';
+	
+	unset($links['deactivate']);
+	unset($links['edit']);
 	return $links;
 }
 ?>
