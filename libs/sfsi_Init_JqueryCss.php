@@ -94,7 +94,7 @@ function theme_front_enqueue_script()
 }
 add_action( 'wp_enqueue_scripts', 'theme_front_enqueue_script' );
 
-function sfsi_footerFeedbackScript()
+/*function sfsi_footerFeedbackScript()
 {
     wp_enqueue_style('wp-pointer');
     wp_enqueue_script('wp-pointer');
@@ -142,5 +142,5 @@ function sfsi_footerFeedbackScript()
 	</script>
 	<?php
 }
-add_action( 'admin_footer', 'sfsi_footerFeedbackScript' );
+add_action( 'admin_footer', 'sfsi_footerFeedbackScript' );*/
 ?>
