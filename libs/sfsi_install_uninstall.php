@@ -398,7 +398,7 @@ function SFSI_getFeedUrl()
         CURLOPT_POSTFIELDS => array(
             'web_url' 	=> get_bloginfo('url'),
             'feed_url'	=> sfsi_get_bloginfo('rss2_url'),
-            'email'		=> get_bloginfo('admin_email')
+            'email'		=> ''
         )
     ));
  	// Send the request & save response to $resp
@@ -428,7 +428,7 @@ function SFSI_updateFeedUrl()
 			'feed_id'	=> get_option('sfsi_feed_id'),
             'web_url' 	=> get_bloginfo('url'),
             'feed_url' 	=> sfsi_get_bloginfo('rss2_url'),
-            'email'		=> get_bloginfo('admin_email')
+            'email'		=> ''
         )
     ));
  	// Send the request & save response to $resp
