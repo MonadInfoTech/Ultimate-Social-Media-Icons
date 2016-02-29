@@ -18,20 +18,20 @@ function sfsi_options_updater1()
     $sfsi_pinterest_display     = isset($_POST["sfsi_pinterest_display"]) ? $_POST["sfsi_pinterest_display"] : 'no';
     $sfsi_instagram_display     = isset($_POST["sfsi_instagram_display"]) ? $_POST["sfsi_instagram_display"] : 'no';
     $sfsi_linkedin_display      = isset($_POST["sfsi_linkedin_display"]) ? $_POST["sfsi_linkedin_display"] : 'no';
-    $sfsi_custom_icons          =  isset($option1['sfsi_custom_files']) ? $option1['sfsi_custom_files'] : '';
+    $sfsi_custom_icons          = isset($option1['sfsi_custom_files']) ? $option1['sfsi_custom_files'] : '';
     $up_option1=array(
-        'sfsi_rss_display'=>$sfsi_rss_display,
-        'sfsi_email_display'=>$sfsi_email_display,
-        'sfsi_facebook_display'=>$sfsi_facebook_display,
-        'sfsi_twitter_display'=>$sfsi_twitter_display,
-        'sfsi_google_display'=>$sfsi_google_display,
-        'sfsi_share_display'=>$sfsi_share_display,
-        'sfsi_youtube_display'=>$sfsi_youtube_display,
-        'sfsi_pinterest_display'=>$sfsi_pinterest_display,
-        'sfsi_linkedin_display'=>$sfsi_linkedin_display,
-        'sfsi_instagram_display'=>$sfsi_instagram_display,
-        'sfsi_custom_files'=>$sfsi_custom_icons
-         );
+        'sfsi_rss_display'		=> sanitize_text_field($sfsi_rss_display),
+        'sfsi_email_display'	=> sanitize_text_field($sfsi_email_display),
+        'sfsi_facebook_display'	=> sanitize_text_field($sfsi_facebook_display),
+        'sfsi_twitter_display'	=> sanitize_text_field($sfsi_twitter_display),
+        'sfsi_google_display'	=> sanitize_text_field($sfsi_google_display),
+        'sfsi_share_display'	=> sanitize_text_field($sfsi_share_display),
+        'sfsi_youtube_display'	=> sanitize_text_field($sfsi_youtube_display),
+        'sfsi_pinterest_display'=> sanitize_text_field($sfsi_pinterest_display),
+        'sfsi_linkedin_display'	=> sanitize_text_field($sfsi_linkedin_display),
+        'sfsi_instagram_display'=> sanitize_text_field($sfsi_instagram_display),
+        'sfsi_custom_files'		=> sanitize_text_field($sfsi_custom_icons)
+	);
     update_option('sfsi_section1_options',  serialize($up_option1));
     header('Content-Type: application/json');
     echo  json_encode(array("success")); exit;
@@ -86,65 +86,83 @@ function sfsi_options_updater2()
     $sfsi_ytube_user          = ($_POST["sfsi_ytube_user"]) ? $_POST["sfsi_ytube_user"] : '';
 	$sfsi_ytube_chnlid        = isset($_POST["sfsi_ytube_chnlid"]) ? $_POST["sfsi_ytube_chnlid"] : '';
     
-    $sfsi_CustomIcon_links    = isset($_POST["sfsi_custom_links"]) ? serialize($_POST["sfsi_custom_links"]) : '';
+	/*
+	 * Escape custom icons url
+	 */
+	if(
+		isset($_POST["sfsi_custom_links"]) &&
+		!empty($_POST["sfsi_custom_links"])
+	)
+	{
+		$esacpedUrls = array();
+		$sfsi_customIconsUrl = $_POST["sfsi_custom_links"];
+		foreach($sfsi_customIconsUrl as $sfsi_customIconUrl)
+		{
+			$esacpedUrls[] = esc_url($sfsi_customIconUrl);
+		}
+	}
+	else
+	{
+		$esacpedUrls = '';
+	}
+	$sfsi_CustomIcon_links    = isset($_POST["sfsi_custom_links"]) ? serialize($esacpedUrls) : '';
    
-    $option2=unserialize(get_option('sfsi_section2_options',false)); 
+    $option2 = unserialize(get_option('sfsi_section2_options',false)); 
     $up_option2=array(
-                        'sfsi_rss_url'=>$sfsi_rss_url,
-                        'sfsi_rss_blogName'=>'',
-                        'sfsi_rss_blogEmail'=>'',
-                        'sfsi_rss_icons'=>$sfsi_rss_icons,
-                        'sfsi_email_url'=> $option2['sfsi_email_url'],   
-                         /* facebook buttons options */
-                        'sfsi_facebookPage_option'=>$sfsi_facebookPage_option,
-                        'sfsi_facebookPage_url'=>$sfsi_facebookPage_url,
-                        'sfsi_facebookLike_option'=>$sfsi_facebookLike_option,
-                        'sfsi_facebookShare_option'=>$sfsi_facebookShare_option,
-                         /* Twitter buttons options */
-                        'sfsi_twitter_followme'=>$sfsi_twitter_followme,
-                        'sfsi_twitter_followUserName'=>$sfsi_twitter_followUserName,
-                        'sfsi_twitter_aboutPage'=>$sfsi_twitter_aboutPage,
-						'sfsi_twitter_page'=>$sfsi_twitter_page,
-                        'sfsi_twitter_pageURL'=>$sfsi_twitter_pageURL,
-                        'sfsi_twitter_aboutPageText'=>$sfsi_twitter_aboutPageText,
-                         /* google + options */
-                        'sfsi_google_page'=>$sfsi_google_page,
-                        'sfsi_google_pageURL'=>$sfsi_google_pageURL,
-                        'sfsi_googleLike_option'=>$sfsi_googleLike_option,
-                        'sfsi_googleShare_option'=>$sfsi_googleShare_option,
-                         /* youtube options */
-                        'sfsi_youtube_pageUrl'=>$sfsi_youtube_pageUrl,
-                        'sfsi_youtube_page'=>$sfsi_youtube_page,
-                        'sfsi_youtube_follow'=>$sfsi_youtube_follow,
-						'sfsi_ytube_user'=> $sfsi_ytube_user,
-						 /* pinterest options */
-                        'sfsi_pinterest_page'=>$sfsi_pinterest_page,
-                        'sfsi_pinterest_pageUrl'=>$sfsi_pinterest_pageUrl,
-                        'sfsi_pinterest_pingBlog'=>$sfsi_pinterest_pingBlog,
-                        /* instagram options */
-                        'sfsi_instagram_pageUrl'=>$sfsi_instagram_pageUrl,
-                         /* linkedIn options */
-                        'sfsi_linkedin_page'=>$sfsi_linkedin_page,
-                        'sfsi_linkedin_pageURL'=>$sfsi_linkedin_pageURL,
-                        'sfsi_linkedin_follow'=>$sfsi_linkedin_follow,
-                        'sfsi_linkedin_followCompany'=>$sfsi_linkedin_followCompany,
-                        'sfsi_linkedin_SharePage'=>$sfsi_linkedin_SharePage,
-                        'sfsi_linkedin_recommendBusines'=>$sfsi_linkedin_recommendBusines,
-                        'sfsi_linkedin_recommendCompany'=>$sfsi_linkedin_recommendCompany,
-                        'sfsi_linkedin_recommendProductId'=>$sfsi_linkedin_recommendProductId,
-                        'sfsi_CustomIcon_links'=>$sfsi_CustomIcon_links
-    
+		'sfsi_rss_url'				=> esc_url($sfsi_rss_url),
+		'sfsi_rss_blogName'			=> '',
+		'sfsi_rss_blogEmail'		=> '',
+		'sfsi_rss_icons'			=> sanitize_text_field($sfsi_rss_icons),
+		'sfsi_email_url'			=> esc_url($option2['sfsi_email_url']),   
+		/* facebook buttons options */
+		'sfsi_facebookPage_option'	=> sanitize_text_field($sfsi_facebookPage_option),
+		'sfsi_facebookPage_url'		=> esc_url($sfsi_facebookPage_url),
+		'sfsi_facebookLike_option'	=> sanitize_text_field($sfsi_facebookLike_option),
+		'sfsi_facebookShare_option' => sanitize_text_field($sfsi_facebookShare_option),
+		 /* Twitter buttons options */
+		'sfsi_twitter_followme'		=> sanitize_text_field($sfsi_twitter_followme),
+		'sfsi_twitter_followUserName'=> sanitize_text_field($sfsi_twitter_followUserName),
+		'sfsi_twitter_aboutPage'	=> sanitize_text_field($sfsi_twitter_aboutPage),
+		'sfsi_twitter_page'			=> sanitize_text_field($sfsi_twitter_page),
+		'sfsi_twitter_pageURL'		=> esc_url($sfsi_twitter_pageURL),
+		'sfsi_twitter_aboutPageText'=> sanitize_text_field($sfsi_twitter_aboutPageText),
+		 /* google + options */
+		'sfsi_google_page'			=> sanitize_text_field($sfsi_google_page),
+		'sfsi_google_pageURL'		=> esc_url($sfsi_google_pageURL),
+		'sfsi_googleLike_option'	=> sanitize_text_field($sfsi_googleLike_option),
+		'sfsi_googleShare_option'	=> sanitize_text_field($sfsi_googleShare_option),
+		 /* youtube options */
+		'sfsi_youtube_pageUrl'		=> esc_url($sfsi_youtube_pageUrl),
+		'sfsi_youtube_page'			=> sanitize_text_field($sfsi_youtube_page),
+		'sfsi_youtube_follow'		=> sanitize_text_field($sfsi_youtube_follow),
+		'sfsi_ytube_user'			=> sanitize_text_field($sfsi_ytube_user),
+		 /* pinterest options */
+		'sfsi_pinterest_page'		=> sanitize_text_field($sfsi_pinterest_page),
+		'sfsi_pinterest_pageUrl'	=> esc_url($sfsi_pinterest_pageUrl),
+		'sfsi_pinterest_pingBlog'	=> sanitize_text_field($sfsi_pinterest_pingBlog),
+		/* instagram options */
+		'sfsi_instagram_pageUrl' 	=> esc_url($sfsi_instagram_pageUrl),
+		 /* linkedIn options */
+		'sfsi_linkedin_page'			=> sanitize_text_field($sfsi_linkedin_page),
+		'sfsi_linkedin_pageURL'			=> esc_url($sfsi_linkedin_pageURL),
+		'sfsi_linkedin_follow'			=> sanitize_text_field($sfsi_linkedin_follow),
+		'sfsi_linkedin_followCompany'	=> intval($sfsi_linkedin_followCompany),
+		'sfsi_linkedin_SharePage'		=> sanitize_text_field($sfsi_linkedin_SharePage),
+		'sfsi_linkedin_recommendBusines'=> sanitize_text_field($sfsi_linkedin_recommendBusines),
+		'sfsi_linkedin_recommendCompany'=> sanitize_text_field($sfsi_linkedin_recommendCompany),
+		'sfsi_linkedin_recommendProductId'=> intval($sfsi_linkedin_recommendProductId),
+		'sfsi_CustomIcon_links'			=> $sfsi_CustomIcon_links
     );
-    update_option('sfsi_section2_options',serialize($up_option2));
-    $option4=unserialize(get_option('sfsi_section4_options',false));     
+    update_option('sfsi_section2_options',	serialize($up_option2));
+    $option4 = unserialize(get_option('sfsi_section4_options',false));     
     
-	//$option4['sfsi_ytube_user']=$sfsi_ytube_user;
-	$option4['sfsi_youtubeusernameorid']=$sfsi_youtubeusernameorid;
-	$option4['sfsi_ytube_chnlid']=$sfsi_ytube_chnlid;
-    update_option('sfsi_section4_options',serialize($option4));
+	//$option4['sfsi_ytube_user']			= $sfsi_ytube_user;
+	$option4['sfsi_youtubeusernameorid']	= sanitize_text_field($sfsi_youtubeusernameorid);
+	$option4['sfsi_ytube_chnlid']			= sfsi_sanitize_field($sfsi_ytube_chnlid);
+    update_option('sfsi_section4_options',	serialize($option4));
     
 	header('Content-Type: application/json');
-    echo  json_encode(array("success")); exit;
+    echo json_encode(array("success")); exit;
 }
 /* save settings for section 3 */ 
 add_action('wp_ajax_updateSrcn3','sfsi_options_updater3');        
@@ -164,31 +182,31 @@ function sfsi_options_updater3()
     $sfsi_specialIcon_MouseOver     = isset($_POST["sfsi_specialIcon_MouseOver"]) ? $_POST["sfsi_specialIcon_MouseOver"] : 'no';
     $sfsi_specialIcon_Firstload     = isset($_POST["sfsi_specialIcon_Firstload"]) ? $_POST["sfsi_specialIcon_Firstload"] : 'no';
     $sfsi_specialIcon_Firstload_Icons = isset($_POST["sfsi_specialIcon_Firstload_Icons"]) ? $_POST["sfsi_specialIcon_Firstload_Icons"] : 'all';
-    $sfsi_specialIcon_interval       = isset($_POST["sfsi_specialIcon_interval"]) ? $_POST["sfsi_specialIcon_interval"] : 'no';
-    $sfsi_specialIcon_intervalTime       = isset($_POST["sfsi_specialIcon_intervalTime"]) ? $_POST["sfsi_specialIcon_intervalTime"] : '';
-    $sfsi_specialIcon_intervalIcons       = isset($_POST["sfsi_specialIcon_intervalIcons"]) ? $_POST["sfsi_specialIcon_intervalIcons"] : 'all';
+    $sfsi_specialIcon_interval      = isset($_POST["sfsi_specialIcon_interval"]) ? $_POST["sfsi_specialIcon_interval"] : 'no';
+    $sfsi_specialIcon_intervalTime  = isset($_POST["sfsi_specialIcon_intervalTime"]) ? $_POST["sfsi_specialIcon_intervalTime"] : '';
+    $sfsi_specialIcon_intervalIcons = isset($_POST["sfsi_specialIcon_intervalIcons"]) ? $_POST["sfsi_specialIcon_intervalIcons"] : 'all';
     
-   /* Design and animation option  */
-   $up_option3 =array(		
-                'sfsi_actvite_theme'=>$sfsi_actvite_theme,
-                /* animations options */
-                'sfsi_mouseOver'=>$sfsi_mouseOver,
-                'sfsi_mouseOver_effect'=>$sfsi_mouseOver_effect,
-                'sfsi_shuffle_icons'=>$sfsi_shuffle_icons,
-                'sfsi_shuffle_Firstload'=>$sfsi_shuffle_Firstload,
-                'sfsi_shuffle_interval'=>$sfsi_shuffle_interval,
-                'sfsi_shuffle_intervalTime'=>$sfsi_shuffle_intervalTime,
-                'sfsi_specialIcon_animation'=>$sfsi_specialIcon_animation,
-                'sfsi_specialIcon_MouseOver'=>$sfsi_specialIcon_MouseOver,
-                'sfsi_specialIcon_Firstload'=>$sfsi_specialIcon_Firstload,
-                'sfsi_specialIcon_Firstload_Icons'=>$sfsi_specialIcon_Firstload_Icons,
-                'sfsi_specialIcon_interval'=>$sfsi_specialIcon_interval,
-                'sfsi_specialIcon_intervalTime'=>$sfsi_specialIcon_intervalTime,
-                'sfsi_specialIcon_intervalIcons'=>$sfsi_specialIcon_intervalIcons,
-            );
-    update_option('sfsi_section3_options',serialize($up_option3));
+   	/* Design and animation option  */
+   	$up_option3 =array(		
+		'sfsi_actvite_theme'				=> sanitize_text_field($sfsi_actvite_theme),
+		/* animations options */
+		'sfsi_mouseOver'					=> sanitize_text_field($sfsi_mouseOver),
+		'sfsi_mouseOver_effect'				=> sanitize_text_field($sfsi_mouseOver_effect),
+		'sfsi_shuffle_icons'				=> sanitize_text_field($sfsi_shuffle_icons),
+		'sfsi_shuffle_Firstload'			=> sanitize_text_field($sfsi_shuffle_Firstload),
+		'sfsi_shuffle_interval'				=> sanitize_text_field($sfsi_shuffle_interval),
+		'sfsi_shuffle_intervalTime'			=> intval($sfsi_shuffle_intervalTime),
+		'sfsi_specialIcon_animation'		=> sanitize_text_field($sfsi_specialIcon_animation),
+		'sfsi_specialIcon_MouseOver'		=> sanitize_text_field($sfsi_specialIcon_MouseOver),
+		'sfsi_specialIcon_Firstload'		=> sanitize_text_field($sfsi_specialIcon_Firstload),
+		'sfsi_specialIcon_Firstload_Icons'	=> sanitize_text_field($sfsi_specialIcon_Firstload_Icons),
+		'sfsi_specialIcon_interval'			=> sanitize_text_field($sfsi_specialIcon_interval),
+		'sfsi_specialIcon_intervalTime'		=> sanitize_text_field($sfsi_specialIcon_intervalTime),
+		'sfsi_specialIcon_intervalIcons'	=> sanitize_text_field($sfsi_specialIcon_intervalIcons),
+	);
+    update_option('sfsi_section3_options', serialize($up_option3));
     header('Content-Type: application/json');
-    echo  json_encode(array("success")); exit;
+    echo json_encode(array("success")); exit;
 }
 /* save settings for section 4 */ 
 add_action('wp_ajax_updateSrcn4','sfsi_options_updater4');        
@@ -207,7 +225,7 @@ function sfsi_options_updater4()
     $sfsi_rss_manualCounts           = isset($_POST["sfsi_rss_manualCounts"]) ? trim($_POST["sfsi_rss_manualCounts"]) : ''; 
     
     $sfsi_facebook_countsDisplay     = isset($_POST["sfsi_facebook_countsDisplay"]) ? $_POST["sfsi_facebook_countsDisplay"] : 'no'; 
-    $sfsi_facebook_countsFrom       = isset($_POST["sfsi_facebook_countsFrom"]) ? $_POST["sfsi_facebook_countsFrom"] : 'manual';
+    $sfsi_facebook_countsFrom        = isset($_POST["sfsi_facebook_countsFrom"]) ? $_POST["sfsi_facebook_countsFrom"] : 'manual';
     $sfsi_facebook_mypageCounts      = isset($_POST["sfsi_facebook_mypageCounts"]) ? trim($_POST["sfsi_facebook_mypageCounts"]) : '';
 	$sfsi_facebook_manualCounts      = isset($_POST["sfsi_facebook_manualCounts"]) ? trim($_POST["sfsi_facebook_manualCounts"]) : '';
     $sfsi_facebook_PageLink          = isset($_POST["sfsi_facebook_PageLink"]) ? trim($_POST["sfsi_facebook_PageLink"]) : '';
@@ -254,73 +272,71 @@ function sfsi_options_updater4()
     $sfsi_shares_countsFrom          = isset($_POST["sfsi_shares_countsFrom"]) ? $_POST["sfsi_shares_countsFrom"] : 'manual';
     $sfsi_shares_manualCounts        = isset($_POST["sfsi_shares_manualCounts"]) ? trim($_POST["sfsi_shares_manualCounts"]) : '';
     
-    $sfsi_facebookPage_url          = isset($_POST["sfsi_facebookPage_url"]) ? trim($_POST["sfsi_facebookPage_url"]) : ''; 
+    $sfsi_facebookPage_url           = isset($_POST["sfsi_facebookPage_url"]) ? trim($_POST["sfsi_facebookPage_url"]) : ''; 
     
     $up_option4=array(
-   'sfsi_display_counts'=>$sfsi_display_counts,
+		'sfsi_display_counts'		=> sanitize_text_field($sfsi_display_counts),
+			
+		'sfsi_email_countsDisplay'	=> sanitize_text_field($sfsi_email_countsDisplay),
+		'sfsi_email_countsFrom'		=> sanitize_text_field($sfsi_email_countsFrom),
+		'sfsi_email_manualCounts'	=> intval($sfsi_email_manualCounts),
 		
-   'sfsi_email_countsDisplay'=>$sfsi_email_countsDisplay,
-   'sfsi_email_countsFrom'=>$sfsi_email_countsFrom,
-   'sfsi_email_manualCounts'=>$sfsi_email_manualCounts,
-   
-   'sfsi_rss_countsDisplay'=>$sfsi_rss_countsDisplay,
-   'sfsi_rss_manualCounts'=>$sfsi_rss_manualCounts,
-   
-   'sfsi_facebook_countsDisplay'=>$sfsi_facebook_countsDisplay,
-   'sfsi_facebook_countsFrom'=>$sfsi_facebook_countsFrom,
-   'sfsi_facebook_mypageCounts'=>$sfsi_facebook_mypageCounts,
-   'sfsi_facebook_manualCounts'=>$sfsi_facebook_manualCounts,
-   //'sfsi_facebook_PageLink'=>$sfsi_facebook_PageLink,
-   
-   'sfsi_twitter_countsDisplay'=>$sfsi_twitter_countsDisplay,
-   'sfsi_twitter_countsFrom'=>$sfsi_twitter_countsFrom,
-   'sfsi_twitter_manualCounts'=>$sfsi_twitter_manualCounts,
-   'tw_consumer_key'=>$tw_consumer_key,     
-   'tw_consumer_secret'=>$tw_consumer_secret,
-   'tw_oauth_access_token'=>$tw_oauth_access_token,
-   'tw_oauth_access_token_secret'=>$tw_oauth_access_token_secret,
-        
-   'sfsi_google_countsDisplay'=>$sfsi_google_countsDisplay,
-   'sfsi_google_countsFrom'=>$sfsi_google_countsFrom,
-   'sfsi_google_manualCounts'=>$sfsi_google_manualCounts,	
-   'sfsi_google_api_key'    =>$sfsi_google_api_key,
-   
-   'ln_company'             =>$ln_company,
-   'ln_api_key'             =>$ln_api_key,
-   'ln_secret_key'          =>$ln_secret_key,
-   'ln_oAuth_user_token'    =>$ln_oAuth_user_token,     
-   'sfsi_linkedIn_countsDisplay'=>$sfsi_linkedIn_countsDisplay,
-   'sfsi_linkedIn_countsFrom'=>$sfsi_linkedIn_countsFrom,
-   'sfsi_linkedIn_manualCounts'=>$sfsi_linkedIn_manualCounts,
-   
-   'sfsi_youtube_countsDisplay'=>$sfsi_youtube_countsDisplay,
-   'sfsi_youtube_countsFrom'=>$sfsi_youtube_countsFrom,
-   'sfsi_youtube_manualCounts'=>$sfsi_youtube_manualCounts,
-   'sfsi_youtube_user'     =>$sfsi_youtube_user,
-   'sfsi_youtube_channelId'=>$sfsi_youtube_channelId,
-   
-   'sfsi_pinterest_countsDisplay'=>$sfsi_pinterest_countsDisplay,
-   'sfsi_pinterest_countsFrom'=>$sfsi_pinterest_countsFrom,
-   'sfsi_pinterest_manualCounts'=>$sfsi_pinterest_manualCounts,
-   'sfsi_pinterest_user'=>$sfsi_pinterest_user,     
-   'sfsi_pinterest_board'=>$sfsi_pinterest_board,
-   
-   'sfsi_instagram_countsFrom'=>$sfsi_instagram_countsFrom,
-   'sfsi_instagram_countsDisplay'=>$sfsi_instagram_countsDisplay,
-   'sfsi_instagram_manualCounts'=>$sfsi_instagram_manualCounts,
-   'sfsi_instagram_User' =>$sfsi_instagram_User,
-   
-   'sfsi_shares_countsDisplay'=>$sfsi_shares_countsDisplay,
-   'sfsi_shares_countsFrom'=>$sfsi_shares_countsFrom,
-   'sfsi_shares_manualCounts'=>$sfsi_shares_manualCounts,
+		'sfsi_rss_countsDisplay'	=> sanitize_text_field($sfsi_rss_countsDisplay),
+		'sfsi_rss_manualCounts'		=> intval($sfsi_rss_manualCounts),
+		
+		'sfsi_facebook_countsDisplay'=> sanitize_text_field($sfsi_facebook_countsDisplay),
+		'sfsi_facebook_countsFrom'	=> sanitize_text_field($sfsi_facebook_countsFrom),
+		'sfsi_facebook_mypageCounts'=> sfsi_sanitize_field($sfsi_facebook_mypageCounts),
+		'sfsi_facebook_manualCounts'=> intval($sfsi_facebook_manualCounts),
+		//'sfsi_facebook_PageLink'	=> $sfsi_facebook_PageLink,
+		
+		'sfsi_twitter_countsDisplay'=> sanitize_text_field($sfsi_twitter_countsDisplay),
+		'sfsi_twitter_countsFrom'	=> sanitize_text_field($sfsi_twitter_countsFrom),
+		'sfsi_twitter_manualCounts'	=> intval($sfsi_twitter_manualCounts),
+		'tw_consumer_key'			=> sfsi_sanitize_field($tw_consumer_key),     
+		'tw_consumer_secret'		=> sfsi_sanitize_field($tw_consumer_secret),
+		'tw_oauth_access_token'		=> sfsi_sanitize_field($tw_oauth_access_token),
+		'tw_oauth_access_token_secret'=>sfsi_sanitize_field($tw_oauth_access_token_secret),
+			
+		'sfsi_google_countsDisplay'	=> sanitize_text_field($sfsi_google_countsDisplay),
+		'sfsi_google_countsFrom'	=> sanitize_text_field($sfsi_google_countsFrom),
+		'sfsi_google_manualCounts'	=> intval($sfsi_google_manualCounts),
+		'sfsi_google_api_key'    	=> sfsi_sanitize_field($sfsi_google_api_key),
+		
+		//'ln_company'             	=> $ln_company,
+		//'ln_api_key'             	=> $ln_api_key,
+		//'ln_secret_key'          	=> $ln_secret_key,
+		//'ln_oAuth_user_token'    	=> $ln_oAuth_user_token,     
+		'sfsi_linkedIn_countsDisplay'=> sanitize_text_field($sfsi_linkedIn_countsDisplay),
+		'sfsi_linkedIn_countsFrom'	=> sanitize_text_field($sfsi_linkedIn_countsFrom),
+		'sfsi_linkedIn_manualCounts'=> intval($sfsi_linkedIn_manualCounts),
+		
+		'sfsi_youtube_countsDisplay'=> sanitize_text_field($sfsi_youtube_countsDisplay),
+		'sfsi_youtube_countsFrom'	=> sanitize_text_field($sfsi_youtube_countsFrom),
+		'sfsi_youtube_manualCounts'	=> intval($sfsi_youtube_manualCounts),
+		'sfsi_youtube_user'     	=> sfsi_sanitize_field($sfsi_youtube_user),
+		'sfsi_youtube_channelId'	=> sfsi_sanitize_field($sfsi_youtube_channelId),
+		
+		'sfsi_pinterest_countsDisplay'=> sanitize_text_field($sfsi_pinterest_countsDisplay),
+		'sfsi_pinterest_countsFrom'	=> sanitize_text_field($sfsi_pinterest_countsFrom),
+		'sfsi_pinterest_manualCounts'=> intval($sfsi_pinterest_manualCounts),
+		//'sfsi_pinterest_user'		=> $sfsi_pinterest_user,     
+		//'sfsi_pinterest_board'	=> $sfsi_pinterest_board,
+		
+		'sfsi_instagram_countsFrom'	=> sanitize_text_field($sfsi_instagram_countsFrom),
+		'sfsi_instagram_countsDisplay'=> sanitize_text_field($sfsi_instagram_countsDisplay),
+		'sfsi_instagram_manualCounts'=> intval($sfsi_instagram_manualCounts),
+		'sfsi_instagram_User' 		=> sanitize_text_field($sfsi_instagram_User),
+		
+		'sfsi_shares_countsDisplay'	=> sanitize_text_field($sfsi_shares_countsDisplay),
+		'sfsi_shares_countsFrom'	=> sanitize_text_field($sfsi_shares_countsFrom),
+		'sfsi_shares_manualCounts'	=> intval($sfsi_shares_manualCounts),
    );
-   update_option('sfsi_section4_options',serialize($up_option4));
-   //$option2=unserialize(get_option('sfsi_section2_options',false));
-   //$option2['sfsi_facebookPage_url']=$sfsi_facebook_PageLink;
-   //update_option('sfsi_section2_options',serialize($option2));
-   $new_counts=sfsi_getCounts();
+   update_option('sfsi_section4_options',	serialize($up_option4));
+   
+   $new_counts	= sfsi_getCounts();
    header('Content-Type: application/json');
-   echo  json_encode(array("res"=>"success",'counts'=>$new_counts)); exit;
+   echo json_encode(array("res"=>"success",'counts'=>$new_counts)); exit;
 }
 /* save settings for section 5 */ 
 add_action('wp_ajax_updateSrcn5','sfsi_options_updater5');        
@@ -370,47 +386,47 @@ function sfsi_options_updater5()
     
     /* size and spacing of icons */
     $up_option5=array(
-        'sfsi_icons_size'=>$sfsi_icons_size,
-        'sfsi_icons_spacing'=>$sfsi_icons_spacing,
-        'sfsi_icons_Alignment'=>$sfsi_icons_Alignment,
-        'sfsi_icons_perRow'=>$sfsi_icons_perRow,
-        'sfsi_icons_ClickPageOpen'=>$sfsi_icons_ClickPageOpen,
-        'sfsi_icons_float'=>$sfsi_icons_float,
-		'sfsi_disable_floaticons'=>$sfsi_disable_floaticons,
-        'sfsi_icons_floatPosition'=>$sfsi_icons_floatPosition,
-		'sfsi_icons_floatMargin_top'=>$sfsi_icons_floatMargin_top,
-		'sfsi_icons_floatMargin_bottom'=>$sfsi_icons_floatMargin_bottom,
-		'sfsi_icons_floatMargin_left'=>$sfsi_icons_floatMargin_left,
-		'sfsi_icons_floatMargin_right'=>$sfsi_icons_floatMargin_right,
-        'sfsi_icons_stick'=>$sfsi_icons_stick,
+        'sfsi_icons_size'				=> intval($sfsi_icons_size),
+        'sfsi_icons_spacing'			=> intval($sfsi_icons_spacing),
+        'sfsi_icons_Alignment'			=> sanitize_text_field($sfsi_icons_Alignment),
+        'sfsi_icons_perRow'				=> intval($sfsi_icons_perRow),
+        'sfsi_icons_ClickPageOpen'		=> sanitize_text_field($sfsi_icons_ClickPageOpen),
+        'sfsi_icons_float'				=> sanitize_text_field($sfsi_icons_float),
+		'sfsi_disable_floaticons'		=> sanitize_text_field($sfsi_disable_floaticons),
+        'sfsi_icons_floatPosition'		=> sanitize_text_field($sfsi_icons_floatPosition),
+		'sfsi_icons_floatMargin_top'	=> intval($sfsi_icons_floatMargin_top),
+		'sfsi_icons_floatMargin_bottom'	=> intval($sfsi_icons_floatMargin_bottom),
+		'sfsi_icons_floatMargin_left'	=> intval($sfsi_icons_floatMargin_left),
+		'sfsi_icons_floatMargin_right'	=> intval($sfsi_icons_floatMargin_right),
+        'sfsi_icons_stick'				=> sanitize_text_field($sfsi_icons_stick),
         /* mouse over texts */
-        'sfsi_rss_MouseOverText'=>$sfsi_rss_MouseOverText,
-        'sfsi_email_MouseOverText'=>$sfsi_email_MouseOverText,
-        'sfsi_twitter_MouseOverText'=>$sfsi_twitter_MouseOverText,
-        'sfsi_facebook_MouseOverText'=>$sfsi_facebook_MouseOverText,
-        'sfsi_google_MouseOverText'=>$sfsi_google_MouseOverText,
-        'sfsi_linkedIn_MouseOverText'=>$sfsi_linkedIn_MouseOverText,
-        'sfsi_pinterest_MouseOverText'=>$sfsi_pinterest_MouseOverText,
-        'sfsi_youtube_MouseOverText'=>$sfsi_youtube_MouseOverText,
-        'sfsi_share_MouseOverText'=>$sfsi_share_MouseOverText,
-        'sfsi_instagram_MouseOverText'=>$sfsi_instagram_MouseOverText,
-        'sfsi_CustomIcons_order'=>$sfsi_custom_orders,
-        'sfsi_rssIcon_order'=>$sfsi_rssIcon_order,
-        'sfsi_emailIcon_order'=>$sfsi_emailIcon_order,
-        'sfsi_facebookIcon_order'=>$sfsi_facebookIcon_order,
-        'sfsi_googleIcon_order'=>$sfsi_googleIcon_order,
-        'sfsi_twitterIcon_order'=>$sfsi_twitterIcon_order,
-        'sfsi_shareIcon_order'=>$sfsi_shareIcon_order,
-        'sfsi_youtubeIcon_order'=>$sfsi_youtubeIcon_order,
-        'sfsi_pinterestIcon_order'=>$sfsi_pinterestIcon_order,
-        'sfsi_instagramIcon_order'=>$sfsi_instagramIcon_order,
-        'sfsi_linkedinIcon_order'=>$sfsi_linkedinIcon_order,
-        'sfsi_custom_MouseOverTexts'=>$sfsi_custom_MouseOverTexts
+        'sfsi_rss_MouseOverText'		=> sanitize_text_field($sfsi_rss_MouseOverText),
+        'sfsi_email_MouseOverText'		=> sanitize_text_field($sfsi_email_MouseOverText),
+        'sfsi_twitter_MouseOverText'	=> sanitize_text_field($sfsi_twitter_MouseOverText),
+        'sfsi_facebook_MouseOverText'	=> sanitize_text_field($sfsi_facebook_MouseOverText),
+        'sfsi_google_MouseOverText'		=> sanitize_text_field($sfsi_google_MouseOverText),
+        'sfsi_linkedIn_MouseOverText'	=> sanitize_text_field($sfsi_linkedIn_MouseOverText),
+        'sfsi_pinterest_MouseOverText'	=> sanitize_text_field($sfsi_pinterest_MouseOverText),
+        'sfsi_youtube_MouseOverText'	=> sanitize_text_field($sfsi_youtube_MouseOverText),
+        'sfsi_share_MouseOverText'		=> sanitize_text_field($sfsi_share_MouseOverText),
+        'sfsi_instagram_MouseOverText'	=> sanitize_text_field($sfsi_instagram_MouseOverText),
+        'sfsi_CustomIcons_order'		=> $sfsi_custom_orders,
+        'sfsi_rssIcon_order'			=> intval($sfsi_rssIcon_order),
+        'sfsi_emailIcon_order'			=> intval($sfsi_emailIcon_order),
+        'sfsi_facebookIcon_order'		=> intval($sfsi_facebookIcon_order),
+        'sfsi_googleIcon_order'			=> intval($sfsi_googleIcon_order),
+        'sfsi_twitterIcon_order'		=> intval($sfsi_twitterIcon_order),
+        'sfsi_shareIcon_order'			=> intval($sfsi_shareIcon_order),
+        'sfsi_youtubeIcon_order'		=> intval($sfsi_youtubeIcon_order),
+        'sfsi_pinterestIcon_order'		=> intval($sfsi_pinterestIcon_order),
+        'sfsi_instagramIcon_order'		=> intval($sfsi_instagramIcon_order),
+        'sfsi_linkedinIcon_order'		=> intval($sfsi_linkedinIcon_order),
+        'sfsi_custom_MouseOverTexts'	=> $sfsi_custom_MouseOverTexts
     );
     
-    update_option('sfsi_section5_options',serialize($up_option5));
+    update_option('sfsi_section5_options',	serialize($up_option5));
     header('Content-Type: application/json');
-    echo  json_encode(array("success")); exit;
+    echo json_encode(array("success")); exit;
 }
 /* save settings for section 6 */ 
 add_action('wp_ajax_updateSrcn6','sfsi_options_updater6');        
@@ -419,32 +435,32 @@ function sfsi_options_updater6()
 	if ( !wp_verify_nonce( $_POST['nonce'], "update_step6")) {
       echo  json_encode(array("wrong_nonce")); exit;
    	}
-    $sfsi_show_Onposts                = isset($_POST["sfsi_show_Onposts"]) ? $_POST["sfsi_show_Onposts"] : 'no'; 
-    $sfsi_icons_postPositon           = isset($_POST["sfsi_icons_postPositon"]) ? $_POST["sfsi_icons_postPositon"] : ''; 
-    $sfsi_icons_alignment             = isset($_POST["sfsi_icons_alignment"]) ? $_POST["sfsi_icons_alignment"] : 'center-right'; 
-    $sfsi_textBefor_icons             = isset($_POST["sfsi_textBefor_icons"]) ? $_POST["sfsi_textBefor_icons"] : ''; 
-    $sfsi_icons_DisplayCounts         = isset($_POST["sfsi_icons_DisplayCounts"]) ? $_POST["sfsi_icons_DisplayCounts"] : 'no'; 
-	$sfsi_rectsub    = isset($_POST["sfsi_rectsub"]) ? $_POST["sfsi_rectsub"] : 'no';
-	$sfsi_rectfb    = isset($_POST["sfsi_rectfb"]) ? $_POST["sfsi_rectfb"] : 'no';
-	$sfsi_rectgp    = isset($_POST["sfsi_rectgp"]) ? $_POST["sfsi_rectgp"] : 'no';
-	$sfsi_rectshr    = isset($_POST["sfsi_rectshr"]) ? $_POST["sfsi_rectshr"] : 'no';
-	$sfsi_recttwtr    = isset($_POST["sfsi_recttwtr"]) ? $_POST["sfsi_recttwtr"] : 'no';
-	$sfsi_rectpinit  =  isset($_POST["sfsi_rectpinit"]) ? $_POST["sfsi_rectpinit"] : 'no';
+    $sfsi_show_Onposts              = isset($_POST["sfsi_show_Onposts"]) ? $_POST["sfsi_show_Onposts"] : 'no'; 
+    $sfsi_icons_postPositon         = isset($_POST["sfsi_icons_postPositon"]) ? $_POST["sfsi_icons_postPositon"] : ''; 
+    $sfsi_icons_alignment           = isset($_POST["sfsi_icons_alignment"]) ? $_POST["sfsi_icons_alignment"] : 'center-right'; 
+    $sfsi_textBefor_icons           = isset($_POST["sfsi_textBefor_icons"]) ? $_POST["sfsi_textBefor_icons"] : ''; 
+    $sfsi_icons_DisplayCounts       = isset($_POST["sfsi_icons_DisplayCounts"]) ? $_POST["sfsi_icons_DisplayCounts"] : 'no'; 
+	$sfsi_rectsub    				= isset($_POST["sfsi_rectsub"]) ? $_POST["sfsi_rectsub"] : 'no';
+	$sfsi_rectfb    				= isset($_POST["sfsi_rectfb"]) ? $_POST["sfsi_rectfb"] : 'no';
+	$sfsi_rectgp    				= isset($_POST["sfsi_rectgp"]) ? $_POST["sfsi_rectgp"] : 'no';
+	$sfsi_rectshr    				= isset($_POST["sfsi_rectshr"]) ? $_POST["sfsi_rectshr"] : 'no';
+	$sfsi_recttwtr    				= isset($_POST["sfsi_recttwtr"]) ? $_POST["sfsi_recttwtr"] : 'no';
+	$sfsi_rectpinit  				= isset($_POST["sfsi_rectpinit"]) ? $_POST["sfsi_rectpinit"] : 'no';
     /* post options */
     $up_option6=array(
-                'sfsi_show_Onposts'=>$sfsi_show_Onposts,
-                'sfsi_icons_postPositon'=>$sfsi_icons_postPositon,
-                'sfsi_icons_alignment'=>$sfsi_icons_alignment,
-                'sfsi_textBefor_icons'=> stripslashes($sfsi_textBefor_icons),
-                'sfsi_icons_DisplayCounts'=>$sfsi_icons_DisplayCounts,
-				'sfsi_rectsub'=>$sfsi_rectsub,
-				'sfsi_rectfb'=>$sfsi_rectfb,
-				'sfsi_rectgp'=>$sfsi_rectgp,
-				'sfsi_rectshr'=>$sfsi_rectshr,
-				'sfsi_recttwtr'=>$sfsi_recttwtr,
-				'sfsi_rectpinit'=>$sfsi_rectpinit
-                 );
-     update_option('sfsi_section6_options',serialize($up_option6));
+		'sfsi_show_Onposts'		=> sanitize_text_field($sfsi_show_Onposts),
+		'sfsi_icons_postPositon'=> sanitize_text_field($sfsi_icons_postPositon),
+		'sfsi_icons_alignment'	=> sanitize_text_field($sfsi_icons_alignment),
+		'sfsi_textBefor_icons'	=> sanitize_text_field(stripslashes($sfsi_textBefor_icons)),
+		'sfsi_icons_DisplayCounts'=> sanitize_text_field($sfsi_icons_DisplayCounts),
+		'sfsi_rectsub'			=> sanitize_text_field($sfsi_rectsub),
+		'sfsi_rectfb'			=> sanitize_text_field($sfsi_rectfb),
+		'sfsi_rectgp'			=> sanitize_text_field($sfsi_rectgp),
+		'sfsi_rectshr'			=> sanitize_text_field($sfsi_rectshr),
+		'sfsi_recttwtr'			=> sanitize_text_field($sfsi_recttwtr),
+		'sfsi_rectpinit'		=> sanitize_text_field($sfsi_rectpinit)
+	);
+    update_option('sfsi_section6_options',serialize($up_option6));
     header('Content-Type: application/json');
     echo  json_encode(array("success")); exit;
 }
@@ -472,26 +488,26 @@ function sfsi_options_updater7()
   		
     /* icons pop options */
 	$up_option7=array(	
-		'sfsi_popup_text'=> stripslashes($sfsi_popup_text),
-		'sfsi_popup_background_color'=>$sfsi_popup_background_color,
-		'sfsi_popup_border_color'=>$sfsi_popup_border_color,
-		'sfsi_popup_border_thickness'=>$sfsi_popup_border_thickness,
-		'sfsi_popup_border_shadow'=>$sfsi_popup_border_shadow,
-		'sfsi_popup_font'=>$sfsi_popup_font,
-		'sfsi_popup_fontSize'=>$sfsi_popup_fontSize,
-		'sfsi_popup_fontStyle'=>$sfsi_popup_fontStyle,
-                'sfsi_popup_fontColor'=>$sfsi_popup_fontColor,
+		'sfsi_popup_text'				=> sanitize_text_field(stripslashes($sfsi_popup_text)),
+		'sfsi_popup_background_color'	=> sanitize_hex_color($sfsi_popup_background_color),
+		'sfsi_popup_border_color'		=> sanitize_hex_color($sfsi_popup_border_color),
+		'sfsi_popup_border_thickness'	=> intval($sfsi_popup_border_thickness),
+		'sfsi_popup_border_shadow'		=> sanitize_text_field($sfsi_popup_border_shadow),
+		'sfsi_popup_font'				=> sanitize_text_field($sfsi_popup_font),
+		'sfsi_popup_fontSize'			=> intval($sfsi_popup_fontSize),
+		'sfsi_popup_fontStyle'			=> sanitize_text_field($sfsi_popup_fontStyle),
+		'sfsi_popup_fontColor'			=> sanitize_hex_color($sfsi_popup_fontColor),
 		
-		'sfsi_Show_popupOn'=>$sfsi_Show_popupOn,
-		'sfsi_Show_popupOn_PageIDs'=>$sfsi_Show_popupOn_PageIDs,
+		'sfsi_Show_popupOn'				=> sanitize_text_field($sfsi_Show_popupOn),
+		'sfsi_Show_popupOn_PageIDs'		=> $sfsi_Show_popupOn_PageIDs,
 		
-		'sfsi_Shown_pop'=>$sfsi_Shown_pop,
-		'sfsi_Shown_popupOnceTime'=>$sfsi_Shown_popupOnceTime,
-		'sfsi_Shown_popuplimitPerUserTime'=>$sfsi_Shown_popuplimitPerUserTime,
-                );
+		'sfsi_Shown_pop'				=> sanitize_text_field($sfsi_Shown_pop),
+		'sfsi_Shown_popupOnceTime'		=> intval($sfsi_Shown_popupOnceTime),
+		//'sfsi_Shown_popuplimitPerUserTime'=> $sfsi_Shown_popuplimitPerUserTime,
+	);
     update_option('sfsi_section7_options',serialize($up_option7)); 
     header('Content-Type: application/json');
-    echo  json_encode(array("success")); exit;
+    echo json_encode(array("success")); exit;
 }
 /* save settings for section 8 */ 
 add_action('wp_ajax_updateSrcn8','sfsi_options_updater8');
@@ -532,35 +548,35 @@ function sfsi_options_updater8()
 	
 	/* icons pop options */
 	$up_option8 = array(	
-		'sfsi_form_adjustment'		=>	$sfsi_form_adjustment,
-		'sfsi_form_height'			=>	$sfsi_form_height,
-		'sfsi_form_width'			=>	$sfsi_form_width,
-		'sfsi_form_border'			=>	$sfsi_form_border,
-		'sfsi_form_border_thickness'=>	$sfsi_form_border_thickness,
-		'sfsi_form_border_color'	=>	$sfsi_form_border_color,
-		'sfsi_form_background'		=>	$sfsi_form_background,
+		'sfsi_form_adjustment'		=>	sanitize_text_field($sfsi_form_adjustment),
+		'sfsi_form_height'			=>	intval($sfsi_form_height),
+		'sfsi_form_width'			=>	intval($sfsi_form_width),
+		'sfsi_form_border'			=>	sanitize_text_field($sfsi_form_border),
+		'sfsi_form_border_thickness'=>	intval($sfsi_form_border_thickness),
+		'sfsi_form_border_color'	=>	sanitize_hex_color($sfsi_form_border_color),
+		'sfsi_form_background'		=>	sanitize_hex_color($sfsi_form_background),
 		
-		'sfsi_form_heading_text'	=>	stripslashes($sfsi_form_heading_text),
-		'sfsi_form_heading_font'	=>	$sfsi_form_heading_font,
-		'sfsi_form_heading_fontstyle'=>	$sfsi_form_heading_fontstyle,
-		'sfsi_form_heading_fontcolor'=>	$sfsi_form_heading_fontcolor,
-		'sfsi_form_heading_fontsize'=>	$sfsi_form_heading_fontsize,
-		'sfsi_form_heading_fontalign'=>	$sfsi_form_heading_fontalign,
+		'sfsi_form_heading_text'	=>	sanitize_text_field(stripslashes($sfsi_form_heading_text)),
+		'sfsi_form_heading_font'	=>	sanitize_text_field($sfsi_form_heading_font),
+		'sfsi_form_heading_fontstyle'=>	sanitize_text_field($sfsi_form_heading_fontstyle),
+		'sfsi_form_heading_fontcolor'=>	sanitize_hex_color($sfsi_form_heading_fontcolor),
+		'sfsi_form_heading_fontsize'=>	intval($sfsi_form_heading_fontsize),
+		'sfsi_form_heading_fontalign'=>	sanitize_text_field($sfsi_form_heading_fontalign),
 		
-		'sfsi_form_field_text'		=>	stripslashes($sfsi_form_field_text),
-		'sfsi_form_field_font'		=>	$sfsi_form_field_font,
-		'sfsi_form_field_fontstyle'	=>	$sfsi_form_field_fontstyle,
-		'sfsi_form_field_fontcolor'	=>	$sfsi_form_field_fontcolor,
-		'sfsi_form_field_fontsize'	=>	$sfsi_form_field_fontsize,
-		'sfsi_form_field_fontalign'	=>	$sfsi_form_field_fontalign,
+		'sfsi_form_field_text'		=>	sanitize_text_field(stripslashes($sfsi_form_field_text)),
+		'sfsi_form_field_font'		=>	sanitize_text_field($sfsi_form_field_font),
+		'sfsi_form_field_fontstyle'	=>	sanitize_text_field($sfsi_form_field_fontstyle),
+		'sfsi_form_field_fontcolor'	=>	sanitize_hex_color($sfsi_form_field_fontcolor),
+		'sfsi_form_field_fontsize'	=>	intval($sfsi_form_field_fontsize),
+		'sfsi_form_field_fontalign'	=>	sanitize_text_field($sfsi_form_field_fontalign),
 		
-		'sfsi_form_button_text'		=>	stripslashes($sfsi_form_button_text),
-		'sfsi_form_button_font'		=>	$sfsi_form_button_font,
-		'sfsi_form_button_fontstyle'=>	$sfsi_form_button_fontstyle,
-		'sfsi_form_button_fontcolor'=>	$sfsi_form_button_fontcolor,
-		'sfsi_form_button_fontsize'	=>	$sfsi_form_button_fontsize,
-		'sfsi_form_button_fontalign'=>	$sfsi_form_button_fontalign,
-		'sfsi_form_button_background'=>	$sfsi_form_button_background,
+		'sfsi_form_button_text'		=>	sanitize_text_field(stripslashes($sfsi_form_button_text)),
+		'sfsi_form_button_font'		=>	sanitize_text_field($sfsi_form_button_font),
+		'sfsi_form_button_fontstyle'=>	sanitize_text_field($sfsi_form_button_fontstyle),
+		'sfsi_form_button_fontcolor'=>	sanitize_hex_color($sfsi_form_button_fontcolor),
+		'sfsi_form_button_fontsize'	=>	intval($sfsi_form_button_fontsize),
+		'sfsi_form_button_fontalign'=>	sanitize_text_field($sfsi_form_button_fontalign),
+		'sfsi_form_button_background'=>	sanitize_hex_color($sfsi_form_button_background),
 	);
 	update_option('sfsi_section8_options',serialize($up_option8)); 
     header('Content-Type: application/json');
@@ -570,115 +586,129 @@ function sfsi_options_updater8()
 /* get counts for admin section */        
 function sfsi_getCounts()
 {
-   $socialObj=new sfsi_SocialHelper();
-   $sfsi_section4_options= unserialize(get_option('sfsi_section4_options',false));
-   $sfsi_section2_options=unserialize(get_option('sfsi_section2_options',false));
-   $scounts = array('rss_count'=>'','email_count'=>'','fb_count'=>'','twitter_count'=>'','google_count'=>'','linkedIn_count'=>'','youtube_count'=>'','pin_count'=>'','share_count'=>'');
-   /* get rss count */
-   if(!empty($sfsi_section4_options['sfsi_rss_manualCounts']) )
-   {
-       $scounts['rss_count']=$sfsi_section4_options['sfsi_rss_manualCounts'];
-   } 
+	$socialObj				= new sfsi_SocialHelper();
+   	$sfsi_section4_options	= unserialize(get_option('sfsi_section4_options',false));
+   	$sfsi_section2_options	= unserialize(get_option('sfsi_section2_options',false));
+   	$scounts = array(
+		'rss_count'		=> '',
+		'email_count'	=> '',
+		'fb_count'		=> '',
+		'twitter_count'	=> '',
+		'google_count'	=> '',
+		'linkedIn_count'=> '',
+		'youtube_count'	=> '',
+		'pin_count'		=> '',
+		'share_count'	=> ''
+	);
+   	/* get rss count */
+   	if(!empty($sfsi_section4_options['sfsi_rss_manualCounts']) )
+   	{
+		$scounts['rss_count']=$sfsi_section4_options['sfsi_rss_manualCounts'];
+   	} 
     /* get email count */
-   if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
-   {
-       $feed_id = get_option('sfsi_feed_id',false);
-       $feed_data = $socialObj->SFSI_getFeedSubscriber($feed_id);
-     
-       $scounts['email_count']= $socialObj->format_num($feed_data);
+   	if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
+   	{
+       	$feed_id = sanitize_text_field(get_option('sfsi_feed_id',false));
+       	$feed_data = $socialObj->SFSI_getFeedSubscriber($feed_id);
+ 
+       	$scounts['email_count']= $socialObj->format_num($feed_data);
         if(empty($scounts['email_count']))
         {
           $scounts['email_count']=(string) "0";
         }
-   }
-   else
-   {
-        $scounts['email_count']=$sfsi_section4_options['sfsi_email_manualCounts'];
-        
-   }    
+   	}
+   	else
+   	{
+		$scounts['email_count']=$sfsi_section4_options['sfsi_email_manualCounts'];
+    }    
    
-   /* get fb count */
-   if($sfsi_section4_options['sfsi_facebook_countsFrom']=="likes" )
-   {
-       $url = home_url();
-       $fb_data = $socialObj->sfsi_get_fb($url);
-       $scounts['fb_count']= $socialObj->format_num($fb_data['like_count']);
-   }
-   else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="followers" )
-   {
-       $url = home_url();
-       $fb_data = $socialObj->sfsi_get_fb($url);
-       $scounts['fb_count']= format_num($fb_data['share_count']);
-       if(empty($scounts['fb_count']))
-       {
-          $scounts['fb_count']=(string) "0";
-       }
-   }
-   else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="mypage" )
-   {
-       $url = $sfsi_section4_options['sfsi_facebook_mypageCounts'];
-       $fb_data = $socialObj->sfsi_get_fb_pagelike($url);
-       $scounts['fb_count']= $fb_data;
-   }
-   else
-   {
-        $scounts['fb_count'] = $sfsi_section4_options['sfsi_facebook_manualCounts'];
-   }
-   /* get twitter counts */
-   if($sfsi_section4_options['sfsi_twitter_countsFrom']=="source")
-   {    $twitter_user=$sfsi_section2_options['sfsi_twitter_followUserName'];
-        $tw_settings=array('tw_consumer_key'=>$sfsi_section4_options['tw_consumer_key'],
-						   'tw_consumer_secret'=> $sfsi_section4_options['tw_consumer_secret'],
-						   'tw_oauth_access_token'=> $sfsi_section4_options['tw_oauth_access_token'],
-						   'tw_oauth_access_token_secret'=> $sfsi_section4_options['tw_oauth_access_token_secret']
-                           );         
-          
-       $followers=$socialObj->sfsi_get_tweets($twitter_user,$tw_settings);
-       $scounts['twitter_count']= $socialObj->format_num($followers);
-   } else {
-        $scounts['twitter_count']=$sfsi_section4_options['sfsi_twitter_manualCounts'];
-   } 
-   /* get google+ counts */
-   if($sfsi_section4_options['sfsi_google_countsFrom']=="follower" )
-   {   
-      $url=$sfsi_section2_options['sfsi_google_pageURL'];
-        $api_key=$sfsi_section4_options['sfsi_google_api_key'];
-                         $followers=$socialObj->sfsi_get_google($url,$api_key);
-                         if(!is_int($followers))
-                         {
-                             $followers=0;
-                         }    
-                         $counts=$followers;
-       $scounts['google_count']= $socialObj->format_num($followers);
-   }
-   else if($sfsi_section4_options['sfsi_google_countsFrom']=="likes" )
-   {   
-      $url=home_url();
-        $api_key=$sfsi_section4_options['sfsi_google_api_key'];
-                         $followers=$socialObj->sfsi_get_google($url,$api_key);
-                         if(!is_int($followers))
-                         {
-                             $followers=0;
-                         }    
-                         $counts=$followers;
-       $scounts['google_count']= $socialObj->format_num($followers);
-   }
-   else
-   {
-        $scounts['google_count']=$sfsi_section4_options['sfsi_google_manualCounts'];
-   } 
-   /* get linkedIn counts */
+   	/* get fb count */
+   	if($sfsi_section4_options['sfsi_facebook_countsFrom']=="likes" )
+   	{
+    	$url = home_url();
+       	$fb_data = $socialObj->sfsi_get_fb($url);
+       	$scounts['fb_count']= $socialObj->format_num($fb_data['like_count']);
+   	}
+   	else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="followers" )
+   	{
+		$url = home_url();
+       	$fb_data = $socialObj->sfsi_get_fb($url);
+       	$scounts['fb_count']= format_num($fb_data['share_count']);
+       	if(empty($scounts['fb_count']))
+       	{
+        	$scounts['fb_count']=(string) "0";
+       	}
+   	}
+   	else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="mypage" )
+   	{
+		$url = $sfsi_section4_options['sfsi_facebook_mypageCounts'];
+		$fb_data = $socialObj->sfsi_get_fb_pagelike($url);
+		$scounts['fb_count']= $fb_data;
+	}
+	else
+	{
+		$scounts['fb_count'] = $sfsi_section4_options['sfsi_facebook_manualCounts'];
+	}
+	/* get twitter counts */
+	if($sfsi_section4_options['sfsi_twitter_countsFrom']=="source")
+	{
+		$twitter_user=$sfsi_section2_options['sfsi_twitter_followUserName'];
+		$tw_settings=array(
+			'tw_consumer_key'=>$sfsi_section4_options['tw_consumer_key'],
+			'tw_consumer_secret'=> $sfsi_section4_options['tw_consumer_secret'],
+			'tw_oauth_access_token'=> $sfsi_section4_options['tw_oauth_access_token'],
+			'tw_oauth_access_token_secret'=> $sfsi_section4_options['tw_oauth_access_token_secret']
+		);
+	  
+		$followers=$socialObj->sfsi_get_tweets($twitter_user,$tw_settings);
+		$scounts['twitter_count']= $socialObj->format_num($followers);
+	}
+	else
+	{
+		$scounts['twitter_count']=$sfsi_section4_options['sfsi_twitter_manualCounts'];
+	} 
+  	/* get google+ counts */
+   	if($sfsi_section4_options['sfsi_google_countsFrom']=="follower" )
+   	{   
+		$url=$sfsi_section2_options['sfsi_google_pageURL'];
+		$api_key=$sfsi_section4_options['sfsi_google_api_key'];
+		$followers=$socialObj->sfsi_get_google($url,$api_key);
+		if(!is_int($followers))
+		{
+			$followers=0;
+		}    
+		$counts=$followers;
+		$scounts['google_count']= $socialObj->format_num($followers);
+	}
+	else if($sfsi_section4_options['sfsi_google_countsFrom']=="likes" )
+	{   
+		$url=home_url();
+		$api_key=$sfsi_section4_options['sfsi_google_api_key'];
+		$followers=$socialObj->sfsi_get_google($url,$api_key);
+		if(!is_int($followers))
+		{
+			$followers=0;
+		}    
+		$counts=$followers;
+		$scounts['google_count']= $socialObj->format_num($followers);
+	}
+	else
+	{
+		$scounts['google_count']=$sfsi_section4_options['sfsi_google_manualCounts'];
+	} 
+   	/* get linkedIn counts */
    
    if($sfsi_section4_options['sfsi_linkedIn_countsFrom']=="follower" )
    {   
         $linkedIn_compay=$sfsi_section2_options['sfsi_linkedin_followCompany']; 
         $linkedIn_compay=$sfsi_section4_options['ln_company'];
-        $ln_settings=array('ln_api_key'=>$sfsi_section4_options['ln_api_key'],
-                         'ln_secret_key'=>$sfsi_section4_options['ln_secret_key'],
-                         'ln_oAuth_user_token'=>$sfsi_section4_options['ln_oAuth_user_token']
-                         );
-       $followers=$socialObj->sfsi_getlinkedin_follower($linkedIn_compay,$ln_settings);
-       $scounts['linkedIn_count']= $socialObj->format_num($followers);
+        $ln_settings=array(
+			'ln_api_key'=>$sfsi_section4_options['ln_api_key'],
+			'ln_secret_key'=>$sfsi_section4_options['ln_secret_key'],
+			'ln_oAuth_user_token'=>$sfsi_section4_options['ln_oAuth_user_token']
+		);
+      	$followers=$socialObj->sfsi_getlinkedin_follower($linkedIn_compay,$ln_settings);
+       	$scounts['linkedIn_count']= $socialObj->format_num($followers);
    }
    else
    {
@@ -715,33 +745,35 @@ function sfsi_getCounts()
    {
         $scounts['pin_count']=$sfsi_section4_options['sfsi_pinterest_manualCounts'];
    }
-    /* get addthis share counts */
-   if(isset($sfsi_section4_options['sfsi_shares_countsFrom']) && $sfsi_section4_options['sfsi_shares_countsFrom']=="shares" && isset($sfsi_section4_options['sfsi_share_countsDisplay']) && $sfsi_section4_options['sfsi_share_countsDisplay'] =="yes")
-   {   
+   
+   /* get addthis share counts */
+   	if(isset($sfsi_section4_options['sfsi_shares_countsFrom']) && $sfsi_section4_options['sfsi_shares_countsFrom']=="shares" && isset($sfsi_section4_options['sfsi_share_countsDisplay']) && $sfsi_section4_options['sfsi_share_countsDisplay'] =="yes")
+   	{   
        $shares=$socialObj->sfsi_get_atthis();
        $scounts['share_count']= $socialObj->format_num($shares);
-   } 
-   else
-   {
-        $scounts['share_count']=$sfsi_section4_options['sfsi_shares_manualCounts'];
-   }
-    /* get instagram count */
+   	} 
+   	else
+   	{
+		$scounts['share_count']=$sfsi_section4_options['sfsi_shares_manualCounts'];
+   	}
+   
+   /* get instagram count */
    if($sfsi_section4_options['sfsi_instagram_countsFrom']=="followers" )
    {
-      $iuser_name= $sfsi_section4_options['sfsi_instagram_User'];
-       /*$counts=$socialObj->sfsi_get_instagramFollowers($iuser_name);
+   		$iuser_name= $sfsi_section4_options['sfsi_instagram_User'];
+        /*$counts=$socialObj->sfsi_get_instagramFollowers($iuser_name);
         if(empty($counts))
         {
-          $scounts['instagram_count']=(string) "0";
+			$scounts['instagram_count']=(string) "0";
         }*/
 		$counts = $socialObj->sfsi_get_instagramFollowers($iuser_name);
 		if(empty($counts))
 		{
-		  $scounts['instagram_count']=(string) "0";
+			$scounts['instagram_count']=(string) "0";
 		}
 		else
 		{
-			 $scounts['instagram_count']=$counts;
+			$scounts['instagram_count']=$counts;
 		}
    }
    else
@@ -797,5 +829,23 @@ function notification_read()
 	update_option("show_notification", "no");
 	echo "success";
 	die;
+}
+
+function sfsi_sanitize_field($value)
+{
+	return strip_tags(trim($value));
+}
+//Sanitize color code
+if(@!function_exists(sanitize_hex_color))
+{
+	function sanitize_hex_color( $color )
+	{
+		if ( '' === $color )
+			return '';
+	 
+		// 3 or 6 hex digits, or the empty string.
+		if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) )
+			return $color;
+	}
 }
 ?>

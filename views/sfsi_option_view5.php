@@ -1,31 +1,59 @@
 <?php
-/* unserialize all saved option for  section 5 options */
+	/* unserialize all saved option for  section 5 options */
  
-  $icons = ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
-  $option3=  unserialize(get_option('sfsi_section3_options',false));
-  $option5=  unserialize(get_option('sfsi_section5_options',false));
-  $custom_icons_order=unserialize($option5['sfsi_CustomIcons_order']);
-  $icons_order=array($option5['sfsi_rssIcon_order']=>'rss',
-                     $option5['sfsi_emailIcon_order']=>'email',
-                     $option5['sfsi_facebookIcon_order']=>'facebook',
-                     $option5['sfsi_googleIcon_order']=>'google',
-                     $option5['sfsi_twitterIcon_order']=>'twitter',
-                     $option5['sfsi_shareIcon_order']=>'share',
-                     $option5['sfsi_youtubeIcon_order']=>'youtube',
-                     $option5['sfsi_pinterestIcon_order']=>'pinterest',
-                     $option5['sfsi_linkedinIcon_order']=>'linkedin',
-		     $option5['sfsi_instagramIcon_order']=>'instagram'
-                    ) ;
-  
-  if(is_array($custom_icons_order) ) 
-  {
-	  foreach($custom_icons_order as $data)
-	  {
-		 $icons_order[$data['order']] = $data;
-	  }
-  }
-  ksort($icons_order);
-  
+	$icons 		= ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
+	$option3	= unserialize(get_option('sfsi_section3_options',false));
+	$option5	= unserialize(get_option('sfsi_section5_options',false));
+	$custom_icons_order = unserialize($option5['sfsi_CustomIcons_order']);
+	$icons_order = array(
+		$option5['sfsi_rssIcon_order']		=> 'rss',
+		$option5['sfsi_emailIcon_order']	=> 'email',
+		$option5['sfsi_facebookIcon_order']	=> 'facebook',
+		$option5['sfsi_googleIcon_order']	=> 'google',
+		$option5['sfsi_twitterIcon_order']	=> 'twitter',
+		$option5['sfsi_shareIcon_order']	=> 'share',
+		$option5['sfsi_youtubeIcon_order']	=> 'youtube',
+		$option5['sfsi_pinterestIcon_order']=> 'pinterest',
+		$option5['sfsi_linkedinIcon_order']	=> 'linkedin',
+		$option5['sfsi_instagramIcon_order']=> 'instagram'
+	) ;
+	
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option5['sfsi_icons_size'] 			= intval($option5['sfsi_icons_size']);
+	$option5['sfsi_icons_spacing'] 			= intval($option5['sfsi_icons_spacing']);
+	$option5['sfsi_icons_Alignment'] 		= sanitize_text_field($option5['sfsi_icons_Alignment']);
+	$option5['sfsi_icons_perRow'] 			= intval($option5['sfsi_icons_perRow']);
+	$option5['sfsi_icons_ClickPageOpen']	= sanitize_text_field($option5['sfsi_icons_ClickPageOpen']);
+	$option5['sfsi_icons_float'] 			= sanitize_text_field($option5['sfsi_icons_float']);
+	$option5['sfsi_disable_floaticons'] 	= sanitize_text_field($option5['sfsi_disable_floaticons']);
+	$option5['sfsi_icons_floatPosition'] 	= sanitize_text_field($option5['sfsi_icons_floatPosition']);
+	$option5['sfsi_icons_floatMargin_top'] 	= intval($option5['sfsi_icons_floatMargin_top']);
+	$option5['sfsi_icons_floatMargin_bottom']= intval($option5['sfsi_icons_floatMargin_bottom']);
+	$option5['sfsi_icons_floatMargin_left']	= intval($option5['sfsi_icons_floatMargin_left']);
+	$option5['sfsi_icons_floatMargin_right']= intval($option5['sfsi_icons_floatMargin_right']);
+	
+	$option5['sfsi_icons_stick'] 			= sanitize_text_field($option5['sfsi_icons_stick']);
+	$option5['sfsi_rss_MouseOverText'] 		= sanitize_text_field($option5['sfsi_rss_MouseOverText']);
+	$option5['sfsi_email_MouseOverText'] 	= sanitize_text_field($option5['sfsi_email_MouseOverText']);
+	$option5['sfsi_twitter_MouseOverText'] 	= sanitize_text_field($option5['sfsi_twitter_MouseOverText']);
+	$option5['sfsi_facebook_MouseOverText'] = sanitize_text_field($option5['sfsi_facebook_MouseOverText']);
+	$option5['sfsi_google_MouseOverText'] 	= sanitize_text_field($option5['sfsi_google_MouseOverText']);
+	$option5['sfsi_linkedIn_MouseOverText'] = sanitize_text_field($option5['sfsi_linkedIn_MouseOverText']);
+	$option5['sfsi_pinterest_MouseOverText']= sanitize_text_field($option5['sfsi_pinterest_MouseOverText']);
+	$option5['sfsi_youtube_MouseOverText'] 	= sanitize_text_field($option5['sfsi_youtube_MouseOverText']);
+	$option5['sfsi_share_MouseOverText'] 	= sanitize_text_field($option5['sfsi_share_MouseOverText']);
+	$option5['sfsi_instagram_MouseOverText']= sanitize_text_field($option5['sfsi_instagram_MouseOverText']);
+	
+  	if(is_array($custom_icons_order) ) 
+  	{
+		foreach($custom_icons_order as $data)
+	  	{
+			$icons_order[$data['order']] = $data;
+	  	}
+  	}
+  	ksort($icons_order);
 ?>
 <!-- Section 5 "Any other wishes for your main icons?" main div Start -->
 <div class="tab5">
@@ -203,10 +231,12 @@
  <!-- mouse over text section start here -->
  <div class="row mouse_txt">
     <h4>Mouseover text</h4>
-	<p>If you’ve given your icon only one function (i.e. no pop-up where user can perform different actions) then you can define 
-here what text will be displayed if a user moves his mouse over the icon:</p>
+	<p>
+    	If you’ve given your icon only one function (i.e. no pop-up where user can perform different actions) then you can define 
+here what text will be displayed if a user moves his mouse over the icon:
+	</p>
 	<div class="space">
-	<div class="clear"></div>
+		<div class="clear"></div>
 		<div class="mouseover_field rss_section">
 			<label>RSS:</label><input name="sfsi_rss_MouseOverText" value="<?php echo ($option5['sfsi_rss_MouseOverText']!='') ?  $option5['sfsi_rss_MouseOverText'] : '' ;?>" type="text" />
 		</div>
@@ -255,40 +285,47 @@ here what text will be displayed if a user moves his mouse over the icon:</p>
 			<label>Share:</label>
 			<input name="sfsi_share_MouseOverText" value="<?php //echo ($option5['sfsi_share_MouseOverText']!='') ?  $option5['sfsi_share_MouseOverText'] : '' ;?>" type="text" />
 		</div>
-                </div> -->
+		</div> -->
+        <div class="clear"> </div>  
+		<div class="custom_m">
+        	<?php 
+                $sfsiMouseOverTexts =  unserialize($option5['sfsi_custom_MouseOverTexts']);
+                $count = 1; for($i=$first_key; $i <= $endkey; $i++) :
+            ?>
+            <?php if(!empty( $icons[$i])) : ?>
+                
+                <div class="mouseover_field custom_section sfsiICON_<?php echo $i; ?>">
+                    <label>Custom <?php echo $count; ?>:</label>
+                    <input name="sfsi_custom_MouseOverTexts[]" value="<?php echo (isset($sfsiMouseOverTexts[$i]) && $sfsiMouseOverTexts[$i]!='') ?sanitize_text_field($sfsiMouseOverTexts[$i]) : '' ;?>" type="text" file-id="<?php echo $i; ?>" />
+                </div>
+                  
+                <?php if($count%2==0): ?>
+                
                 <div class="clear"> </div>  
-                <div class="custom_m">
-                   
-                 <?php 
-                    $sfsiMouseOverTexts=  unserialize($option5['sfsi_custom_MouseOverTexts']);
-                    $count=1; for($i=$first_key;$i<=$endkey;$i++) : ?> 
-                 <?php if(!empty( $icons[$i])) : ?>
-                    
-                    <div class="mouseover_field custom_section sfsiICON_<?php echo $i; ?>">
-			<label>Custom <?php echo $count; ?>:</label>
-			<input name="sfsi_custom_MouseOverTexts[]" value="<?php echo (isset($sfsiMouseOverTexts[$i]) && $sfsiMouseOverTexts[$i]!='') ?  $sfsiMouseOverTexts[$i] : '' ;?>" type="text" file-id="<?php echo $i; ?>" />
-                    </div>
-                      
-                      <?php if($count%2==0): ?>
-                    
-                    <div class="clear"> </div>  
-		<?php endif; ?>
-               <?php $count++; endif; endfor; ?>
+            <?php endif; ?>
+            <?php $count++; endif; endfor; ?>
 		</div>
 		
 	</div>
 
-	</div> <!-- END mouse over text section -->
-     <!-- SAVE BUTTON SECTION   --> 
-     <div class="save_button">
+	</div>
+	<!-- END mouse over text section -->
+
+    <!-- SAVE BUTTON SECTION   --> 
+    <div class="save_button">
          <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
          <?php  $nonce = wp_create_nonce("update_step5"); ?>
          <a href="javascript:;" id="sfsi_save5" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
-     </div><!-- END SAVE BUTTON SECTION   -->
-     <a class="sfsiColbtn closeSec" href="javascript:;" >Collapse area</a>
-     <label class="closeSec"></label>
-       <!-- ERROR AND SUCCESS MESSAGE AREA-->
-     <p class="red_txt errorMsg" style="display:none"> </p>
-     <p class="green_txt sucMsg" style="display:none"> </p>
-     <div class="clear"></div>
-</div><!-- END Section 5 "Any other wishes for your main icons?"-->
+    </div>
+    <!-- END SAVE BUTTON SECTION   -->
+    
+    <a class="sfsiColbtn closeSec" href="javascript:;" >Collapse area</a>
+    <label class="closeSec"></label>
+        
+    <!-- ERROR AND SUCCESS MESSAGE AREA-->
+    <p class="red_txt errorMsg" style="display:none"> </p>
+    <p class="green_txt sucMsg" style="display:none"> </p>
+    <div class="clear"></div>
+    
+</div>
+<!-- END Section 5 "Any other wishes for your main icons?"-->

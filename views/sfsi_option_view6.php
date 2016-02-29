@@ -1,6 +1,24 @@
 <?php
-/* unserialize all saved option for  section 6 options */
-    $option6=  unserialize(get_option('sfsi_section6_options',false));
+	/* unserialize all saved option for  section 6 options */
+    $option6 =  unserialize(get_option('sfsi_section6_options',false));
+	
+	/**
+	 * Sanitize, escape and validate values
+	 */
+	$option6['sfsi_show_Onposts'] 		= sanitize_text_field($option6['sfsi_show_Onposts']);
+	$option6['sfsi_show_Onbottom'] 		= sanitize_text_field($option6['sfsi_show_Onbottom']);
+	$option6['sfsi_icons_postPositon'] 	= sanitize_text_field($option6['sfsi_icons_postPositon']);
+	$option6['sfsi_icons_alignment'] 	= sanitize_text_field($option6['sfsi_icons_alignment']);
+	$option6['sfsi_rss_countsDisplay'] 	= sanitize_text_field($option6['sfsi_rss_countsDisplay']);
+	$option6['sfsi_textBefor_icons'] 	= sanitize_text_field($option6['sfsi_textBefor_icons']);
+	$option6['sfsi_icons_DisplayCounts']= sanitize_text_field($option6['sfsi_icons_DisplayCounts']);
+	$option6['sfsi_rectsub'] 			= sanitize_text_field($option6['sfsi_rectsub']);
+	$option6['sfsi_rectfb'] 			= sanitize_text_field($option6['sfsi_rectfb']);
+	$option6['sfsi_rectgp'] 			= sanitize_text_field($option6['sfsi_rectgp']);
+	$option6['sfsi_rectshr'] 			= sanitize_text_field($option6['sfsi_rectshr']);
+	$option6['sfsi_recttwtr'] 			= sanitize_text_field($option6['sfsi_recttwtr']);
+	$option6['sfsi_rectpinit'] 			= sanitize_text_field($option6['sfsi_rectpinit']);
+	
 	if(!isset($option6['sfsi_rectsub']))
 	{
 		$option6['sfsi_rectsub'] = 'no';

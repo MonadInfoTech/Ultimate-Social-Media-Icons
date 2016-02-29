@@ -1,13 +1,60 @@
 <?php
-  /* unserialize all saved option for  section 4 options */
+  	/* unserialize all saved option for  section 4 options */
     $option4 =  unserialize(get_option('sfsi_section4_options',false));
+	$option2 =  unserialize(get_option('sfsi_section2_options',false));
 	if(!isset($option4['sfsi_facebook_mypageCounts']))
 	{
 		$option4['sfsi_facebook_mypageCounts'] = '';
 	}
-    $option2 =  unserialize(get_option('sfsi_section2_options',false));
-    $counts = sfsi_getCounts(); /* fetch counts for admin sections */
-    /* check for email icon display */
+    
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option4['sfsi_display_counts'] 		= sanitize_text_field($option4['sfsi_display_counts']);
+	$option4['sfsi_email_countsDisplay'] 	= sanitize_text_field($option4['sfsi_email_countsDisplay']);
+	$option4['sfsi_email_countsFrom'] 		= sanitize_text_field($option4['sfsi_email_countsFrom']);
+	$option4['sfsi_email_manualCounts'] 	= intval($option4['sfsi_email_manualCounts']);
+	$option4['sfsi_rss_countsDisplay'] 		= sanitize_text_field($option4['sfsi_rss_countsDisplay']);
+	$option4['sfsi_rss_manualCounts'] 		= intval($option4['sfsi_rss_manualCounts']);
+	
+	$option4['sfsi_facebook_countsDisplay'] = sanitize_text_field($option4['sfsi_facebook_countsDisplay']);
+	$option4['sfsi_facebook_countsFrom'] 	= sanitize_text_field($option4['sfsi_facebook_countsFrom']);
+	$option4['sfsi_facebook_mypageCounts'] 	= @sfsi_sanitize_field($option4['sfsi_facebook_mypageCounts']);
+	$option4['sfsi_facebook_manualCounts'] 	= intval($option4['sfsi_facebook_manualCounts']);
+	
+	$option4['sfsi_twitter_countsDisplay'] 	= sanitize_text_field($option4['sfsi_twitter_countsDisplay']);
+	$option4['sfsi_twitter_countsFrom'] 	= sanitize_text_field($option4['sfsi_twitter_countsFrom']);
+	$option4['sfsi_twitter_manualCounts'] 	= intval($option4['sfsi_twitter_manualCounts']);
+	$option4['tw_consumer_key'] 			= @sfsi_sanitize_field($option4['tw_consumer_key']);
+	$option4['tw_consumer_secret'] 			= @sfsi_sanitize_field($option4['tw_consumer_secret']);
+	$option4['tw_oauth_access_token'] 		= @sfsi_sanitize_field($option4['tw_oauth_access_token']);
+	$option4['tw_oauth_access_token_secret']= @sfsi_sanitize_field($option4['tw_oauth_access_token_secret']);
+	
+	$option4['sfsi_google_countsDisplay'] 	= sanitize_text_field($option4['sfsi_google_countsDisplay']);
+	$option4['sfsi_google_countsFrom'] 		= sanitize_text_field($option4['sfsi_google_countsFrom']);
+	$option4['sfsi_google_manualCounts'] 	= intval($option4['sfsi_google_manualCounts']);
+	$option4['sfsi_google_api_key'] 		= @sfsi_sanitize_field($option4['sfsi_google_api_key']);
+	
+	$option4['sfsi_youtube_countsDisplay'] 	= sanitize_text_field($option4['sfsi_youtube_countsDisplay']);
+	$option4['sfsi_youtube_countsFrom'] 	= sanitize_text_field($option4['sfsi_youtube_countsFrom']);
+	$option4['sfsi_youtubeusernameorid'] 	= @sanitize_text_field($option4['sfsi_youtubeusernameorid']);
+	$option4['sfsi_youtube_manualCounts'] 	= intval($option4['sfsi_youtube_manualCounts']);
+	$option4['sfsi_youtube_user'] 			= @sfsi_sanitize_field($option4['sfsi_youtube_user']);
+	$option4['sfsi_youtube_channelId'] 		= @sfsi_sanitize_field($option4['sfsi_youtube_channelId']);
+	
+	$option4['sfsi_instagram_countsFrom'] 	= sanitize_text_field($option4['sfsi_instagram_countsFrom']);
+	$option4['sfsi_instagram_countsDisplay']= sanitize_text_field($option4['sfsi_instagram_countsDisplay']);
+	$option4['sfsi_instagram_manualCounts'] = intval($option4['sfsi_instagram_manualCounts']);
+	$option4['sfsi_instagram_User'] 		= @sfsi_sanitize_field($option4['sfsi_instagram_User']);
+	
+	$option4['sfsi_pinterest_manualCounts'] = intval($option4['sfsi_pinterest_manualCounts']);
+	$option4['sfsi_shares_manualCounts'] 	= intval($option4['sfsi_shares_manualCounts']);
+	$option4['sfsi_linkedIn_manualCounts'] 	= intval($option4['sfsi_linkedIn_manualCounts']); 
+	
+    /* fetch counts for admin sections */
+    $counts = sfsi_getCounts();
+	
+	/* check for email icon display */
     $email_image="email.png";
     if($option2['sfsi_rss_icons']=="sfsi")
     {

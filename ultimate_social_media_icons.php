@@ -98,7 +98,7 @@ function ultimatefbmetatags()
 	$metarequest = get_option("adding_tags");
 	$post_id = get_the_ID();
 	
-	$feed_id = get_option('sfsi_feed_id');
+	$feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
 	$verification_code = get_option('sfsi_verificatiom_code');
 	if(!empty($feed_id) && !empty($verification_code) && $verification_code != "no" )
 	{
@@ -174,8 +174,8 @@ function ultimatefbmetatags()
 //Get verification code
 if(is_admin())
 {	
-	$code = get_option('sfsi_verificatiom_code');
-	$feed_id = get_option('sfsi_feed_id');
+	$code = sanitize_text_field(get_option('sfsi_verificatiom_code'));
+	$feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
 	if(empty($code) && !empty($feed_id))
 	{
 		add_action("init", "sfsi_getverification_code");
@@ -183,7 +183,7 @@ if(is_admin())
 }
 function sfsi_getverification_code()
 {
-	$feed_id = get_option('sfsi_feed_id');
+	$feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
 	$curl = curl_init();  
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
@@ -227,7 +227,7 @@ add_action("wp_head", "addStyleFunction");
 function addStyleFunction()
 {
 	$option8 = unserialize(get_option('sfsi_section8_options',false));
-	$sfsi_feediid = get_option('sfsi_feed_id');
+	$sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
 	$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
 	echo $return = '';
 	?>
@@ -253,21 +253,21 @@ function addStyleFunction()
 				}
 			}
 		</script>
-    	<style type="text/css" aria-selected="true">
+        <style type="text/css" aria-selected="true">
 			.sfsi_subscribe_Popinner
 			{
-				<?php if($option8['sfsi_form_adjustment'] == 'yes') : ?>
+				<?php if(sanitize_text_field($option8['sfsi_form_adjustment']) == 'yes') : ?>
 				width: 100% !important;
 				height: auto !important;
 				<?php else: ?>
-				width: <?php echo $option8['sfsi_form_width'] ?>px !important;
-				height: <?php echo $option8['sfsi_form_height'] ?>px !important;
+				width: <?php echo intval($option8['sfsi_form_width']) ?>px !important;
+				height: <?php echo intval($option8['sfsi_form_height']) ?>px !important;
 				<?php endif;?>
-				<?php if($option8['sfsi_form_border'] == 'yes') : ?>
-				border: <?php echo $option8['sfsi_form_border_thickness']."px solid ".$option8['sfsi_form_border_color'];?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_border']) == 'yes') : ?>
+				border: <?php echo intval($option8['sfsi_form_border_thickness'])."px solid ".sanitize_hex_color($option8['sfsi_form_border_color']);?> !important;
 				<?php endif;?>
 				padding: 18px 0px !important;
-				background-color: <?php echo $option8['sfsi_form_background'] ?> !important;
+				background-color: <?php echo sanitize_hex_color($option8['sfsi_form_background']) ?> !important;
 			}
 			.sfsi_subscribe_Popinner form
 			{
@@ -275,15 +275,15 @@ function addStyleFunction()
 			}
 			.sfsi_subscribe_Popinner h5
 			{
-				font-family: <?php echo $option8['sfsi_form_heading_font'] ?> !important;
-				<?php if($option8['sfsi_form_heading_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_heading_fontstyle'] ?> !important;
+				font-family: <?php echo sanitize_text_field($option8['sfsi_form_heading_font']) ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_heading_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_heading_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_heading_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_heading_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_heading_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_heading_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_heading_fontalign'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_heading_fontcolor']) ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_heading_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_heading_fontalign']) ?> !important;
 				margin: 0 0 10px !important;
     			padding: 0 !important;
 			}
@@ -299,75 +299,72 @@ function addStyleFunction()
 			}
 			.sfsi_subscribe_Popinner input[type=email]
 			{
-				font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
-				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				font-family: <?php echo sanitize_text_field($option8['sfsi_form_field_font']); ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_field_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
 			.sfsi_subscribe_Popinner input[type=email]::-webkit-input-placeholder {
-			   font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
-				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+			   	font-family: <?php echo sanitize_text_field($option8['sfsi_form_field_font']); ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_field_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
-			
 			.sfsi_subscribe_Popinner input[type=email]:-moz-placeholder { /* Firefox 18- */
-			    font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
-				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+			    font-family: <?php echo sanitize_text_field($option8['sfsi_form_field_font']); ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_field_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
-			
 			.sfsi_subscribe_Popinner input[type=email]::-moz-placeholder {  /* Firefox 19+ */
-			    font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
-				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+			    font-family: <?php echo sanitize_text_field($option8['sfsi_form_field_font']); ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_field_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
-			
 			.sfsi_subscribe_Popinner input[type=email]:-ms-input-placeholder {  
-			  	font-family: <?php echo $option8['sfsi_form_field_font'] ?> !important;
-				<?php if($option8['sfsi_form_field_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+			  	font-family: <?php echo sanitize_text_field($option8['sfsi_form_field_font']); ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_field_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_field_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_field_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_field_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_field_fontalign'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
 			.sfsi_subscribe_Popinner input[type=submit]
 			{
-				font-family: <?php echo $option8['sfsi_form_button_font'] ?> !important;
-				<?php if($option8['sfsi_form_button_fontstyle'] != 'bold') {?>
-				font-style: <?php echo $option8['sfsi_form_button_fontstyle'] ?> !important;
+				font-family: <?php echo sanitize_text_field($option8['sfsi_form_button_font']); ?> !important;
+				<?php if(sanitize_text_field($option8['sfsi_form_button_fontstyle']) != 'bold') {?>
+				font-style: <?php echo sanitize_text_field($option8['sfsi_form_button_fontstyle']) ?> !important;
 				<?php } else{ ?>
-				font-weight: <?php echo $option8['sfsi_form_button_fontstyle'] ?> !important;
+				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_button_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo $option8['sfsi_form_button_fontcolor'] ?> !important;
-				font-size: <?php echo $option8['sfsi_form_button_fontsize']."px" ?> !important;
-				text-align: <?php echo $option8['sfsi_form_button_fontalign'] ?> !important;
-				background-color: <?php echo $option8['sfsi_form_button_background'] ?> !important;
+				color: <?php echo sanitize_hex_color($option8['sfsi_form_button_fontcolor']); ?> !important;
+				font-size: <?php echo intval($option8['sfsi_form_button_fontsize'])."px" ?> !important;
+				text-align: <?php echo sanitize_text_field($option8['sfsi_form_button_fontalign']); ?> !important;
+				background-color: <?php echo sanitize_hex_color($option8['sfsi_form_button_background']); ?> !important;
 			}
 		</style>
 	<?php

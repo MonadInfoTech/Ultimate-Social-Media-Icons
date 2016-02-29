@@ -1,7 +1,23 @@
 <?php
-/* unserialize all saved option for  section 7 options */
-    $option7=  unserialize(get_option('sfsi_section7_options',false));
-   
+	/* unserialize all saved option for  section 7 options */
+    $option7 =  unserialize(get_option('sfsi_section7_options',false));
+	
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option7['sfsi_popup_text'] 			= sanitize_text_field($option7['sfsi_popup_text']);
+	$option7['sfsi_popup_background_color'] = sanitize_hex_color($option7['sfsi_popup_background_color']);
+	$option7['sfsi_popup_border_color'] 	= sanitize_hex_color($option7['sfsi_popup_border_color']);
+	$option7['sfsi_popup_border_thickness'] = intval($option7['sfsi_popup_border_thickness']);
+	$option7['sfsi_popup_border_shadow'] 	= sanitize_text_field($option7['sfsi_popup_border_shadow']);
+	$option7['sfsi_popup_font'] 			= sanitize_text_field($option7['sfsi_popup_font']);
+	$option7['sfsi_popup_fontSize'] 		= intval($option7['sfsi_popup_fontSize']);
+	$option7['sfsi_popup_fontStyle'] 		= sanitize_text_field($option7['sfsi_popup_fontStyle']);
+	$option7['sfsi_popup_fontColor'] 		= sanitize_hex_color($option7['sfsi_popup_fontColor']);
+	$option7['sfsi_Show_popupOn'] 			= sanitize_text_field($option7['sfsi_Show_popupOn']);
+	$option7['sfsi_Shown_pop'] 				= sanitize_text_field($option7['sfsi_Shown_pop']);
+	$option7['sfsi_Shown_popupOnceTime'] 	= intval($option7['sfsi_Shown_popupOnceTime']);
+	
 ?>
 <!-- Section 7 "Do you want to display a pop-up, asking people to subscribe?" main div Start -->
 <div class="tab7">
@@ -9,7 +25,7 @@
 <!-- icons preview section -->
 <div class="like_pop_box">
 	<div class="sfsi_Popinner">
-<h2>Enjoy this site? Please follow and like us!</h2>
+	<h2>Enjoy this site? Please follow and like us!</h2>
 	<ul class="like_icon sfsi_sample_icons">
     	 <li class="rss_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/rss.png" alt="RSS" /><span class="sfsi_Cdisplay" id="sfsi_rss_countsDisplay">12k</span></div></li>
         <li class="email_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/<?php echo $email_image; ?>" alt="Email" class="icon_img" /><span class="sfsi_Cdisplay" id="sfsi_email_countsDisplay">12k</span></div></li>
@@ -20,15 +36,15 @@
         <li class="youtube_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/youtube.png" alt="YouTube" /><span class="sfsi_Cdisplay" id="sfsi_youtube_countsDisplay">12k</span></div></li>
         <li class="pinterest_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/pinterest.png" alt="Pinterest" /><span class="sfsi_Cdisplay" id="sfsi_pinterest_countsDisplay">12k</span></div></li>
         <li class="linkedin_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/linked_in.png" alt="Linked In" /><span class="sfsi_Cdisplay" id="sfsi_linkedIn_countsDisplay">12k</span></div></li>
-	<li class="instagram_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/instagram.png" alt="Instagram" /><span class="sfsi_Cdisplay" id="sfsi_instagram_countsDisplay">12k</span></div></li>
-    <?php
-		if(isset($icons) && !empty($icons))
-		{
-			foreach($icons as $icn =>$img)
+		<li class="instagram_section"><div><img src="<?php echo SFSI_PLUGURL ?>images/instagram.png" alt="Instagram" /><span class="sfsi_Cdisplay" id="sfsi_instagram_countsDisplay">12k</span></div></li>
+    	<?php
+			if(isset($icons) && !empty($icons))
 			{
-				echo '<li class="custom_section sfsiICON_'.$icn.'"  element-id="'.$icn.'" ><div><img src="'.$img.'" alt="Custom Icon" class="sfcm" /><span class="sfsi_Cdisplay">12k</span></div></li>';
+				foreach($icons as $icn =>$img)
+				{
+					echo '<li class="custom_section sfsiICON_'.$icn.'"  element-id="'.$icn.'" ><div><img src="'.esc_url($img).'" alt="Custom Icon" class="sfcm" /><span class="sfsi_Cdisplay">12k</span></div></li>';
+				}
 			}
-		}
 		?>
 	</ul>  
 </div>
@@ -178,7 +194,7 @@
          <?php  $nonce = wp_create_nonce("update_step7"); ?>
 	    <a href="javascript:;" id="sfsi_save7" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
 	</div><!-- END SAVE BUTTON SECTION   -->
-	<a class="sfsiColbtn closeSec" href="javascript:;" class="closeSec">Collapse area</a>
+	<a class="sfsiColbtn closeSec" href="javascript:;">Collapse area</a>
 	<label class="closeSec"></label>
 	 <!-- ERROR AND SUCCESS MESSAGE AREA-->
 	<p class="red_txt errorMsg" style="display:none"> </p>

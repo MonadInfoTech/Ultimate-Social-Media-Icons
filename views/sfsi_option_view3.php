@@ -1,7 +1,17 @@
 <?php
-  /* unserialize all saved option for second section options */
-    $option3=  unserialize(get_option('sfsi_section3_options',false));
-   
+  	/* unserialize all saved option for second section options */
+    $option3 =  unserialize(get_option('sfsi_section3_options',false));
+	
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option3['sfsi_actvite_theme'] 		= sanitize_text_field($option3['sfsi_actvite_theme']);
+	$option3['sfsi_mouseOver'] 			= sanitize_text_field($option3['sfsi_mouseOver']);
+	$option3['sfsi_mouseOver_effect'] 	= sanitize_text_field($option3['sfsi_mouseOver_effect']);
+	$option3['sfsi_shuffle_icons'] 		= sanitize_text_field($option3['sfsi_shuffle_icons']);
+	$option3['sfsi_shuffle_Firstload'] 	= sanitize_text_field($option3['sfsi_shuffle_Firstload']);
+	$option3['sfsi_shuffle_interval'] 	= sanitize_text_field($option3['sfsi_shuffle_interval']);
+	$option3['sfsi_shuffle_intervalTime'] = intval($option3['sfsi_shuffle_intervalTime']);   
 ?>
 <!-- Section 3 "What design & animation do you want to give your icons?" main div Start -->
 <div class="tab3">
@@ -182,15 +192,20 @@
                       
     </div>
     
-	   <!-- SAVE BUTTON SECTION   --> 
+	<!-- SAVE BUTTON SECTION   --> 
 	<div class="save_button tab_3_sav">
 	     <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
          <?php  $nonce = wp_create_nonce("update_step3"); ?>
 	     <a href="javascript:;" id="sfsi_save3" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
-	</div>   <!-- END SAVE BUTTON SECTION   --> 
-	<a class="sfsiColbtn closeSec" href="javascript:;" class="closeSec">Collapse area</a>
-        <label class="closeSec"></label>
-	<!-- ERROR AND SUCCESS MESSAGE AREA-->
+	</div>
+    <!-- END SAVE BUTTON SECTION   --> 
+	
+    <a class="sfsiColbtn closeSec" href="javascript:;">Collapse area</a>
+	<label class="closeSec"></label>
+	
+    <!-- ERROR AND SUCCESS MESSAGE AREA-->
 	<p class="red_txt errorMsg" style="display:none"> </p>
 	<p class="green_txt sucMsg" style="display:none"> </p>
-</div><!-- END Section 3 "What design & animation do you want to give your icons?" main div  -->
+
+</div>
+<!-- END Section 3 "What design & animation do you want to give your icons?" main div  -->

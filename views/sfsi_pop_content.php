@@ -20,27 +20,27 @@ define('rss_readmore_text2', $rss_readmore_text2);
 <!-- Custom icon upload  Pop-up {Change by Monad}-->
 <div class="pop-overlay upload-overlay" >
      
-    <form id="customIconFrm" method="post" action="<?php echo admin_url( 'admin-ajax.php?action=UploadIcons' ); ?>" enctype="multipart/form-data" >
+	<form id="customIconFrm" method="post" action="<?php echo admin_url( 'admin-ajax.php?action=UploadIcons' ); ?>" enctype="multipart/form-data" >
         <div class="pop_up_box upload_pop_up" id="tab1" style="min-height: 100px;">
             <img src="<?php echo SFSI_PLUGURL; ?>images/close.jpg" id="close_Uploadpopup" class="sfsicloseBtn" />
-	    <div class="sfsi_uploader">
-            <div class="sfsi_popupcntnr">
-            	<h3>Steps:</h3>
-                <ul class="flwstep">
-                	<li>1. Click on <span> << </span> <span> Upload </span> <span> >> </span> below</li>
-                    <li>2. Upload the icon into the media gallery</li>
-					<li>3. Click on  <span> << </span> <span> Insert into post </span> <span> >> </span> </li>
-                </ul>    
-                <div class="upldbtn"><input name=""  type="button" value="Upload" class="upload_butt" onclick="upload_image_icon(this)" /></div>
+            <div class="sfsi_uploader">
+                <div class="sfsi_popupcntnr">
+                    <h3>Steps:</h3>
+                    <ul class="flwstep">
+                        <li>1. Click on <span> << </span> <span> Upload </span> <span> >> </span> below</li>
+                        <li>2. Upload the icon into the media gallery</li>
+                        <li>3. Click on  <span> << </span> <span> Insert into post </span> <span> >> </span> </li>
+                    </ul>    
+                    <div class="upldbtn"><input name=""  type="button" value="Upload" class="upload_butt" onclick="upload_image_icon(this)" /></div>
+                </div>
             </div>
+          
+            <input type="hidden" name="total_cusotm_icons" value="<?php echo $count;?>" id="total_cusotm_icons" class="mediam_txt" />
+            <!--<a href="javascript:;" id="close_Uploadpopup" title="Done">Done</a>-->
+            <label style="color:red" class="uperror"></label>
         </div>
-      
-        <input type="hidden" name="total_cusotm_icons" value="<?php echo $count;?>" id="total_cusotm_icons" class="mediam_txt" />
-        <!--<a href="javascript:;" id="close_Uploadpopup" title="Done">Done</a>-->
-	<label style="color:red" class="uperror"></label>
-	</div>
 	
-   </form>
+   	</form>
    
    <script type="text/javascript">
    function upload_image_icon(ref)

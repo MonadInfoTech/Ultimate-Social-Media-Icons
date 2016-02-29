@@ -3,15 +3,11 @@
 add_action('wp_ajax_UploadSkins','sfsi_UploadSkins');
 function sfsi_UploadSkins()
 {
-	if ( defined('ABSPATH') )
-     	require_once(ABSPATH . 'wp-load.php');
-    else
-        require_once('../wp-load.php');
 	extract($_REQUEST);
 	$upload_dir = wp_upload_dir();
 	
 	$ThumbSquareSize 		= 51; //Thumbnail will be 57X57
-	$Quality 			= 90; //jpeg quality
+	$Quality 				= 90; //jpeg quality
 	$DestinationDirectory   = $upload_dir['path'].'/'; //specify upload directory ends with / (slash)
 	$AcceessUrl             = $upload_dir['url'].'/';
 	$ThumbPrefix			= "cmicon_";
@@ -37,27 +33,26 @@ function sfsi_UploadSkins()
 			$iconName = str_replace(' ','-',strtolower($iconName)); // get image name
 			$ImageType = 'image/'.$ImageExt;
 			
-			 switch(strtolower($ImageType))
-			 {
-					case 'image/png':
-							// Create a new image from file 
-							$CreatedImage =  imagecreatefrompng($custom_imgurl);
-							break;
-					case 'image/gif':
-							$CreatedImage =  imagecreatefromgif($custom_imgurl);
-							break;
-					case 'image/jpg':
-							$CreatedImage = imagecreatefromjpeg($custom_imgurl);
-							break;					
-					case 'image/jpeg':
-					case 'image/pjpeg':
-							$CreatedImage = imagecreatefromjpeg($custom_imgurl);
-							break;
-					default:
-							 die(json_encode(array('res'=>'type_error'))); //output error and exit
+			switch(strtolower($ImageType))
+			{
+				case 'image/png':
+						// Create a new image from file 
+						$CreatedImage =  imagecreatefrompng($custom_imgurl);
+						break;
+				case 'image/gif':
+						$CreatedImage =  imagecreatefromgif($custom_imgurl);
+						break;
+				case 'image/jpg':
+						$CreatedImage = imagecreatefromjpeg($custom_imgurl);
+						break;					
+				case 'image/jpeg':
+				case 'image/pjpeg':
+						$CreatedImage = imagecreatefromjpeg($custom_imgurl);
+						break;
+				default:
+						 die(json_encode(array('res'=>'type_error'))); //output error and exit
 			}
 	
-			
 			$ImageName = preg_replace("/\\.[^.\\s]{3,4}$/", "", $iconName);
 			
 			$NewIconName = "/custom_icon".$key.'.'.$ImageExt;
@@ -70,12 +65,11 @@ function sfsi_UploadSkins()
 				$AccressImagePath=$AcceessUrl.$NewIconName;                                        
 				update_option($key,$AccressImagePath);
 				die(json_encode(array('res'=>'success')));
-		   }
-		   else
-		   {        
+			}
+			else
+			{        
 			   die(json_encode(array('res'=>'thumb_error')));
-		   }
-			
+			}
 		}	
 	}
 }
@@ -84,10 +78,6 @@ function sfsi_UploadSkins()
 add_action('wp_ajax_DeleteSkin','sfsi_DeleteSkin');
 function sfsi_DeleteSkin()
 {
-	if ( defined('ABSPATH') )
-     	require_once(ABSPATH . 'wp-load.php');
-    else
-        require_once('../wp-load.php');
 	$upload_dir = wp_upload_dir();
 	
 	if($_REQUEST['action'] == 'DeleteSkin' && isset($_REQUEST['iconname']) && !empty($_REQUEST['iconname']))
@@ -113,6 +103,8 @@ function sfsi_DeleteSkin()
 add_action('wp_ajax_Iamdone','sfsi_Iamdone');
 function sfsi_Iamdone()
 {
+	 $return = '';
+	 
 	 if(get_option("rss_skin"))
 	 {
 		$icon = get_option("rss_skin");
@@ -211,11 +203,6 @@ add_action('wp_ajax_UploadIcons','sfsi_UploadIcons');
 /* uplaod custom icon {change by monad}*/
 function sfsi_UploadIcons()
 {
-	//require(ABSPATH.'/wp-load.php');
-	if ( defined('ABSPATH') )
-     	require_once(ABSPATH . 'wp-load.php');
-    else
-        require_once('../wp-load.php');
 	extract($_POST);
 	$upload_dir = wp_upload_dir();
 	
@@ -307,13 +294,13 @@ function sfsi_deleteIcons()
    if(isset($_POST['icon_name']) && !empty($_POST['icon_name']))
    {
        /* get icons details to delete it from plugin folder */ 
-       $custom_icon=explode('_',$_POST['icon_name']);  
-       $sec_options1= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : array() ;
-       $sec_options2= (get_option('sfsi_section2_options',false)) ? unserialize(get_option('sfsi_section2_options',false)) : array() ;
-       $up_icons= (is_array(unserialize($sec_options1['sfsi_custom_files']))) ? unserialize($sec_options1['sfsi_custom_files']) : array();
-       $icons_links= (is_array(unserialize($sec_options2['sfsi_CustomIcon_links']))) ? unserialize($sec_options2['sfsi_CustomIcon_links']) : array();
+       $custom_icon		= explode('_',$_POST['icon_name']);  
+       $sec_options1	= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : array() ;
+       $sec_options2	= (get_option('sfsi_section2_options',false)) ? unserialize(get_option('sfsi_section2_options',false)) : array() ;
+       $up_icons		= (is_array(unserialize($sec_options1['sfsi_custom_files']))) ? unserialize($sec_options1['sfsi_custom_files']) : array();
+       $icons_links		= (is_array(unserialize($sec_options2['sfsi_CustomIcon_links']))) ? unserialize($sec_options2['sfsi_CustomIcon_links']) : array();
        $icon_path=$up_icons[$custom_icon[1]];  
-        $path=  pathinfo($icon_path);      
+       $path=  pathinfo($icon_path);      
       
 	   // Changes By {Monad}
 	   /*if(is_file(SFSI_DOCROOT.'/images/custom_icons/'.$path['basename']))
@@ -323,38 +310,35 @@ function sfsi_deleteIcons()
        }*/
 	    $imgpath = parse_url($icon_path, PHP_URL_PATH);
 		if(is_file($_SERVER['DOCUMENT_ROOT'] . $imgpath))
-	   {
+		{
 		   unlink($_SERVER['DOCUMENT_ROOT'] . $imgpath);
-       }
+		}
 	   
-	if(isset($up_icons[$custom_icon[1]]))
-	{
-         unset($up_icons[$custom_icon[1]]);
+		if(isset($up_icons[$custom_icon[1]]))
+		{
+			 unset($up_icons[$custom_icon[1]]);
+			 unset($icons_links[$custom_icon[1]]);
+		}
+		else
+		{
+		  	unset($up_icons[0]);
+			unset($icons_links[0]);
+		}        
+        
+		/* update database after delete */
+	 	$sec_options1['sfsi_custom_files']=serialize($up_icons);
+        $sec_options2['sfsi_CustomIcon_links']=serialize($icons_links);
          
-         unset($icons_links[$custom_icon[1]]);
-	}
-	else
-	{
-	  unset($up_icons[0]);
-          unset($icons_links[0]);
-	}        
-         /* update database after delete */
-	 $sec_options1['sfsi_custom_files']=serialize($up_icons);
-         $sec_options2['sfsi_CustomIcon_links']=serialize($icons_links);
-         
-         end($up_icons);
-         $key=(key($up_icons))? key($up_icons) :$custom_icon[1] ;
-         $total_uploads=count($up_icons);
+        end($up_icons);
+        $key=(key($up_icons))? key($up_icons) :$custom_icon[1] ;
+        $total_uploads=count($up_icons);
          
         update_option('sfsi_section1_options',serialize($sec_options1));
         update_option('sfsi_section2_options',serialize($sec_options2));
           
-       die(json_encode(array('res'=>'success','last_index'=>$key,'total_up'=>$total_uploads)));
-   }
-    
+       	die(json_encode(array('res'=>'success','last_index'=>$key,'total_up'=>$total_uploads)));
+   } 
 }
-
-
 
 /*  This function will proportionally resize image */
 function resizeImage($CurWidth,$CurHeight,$MaxSize,$DestFolder,$SrcImage,$Quality,$ImageType)
@@ -392,11 +376,10 @@ function resizeImage($CurWidth,$CurHeight,$MaxSize,$DestFolder,$SrcImage,$Qualit
 			default:
 				return false;
 		}
-	/* Destroy image, frees memory	*/
-	if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
-	return true;
+		/* Destroy image, frees memory	*/
+		if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
+		return true;
 	}
-
 }
 
 /* This function corps image to create exact square images, no matter what its original size! */
@@ -424,7 +407,7 @@ function cropImage($CurWidth,$CurHeight,$iSize,$DestFolder,$SrcImage,$Quality,$I
 	imagesavealpha($NewCanves,true);
 	$white = imagecolorallocate($NewCanves, 255, 255, 255);
 	$alpha_channel = imagecolorallocatealpha($NewCanves, 255, 255, 255, 127); 
-        imagecolortransparent($NewCanves, $alpha_channel); 
+	imagecolortransparent($NewCanves, $alpha_channel); 
 	$maketransparent = imagecolortransparent($NewCanves,$white);
 	imagefill($NewCanves, 0, 0, $maketransparent);
 	
@@ -454,7 +437,7 @@ function cropImage($CurWidth,$CurHeight,$iSize,$DestFolder,$SrcImage,$Quality,$I
 				return false;
 		}
 		
-	/* Destroy image, frees memory	*/
+		/* Destroy image, frees memory	*/
 		if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
 		return true;
 	}

@@ -1,7 +1,40 @@
 <?php
 	/* unserialize all saved option for  section 8 options */
     $option8 = unserialize(get_option('sfsi_section8_options',false));
-	$feedId = get_option('sfsi_feed_id',false);
+	$feedId = sanitize_text_field(get_option('sfsi_feed_id',false));
+	
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option8['sfsi_form_adjustment'] 		= sanitize_text_field($option8['sfsi_form_adjustment']);
+	$option8['sfsi_form_height'] 			= intval($option8['sfsi_form_height']);
+	$option8['sfsi_form_width'] 			= intval($option8['sfsi_form_width']);
+	$option8['sfsi_form_border'] 			= sanitize_text_field($option8['sfsi_form_border']);
+	$option8['sfsi_form_border_thickness'] 	= intval($option8['sfsi_form_border_thickness']);
+	$option8['sfsi_form_border_color'] 		= sanitize_hex_color($option8['sfsi_form_border_color']);
+	$option8['sfsi_form_background'] 		= sanitize_hex_color($option8['sfsi_form_background']);
+	
+	$option8['sfsi_form_heading_text'] 		= sanitize_text_field($option8['sfsi_form_heading_text']);
+	$option8['sfsi_form_heading_font'] 		= sanitize_text_field($option8['sfsi_form_heading_font']);
+	$option8['sfsi_form_heading_fontstyle'] = sanitize_text_field($option8['sfsi_form_heading_fontstyle']);
+	$option8['sfsi_form_heading_fontcolor'] = sanitize_hex_color($option8['sfsi_form_heading_fontcolor']);
+	$option8['sfsi_form_heading_fontsize'] 	= intval($option8['sfsi_form_heading_fontsize']);
+	$option8['sfsi_form_heading_fontalign'] = sanitize_text_field($option8['sfsi_form_heading_fontalign']);
+	
+	$option8['sfsi_form_field_text'] 		= sanitize_text_field($option8['sfsi_form_field_text']);
+	$option8['sfsi_form_field_font'] 		= sanitize_text_field($option8['sfsi_form_field_font']);
+	$option8['sfsi_form_field_fontstyle'] 	= sanitize_text_field($option8['sfsi_form_field_fontstyle']);
+	$option8['sfsi_form_field_fontcolor'] 	= sanitize_hex_color($option8['sfsi_form_field_fontcolor']);
+	$option8['sfsi_form_field_fontsize'] 	= intval($option8['sfsi_form_field_fontsize']);
+	$option8['sfsi_form_field_fontalign']	= sanitize_text_field($option8['sfsi_form_field_fontalign']);
+	
+	$option8['sfsi_form_button_text'] 		= sanitize_text_field($option8['sfsi_form_button_text']);
+	$option8['sfsi_form_button_font'] 		= sanitize_text_field($option8['sfsi_form_button_font']);
+	$option8['sfsi_form_button_fontstyle'] 	= sanitize_text_field($option8['sfsi_form_button_fontstyle']);
+	$option8['sfsi_form_button_fontcolor'] 	= sanitize_hex_color($option8['sfsi_form_button_fontcolor']);
+	$option8['sfsi_form_button_fontsize'] 	= intval($option8['sfsi_form_button_fontsize']);
+	$option8['sfsi_form_button_fontalign'] 	= sanitize_text_field($option8['sfsi_form_button_fontalign']);
+	$option8['sfsi_form_button_background'] = sanitize_hex_color($option8['sfsi_form_button_background']);
 ?>
 <!-- Section 8 "Do you want to show a subscription form (increases sign ups)?" main div Start -->
 <div class="tab8">
@@ -35,7 +68,7 @@
             </ul>
             <div class="sfsi_html" style="display: none;">
             	<?php
-				$sfsi_feediid = get_option('sfsi_feed_id');
+				$sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
 				$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
 				$url = $url.$sfsi_feediid.'/8/';
 				?>

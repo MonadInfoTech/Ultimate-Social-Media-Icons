@@ -1,8 +1,53 @@
 <?php
-  /* unserialize all saved option for second section options */
-	$option4=  unserialize(get_option('sfsi_section4_options',false));
-    $option2=  unserialize(get_option('sfsi_section2_options',false));
-  
+  	/* unserialize all saved option for second section options */
+	$option4 =  unserialize(get_option('sfsi_section4_options',false));
+    $option2 =  unserialize(get_option('sfsi_section2_options',false));
+	
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option2['sfsi_rss_url'] 			= esc_url($option2['sfsi_rss_url']);
+	$option2['sfsi_rss_icons'] 			= sanitize_text_field($option2['sfsi_rss_icons']);
+	$option2['sfsi_email_url'] 			= esc_url($option2['sfsi_email_url']);
+	
+	$option2['sfsi_facebookPage_option']	= sanitize_text_field($option2['sfsi_facebookPage_option']);
+	$option2['sfsi_facebookPage_url'] 		= esc_url($option2['sfsi_facebookPage_url']);
+	$option2['sfsi_facebookLike_option']	= sanitize_text_field($option2['sfsi_facebookLike_option']);
+	$option2['sfsi_facebookShare_option'] 	= sanitize_text_field($option2['sfsi_facebookShare_option']);
+	
+	$option2['sfsi_twitter_followme'] 		= sanitize_text_field($option2['sfsi_twitter_followme']);
+	$option2['sfsi_twitter_followUserName'] = sanitize_text_field($option2['sfsi_twitter_followUserName']);
+	$option2['sfsi_twitter_aboutPage'] 		= sanitize_text_field($option2['sfsi_twitter_aboutPage']);
+	$option2['sfsi_twitter_page'] 			= sanitize_text_field($option2['sfsi_twitter_page']);
+	$option2['sfsi_twitter_pageURL'] 		= esc_url($option2['sfsi_twitter_pageURL']);
+	$option2['sfsi_twitter_aboutPageText'] 	= sanitize_text_field($option2['sfsi_twitter_aboutPageText']);
+	
+	$option2['sfsi_google_page'] 			= sanitize_text_field($option2['sfsi_google_page']);
+	$option2['sfsi_google_pageURL'] 		= esc_url($option2['sfsi_google_pageURL']);
+	$option2['sfsi_googleLike_option'] 		= sanitize_text_field($option2['sfsi_googleLike_option']);
+	$option2['sfsi_googleShare_option'] 	= sanitize_text_field($option2['sfsi_googleShare_option']);
+	
+	$option2['sfsi_youtube_pageUrl'] 		= esc_url($option2['sfsi_youtube_pageUrl']);
+	$option2['sfsi_youtube_page'] 			= sanitize_text_field($option2['sfsi_youtube_page']);
+	$option2['sfsi_youtube_follow'] 		= sanitize_text_field($option2['sfsi_youtube_follow']);
+	$option2['sfsi_ytube_user'] 			= sanitize_text_field($option2['sfsi_ytube_user']);
+	
+	$option2['sfsi_pinterest_page'] 		= sanitize_text_field($option2['sfsi_pinterest_page']);
+	$option2['sfsi_pinterest_pageUrl']		= esc_url($option2['sfsi_pinterest_pageUrl']);
+	$option2['sfsi_pinterest_pingBlog'] 	= sanitize_text_field($option2['sfsi_pinterest_pingBlog']);
+	$option2['sfsi_instagram_pageUrl']		= esc_url($option2['sfsi_instagram_pageUrl']);
+	
+	$option2['sfsi_linkedin_page'] 			= sanitize_text_field($option2['sfsi_linkedin_page']);
+	$option2['sfsi_linkedin_pageURL'] 		= esc_url($option2['sfsi_linkedin_pageURL']);
+	$option2['sfsi_linkedin_follow'] 		= sanitize_text_field($option2['sfsi_linkedin_follow']);
+	$option2['sfsi_linkedin_followCompany']	= intval($option2['sfsi_linkedin_followCompany']);
+	$option2['sfsi_linkedin_SharePage'] 	= sanitize_text_field($option2['sfsi_linkedin_SharePage']);
+	$option2['sfsi_linkedin_recommendBusines'] = sanitize_text_field($option2['sfsi_linkedin_recommendBusines']);
+	$option2['sfsi_linkedin_recommendCompany'] = sanitize_text_field($option2['sfsi_linkedin_recommendCompany']);
+	$option2['sfsi_linkedin_recommendProductId']= intval($option2['sfsi_linkedin_recommendProductId']);
+	
+	$option4['sfsi_youtubeusernameorid'] 	= @sanitize_text_field($option4['sfsi_youtubeusernameorid']);
+	$option4['sfsi_ytube_chnlid'] 			= @strip_tags(trim($option4['sfsi_ytube_chnlid']));
 ?>
 <!-- Section 2 "What do you want the icons to do?" main div Start -->
 <div class="tab2">
@@ -19,7 +64,7 @@
     
     <!-- EMAIL ICON -->
     <?php
-		$feedId = get_option('sfsi_feed_id',false);
+		$feedId = sanitize_text_field(get_option('sfsi_feed_id',false));
 		$connectToFeed = "http://www.specificfeeds.com/?".base64_encode("userprofile=wordpress&feed_id=".$feedId);
 	?>
     <div class="row email_section">
@@ -111,7 +156,7 @@
             </ul>
             <div class="cstmutbtxtwpr">
             	<?php
-                $sfsi_youtubeusernameorid = $option4['sfsi_youtubeusernameorid'];
+                	$sfsi_youtubeusernameorid = $option4['sfsi_youtubeusernameorid'];
 				?>
             	<div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
                 	<p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option2['sfsi_ytube_user']) && $option2['sfsi_ytube_user']!='') ?  $option2['sfsi_ytube_user'] : '' ;?>" placeholder="Youtube username" class="add" /></p>
@@ -178,32 +223,42 @@
     </div>
     <!-- share end -->
     <!-- Custom icon section start here -->
-   <div class="custom-links custom_section">
+   	<div class="custom-links custom_section">
 	<?php 
 	  $costom_links=  unserialize($option2['sfsi_CustomIcon_links']);
-	  $count=1; for($i=$first_key;$i<=$endkey;$i++) : ?> 
-       <?php if(!empty( $icons[$i])) : ?>
-       <div class="row  sfsiICON_<?php echo $i; ?> cm_lnk">
-       
-       <h2 class="custom"><span class="customstep2-img"><img   src="<?php echo (!empty($icons[$i])) ?  $icons[$i] : SFSI_PLUGURL.'images/custom.png';?>" id="CImg_<?php echo $new_element; ?>" style="border-radius:48%"  /> </span> <span class="sfsiCtxt">Custom <?php echo $count; ?></span></h2>
-	   <div class="inr_cont ">
-	   <p>Where do you want this icon to link to?</p> 
-	 
-	   <p class="radio_section fb_url custom_section cus_link " ><label>Link :</label><input name="sfsi_CustomIcon_links[]" type="text" value="<?php echo (isset($costom_links[$i]) && $costom_links[$i]!='') ?  $costom_links[$i] : '' ;?>" placeholder="http://" class="add" file-id="<?php echo $i; ?>" /></p>
-	
-	   </div>
-       </div>
-	 <?php $count++; endif; endfor; ?>
-     </div> <!-- END Custom icon section here -->
+	  $count=1; for($i=$first_key;$i<=$endkey;$i++) :
+	?> 
+	<?php if(!empty( $icons[$i])) : ?>
+    	<div class="row  sfsiICON_<?php echo $i; ?> cm_lnk">
+       		<h2 class="custom">
+            	<span class="customstep2-img">
+                	<img src="<?php echo (!empty($icons[$i])) ? esc_url($icons[$i]) : SFSI_PLUGURL.'images/custom.png';?>" id="CImg_<?php echo $new_element; ?>" style="border-radius:48%"  />
+                </span>
+                <span class="sfsiCtxt">Custom <?php echo $count; ?></span>
+            </h2>
+	   		<div class="inr_cont ">
+	   			<p>Where do you want this icon to link to?</p> 
+	   			<p class="radio_section fb_url custom_section cus_link " >
+                	<label>Link :</label>
+                    <input name="sfsi_CustomIcon_links[]" type="text" value="<?php echo (isset($costom_links[$i]) && $costom_links[$i]!='') ?  esc_url($costom_links[$i]) : '' ;?>" placeholder="http://" class="add" file-id="<?php echo $i; ?>" />
+                </p>
+	   		</div>
+       	</div>
+	<?php $count++; endif; endfor; ?>
+    </div>
+    <!-- END Custom icon section here -->
       
-     <!-- SAVE BUTTON SECTION   --> 
+    <!-- SAVE BUTTON SECTION   --> 
     <div class="save_button tab_2_sav">
         <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
         <?php  $nonce = wp_create_nonce("update_step2"); ?>
         <a href="javascript:;" id="sfsi_save2" title="Save" data-nonce="<?php echo $nonce;?>">Save</a>
-    </div><!-- END SAVE BUTTON SECTION   -->
-    <a class="sfsiColbtn closeSec" href="javascript:;" class="closeSec">Collapse area</a>
+    </div>
+    <!-- END SAVE BUTTON SECTION   -->
+    
+    <a class="sfsiColbtn closeSec" href="javascript:;">Collapse area</a>
     <label class="closeSec"></label>
+    
     <!-- ERROR AND SUCCESS MESSAGE AREA-->
     <p class="red_txt errorMsg" style="display:none"> </p>
     <p class="green_txt sucMsg" style="display:none"> </p>

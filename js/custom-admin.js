@@ -550,7 +550,7 @@ function sfsi_update_step5() {
         sfsi_custom_orders:h,
 		nonce:nonce
     };
-    SFSI.ajax({
+	SFSI.ajax({
         url:ajax_object.ajax_url,
         type:"post",
         data:T,

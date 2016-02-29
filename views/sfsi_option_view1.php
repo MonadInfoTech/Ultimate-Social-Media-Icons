@@ -1,6 +1,20 @@
 <?php
-     /* unserialize all saved option for first options */
-    $option1=  unserialize(get_option('sfsi_section1_options',false));
+    /* unserialize all saved option for first options */
+    $option1 =  unserialize(get_option('sfsi_section1_options',false));
+
+	/*
+	 * Sanitize, escape and validate values
+	 */
+	$option1['sfsi_rss_display'] 		= sanitize_text_field($option1['sfsi_rss_display']);
+	$option1['sfsi_email_display'] 		= sanitize_text_field($option1['sfsi_email_display']);
+	$option1['sfsi_facebook_display'] 	= sanitize_text_field($option1['sfsi_facebook_display']);
+	$option1['sfsi_twitter_display'] 	= sanitize_text_field($option1['sfsi_twitter_display']);
+	$option1['sfsi_google_display'] 	= sanitize_text_field($option1['sfsi_google_display']);
+	$option1['sfsi_share_display'] 		= sanitize_text_field($option1['sfsi_share_display']);
+	$option1['sfsi_youtube_display'] 	= sanitize_text_field($option1['sfsi_youtube_display']);
+	$option1['sfsi_pinterest_display'] 	= sanitize_text_field($option1['sfsi_pinterest_display']);
+	$option1['sfsi_linkedin_display'] 	= sanitize_text_field($option1['sfsi_linkedin_display']);
+	$option1['sfsi_instagram_display'] 	= sanitize_text_field($option1['sfsi_instagram_display']);
 ?>
 
 <!-- Section 1 "Which icons do you want to show on your site? " main div Start -->
@@ -37,7 +51,8 @@
                 </p>
                 <a href="javascript:;" class="expand-area" >Read more</a>	 
             </div>
-        </li><!-- EMAIL ICON -->
+        </li>
+        <!-- EMAIL ICON -->
         
         <!-- FACEBOOK ICON -->
         <li class="gary_bg">
@@ -95,7 +110,8 @@
             <div class="right_info">
             <p><span>It depends:</span> No.1 network for business purposes. Use this icon if you’re a LinkedInner.</p>
             </div>
-        </li><!-- END LINKEDIN ICON -->
+        </li>
+        <!-- END LINKEDIN ICON -->
        
         <!-- PINTEREST ICON -->
         <li>
@@ -104,7 +120,8 @@
         <div class="right_info">
             <p><span>It depends:</span> Show this icon if you have a Pinterest account (and you should set up one if you have publish new pictures regularly – that can increase your traffic significantly).</p>
         </div>
-        </li> <!-- END PINTEREST ICON -->
+        </li>
+        <!-- END PINTEREST ICON -->
        
         <!-- INSTAGRAM ICON -->
         <li>
@@ -146,27 +163,35 @@
           }     
         ?>
        <!-- Display all custom icons  -->
-       <?php $count=1; for($i=$first_key;$i<=$endkey;$i++) : ?> 
+       <?php $count=1; for($i=$first_key; $i<=$endkey; $i++) : ?> 
        <?php if(!empty( $icons[$i])) : ?>
            <li id="c<?php echo $i; ?>" class="custom">
-                <div class="radio_section tb_4_ck"><input name="sfsiICON_<?php echo $i; ?>"  checked="true" type="checkbox" value="yes" class="styled" element-type="cusotm-icon"  /></div>
-                <span class="custom-img"><img class="sfcm" src="<?php echo (!empty($icons[$i])) ?  $icons[$i] : SFSI_PLUGURL.'images/custom.png';?>" id="CImg_<?php echo $i; ?>"  /> </span> 
-                 <span class="custom custom-txt">Custom <?php echo $count;?> </span> 
+                <div class="radio_section tb_4_ck">
+                	<input name="sfsiICON_<?php echo $i; ?>"  checked="true" type="checkbox" value="yes" class="styled" element-type="cusotm-icon"  />
+                </div>
+                <span class="custom-img">
+                	<img class="sfcm" src="<?php echo (!empty($icons[$i])) ?  esc_url($icons[$i]) : SFSI_PLUGURL.'images/custom.png';?>" id="CImg_<?php echo $i; ?>"/>
+                </span> 
+                <span class="custom custom-txt">Custom <?php echo $count;?> </span> 
                 <div class="right_info">
-                <p><span>It depends:</span> Upload a custom icon if you have other accounts/websites you want to link to. </p>
-            </div>
+                	<p><span>It depends:</span> Upload a custom icon if you have other accounts/websites you want to link to. </p>
+            	</div>
            </li>
-        <?php $count++; endif;    endfor; ?>
+        <?php $count++; endif; endfor; ?>
         
         <!-- Create a custom icon if total uploaded icons are less than 5 -->
         <?php if($count <=5) : ?>
         <li id="c<?php echo $new_element; ?>" class="custom bdr_btm_non">
-            <div class="radio_section tb_4_ck"><input name="sfsiICON_<?php echo$new_element;?>"  type="checkbox" value="yes" class="styled" element-type="cusotm-icon" ele-type='new'  /></div>
-            <span class="custom-img"><img   src="<?php echo SFSI_PLUGURL.'images/custom.png';?>" id="CImg_<?php echo $new_element; ?>"  /> </span> 
-             <span class="custom custom-txt">Custom<?php echo $count; ?> </span> 
+            <div class="radio_section tb_4_ck">
+            	<input name="sfsiICON_<?php echo$new_element;?>" type="checkbox" value="yes" class="styled" element-type="cusotm-icon" ele-type='new'/>
+            </div>
+            <span class="custom-img">
+            	<img src="<?php echo SFSI_PLUGURL.'images/custom.png';?>" id="CImg_<?php echo $new_element; ?>" />
+            </span> 
+            <span class="custom custom-txt">Custom<?php echo $count; ?> </span> 
             <div class="right_info">
-            <p><span>It depends:</span> Upload a custom icon if you have other accounts/websites you want to link to. </p>
-        </div>
+            	<p><span>It depends:</span> Upload a custom icon if you have other accounts/websites you want to link to. </p>
+           </div>
         </li>
    		<?php endif; ?>
     	<!-- END Custom icon section here -->
