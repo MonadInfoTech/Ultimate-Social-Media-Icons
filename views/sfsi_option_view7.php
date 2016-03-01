@@ -1,22 +1,22 @@
 <?php
-	/* unserialize all saved option for  section 7 options */
-    $option7 =  unserialize(get_option('sfsi_section7_options',false));
-	
-	/*
-	 * Sanitize, escape and validate values
-	 */
-	$option7['sfsi_popup_text'] 			= sanitize_text_field($option7['sfsi_popup_text']);
-	$option7['sfsi_popup_background_color'] = sanitize_hex_color($option7['sfsi_popup_background_color']);
-	$option7['sfsi_popup_border_color'] 	= sanitize_hex_color($option7['sfsi_popup_border_color']);
-	$option7['sfsi_popup_border_thickness'] = intval($option7['sfsi_popup_border_thickness']);
-	$option7['sfsi_popup_border_shadow'] 	= sanitize_text_field($option7['sfsi_popup_border_shadow']);
-	$option7['sfsi_popup_font'] 			= sanitize_text_field($option7['sfsi_popup_font']);
-	$option7['sfsi_popup_fontSize'] 		= intval($option7['sfsi_popup_fontSize']);
-	$option7['sfsi_popup_fontStyle'] 		= sanitize_text_field($option7['sfsi_popup_fontStyle']);
-	$option7['sfsi_popup_fontColor'] 		= sanitize_hex_color($option7['sfsi_popup_fontColor']);
-	$option7['sfsi_Show_popupOn'] 			= sanitize_text_field($option7['sfsi_Show_popupOn']);
-	$option7['sfsi_Shown_pop'] 				= sanitize_text_field($option7['sfsi_Shown_pop']);
-	$option7['sfsi_Shown_popupOnceTime'] 	= intval($option7['sfsi_Shown_popupOnceTime']);
+/* unserialize all saved option for  section 7 options */
+$option7 =  unserialize(get_option('sfsi_section7_options',false));
+
+/*
+ * Sanitize, escape and validate values
+ */
+$option7['sfsi_popup_text'] 			= (isset($option7['sfsi_popup_text'])) ? sanitize_text_field($option7['sfsi_popup_text']) : '';
+$option7['sfsi_popup_background_color'] = (isset($option7['sfsi_popup_background_color'])) ? sanitize_hex_color($option7['sfsi_popup_background_color']) : '';
+$option7['sfsi_popup_border_color'] 	= (isset($option7['sfsi_popup_border_color'])) ? sanitize_hex_color($option7['sfsi_popup_border_color']) : '';
+$option7['sfsi_popup_border_thickness'] = (isset($option7['sfsi_popup_border_thickness'])) ? intval($option7['sfsi_popup_border_thickness']) : '';
+$option7['sfsi_popup_border_shadow'] 	= (isset($option7['sfsi_popup_border_shadow'])) ? sanitize_text_field($option7['sfsi_popup_border_shadow']):'';
+$option7['sfsi_popup_font'] 			= (isset($option7['sfsi_popup_font'])) ? sanitize_text_field($option7['sfsi_popup_font']) : '';
+$option7['sfsi_popup_fontSize'] 		= (isset($option7['sfsi_popup_fontSize'])) ? intval($option7['sfsi_popup_fontSize']) : '';
+$option7['sfsi_popup_fontStyle'] 		= (isset($option7['sfsi_popup_fontStyle'])) ? sanitize_text_field($option7['sfsi_popup_fontStyle']) : '';
+$option7['sfsi_popup_fontColor'] 		= (isset($option7['sfsi_popup_fontColor'])) ? sanitize_hex_color($option7['sfsi_popup_fontColor']) : '';
+$option7['sfsi_Show_popupOn'] 			= (isset($option7['sfsi_Show_popupOn'])) ? sanitize_text_field($option7['sfsi_Show_popupOn']) : '';
+$option7['sfsi_Shown_pop'] 				= (isset($option7['sfsi_Shown_pop'])) ? sanitize_text_field($option7['sfsi_Shown_pop']) : '';
+$option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTime'])) ? intval($option7['sfsi_Shown_popupOnceTime']) : '';
 	
 ?>
 <!-- Section 7 "Do you want to display a pop-up, asking people to subscribe?" main div Start -->

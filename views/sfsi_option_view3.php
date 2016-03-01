@@ -1,18 +1,20 @@
 <?php
-  	/* unserialize all saved option for second section options */
-    $option3 =  unserialize(get_option('sfsi_section3_options',false));
-	
-	/*
-	 * Sanitize, escape and validate values
-	 */
-	$option3['sfsi_actvite_theme'] 		= sanitize_text_field($option3['sfsi_actvite_theme']);
-	$option3['sfsi_mouseOver'] 			= sanitize_text_field($option3['sfsi_mouseOver']);
-	$option3['sfsi_mouseOver_effect'] 	= sanitize_text_field($option3['sfsi_mouseOver_effect']);
-	$option3['sfsi_shuffle_icons'] 		= sanitize_text_field($option3['sfsi_shuffle_icons']);
-	$option3['sfsi_shuffle_Firstload'] 	= sanitize_text_field($option3['sfsi_shuffle_Firstload']);
-	$option3['sfsi_shuffle_interval'] 	= sanitize_text_field($option3['sfsi_shuffle_interval']);
-	$option3['sfsi_shuffle_intervalTime'] = intval($option3['sfsi_shuffle_intervalTime']);   
+/* unserialize all saved option for second section options */
+$option3 =  unserialize(get_option('sfsi_section3_options',false));
+
+/*
+ * Sanitize, escape and validate values
+ */
+$option3['sfsi_actvite_theme'] 		= (isset($option3['sfsi_actvite_theme'])) ? sanitize_text_field($option3['sfsi_actvite_theme']) : '';
+$option3['sfsi_mouseOver'] 			= (isset($option3['sfsi_mouseOver'])) ? sanitize_text_field($option3['sfsi_mouseOver']) : '';
+$option3['sfsi_mouseOver_effect'] 	= (isset($option3['sfsi_mouseOver_effect'])) ? sanitize_text_field($option3['sfsi_mouseOver_effect']) : '';
+$option3['sfsi_shuffle_icons'] 		= (isset($option3['sfsi_shuffle_icons'])) ? sanitize_text_field($option3['sfsi_shuffle_icons']) : '';
+$option3['sfsi_shuffle_Firstload'] 	= (isset($option3['sfsi_shuffle_Firstload'])) ? sanitize_text_field($option3['sfsi_shuffle_Firstload']) : '';
+$option3['sfsi_shuffle_interval'] 	= (isset($option3['sfsi_shuffle_interval'])) ? sanitize_text_field($option3['sfsi_shuffle_interval']) : '';
+$option3['sfsi_shuffle_intervalTime'] = (isset($option3['sfsi_shuffle_intervalTime'])) ? intval($option3['sfsi_shuffle_intervalTime']) : '';
+
 ?>
+
 <!-- Section 3 "What design & animation do you want to give your icons?" main div Start -->
 <div class="tab3">
 	<p>
