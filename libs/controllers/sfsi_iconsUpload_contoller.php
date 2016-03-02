@@ -183,7 +183,7 @@ function sfsi_Iamdone()
 		$return .= '<span class="row_17_9 linkedin_section" style="background: url('.$icon.') no-repeat;"></span>';
 	 }else
 	 {
-		$return .= '<span class="row_17_9 linkedin_section" style="background-position:-476px 0;"></span>';
+		$return .= '<span class="row_17_9 linkedin_section" style="background-position:-467px 0;"></span>';
 	 }
 	 
 	 if(get_option("instagram_skin"))
