@@ -11,30 +11,30 @@ $option8['sfsi_form_height'] 			= (isset($option8['sfsi_form_height'])) ? intval
 $option8['sfsi_form_width'] 			= (isset($option8['sfsi_form_width'])) ? intval($option8['sfsi_form_width']) : '';
 $option8['sfsi_form_border'] 			= (isset($option8['sfsi_form_border'])) ? sanitize_text_field($option8['sfsi_form_border']) : '';
 $option8['sfsi_form_border_thickness'] 	= (isset($option8['sfsi_form_border_thickness'])) ? intval($option8['sfsi_form_border_thickness']) : '';
-$option8['sfsi_form_border_color'] 		= (isset($option8['sfsi_form_border_color'])) ? sanitize_hex_color($option8['sfsi_form_border_color']) : '';
-$option8['sfsi_form_background'] 		= (isset($option8['sfsi_form_background'])) ? sanitize_hex_color($option8['sfsi_form_background']) : '';
+$option8['sfsi_form_border_color'] 		= (isset($option8['sfsi_form_border_color'])) ? sfsi_sanitize_hex_color($option8['sfsi_form_border_color']) : '';
+$option8['sfsi_form_background'] 		= (isset($option8['sfsi_form_background'])) ? sfsi_sanitize_hex_color($option8['sfsi_form_background']) : '';
 
 $option8['sfsi_form_heading_text'] 		= (isset($option8['sfsi_form_heading_text'])) ? sanitize_text_field($option8['sfsi_form_heading_text']) : '';
 $option8['sfsi_form_heading_font'] 		= (isset($option8['sfsi_form_heading_font'])) ? sanitize_text_field($option8['sfsi_form_heading_font']) : '';
 $option8['sfsi_form_heading_fontstyle'] = (isset($option8['sfsi_form_heading_fontstyle'])) ? sanitize_text_field($option8['sfsi_form_heading_fontstyle']) : '';
-$option8['sfsi_form_heading_fontcolor'] = (isset($option8['sfsi_form_heading_fontcolor'])) ? sanitize_hex_color($option8['sfsi_form_heading_fontcolor']) : '';
+$option8['sfsi_form_heading_fontcolor'] = (isset($option8['sfsi_form_heading_fontcolor'])) ? sfsi_sanitize_hex_color($option8['sfsi_form_heading_fontcolor']) : '';
 $option8['sfsi_form_heading_fontsize'] 	= (isset($option8['sfsi_form_heading_fontsize'])) ? intval($option8['sfsi_form_heading_fontsize']) : '';
 $option8['sfsi_form_heading_fontalign'] = (isset($option8['sfsi_form_heading_fontalign'])) ? sanitize_text_field($option8['sfsi_form_heading_fontalign']) : '';
 
 $option8['sfsi_form_field_text'] 		= (isset($option8['sfsi_form_field_text'])) ? sanitize_text_field($option8['sfsi_form_field_text']) : '';
 $option8['sfsi_form_field_font'] 		= (isset($option8['sfsi_form_field_font'])) ? sanitize_text_field($option8['sfsi_form_field_font']) : '';
 $option8['sfsi_form_field_fontstyle'] 	= (isset($option8['sfsi_form_field_fontstyle'])) ? sanitize_text_field($option8['sfsi_form_field_fontstyle']) : '';
-$option8['sfsi_form_field_fontcolor'] 	= (isset($option8['sfsi_form_field_fontcolor'])) ? sanitize_hex_color($option8['sfsi_form_field_fontcolor']) : '';
+$option8['sfsi_form_field_fontcolor'] 	= (isset($option8['sfsi_form_field_fontcolor'])) ? sfsi_sanitize_hex_color($option8['sfsi_form_field_fontcolor']) : '';
 $option8['sfsi_form_field_fontsize'] 	= (isset($option8['sfsi_form_field_fontsize'])) ? intval($option8['sfsi_form_field_fontsize']) : '';
 $option8['sfsi_form_field_fontalign']	= (isset($option8['sfsi_form_field_fontalign'])) ? sanitize_text_field($option8['sfsi_form_field_fontalign']) : '';
 
 $option8['sfsi_form_button_text'] 		= (isset($option8['sfsi_form_button_text'])) ? sanitize_text_field($option8['sfsi_form_button_text']) : '';
 $option8['sfsi_form_button_font'] 		= (isset($option8['sfsi_form_button_font'])) ? sanitize_text_field($option8['sfsi_form_button_font']) : '';
 $option8['sfsi_form_button_fontstyle'] 	= (isset($option8['sfsi_form_button_fontstyle'])) ? sanitize_text_field($option8['sfsi_form_button_fontstyle']) : '';
-$option8['sfsi_form_button_fontcolor'] 	= (isset($option8['sfsi_form_button_fontcolor'])) ? sanitize_hex_color($option8['sfsi_form_button_fontcolor']) : '';
+$option8['sfsi_form_button_fontcolor'] 	= (isset($option8['sfsi_form_button_fontcolor'])) ? sfsi_sanitize_hex_color($option8['sfsi_form_button_fontcolor']) : '';
 $option8['sfsi_form_button_fontsize'] 	= (isset($option8['sfsi_form_button_fontsize'])) ? intval($option8['sfsi_form_button_fontsize']) : '';
 $option8['sfsi_form_button_fontalign'] 	= (isset($option8['sfsi_form_button_fontalign'])) ? sanitize_text_field($option8['sfsi_form_button_fontalign']) : '';
-$option8['sfsi_form_button_background'] = (isset($option8['sfsi_form_button_background'])) ? sanitize_hex_color($option8['sfsi_form_button_background']) : '';
+$option8['sfsi_form_button_background'] = (isset($option8['sfsi_form_button_background'])) ? sfsi_sanitize_hex_color($option8['sfsi_form_button_background']) : '';
 
 ?>
 <!-- Section 8 "Do you want to show a subscription form (increases sign ups)?" main div Start -->

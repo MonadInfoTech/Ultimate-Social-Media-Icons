@@ -264,10 +264,10 @@ function addStyleFunction()
 				height: <?php echo intval($option8['sfsi_form_height']) ?>px !important;
 				<?php endif;?>
 				<?php if(sanitize_text_field($option8['sfsi_form_border']) == 'yes') : ?>
-				border: <?php echo intval($option8['sfsi_form_border_thickness'])."px solid ".sanitize_hex_color($option8['sfsi_form_border_color']);?> !important;
+				border: <?php echo intval($option8['sfsi_form_border_thickness'])."px solid ".sfsi_sanitize_hex_color($option8['sfsi_form_border_color']);?> !important;
 				<?php endif;?>
 				padding: 18px 0px !important;
-				background-color: <?php echo sanitize_hex_color($option8['sfsi_form_background']) ?> !important;
+				background-color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_background']) ?> !important;
 			}
 			.sfsi_subscribe_Popinner form
 			{
@@ -281,7 +281,7 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_heading_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_heading_fontcolor']) ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_heading_fontcolor']) ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_heading_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_heading_fontalign']) ?> !important;
 				margin: 0 0 10px !important;
@@ -305,7 +305,7 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
@@ -316,7 +316,7 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
@@ -327,7 +327,7 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
@@ -338,7 +338,7 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
@@ -349,7 +349,7 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_field_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_field_fontcolor']); ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_field_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_field_fontalign']); ?> !important;
 			}
@@ -361,10 +361,10 @@ function addStyleFunction()
 				<?php } else{ ?>
 				font-weight: <?php echo sanitize_text_field($option8['sfsi_form_button_fontstyle']) ?> !important;
 				<?php }?>
-				color: <?php echo sanitize_hex_color($option8['sfsi_form_button_fontcolor']); ?> !important;
+				color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_button_fontcolor']); ?> !important;
 				font-size: <?php echo intval($option8['sfsi_form_button_fontsize'])."px" ?> !important;
 				text-align: <?php echo sanitize_text_field($option8['sfsi_form_button_fontalign']); ?> !important;
-				background-color: <?php echo sanitize_hex_color($option8['sfsi_form_button_background']); ?> !important;
+				background-color: <?php echo sfsi_sanitize_hex_color($option8['sfsi_form_button_background']); ?> !important;
 			}
 		</style>
 	<?php

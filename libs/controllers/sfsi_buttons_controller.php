@@ -489,14 +489,14 @@ function sfsi_options_updater7()
     /* icons pop options */
 	$up_option7=array(	
 		'sfsi_popup_text'				=> sanitize_text_field(stripslashes($sfsi_popup_text)),
-		'sfsi_popup_background_color'	=> sanitize_hex_color($sfsi_popup_background_color),
-		'sfsi_popup_border_color'		=> sanitize_hex_color($sfsi_popup_border_color),
+		'sfsi_popup_background_color'	=> sfsi_sanitize_hex_color($sfsi_popup_background_color),
+		'sfsi_popup_border_color'		=> sfsi_sanitize_hex_color($sfsi_popup_border_color),
 		'sfsi_popup_border_thickness'	=> intval($sfsi_popup_border_thickness),
 		'sfsi_popup_border_shadow'		=> sanitize_text_field($sfsi_popup_border_shadow),
 		'sfsi_popup_font'				=> sanitize_text_field($sfsi_popup_font),
 		'sfsi_popup_fontSize'			=> intval($sfsi_popup_fontSize),
 		'sfsi_popup_fontStyle'			=> sanitize_text_field($sfsi_popup_fontStyle),
-		'sfsi_popup_fontColor'			=> sanitize_hex_color($sfsi_popup_fontColor),
+		'sfsi_popup_fontColor'			=> sfsi_sanitize_hex_color($sfsi_popup_fontColor),
 		
 		'sfsi_Show_popupOn'				=> sanitize_text_field($sfsi_Show_popupOn),
 		'sfsi_Show_popupOn_PageIDs'		=> $sfsi_Show_popupOn_PageIDs,
@@ -553,30 +553,30 @@ function sfsi_options_updater8()
 		'sfsi_form_width'			=>	intval($sfsi_form_width),
 		'sfsi_form_border'			=>	sanitize_text_field($sfsi_form_border),
 		'sfsi_form_border_thickness'=>	intval($sfsi_form_border_thickness),
-		'sfsi_form_border_color'	=>	sanitize_hex_color($sfsi_form_border_color),
-		'sfsi_form_background'		=>	sanitize_hex_color($sfsi_form_background),
+		'sfsi_form_border_color'	=>	sfsi_sanitize_hex_color($sfsi_form_border_color),
+		'sfsi_form_background'		=>	sfsi_sanitize_hex_color($sfsi_form_background),
 		
 		'sfsi_form_heading_text'	=>	sanitize_text_field(stripslashes($sfsi_form_heading_text)),
 		'sfsi_form_heading_font'	=>	sanitize_text_field($sfsi_form_heading_font),
 		'sfsi_form_heading_fontstyle'=>	sanitize_text_field($sfsi_form_heading_fontstyle),
-		'sfsi_form_heading_fontcolor'=>	sanitize_hex_color($sfsi_form_heading_fontcolor),
+		'sfsi_form_heading_fontcolor'=>	sfsi_sanitize_hex_color($sfsi_form_heading_fontcolor),
 		'sfsi_form_heading_fontsize'=>	intval($sfsi_form_heading_fontsize),
 		'sfsi_form_heading_fontalign'=>	sanitize_text_field($sfsi_form_heading_fontalign),
 		
 		'sfsi_form_field_text'		=>	sanitize_text_field(stripslashes($sfsi_form_field_text)),
 		'sfsi_form_field_font'		=>	sanitize_text_field($sfsi_form_field_font),
 		'sfsi_form_field_fontstyle'	=>	sanitize_text_field($sfsi_form_field_fontstyle),
-		'sfsi_form_field_fontcolor'	=>	sanitize_hex_color($sfsi_form_field_fontcolor),
+		'sfsi_form_field_fontcolor'	=>	sfsi_sanitize_hex_color($sfsi_form_field_fontcolor),
 		'sfsi_form_field_fontsize'	=>	intval($sfsi_form_field_fontsize),
 		'sfsi_form_field_fontalign'	=>	sanitize_text_field($sfsi_form_field_fontalign),
 		
 		'sfsi_form_button_text'		=>	sanitize_text_field(stripslashes($sfsi_form_button_text)),
 		'sfsi_form_button_font'		=>	sanitize_text_field($sfsi_form_button_font),
 		'sfsi_form_button_fontstyle'=>	sanitize_text_field($sfsi_form_button_fontstyle),
-		'sfsi_form_button_fontcolor'=>	sanitize_hex_color($sfsi_form_button_fontcolor),
+		'sfsi_form_button_fontcolor'=>	sfsi_sanitize_hex_color($sfsi_form_button_fontcolor),
 		'sfsi_form_button_fontsize'	=>	intval($sfsi_form_button_fontsize),
 		'sfsi_form_button_fontalign'=>	sanitize_text_field($sfsi_form_button_fontalign),
-		'sfsi_form_button_background'=>	sanitize_hex_color($sfsi_form_button_background),
+		'sfsi_form_button_background'=>	sfsi_sanitize_hex_color($sfsi_form_button_background),
 	);
 	update_option('sfsi_section8_options',serialize($up_option8)); 
     header('Content-Type: application/json');
@@ -836,9 +836,9 @@ function sfsi_sanitize_field($value)
 	return strip_tags(trim($value));
 }
 //Sanitize color code
-if(@!function_exists(sanitize_hex_color))
+if(@!function_exists(sfsi_sanitize_hex_color))
 {
-	function sanitize_hex_color( $color )
+	function sfsi_sanitize_hex_color( $color )
 	{
 		if ( '' === $color )
 			return '';
