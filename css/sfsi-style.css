@@ -2174,18 +2174,16 @@ ul.cstmskin_iconlist {
 .sfsi_socialwpr
 {
 	width: auto;
-	float: left;
+	display: inline-block;
+	vertical-align: middle;
 }
 .sfsi_socialwpr .sf_fb
 {
 	float:left;
-	margin:5px 5px 5px 5px;
-	min-height: 20px;	
 }
 .sfsi_socialwpr .sf_google
 {
 	float:left;
-	margin:5px 5px 5px 5px;
 	max-width:62px;
 	min-width:35px;
 	min-height: 20px;
@@ -2197,7 +2195,6 @@ ul.cstmskin_iconlist {
 .sfsi_socialwpr .sf_addthis
 {
 	float:left;
-	margin:5px 5px 5px 5px;
 	min-height: 20px;
 }
 .sfsipyplfrm
