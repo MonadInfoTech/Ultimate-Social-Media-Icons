@@ -1059,11 +1059,11 @@ ul.tab_2_email_sec li .radio {
     top: 18px;
 }
 .tab7 .text_options {
-    width: 400px;
+    width: 500px;
     float: left;
 }
 .tab7 .text_options.layout {
-    margin-left: 35px;
+    margin-left: -25px;
 }
 .tab7 .row_tab {
     margin-top: 10px;

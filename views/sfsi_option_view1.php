@@ -5,16 +5,36 @@
 	/*
 	 * Sanitize, escape and validate values
 	 */
-	$option1['sfsi_rss_display'] 		= sanitize_text_field($option1['sfsi_rss_display']);
-	$option1['sfsi_email_display'] 		= sanitize_text_field($option1['sfsi_email_display']);
-	$option1['sfsi_facebook_display'] 	= sanitize_text_field($option1['sfsi_facebook_display']);
-	$option1['sfsi_twitter_display'] 	= sanitize_text_field($option1['sfsi_twitter_display']);
-	$option1['sfsi_google_display'] 	= sanitize_text_field($option1['sfsi_google_display']);
-	$option1['sfsi_share_display'] 		= sanitize_text_field($option1['sfsi_share_display']);
-	$option1['sfsi_youtube_display'] 	= sanitize_text_field($option1['sfsi_youtube_display']);
-	$option1['sfsi_pinterest_display'] 	= sanitize_text_field($option1['sfsi_pinterest_display']);
-	$option1['sfsi_linkedin_display'] 	= sanitize_text_field($option1['sfsi_linkedin_display']);
-	$option1['sfsi_instagram_display'] 	= sanitize_text_field($option1['sfsi_instagram_display']);
+	$option1['sfsi_rss_display'] 		= 	(isset($option1['sfsi_rss_display']))
+												? sanitize_text_field($option1['sfsi_rss_display'])
+												: 'yes';
+	$option1['sfsi_email_display'] 		= 	(isset($option1['sfsi_email_display']))
+												? sanitize_text_field($option1['sfsi_email_display'])
+												: 'yes';
+	$option1['sfsi_facebook_display'] 	= 	(isset($option1['sfsi_facebook_display']))
+												? sanitize_text_field($option1['sfsi_facebook_display'])
+												: 'yes';
+	$option1['sfsi_twitter_display'] 	= 	(isset($option1['sfsi_twitter_display']))
+												? sanitize_text_field($option1['sfsi_twitter_display'])
+												: 'yes';
+	$option1['sfsi_google_display'] 	= 	(isset($option1['sfsi_google_display']))
+												? sanitize_text_field($option1['sfsi_google_display'])
+												: 'yes';
+	$option1['sfsi_share_display'] 		= 	(isset($option1['sfsi_share_display']))
+												? sanitize_text_field($option1['sfsi_share_display'])
+												: 'no';
+	$option1['sfsi_youtube_display'] 	= 	(isset($option1['sfsi_youtube_display']))
+												? sanitize_text_field($option1['sfsi_youtube_display'])
+												: 'no';
+	$option1['sfsi_pinterest_display'] 	= 	(isset($option1['sfsi_pinterest_display']))
+												? sanitize_text_field($option1['sfsi_pinterest_display'])
+												: 'no';
+	$option1['sfsi_linkedin_display'] 	= 	(isset($option1['sfsi_linkedin_display']))
+												? sanitize_text_field($option1['sfsi_linkedin_display'])
+												: 'no';
+	$option1['sfsi_instagram_display'] 	= 	(isset($option1['sfsi_instagram_display']))
+												? sanitize_text_field($option1['sfsi_instagram_display'])
+												: 'no';
 ?>
 
 <!-- Section 1 "Which icons do you want to show on your site? " main div Start -->
@@ -46,7 +66,11 @@
             <span class="sfsicls_email">Email</span> 
             <div class="right_info">
                 <p><span>"Mandatory":</span> Email is the most effective tool to build up a followership.
-                    <span style="float: right;margin-right: 13px; margin-top: -3px;"><?php if(get_option('sfsi_footer_sec')=="yes") { $nonce = wp_create_nonce("remove_footer"); ?> <a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" data-nonce="<?php echo $nonce;?>">Remove credit link</a> <?php } ?></span>
+                    <span style="float: right;margin-right: 13px; margin-top: -3px;">
+						<?php if(get_option('sfsi_footer_sec')=="yes") { $nonce = wp_create_nonce("remove_footer"); ?>
+                    		<a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" data-nonce="<?php echo $nonce;?>">Remove credit link</a>
+                        <?php } ?>
+                    </span>
                     <label class="expanded-area" >Everybody uses email – that’s why it’s <a href="http://www.entrepreneur.com/article/230949" target="_new">much more effective than social media </a> to make people follow you. Not offering an email subscription option means losing out on future traffic to your site.</label>
                 </p>
                 <a href="javascript:;" class="expand-area" >Read more</a>	 
@@ -163,7 +187,7 @@
           }     
         ?>
        <!-- Display all custom icons  -->
-       <?php $count=1; for($i=$first_key; $i<=$endkey; $i++) : ?> 
+       <?php $count=1; for($i = $first_key; $i <= $endkey; $i++) : ?> 
        <?php if(!empty( $icons[$i])) : ?>
            <li id="c<?php echo $i; ?>" class="custom">
                 <div class="radio_section tb_4_ck">
