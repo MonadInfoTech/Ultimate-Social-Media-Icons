@@ -18,6 +18,7 @@ $option6['sfsi_rectgp'] 			= (isset($option6['sfsi_rectgp'])) ? sanitize_text_fi
 $option6['sfsi_rectshr'] 			= (isset($option6['sfsi_rectshr'])) ? sanitize_text_field($option6['sfsi_rectshr']) : '';
 $option6['sfsi_recttwtr'] 			= (isset($option6['sfsi_recttwtr'])) ? sanitize_text_field($option6['sfsi_recttwtr']) : '';
 $option6['sfsi_rectpinit'] 			= (isset($option6['sfsi_rectpinit'])) ? sanitize_text_field($option6['sfsi_rectpinit']) : '';
+$option6['sfsi_rectfbshare'] 			= (isset($option6['sfsi_rectfbshare'])) ? sanitize_text_field($option6['sfsi_rectfbshare']) : '';
 
 if(!isset($option6['sfsi_rectsub']))
 {
@@ -43,6 +44,10 @@ if(!isset($option6['sfsi_rectpinit']))
 {
 	$option6['sfsi_rectpinit'] = 'no';
 }
+if(!isset($option6['sfsi_rectfbshare']))
+{
+	$option6['sfsi_rectfbshare'] = 'no';
+}
    
 ?>
 <!-- Section 6 "Do you want to display icons at the end of every post?" main div Start -->
@@ -64,6 +69,14 @@ if(!isset($option6['sfsi_rectpinit']))
             	<img src="<?php echo SFSI_PLUGURL; ?>images/like.jpg" alt="Facebook Like" />
         	</a>
         </li>
+		 
+        <li>
+        	<div class="radio_section tb_4_ck"><input name="sfsi_rectfbshare" <?php echo ($option6['sfsi_rectfbshare']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_rectfbshare" type="checkbox" value="yes" class="styled"  /></div>
+        	<a href="#" title="Facebook Share">
+            	<img src="<?php echo SFSI_PLUGURL; ?>images/fbshare.png" alt="Facebook Share" />
+        	</a>
+        </li>
+		
 		
         <li>
         	<div class="radio_section tb_4_ck"><input name="sfsi_recttwtr" <?php echo ($option6['sfsi_recttwtr']=='yes') ?  'checked="true"' : '' ;?>  id="sfsi_recttwtr" type="checkbox" value="yes" class="styled"  /></div>

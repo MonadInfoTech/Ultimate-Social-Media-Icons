@@ -1,5 +1,5 @@
 @charset "utf-8";
-    @font-face {
+@font-face {
     font-family: helveticabold;
     src: url(fonts/helvetica_bold_0-webfont.eot);
     src: url(fonts/helvetica_bold_0-webfont.eot?#iefix) format('embedded-opentype'), url(fonts/helvetica_bold_0-webfont.woff) format('woff'), url(fonts/helvetica_bold_0-webfont.ttf) format('truetype'), url(fonts/helvetica_bold_0-webfont.svg#helveticabold) format('svg');
@@ -1983,7 +1983,7 @@ h1.abt_titl {
     margin: -1px;
     padding: 0;
 }
-}@media (min-width:320px) and (max-width:480px) {
+@media (min-width:320px) and (max-width:480px) {
     .sfsi_tool_tip_2, .tool_tip {
     padding: 5px 14px 0;
 }
@@ -1999,6 +1999,9 @@ h1.abt_titl {
 }
 .sfsi_FrntInner_chg .sfsi_wicons img {
     width: 100%}
+.sfsi_Sicons .sf_fb{margin-bottom: 24px;}
+.sfsi_Sicons .sf_google{margin-bottom: 7px;}
+.sfsi_Sicons .sf_twiter{margin-bottom: 4px;}
 }
 @media (max-width:320px) {
     .sfsi_tool_tip_2, .tool_tip {
@@ -2014,7 +2017,8 @@ h1.abt_titl {
 }
 .sfsi_FrntInner_chg .sfsi_wicons img {
     width: 100%}
-}ul.SFSI_lsngfrm {
+}
+ul.SFSI_lsngfrm {
     float: left;
     width: 61%}
 ul.SFSI_instructions {

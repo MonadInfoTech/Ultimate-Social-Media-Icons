@@ -585,6 +585,7 @@ function sfsi_update_step6() {
 	rgp = SFSI("input[name='sfsi_rectgp']:checked").val(),
 	rshr = SFSI("input[name='sfsi_rectshr']:checked").val(),
 	rtwr = SFSI("input[name='sfsi_recttwtr']:checked").val(),
+	rfbshare = SFSI("input[name='sfsi_rectfbshare']:checked").val(),
 	n = {
         action:"updateSrcn6",
         sfsi_show_Onposts:s,
@@ -597,6 +598,7 @@ function sfsi_update_step6() {
 		sfsi_rectgp: rgp,
 		sfsi_rectshr: rshr,
 		sfsi_recttwtr: rtwr,
+		sfsi_rectfbshare:rfbshare, 
 		nonce:nonce
     };
     SFSI.ajax({

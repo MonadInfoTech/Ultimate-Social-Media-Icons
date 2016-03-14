@@ -81,9 +81,16 @@ function sfsi_update_plugin()
 	}
 	
 	$option6=  unserialize(get_option('sfsi_section6_options',false));
-	if(isset($option6) && !empty($option6) && !isset($option6['sfsi_rectpinit']))
+	if(isset($option6) && !empty($option6))
 	{
-		$option6['sfsi_rectpinit'] = 'no';
+		if(!isset($option6['sfsi_rectpinit']))
+		{
+			$option6['sfsi_rectpinit'] = 'no';
+		}
+		if(!isset($option6['sfsi_rectfbshare']))
+		{
+			$option6['sfsi_rectfbshare'] = 'no';
+		}
 		update_option('sfsi_section6_options', serialize($option6));
 	}
 	
@@ -273,7 +280,8 @@ function sfsi_activate_plugin()
 		'sfsi_rectgp'=>'yes',
 		'sfsi_rectshr'=>'no',
 		'sfsi_recttwtr'=>'yes',
-		'sfsi_rectpinit'=>'yes'
+		'sfsi_rectpinit'=>'yes',
+		'sfsi_rectfbshare'=>'yes'
 	);
 	add_option('sfsi_section6_options',  serialize($options6));       
     
