@@ -54,17 +54,21 @@ function sfsi_social_buttons_below($content)
         } 
         $txt	= (isset($sfsi_section6['sfsi_textBefor_icons']))? $sfsi_section6['sfsi_textBefor_icons'] : "Please follow and like us:" ;
         $float	= $sfsi_section6['sfsi_icons_alignment'];
-		if($sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectgp'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes' || $sfsi_section6['sfsi_rectpinit'] == 'yes' || $sfsi_section6['sfsi_rectfbshare'] == 'yes')
-		{
-        	$icons="<div class='sfsi_Sicons' style='width: 100%; display: inline-block; vertical-align: middle; text-align:".$float."'><div style='margin:0px 8px 0px 0px; line-height: 24px'><span>".$txt."</span></div>";
-		}
+		
+		$icons = '';
 		//adding wrapper div
 		$icons.="<div class='sfsi_socialwpr'>";
+			
+			if($sfsi_section6['sfsi_rectsub'] == 'yes' || $sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectgp'] == 'yes' || $sfsi_section6['sfsi_rectshr'] == 'yes' || $sfsi_section6['sfsi_recttwtr'] == 'yes' || $sfsi_section6['sfsi_rectpinit'] == 'yes' || $sfsi_section6['sfsi_rectfbshare'] == 'yes')
+			{
+				$icons .= "<div class='sfsi_Sicons' style='display: inline-block; vertical-align: middle; text-align:".$float."'><div style='margin:0px 8px 0px 0px; line-height: 24px; width: auto; float:left;'><span>".$txt."</span></div>";
+			}
+			
 			if($sfsi_section6['sfsi_rectsub'] == 'yes')
 			{
 				if($show_count){$sfsiLikeWithsub = "93px";}else{$sfsiLikeWithsub = "64px";}
 				if(!isset($sfsiLikeWithsub)){$sfsiLikeWithsub = $sfsiLikeWith;}
-				$icons.="<div class='sf_subscrbe' style='text-align:left;float:left;width:".$sfsiLikeWithsub."'>".sfsi_Subscribelike($permalink,$show_count)."</div>";
+				$icons.="<div class='sf_subscrbe' style='text-align:left;float:left;margin:0 5px;width:".$sfsiLikeWithsub."'>".sfsi_Subscribelike($permalink,$show_count)."</div>";
 			}
 			if($sfsi_section6['sfsi_rectfb'] == 'yes' || $sfsi_section6['sfsi_rectfbshare'] == 'yes')
 			{
@@ -80,13 +84,13 @@ function sfsi_social_buttons_below($content)
 				{
 					if($show_count){$sfsiLikeWithfb = "125px";}else{$sfsiLikeWithfb = "98px";}
 				}
-				$icons.="<div class='sf_fb' style='text-align:left;width:".$sfsiLikeWithfb."'>".sfsi_FBlike($permalink,$show_count)."</div>";
+				$icons.="<div class='sf_fb' style='text-align:left;margin:0 5px;width:".$sfsiLikeWithfb."'>".sfsi_FBlike($permalink,$show_count)."</div>";
 			}
 			if($sfsi_section6['sfsi_recttwtr'] == 'yes')
 			{
 				if($show_count){$sfsiLikeWithtwtr = "62px";}else{$sfsiLikeWithtwtr = "62px";}
 				if(!isset($sfsiLikeWithtwtr)){$sfsiLikeWithtwtr = $sfsiLikeWith;}
-				$icons.="<div class='sf_twiter' style='text-align:left;float:left;width:auto'>".sfsi_twitterlike($permalink,$show_count)."</div>";
+				$icons.="<div class='sf_twiter' style='text-align:left;float:left;width:auto;margin:0 5px;'>".sfsi_twitterlike($permalink,$show_count)."</div>";
 			}
 			
 			if($sfsi_section6['sfsi_rectpinit'] == 'yes')
@@ -98,11 +102,11 @@ function sfsi_social_buttons_below($content)
 			
 			if($sfsi_section6['sfsi_rectgp'] == 'yes')
 			{
-				$icons.="<div class='sf_google' style='text-align:left;float:left;max-width:62px;min-width:35px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
+				$icons.="<div class='sf_google' style='text-align:left;float:left;max-width:62px;min-width:35px;margin:0 5px;'>".sfsi_googlePlus($permalink,$show_count)."</div>";
 			}
 			if($sfsi_section6['sfsi_rectshr'] == 'yes')
 			{
-				$icons.="<div class='sf_addthis'>".sfsi_Addthis($show_count, $permalink, $title)."</div>";
+				$icons.="<div class='sf_addthis' style='margin:0 5px;'>".sfsi_Addthis($show_count, $permalink, $title)."</div>";
 			}
 		$icons.="</div>";
 		//closing wrapper div
