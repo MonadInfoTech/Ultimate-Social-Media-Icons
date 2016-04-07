@@ -1978,8 +1978,7 @@ h1.abt_titl {
 .sfsi_outr_div .sfsi_FrntInner_chg ul li {
     margin: 0 3px 0 0;
 }
-@-moz-document url-prefix() {
-    .sfcm.sfsi_wicon {
+.sfcm.sfsi_wicon {
     margin: -1px;
     padding: 0;
 }
@@ -1992,13 +1991,15 @@ h1.abt_titl {
     clear: both;
 }
 .sfsi_outr_div {
-    top: 10%}
+    top: 10%;
+}
 .sfsi_FrntInner_chg .sfsi_wicons {
     width: 31px!important;
     height: 31px!important;
 }
 .sfsi_FrntInner_chg .sfsi_wicons img {
-    width: 100%}
+    width: 100%;
+}
 .sfsi_Sicons .sf_fb{margin-bottom: 24px;}
 .sfsi_Sicons .sf_google{margin-bottom: 7px;}
 .sfsi_Sicons .sf_twiter{margin-bottom: 4px;}

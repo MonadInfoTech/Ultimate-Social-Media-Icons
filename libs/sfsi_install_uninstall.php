@@ -12,7 +12,7 @@ function sfsi_update_plugin()
 	}
 	
 	//Install version
-	update_option("sfsi_pluginVersion", "1.46");
+	update_option("sfsi_pluginVersion", "1.47");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -226,7 +226,7 @@ function sfsi_activate_plugin()
         'sfsi_shares_countsDisplay'=>'no',
         'sfsi_shares_countsFrom'=>'manual',
         'sfsi_shares_manualCounts'=>'20'
-        );
+	);
 	add_option('sfsi_section4_options',  serialize($options4));
   	
 	$options5=array('sfsi_icons_size'=>'40',
