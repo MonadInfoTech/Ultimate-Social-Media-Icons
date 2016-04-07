@@ -153,7 +153,7 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
 	<div class="text_options layout">
 		<h3>Icon Box Layout</h3>
 		<div class="row_tab">
-			<label>Backgroud<br />Color:</label>
+			<label>Background<br />Color:</label>
 			<input name="sfsi_popup_background_color" data-default-color="#b5b5b5" id="sfsi_popup_background_color" type="text" value="<?php echo ($option7['sfsi_popup_background_color']!='') ?  $option7['sfsi_popup_background_color'] : '' ;?>" />
 		</div>
 		<div class="row_tab">

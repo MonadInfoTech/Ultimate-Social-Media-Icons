@@ -142,7 +142,7 @@
         <div class="radio_section tb_4_ck"><input name="sfsi_pinterest_display" <?php echo ($option1['sfsi_pinterest_display']=='yes') ?  'checked="true"' : '' ;?> id="sfsi_pinterest_display"  type="checkbox" value="yes" class="styled"  /></div>
         <span class="sfsicls_pinterest">Pinterest</span> 
         <div class="right_info">
-            <p><span>It depends:</span> Show this icon if you have a Pinterest account (and you should set up one if you have publish new pictures regularly – that can increase your traffic significantly).</p>
+            <p><span>It depends:</span> Show this icon if you have a Pinterest account (and you should set up one if you publish new pictures regularly – that can increase your traffic significantly).</p>
         </div>
         </li>
         <!-- END PINTEREST ICON -->

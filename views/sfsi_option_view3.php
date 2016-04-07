@@ -22,7 +22,7 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
     </p>
 
 	<ul class="tab_3_list">
-        <li>It comes across as <span>more professional/</span> gives your site <span>more “credit”</span></li>
+        <li>It comes across as <span>more professional</span> and gives your site <span>more “credit”</span></li>
         <li>A smart automatic animation can <span>make your visitors aware of your icons</span> in an unintrusive manner</li> 
 	</ul>
     
