@@ -79,8 +79,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("rss_skin"))
                          {
                             $icon = get_option("rss_skin");
-                            echo '<span class="row_17_1 rss_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_1 rss_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_1 rss_section" style="background-position:-1px 0;"></span>';
                          }
@@ -88,8 +89,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("email_skin"))
                          {
                             $icon = get_option("email_skin");
-                            echo '<span class="row_17_2 email_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_2 email_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_2 email_section" style="background-position:-58px 0;"></span>';
                          }
@@ -97,8 +99,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("facebook_skin"))
                          {
                             $icon = get_option("facebook_skin");
-                            echo '<span class="row_17_3 facebook_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_3 facebook_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_3 facebook_section" style="background-position:-118px 0;"></span>';
                          }
@@ -106,8 +109,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("google_skin"))
                          {
                             $icon = get_option("google_skin");
-                            echo '<span class="row_17_4 google_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_4 google_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_4 google_section" style="background-position:-176px 0;"></span>';
                          }
@@ -115,8 +119,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("twitter_skin"))
                          {
                             $icon = get_option("twitter_skin");
-                            echo '<span class="row_17_5 twitter_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_5 twitter_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_5 twitter_section" style="background-position:-235px 0;"></span>';
                          }
@@ -124,8 +129,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("share_skin"))
                          {
                             $icon = get_option("share_skin");
-                            echo '<span class="row_17_6 share_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_6 share_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_6 share_section" style="background-position:-293px 0;"></span>';
                          }
@@ -133,8 +139,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("youtube_skin"))
                          {
                             $icon = get_option("youtube_skin");
-                            echo '<span class="row_17_7 youtube_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_7 youtube_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_7 youtube_section" style="background-position:-350px 0;"></span>';
                          }
@@ -142,8 +149,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("pintrest_skin"))
                          {
                             $icon = get_option("pintrest_skin");
-                            echo '<span class="row_17_8 pinterest_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_8 pinterest_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_8 pinterest_section" style="background-position:-409px 0;"></span>';
                          }
@@ -151,8 +159,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("linkedin_skin"))
                          {
                             $icon = get_option("linkedin_skin");
-                            echo '<span class="row_17_9 linkedin_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_9 linkedin_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_9 linkedin_section" style="background-position:-467px 0;"></span>';
                          }
@@ -160,8 +169,9 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          if(get_option("instagram_skin"))
                          {
                             $icon = get_option("instagram_skin");
-                            echo '<span class="row_17_10 instagram_section" style="background: url('.$icon.') no-repeat;"></span>';
-                         }else
+                            echo '<span class="row_17_10 instagram_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
+                         }
+						 else
                          {
                              echo '<span class="row_17_10 instagram_section" style="background-position:-526px 0;"></span>';
                          }

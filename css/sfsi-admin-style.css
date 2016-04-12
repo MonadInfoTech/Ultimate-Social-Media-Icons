@@ -1535,6 +1535,13 @@ ul.sfsi_floaticon_margin_sec li ins {
     margin-left: 15px;
     text-decoration: none;
 }
+.custom-img img, .custom_section img, .custom_iconOrder img, .sample_icons img{
+    width: 51px;
+}
+.cstomskins_upload span.sfsi-bgimage
+{
+	background-size: 51px 51px !important;
+}
 @media (max-width:1160px) {
 .sfsi_subscription_html xmp {
     display: block;
@@ -1559,6 +1566,7 @@ ul.sfsi_floaticon_margin_sec li ins {
 .tab8 .row_tab div.sfsi_field {
     margin-bottom: 10px;
 }
+
 }
 @media (max-width:770px) {
 #sfsi_form_heading_fontstyle {
