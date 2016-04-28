@@ -1561,7 +1561,8 @@ SFSI(document).ready(function(s) {
             e = 0;
         });
 	});
-	SFSI("#custmskin_clspop").live("click", function() {
+	/*SFSI("#custmskin_clspop").live("click", function() {*/
+	SFSI(document).on("click", '#custmskin_clspop', function () {
 		SFSI_done();
         SFSI(".cstmskins-overlay").hide("slow");
     });
@@ -1574,7 +1575,8 @@ SFSI(document).ready(function(s) {
 	
     SFSI("#sfsi_form_heading_font, #sfsi_form_heading_fontstyle, #sfsi_form_heading_fontalign, #sfsi_form_field_font, #sfsi_form_field_fontstyle, #sfsi_form_field_fontalign, #sfsi_form_button_font, #sfsi_form_button_fontstyle, #sfsi_form_button_fontalign").on("change", create_suscriber_form );
 	
-	SFSI(".radio").live("click", function() {
+	/*SFSI(".radio").live("click", function() {*/
+	SFSI(document).on("click", '.radio', function () {
         var s = SFSI(this).parent().find("input:radio:first");
 		switch(s.attr("name")) {
 			case 'sfsi_form_adjustment':
@@ -1947,7 +1949,8 @@ SFSI(document).ready(function(s) {
         /*global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", 'Saved! Now go to the <a href="widgets.php">widget</a> area and place the widget into your sidebar (if not done already)', 8))))))));*/
 		global_error = 0, !1) :void (0 == global_error && showErrorSuc("success", '', 8))))))));
     }),
-	SFSI(".fileUPInput").live("change", function() {
+	/*SFSI(".fileUPInput").live("change", function() {*/
+	SFSI(document).on("change", '.fileUPInput', function () {
         beForeLoad(), beforeIconSubmit(this) && (SFSI(".upload-overlay").css("pointer-events", "none"), 
         SFSI("#customIconFrm").ajaxForm({
             dataType:"json",
@@ -1960,7 +1963,8 @@ SFSI(document).ready(function(s) {
         SFSI("." + SFSI(this).attr("data-id")).css("opacity", "1"), SFSI("." + SFSI(this).attr("data-id")).css("z-index", "1000")), 
         SFSI("." + SFSI(this).attr("data-id")).show("slow");
     }),
-	SFSI("#close_popup").live("click", function() {
+	/*SFSI("#close_popup").live("click", function() {*/
+	SFSI(document).on("click", '#close_popup', function () {
         SFSI(".read-overlay").hide("slow");
     });
 	
@@ -2048,11 +2052,12 @@ SFSI(document).ready(function(s) {
 			}
         });
     }),
-	SFSI(".radio").live("click", function() {
+	/*SFSI(".radio").live("click", function() {*/
+	SFSI(document).on("click", '.radio', function () {	
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_display_counts" == s.attr("name") && sfsi_show_counts();
     }),
-	SFSI("#close_Uploadpopup").on("click", i), SFSI(".radio").live("click", function() {
+	SFSI("#close_Uploadpopup").on("click", i), /*SFSI(".radio").live("click", function() {*/SFSI(document).on("click", '.radio', function () {
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_show_Onposts" == s.attr("name") && sfsi_show_OnpostsDisplay();
     }),
@@ -2065,7 +2070,8 @@ SFSI(document).ready(function(s) {
         },
         revert:!0
     }),
-	SFSI(".radio").live("click", function() {
+	/*SFSI(".radio").live("click", function() {*/
+	SFSI(document).on("click", '.radio', function () {
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_email_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_email_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_email_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
@@ -2108,8 +2114,8 @@ SFSI(document).ready(function(s) {
 	SFSI('input[name="sfsi_popup_text"] ,input[name="sfsi_popup_background_color"],input[name="sfsi_popup_border_color"],input[name="sfsi_popup_border_thickness"],input[name="sfsi_popup_fontSize"],input[name="sfsi_popup_fontColor"]').on("keyup", sfsi_make_popBox), 
     SFSI('input[name="sfsi_popup_text"] ,input[name="sfsi_popup_background_color"],input[name="sfsi_popup_border_color"],input[name="sfsi_popup_border_thickness"],input[name="sfsi_popup_fontSize"],input[name="sfsi_popup_fontColor"]').on("focus", sfsi_make_popBox), 
     SFSI("#sfsi_popup_font ,#sfsi_popup_fontStyle").on("change", sfsi_make_popBox), 
-    SFSI(".radio").live("click", function()
-	{
+    /*SFSI(".radio").live("click", function(){*/
+	SFSI(document).on("click", '.radio', function () {
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_popup_border_shadow" == s.attr("name") && sfsi_make_popBox();
     }), /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? SFSI("img.sfsi_wicon").on("click", function(s) {
@@ -2194,7 +2200,7 @@ SFSI(document).ready(function(s) {
         "Read more" == SFSI(this).text() ? (SFSI(this).siblings("p").children("label").fadeIn("slow"), 
         SFSI(this).text("Collapse")) :(SFSI(this).siblings("p").children("label").fadeOut("slow"), 
         SFSI(this).text("Read more"));
-    }), SFSI(".radio").live("click", function() {
+    }), /*SFSI(".radio").live("click", function() {*/SFSI(document).on("click", '.radio', function () {
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_icons_float" == s.attr("name") && "yes" == s.val() && (SFSI(".float_options").slideDown("slow"), 
         SFSI('input[name="sfsi_icons_stick"][value="no"]').attr("checked", !0), SFSI('input[name="sfsi_icons_stick"][value="yes"]').removeAttr("checked"), 
@@ -2211,7 +2217,8 @@ SFSI(document).ready(function(s) {
             SFSI(this).css("height", s);
         });
     }, 200),
-	SFSI(".checkbox").live("click", function() {
+	/*SFSI(".checkbox").live("click", function() {*/
+	SFSI(document).on("click", '.checkbox', function () {
         var s = SFSI(this).parent().find("input:checkbox:first");
         ("sfsi_shuffle_Firstload" == s.attr("name") && "checked" == s.attr("checked") || "sfsi_shuffle_interval" == s.attr("name") && "checked" == s.attr("checked")) && (SFSI('input[name="sfsi_shuffle_icons"]').parent().find("span").css("background-position", "0px -36px"), 
         SFSI('input[name="sfsi_shuffle_icons"]').attr("checked", "checked")), "sfsi_shuffle_icons" == s.attr("name") && "checked" != s.attr("checked") && (SFSI('input[name="sfsi_shuffle_Firstload"]').removeAttr("checked"), 

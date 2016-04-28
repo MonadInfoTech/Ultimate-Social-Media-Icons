@@ -378,13 +378,15 @@ $hide="display:none;";
                         </li>
                     </ul>
                     <ul class="SFSI_instructions">
-                        <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">Please make sure you have entered the <b>URL</b> for <b>Visit my Google+ page at:</b> like <b>https://plus.google.com/u/0/b/[pageid]</b> in Google+ settings under question number 2.	
+                        <li class="google_option" style="<?php echo ($option4['sfsi_google_countsFrom']=='manual') ?  'display:none;' : '' ;?>">Please make sure you have entered the <b>URL</b> for <b>Visit my Google+ page at:</b> like <b>https://plus.google.com/u/0/b/[pageid]</b> in Google+ settings under question number 2.	
                         </li>
-                        <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>"><h3>To get the API key for G+:</h3></li>
+                        <li class="google_option" style="<?php echo ($option4['sfsi_google_countsFrom']=='manual') ?  'display:none;' : '' ;?>"><h3>Video how to get the Google+ API key:</h3></li>
+                     	<li class="google_option" style="<?php echo ($option4['sfsi_google_countsFrom']=='manual') ?  'display:none;' : '' ;?>"><a href="https://youtu.be/O1xM9qMGbE0" target="_blank">https://youtu.be/O1xM9qMGbE0</a></li>
+                        <?php /*?><li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>"><h3>To get the API key for G+:</h3></li>
                         <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">1: Login to your 					Google account, go to <a href="http://console.developers.google.com" target="_blank">console.developers.google.com</a> and create a new project</li>
                         <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">2: Then on the left menu bar go to “APIs & auth”, “Credentials” and click “Create new key” in the “Public API access” section</li>
                         <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">3: There you select “browser key” and click “Create”. You will then be shown your API key. </li>
-                        <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">When you enter this key into the plugin for the first time, it may take some time until the correct follower count is displayed on your website.</li>
+                        <li class="google_option" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">When you enter this key into the plugin for the first time, it may take some time until the correct follower count is displayed on your website.</li><?php */?>
                     </ul>
                 </li>        
                 <li>

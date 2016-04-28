@@ -179,14 +179,15 @@ SFSI(document).ready(function(s) {
         ("fbex-s2" == SFSI(this).attr("data-id") || "googlex-s2" == SFSI(this).attr("data-id") || "linkex-s2" == SFSI(this).attr("data-id")) && (SFSI("." + SFSI(this).attr("data-id")).hide(), 
         SFSI("." + SFSI(this).attr("data-id")).css("opacity", "1"), SFSI("." + SFSI(this).attr("data-id")).css("z-index", "1000")), 
         SFSI("." + SFSI(this).attr("data-id")).show("slow");
-    }), SFSI("#close_popup").live("click", function() {
+    }), /*SFSI("#close_popup").live("click", function() {*/SFSI(document).on("click", '#close_popup', function () {
         SFSI(".read-overlay").hide("slow");
     });
     var e = 0; 
     sfsi_make_popBox(), SFSI('input[name="sfsi_popup_text"] ,input[name="sfsi_popup_background_color"],input[name="sfsi_popup_border_color"],input[name="sfsi_popup_border_thickness"],input[name="sfsi_popup_fontSize"],input[name="sfsi_popup_fontColor"]').on("keyup", sfsi_make_popBox), 
     SFSI('input[name="sfsi_popup_text"] ,input[name="sfsi_popup_background_color"],input[name="sfsi_popup_border_color"],input[name="sfsi_popup_border_thickness"],input[name="sfsi_popup_fontSize"],input[name="sfsi_popup_fontColor"]').on("focus", sfsi_make_popBox), 
     SFSI("#sfsi_popup_font ,#sfsi_popup_fontStyle").on("change", sfsi_make_popBox), 
-    SFSI(".radio").live("click", function() {
+    /*SFSI(".radio").live("click", function() {*/
+	SFSI(document).on("click", '.radio', function () {
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_popup_border_shadow" == s.attr("name") && sfsi_make_popBox();
     }), /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? SFSI("img.sfsi_wicon").on("click", function(s) {
