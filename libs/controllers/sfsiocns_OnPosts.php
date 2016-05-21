@@ -128,7 +128,7 @@ function sfsi_Subscribelike($permalink, $show_count)
 	if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
 	{
 		$feed_id = sanitize_text_field(get_option('sfsi_feed_id',false));
-		$feed_data = $socialObj->SFSI_getFeedSubscriber($feed_id);
+		$feed_data = (string) "0";
 		$counts= $socialObj->format_num($feed_data);
         if(empty($scounts['email_count']))
         {

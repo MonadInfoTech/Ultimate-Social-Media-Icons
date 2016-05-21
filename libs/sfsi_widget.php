@@ -437,7 +437,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			   	 }
 				 else
 				 {
-					$counts = $socialObj->SFSI_getFeedSubscriber(sanitize_text_field(get_option('sfsi_feed_id',false)));
+					$counts = $counts = (string) "0";
 				 }  
 			   }
 			   

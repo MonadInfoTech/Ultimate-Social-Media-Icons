@@ -468,7 +468,7 @@ class sfsi_SocialHelper
 		if(empty($sfsi_instagram_sf_count["date"]))
 		{
 			$sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
-			$counts = $this->SFSI_getFeedSubscriberCount($feedid);
+			$counts = (string) "0";
 			$sfsi_instagram_sf_count["sfsi_sf_count"] = $counts;
 			update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
 		}
@@ -485,7 +485,7 @@ class sfsi_SocialHelper
 			 if($diff->format("%a") >= 1)
 			 {
 				 $sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
-				 $counts = $this->SFSI_getFeedSubscriberCount($feedid);
+				 $counts = (string) "0";
 				 $sfsi_instagram_sf_count["sfsi_sf_count"] = $counts;
 				 update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
 			 }
@@ -497,32 +497,7 @@ class sfsi_SocialHelper
 		return $counts;
 	}
 	
-	/* get no of subscribers from specificfeeds for current blog count */
-	public function  SFSI_getFeedSubscriberCount($feedid)
-	{
-		$curl = curl_init();  
-		curl_setopt_array($curl, array(
-			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/wpCountSubscriber',
-			CURLOPT_USERAGENT => 'sf rss request',
-			CURLOPT_POST => 1,
-			CURLOPT_POSTFIELDS => array('feed_id' => $feedid, 'v' => "newplugincount")
-		));
-		
-		/* Send the request & save response to $resp */
-		$resp = curl_exec($curl);
-		if(!empty($resp))
-		{
-			$resp=json_decode($resp);
-			curl_close($curl);
-			$feeddata = stripslashes_deep($resp->subscriber_count);
-		}
-		else
-		{
-			$feeddata = 0;
-		}
-		return $this->format_num($feeddata);exit;
-	}
+	
 	
 	/* check response from a url */
 	private function sfsi_get_http_response_code($url)

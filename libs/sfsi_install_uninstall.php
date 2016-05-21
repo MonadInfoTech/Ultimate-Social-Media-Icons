@@ -27,7 +27,10 @@ function sfsi_update_plugin()
 	{
 		add_option("sfsi_languageNotice", "yes");
 	}
-	
+	if(!get_option('sfsi_subscriber_count'))
+	{
+		add_option("sfsi_subscriber_count", "yes");
+	}
 	/* subscription form */
     $options8 = array('sfsi_form_adjustment'=>'yes',
         'sfsi_form_height'=>'180',
@@ -79,7 +82,11 @@ function sfsi_update_plugin()
 		$option4['sfsi_youtube_channelId'] = '';
 		update_option('sfsi_section4_options', serialize($option4));
 	}
-	
+	if(isset($option4) && !empty($option4) && $option4['sfsi_email_countsFrom'] == 'source')
+	{
+		$option4['sfsi_email_countsFrom'] = 'manual';
+		update_option('sfsi_section4_options', serialize($option4));
+	}
 	$option6=  unserialize(get_option('sfsi_section6_options',false));
 	if(isset($option6) && !empty($option6))
 	{
@@ -183,7 +190,7 @@ function sfsi_activate_plugin()
 	/* display counts options */         
     $options4=array('sfsi_display_counts'=>'no',
         'sfsi_email_countsDisplay'=>'no',
-        'sfsi_email_countsFrom'=>'source',
+        'sfsi_email_countsFrom'=>'manual',
         'sfsi_email_manualCounts'=>'20',
         'sfsi_rss_countsDisplay'=>'no',
         'sfsi_rss_manualCounts'=>'20',
