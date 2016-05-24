@@ -96,7 +96,7 @@ function sfsi_update_plugin()
 	
 	/*Extra important options*/
 	$sfsi_instagram_sf_count = array(
-		"date" => "",
+		"date" => strtotime(date("Y-m-d")),
 		"sfsi_sf_count" => "",
 		"sfsi_instagram_count" => ""
 	);
@@ -320,6 +320,14 @@ function sfsi_activate_plugin()
 	/*Activation Setup for (specificfeed)*/
 	sfsi_setUpfeeds($sffeeds->feed_id);
     sfsi_updateFeedPing('N',$sffeeds->feed_id);
+	
+	/*Extra important options*/
+	$sfsi_instagram_sf_count = array(
+		"date" => strtotime(date("Y-m-d")),
+		"sfsi_sf_count" => "",
+		"sfsi_instagram_count" => ""
+	);
+	add_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
 }
 /* end function  */
 
