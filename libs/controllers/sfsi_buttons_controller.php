@@ -610,8 +610,15 @@ function sfsi_getCounts()
     /* get email count */
    	if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
    	{
-    	$scounts['email_count']=(string) "0";
-    }
+       	$feed_id = sanitize_text_field(get_option('sfsi_feed_id',false));
+       	$feed_data = $socialObj->SFSI_getFeedSubscriber($feed_id);
+ 
+       	$scounts['email_count']= $socialObj->format_num($feed_data);
+        if(empty($scounts['email_count']))
+        {
+          $scounts['email_count']=(string) "0";
+        }
+   	}
    	else
    	{
 		$scounts['email_count']=$sfsi_section4_options['sfsi_email_manualCounts'];

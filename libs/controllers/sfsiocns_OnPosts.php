@@ -62,7 +62,7 @@ function sfsi_social_buttons_below($content)
 		$icons.="<div class='sfsi_socialwpr'>";
 			if($sfsi_section6['sfsi_rectsub'] == 'yes')
 			{
-				if($show_count){$sfsiLikeWithsub = "64px";}else{$sfsiLikeWithsub = "64px";}
+				if($show_count){$sfsiLikeWithsub = "93px";}else{$sfsiLikeWithsub = "64px";}
 				if(!isset($sfsiLikeWithsub)){$sfsiLikeWithsub = $sfsiLikeWith;}
 				$icons.="<div class='sf_subscrbe' style='text-align:left;float:left;width:".$sfsiLikeWithsub."'>".sfsi_Subscribelike($permalink,$show_count)."</div>";
 			}
@@ -128,7 +128,7 @@ function sfsi_Subscribelike($permalink, $show_count)
 	if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
 	{
 		$feed_id = sanitize_text_field(get_option('sfsi_feed_id',false));
-		$feed_data = (string) "0";
+		$feed_data = $socialObj->SFSI_getFeedSubscriber($feed_id);
 		$counts= $socialObj->format_num($feed_data);
         if(empty($scounts['email_count']))
         {
@@ -142,7 +142,7 @@ function sfsi_Subscribelike($permalink, $show_count)
 	 
    if($sfsi_section6_options['sfsi_icons_DisplayCounts']=="yes")
    {
-	 	$icon = '<a href="'.$url.'" target="_blank"><img src="'.SFSI_PLUGURL.'images/follow_subscribe.png" /></a>';
+	 	$icon = '<a href="'.$url.'" target="_blank"><img src="'.SFSI_PLUGURL.'images/follow_subscribe.png" /></a><span class="bot_no">'.$counts.'</span>';
    }
    else
    {

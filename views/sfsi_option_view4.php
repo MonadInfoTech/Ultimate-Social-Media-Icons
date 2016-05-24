@@ -252,7 +252,7 @@ $hide="display:none;";
             </div>
             <div class="listing">
                 <ul>
-                    <?php /*?><li><input name="sfsi_email_countsFrom" <?php echo ($option4['sfsi_email_countsFrom']=='source') ?  'checked="true"' : '' ;?>  type="radio" value="source" class="styled"  />Retrieve the number of subscribers automatically</li><?php */?>
+                    <li><input name="sfsi_email_countsFrom" <?php echo ($option4['sfsi_email_countsFrom']=='source') ?  'checked="true"' : '' ;?>  type="radio" value="source" class="styled"  />Retrieve the number of subscribers automatically</li>
                     <li><input name="sfsi_email_countsFrom" <?php echo ($option4['sfsi_email_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" />Enter the figure manually<input name="sfsi_email_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_email_manualCounts']!='') ?  $option4['sfsi_email_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_email_countsFrom']=='source') ?  'display:none;' : '' ;?>" /></li>
                 </ul>
             </div>    

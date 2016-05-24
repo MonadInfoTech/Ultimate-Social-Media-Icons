@@ -395,8 +395,7 @@ function sfsi_admin_notice()
 				<a href="<?php echo $url; ?>">Dismiss</a>
 			</p>
 		</div>
-	<?php 
-	}
+	<?php }
 	
 	if(get_option("sfsi_curlErrorNotices") == "yes")
 	{ 
@@ -431,20 +430,6 @@ function sfsi_admin_notice()
 			</p>
 		</div>
 	<?php }
-	if(get_option("sfsi_subscriber_count") == "yes")
-	{ 
-		$url = "?sfsi-dismiss-subsciber-notice=true";
-		?>
-		<div class="updated" style="<?php echo $style; ?>">
-			<div class="alignleft" style="margin: 9px 0;">
-				<b>Note:</b> Counts for your SpecificFeeds subscribers is disabled currently as it caused high server load. We are working hard on bringing them back to you soon.
-			</div>
-			<p class="alignright">
-				<a href="<?php echo $url; ?>">Dismiss</a>
-			</p>
-		</div>
-	<?php 
-	}
 }
 add_action('admin_init', 'sfsi_dismiss_admin_notice');
 function sfsi_dismiss_admin_notice()
@@ -464,11 +449,6 @@ function sfsi_dismiss_admin_notice()
 	if ( isset($_REQUEST['sfsi-dismiss-languageNotice']) && $_REQUEST['sfsi-dismiss-languageNotice'] == 'true' )
 	{
 		update_option( 'sfsi_languageNotice', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
-	}
-	if ( isset($_REQUEST['sfsi-dismiss-subsciber-notice']) && $_REQUEST['sfsi-dismiss-subsciber-notice'] == 'true' )
-	{
-		update_option( 'sfsi_subscriber_count', "no" );
 		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
 	}
 }
