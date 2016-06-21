@@ -8,7 +8,35 @@ define('rss_readmore', $rss_readmore_text);
 define('ress_readmore_button', $ress_readmore_button);
 define('rss_readmore_text2', $rss_readmore_text2);
 
+$feedId 		= sanitize_text_field(get_option('sfsi_feed_id',false));
+$connectToFeed 	= "http://www.specificfeeds.com/?".base64_encode("userprofile=wordpress&feed_id=".$feedId);
+$connectFeedLgn	= "http://www.specificfeeds.com/?".base64_encode("userprofile=wordpress&feed_id=".$feedId."&logintype=login");
 ?>
+
+<div class="pop-overlay read-overlay sfsi_feedClaimingOverlay" >
+    <div class="pop_up_box sfsi_pop_up"  >
+        <img src="<?php echo SFSI_PLUGURL; ?>images/newclose.png" id="close_popup" class="sfsicloseBtn" />
+        <center>
+            <form id="calimingOptimizationForm" method="get" action="https://www.specificfeeds.com/wpclaimfeeds/getFullAccess" target="_blank">
+                <h1>Please enter your email</h1>
+                <div class="form-field">
+                    <input type="hidden" name="feed_id" value="<?php echo $feedId; ?>" />
+                    <input type="email" name="email" value="<?php ?>" placeholder="Your email" style="color: #bebebe !important;"/>
+                </div>
+                <div class="save_button">
+                    <a href="javascript:;" id="sfsi_getMeFullAccess" title="Give me access">
+                        Give me access!
+                    </a>
+                </div>
+                <p>
+                	This will create your FREE acccount on <a target="_blank" href="<?php echo $connectToFeed?>">SpecificFeeds</a>. We will treat your data (and your subscribers’ data!) highly confidentially, see our <a target="_blank" href="https://www.specificfeeds.com/page/privacy-policy ">Privacy Policy</a>.
+              </p>
+                    
+                <p>If you already have an account, please <a href="<?php echo $connectFeedLgn?>" target="_blank">click here</a>.</p>
+            </form>
+        </center>    
+	</div>
+</div>
 
 <div class="pop-overlay read-overlay" >
     <div class="pop_up_box sfsi_pop_up"  >

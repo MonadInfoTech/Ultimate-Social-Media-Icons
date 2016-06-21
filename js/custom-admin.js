@@ -2226,6 +2226,40 @@ SFSI(document).ready(function(s) {
         SFSI('input[name="sfsi_shuffle_interval"]').removeAttr("checked"), SFSI('input[name="sfsi_shuffle_interval"]').parent().find("span").css("background-position", "0px 0px"));
     });
 	
+	SFSI("body").on("click", "#sfsi_getMeFullAccess", function(){
+		var email	= SFSI(this).parents("form").find("input[type='email']").val();
+		var feedid 	= SFSI(this).parents("form").find("input[name='feedid']").val();
+		var error 	= false;
+		var regEx 	= /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		
+		if(email === '')
+		{
+			error = true;
+		}
+		
+		if(!regEx.test(email))
+		{
+			error = true;
+		}
+		
+		if(!error)
+		{
+			SFSI(this).parents("form").submit();
+		}
+		else
+		{
+			alert("Error: Please provide your email address.");
+		}
+	});
+	
+	SFSI('form#calimingOptimizationForm').on('keypress', function(e) {
+		var keyCode = e.keyCode || e.which;
+		if (keyCode === 13) { 
+			e.preventDefault();
+			return false;
+		}
+	});
+	
 	/*SFSI(".checkbox").live("click", function()
 	{
         var s = SFSI(this).parent().find("input:checkbox:first");
