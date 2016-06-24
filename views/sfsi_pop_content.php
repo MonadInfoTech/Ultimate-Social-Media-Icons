@@ -21,7 +21,7 @@ $connectFeedLgn	= "http://www.specificfeeds.com/?".base64_encode("userprofile=wo
                 <h1>Please enter your email</h1>
                 <div class="form-field">
                     <input type="hidden" name="feed_id" value="<?php echo $feedId; ?>" />
-                    <input type="email" name="email" value="<?php ?>" placeholder="Your email" style="color: #bebebe !important;"/>
+                    <input type="email" name="email" value="<?php ?>" placeholder="Your email" style="color: #000 !important;"/>
                 </div>
                 <div class="save_button">
                     <a href="javascript:;" id="sfsi_getMeFullAccess" title="Give me access">
@@ -320,19 +320,20 @@ I want to see how it works</a></div>
             	<li>
                 	<div class="cstm_icnname">RSS</div>
                     <div class="cstmskins_btn">
-                    	<?php 
+                    	<?php
+							$nonce = wp_create_nonce("deleteCustomSkin");
 							if(get_option("rss_skin"))
 							{
 								$rss_skin = get_option("rss_skin");
 								echo "<img src='".$rss_skin."' width='30px' height='30px' class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="rss_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="rss_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="rss_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="rss_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="rss_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="rss_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -346,13 +347,13 @@ I want to see how it works</a></div>
 								$email_skin = get_option("email_skin");
 								echo "<img src='".$email_skin."' width='30px' height='30px' class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="email_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="email_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="email_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="email_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="email_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="email_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -366,13 +367,13 @@ I want to see how it works</a></div>
 								$facebook_skin = get_option("facebook_skin");
 								echo "<img src='".$facebook_skin."' width='30px' height='30px'  class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="facebook_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="facebook_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="facebook_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="facebook_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="facebook_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="facebook_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -386,13 +387,13 @@ I want to see how it works</a></div>
 								$twitter_skin = get_option("twitter_skin");
 								echo "<img src='".$twitter_skin."' width='30px' height='30px' class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="twitter_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="twitter_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="twitter_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="twitter_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="twitter_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="twitter_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -406,13 +407,13 @@ I want to see how it works</a></div>
 								$google_skin = get_option("google_skin");
 								echo "<img src='".$google_skin."' width='30px' height='30px'  class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="google_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="google_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="google_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="google_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="google_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="google_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -426,13 +427,13 @@ I want to see how it works</a></div>
 								$share_skin = get_option("share_skin");
 								echo "<img src='".$share_skin."' width='30px' height='30px' class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="share_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="share_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="share_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="share_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="share_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="share_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -446,13 +447,13 @@ I want to see how it works</a></div>
 								$youtube_skin = get_option("youtube_skin");
 								echo "<img src='".$youtube_skin."' width='30px' height='30px'  class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="youtube_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="youtube_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="youtube_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="youtube_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="youtube_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="youtube_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -466,13 +467,13 @@ I want to see how it works</a></div>
 								$linkedin_skin = get_option("linkedin_skin");
 								echo "<img src='".$linkedin_skin."' width='30px' height='30px'  class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="linkedin_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="linkedin_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="linkedin_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="linkedin_skin" class="cstmskin_btn">Upload</a>';	
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="linkedin_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="linkedin_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -486,13 +487,13 @@ I want to see how it works</a></div>
 								$pintrest_skin = get_option("pintrest_skin");
 								echo "<img src='".$pintrest_skin."' width='30px' height='30px' class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="pintrest_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="pintrest_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="pintrest_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="pintrest_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="pintrest_skin" class="cstmskin_btn dlt_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="pintrest_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';
 							}
 						?>
                     </div>
@@ -506,13 +507,13 @@ I want to see how it works</a></div>
 								$instagram_skin = get_option("instagram_skin");
 								echo "<img src='".$instagram_skin."' width='30px' height='30px' class='imgskin'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="instagram_skin" class="cstmskin_btn">Update</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="instagram_skin" class="cstmskin_btn">Delete</a>';
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="instagram_skin" data-nonce="'.$nonce.'" class="cstmskin_btn">Delete</a>';
 							}
 							else
 							{
 								echo "<img src='' width='30px' height='30px' class='imgskin skswrpr'>";
 								echo '<a href="javascript:" onclick="upload_image(this);" title="instagram_skin" class="cstmskin_btn">Upload</a>';
-								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="instagram_skin" class="cstmskin_btn dlt_btn">Delete</a>';		
+								echo '<a href="javascript:" onclick="deleteskin_icon(this);" title="instagram_skin" data-nonce="'.$nonce.'" class="cstmskin_btn dlt_btn">Delete</a>';		
 							}
 						?>
                     </div>
