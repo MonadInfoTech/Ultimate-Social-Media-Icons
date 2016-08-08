@@ -177,7 +177,18 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                          }
                      ?>
                 </div>
-           </li>
+           	</li>
+           
+           	<li>
+            	<p style="font-weight: bold; margin: 12px 0 0;">
+                	Are you an icon designer? 
+                	<a href="mailto:biz@ultimatelysocial.com" style="color:#8E81BD; text-decoration:none;">
+                    	Contact us
+                	</a>
+                	to offer your icons here and get a free link (& traffic) back to your site!
+            	</p>
+            </li>
+            
 		</ul>
 		<!--icon themes section start -->
       

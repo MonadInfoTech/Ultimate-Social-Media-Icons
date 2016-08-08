@@ -494,6 +494,12 @@ class sfsi_SocialHelper
 				 $counts = $sfsi_instagram_sf_count["sfsi_sf_count"];
 			 }
 		}
+		
+		if(empty($counts) || $counts == "O")
+		{
+			$counts = 0;
+		}
+		
 		return $counts;
 	}
 	
