@@ -12,7 +12,7 @@ function sfsi_update_plugin()
 	}
 	
 	//Install version
-	update_option("sfsi_pluginVersion", "1.53");
+	update_option("sfsi_pluginVersion", "1.54");
 	
 	/*show notification*/
 	if(!get_option('show_notification'))
@@ -414,7 +414,8 @@ function SFSI_getFeedUrl()
         CURLOPT_POSTFIELDS => array(
             'web_url' 	=> get_bloginfo('url'),
             'feed_url'	=> sfsi_get_bloginfo('rss2_url'),
-            'email'		=> ''
+            'email'		=> '',
+			'subscriber_type' => 'OWP'
         )
     ));
  	// Send the request & save response to $resp
