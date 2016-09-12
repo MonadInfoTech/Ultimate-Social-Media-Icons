@@ -294,7 +294,7 @@ I want to see how it works</a></div>
 <div class="pop-overlay read-overlay demail-3" >
     <div class="pop_up_box sfsi_pop_up" >
        <h4>You’re a toughie. Last try: As a minimum, could you please review this plugin (with 5 stars)? It only takes a minute. Thank you! </h4>
-	<div class="button"><a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new" class="hidePop activate" title="Ok, Review it" >Ok, Review it</a></div>
+	<div class="button"><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons/reviews/" target="_new" class="hidePop activate" title="Ok, Review it" >Ok, Review it</a></div>
         <a href="javascript:;" class="hidePop" title="Don’t review and exit">Don’t review and exit</a>
   </div>
 </div> <!-- END email deactivate pop-ups -->

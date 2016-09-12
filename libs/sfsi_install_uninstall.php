@@ -549,7 +549,7 @@ function sfsi_rating_msg()
 	 echo '<div class="sfwp_fivestar">
 				<p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. If you\'re happy with it, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
 				<ul>
-					<li><a href="https://wordpress.org/support/view/plugin-reviews/ultimate-social-media-icons" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
+					<li><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons/reviews/" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
 					<li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
 					<li><a href="javascript:void(0);" class="sfsiHideRating" title="No, not good enough">No, not good enough</a></li>
 				</ul>

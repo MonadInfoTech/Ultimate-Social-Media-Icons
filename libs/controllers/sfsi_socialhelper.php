@@ -342,7 +342,7 @@ class sfsi_SocialHelper
 	/* create on page twitter share icon */
 	public function sfsi_twitterShare($permalink,$tweettext)
 	{
-		$twitter_html = '<a rel="nofollow" href="http://twitter.com/share" data-count="none" class="sr-twitter-button twitter-share-button" lang="en" data-url="'.$permalink.'" data-text="'.$tweettext.'" ></a>';
+		$twitter_html = '<a rel="nofollow" href="http://twitter.com/share" data-count="none" class="sr-twitter-button twitter-share-button" lang="en" data-url="'.$permalink.'" data-text="'.stripslashes($tweettext).'" ></a>';
 		return $twitter_html;
 	} 
 	
