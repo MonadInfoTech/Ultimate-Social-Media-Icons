@@ -2,12 +2,12 @@
 /*  instalation of javascript and css  */
 function theme_back_enqueue_script()
 {
-		wp_enqueue_style("SFSImainAdminCss", SFSI_PLUGURL . 'css/sfsi-admin-style.css' );
-		
 		if(isset($_GET['page']))
 		{
 			if($_GET['page'] == 'sfsi-options')
 			{
+				wp_enqueue_style("SFSImainAdminCss", SFSI_PLUGURL . 'css/sfsi-admin-style.css' );
+
 				/* include CSS for backend  */
   				wp_enqueue_style('thickbox');
 				wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
@@ -94,53 +94,34 @@ function theme_front_enqueue_script()
 }
 add_action( 'wp_enqueue_scripts', 'theme_front_enqueue_script' );
 
-/*function sfsi_footerFeedbackScript()
+function sfsi_footerFeedbackScript()
 {
-    wp_enqueue_style('wp-pointer');
-    wp_enqueue_script('wp-pointer');
-    wp_enqueue_script('utils'); // for user settings
-	
-	$html = '<div>';
-		$html .= '<label>Optional: Please tell us why you deactivate our plugin so that we can make it better!</label>';
-		$html .= '<textarea id="sfsi_feedbackMsg" name="reason"></textarea>';
-	$html .= '</div>';
-	?>
-    <script type="text/javascript">
-		jQuery('#sfsi_deactivateButton').click(function(){
-			jQuery('#sfsi_deactivateButton').pointer({
-				content: '<form method="post" id="sfsi_feedbackForm"><?php echo $html; ?><div><input type="button" name="sfsi_sendFeedback" value="Deactivate" class="button primary-button" /></div><img id="sfsi_loadergif" src="<?php echo site_url()."/wp-includes/images/spinner.gif"; ?>" /></form>',
-				position: {
-					edge:'top',
-					align:'left',
-				},
-				close: function() {
-					//
-				}
-			}).pointer('open');
-			return false;
-		});
-		jQuery("body").on("click","input[name='sfsi_sendFeedback']", function(){
-			var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
-			var deactivateUrl = jQuery('#social-media-and-share-icons-ultimate-social-media .deactivate a').attr('href');
-			var e = {
-				action:"sfsi_feedbackForm",
-				email: '<?php echo get_option("admin_email"); ?>',
-				msg:jQuery("#sfsi_feedbackMsg").val()
-			};
-			jQuery("#sfsi_loadergif").show();
-			jQuery.ajax({
-				url:ajaxurl,
-				type:"post",
-				data:e,
-				success:function(responce) {
-					//alert(responce);
-					jQuery("#sfsi_loadergif").hide();
-					window.location.href = deactivateUrl;
-				}
-			});
-		});
-	</script>
+    ?>
+    <style>
+	ul#adminmenu li.toplevel_page_sfsi-options div.wp-menu-image {
+    	display: none;
+	}
+	#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
+    	padding: 0 0 0 38px;
+    	font-family: helveticabold;
+	}
+	ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options {
+    	color: #e12522;
+    	transition: 0s;
+    	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px 15px no-repeat #000;
+    	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px -43px no-repeat #444444;
+    	color: #fafafa;
+	}
+	ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options:hover {
+    	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px -43px no-repeat #444444;
+    	color: #fafafa;
+	}
+	ul#adminmenu li.toplevel_page_sfsi-options a.current, ul#adminmenu li.toplevel_page_sfsi-options a.current:hover {
+    	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px 15px no-repeat #000000;
+    	color: #e12522;
+	}
+	</style>
 	<?php
 }
-add_action( 'admin_footer', 'sfsi_footerFeedbackScript' );*/
+add_action( 'admin_footer', 'sfsi_footerFeedbackScript' );
 ?>
