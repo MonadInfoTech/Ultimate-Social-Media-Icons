@@ -100,12 +100,12 @@
 		text-align:center;
 	}
 	</style>	
-	<div class="sfsi_show_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
+	<!-- <div class="sfsi_show_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
     	New: You can now also show a subscription form on your site, increasing sign-ups! (Question 8)
         <p>
         (If question 8 gets displayed in a funny way then please reload the page by pressing Control+F5(PC) or Command+R(Mac))
        	</p>
-    </div>
+    </div> -->
 	<?php } ?>
     <!-- Get notification bar-->
      
