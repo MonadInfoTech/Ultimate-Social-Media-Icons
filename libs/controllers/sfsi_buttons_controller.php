@@ -825,6 +825,15 @@ function sfsigetForm()
     <?php
 	die;
 }
+
+add_action("wp_ajax_premium_notification_read", "premium_notification_read");
+function premium_notification_read()
+{
+	update_option("show_premium_notification", "no");
+	echo "success";
+	die;
+}
+
 add_action("wp_ajax_notification_read", "notification_read");
 function notification_read()
 {
@@ -832,6 +841,7 @@ function notification_read()
 	echo "success";
 	die;
 }
+
 
 function sfsi_sanitize_field($value)
 {

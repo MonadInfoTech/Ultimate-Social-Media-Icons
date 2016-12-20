@@ -14,6 +14,12 @@ function sfsi_update_plugin()
 	//Install version
 	update_option("sfsi_pluginVersion", "1.57");
 	
+	/* show notification premium plugin */
+	if(!get_option('show_premium_notification'))
+	{
+		add_option("show_premium_notification", "yes");
+	}
+	
 	/*show notification*/
 	if(!get_option('show_notification'))
 	{
@@ -221,6 +227,7 @@ function sfsi_activate_plugin()
 		'sfsi_instagram_countsFrom'=>'manual',
 		'sfsi_instagram_countsDisplay'=>'no',
 		'sfsi_instagram_manualCounts'=>'20',
+
 		'sfsi_instagram_User'=>'',
 	
         'sfsi_shares_countsDisplay'=>'no',
