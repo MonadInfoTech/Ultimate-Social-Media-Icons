@@ -98,6 +98,14 @@ function sfsi_footerFeedbackScript()
 {
     ?>
     <style>
+    @charset "utf-8";
+    @font-face {
+	    font-family: helveticabold;
+	    src: url(<?php echo SFSI_PLUGURL; ?>css/fonts/helvetica_bold_0-webfont.eot);
+	    src: url(<?php echo SFSI_PLUGURL; ?>css/fonts/helvetica_bold_0-webfont.eot?#iefix) format('embedded-opentype'), url(<?php echo SFSI_PLUGURL; ?>css/fonts/helvetica_bold_0-webfont.woff) format('woff'), url(<?php echo SFSI_PLUGURL; ?>css/fonts/helvetica_bold_0-webfont.ttf) format('truetype'), url(<?php echo SFSI_PLUGURL; ?>css/fonts/helvetica_bold_0-webfont.svg#helveticabold) format('svg');
+	    font-weight: 400;
+	    font-style: normal;
+	}
 	ul#adminmenu li.toplevel_page_sfsi-options div.wp-menu-image {
     	display: none;
 	}
@@ -111,6 +119,7 @@ function sfsi_footerFeedbackScript()
     	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px 15px no-repeat #000;
     	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px -43px no-repeat #444444;
     	color: #fafafa;
+    	font-family: helveticabold;
 	}
 	ul#adminmenu li.toplevel_page_sfsi-options a.toplevel_page_sfsi-options:hover {
     	background: url(<?php echo SFSI_PLUGURL; ?>css/images/left_log_icn.png) 6px -43px no-repeat #444444;
