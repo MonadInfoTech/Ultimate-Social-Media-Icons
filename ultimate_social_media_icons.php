@@ -438,7 +438,7 @@ function sfsi_admin_notice()
 	/**
 	 * Premium Notification
 	 */
-	$domain 	= sfsi_getdomain("http://amber.com");//(site_url());
+	$domain 	= sfsi_getdomain(site_url());
 	$siteMatch 	= false;
 	
 	if(!empty($domain))
