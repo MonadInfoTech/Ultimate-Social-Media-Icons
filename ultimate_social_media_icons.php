@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.5.7
+Version: 1.5.8
 License: GPLv2 or later
 */
 global $wpdb;
@@ -32,7 +32,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.57)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.58)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -412,6 +412,9 @@ function sfsi_admin_notice()
 		</div>
 	<?php }
 	
+	/**
+	 * if wordpress uses other language
+	 */
 	if(
 		!empty($language) &&
 		isset($_GET['page']) &&
@@ -429,7 +432,45 @@ function sfsi_admin_notice()
 				<a href="<?php echo $url; ?>">Dismiss</a>
 			</p>
 		</div>
-	<?php }
+		<?php 
+	}
+
+	/**
+	 * Premium Notification
+	 */
+	$domain 	= sfsi_getdomain("http://amber.com");//(site_url());
+	$siteMatch 	= false;
+	
+	if(!empty($domain))
+	{
+		$regexp = "/^([a-d A-D])/im";
+		if(preg_match($regexp, $domain)) {
+			$siteMatch = true;
+		}
+		else {
+			$siteMatch = false;
+		}
+	}
+
+	if(get_option("show_premium_notification") == "yes" && $siteMatch == true)
+	{
+		$url = "?sfsi-dismiss-premiumNotice=true";
+		?>
+		<style type="text/css">
+			.sfsi_show_premium_notification a{
+				color: #fff;
+			}
+		</style>
+	    <div class="updated sfsi_show_premium_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
+			<div class="alignleft" style="margin: 9px 0;">
+				BIG NEWS : We released a <b>Premium Plugin</b> with many more cool features : <a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Check it out</a>
+			</div>
+			<p class="alignright">
+				<a href="<?php echo $url; ?>">Dismiss</a>
+			</p>
+		</div>
+		<?php
+	} 
 }
 add_action('admin_init', 'sfsi_dismiss_admin_notice');
 function sfsi_dismiss_admin_notice()
@@ -437,19 +478,25 @@ function sfsi_dismiss_admin_notice()
 	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
 	{
 		update_option( 'show_notification_plugin', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
 	}
 	
 	if ( isset($_REQUEST['sfsi-dismiss-curlNotice']) && $_REQUEST['sfsi-dismiss-curlNotice'] == 'true' )
 	{
 		update_option( 'sfsi_curlErrorNotices', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
 	}
 	
 	if ( isset($_REQUEST['sfsi-dismiss-languageNotice']) && $_REQUEST['sfsi-dismiss-languageNotice'] == 'true' )
 	{
 		update_option( 'sfsi_languageNotice', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options"); die;
+	}
+
+	if ( isset($_REQUEST['sfsi-dismiss-premiumNotice']) && $_REQUEST['sfsi-dismiss-premiumNotice'] == 'true' )
+	{
+		update_option( 'show_premium_notification', "no" );
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
 	}
 }
 
@@ -463,6 +510,16 @@ function sfsi_get_bloginfo($url)
 		$web_url = site_url()."/feed";
 	}
 	return $web_url;
+}
+
+function sfsi_getdomain($url)
+{
+	$pieces = parse_url($url);
+	$domain = isset($pieces['host']) ? $pieces['host'] : '';
+	if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+		return $regs['domain'];
+	}
+	return false;
 }
 
 /*add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLinks", -10 );

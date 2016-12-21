@@ -12,63 +12,7 @@
 <!-- START Admin view for plugin-->
 <div class="wapper sfsi_mainContainer">
 	
-	<?php
-		$domain 	= sfsi_getdomain(site_url());
-		$siteMatch 	= false;
-		
-		if(!empty($domain))
-		{
-			$regexp = "/^([a-d A-D])/im";
-			if(preg_match($regexp, $domain)) {
-				$siteMatch = true;
-			}
-			else {
-				$siteMatch = false;
-			}
-		}
-	?>
-	
-	<?php if(get_option("show_premium_notification") == "yes" && $siteMatch == true) { ?>
-    <script type="text/javascript">
-		jQuery(document).ready(function(e) {
-            jQuery(".sfsi_show_premium_notification").click(function(){
-				SFSI.ajax({
-					url:ajax_object.ajax_url,
-					type:"post",
-					data: {action: "premium_notification_read"},
-					success:function(msg){
-						if(jQuery.trim(msg) == 'success')
-						{
-							jQuery(".sfsi_show_premium_notification").hide("fast");
-						}
-					}
-				});
-			});
-        });
-	</script>
-    <style type="text/css">
-	.sfsi_show_premium_notification {
-		float: left;
-		margin-bottom: 45px;
-		padding: 12px 13px;
-		width: 98%;
-		background-image: url(<?php echo SFSI_PLUGURL ?>images/notification-close.png);
-		background-position: right 20px center;
-    	background-repeat: no-repeat;
-		cursor: pointer;
-		text-align:center;
-	}
-	.sfsi_show_premium_notification a{
-		color: #fff;
-	}
-	</style>	
-	<div class="sfsi_show_premium_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
-    	BIG NEWS : We released a <b>Premium Plugin</b> with many more cool features : 
-    	<a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Check it out</a>
-    </div>
-	<?php } ?>
-	
-    <!-- Get notification bar-->
+	<!-- Get notification bar-->
 	<?php if(get_option("show_notification") == "yes") { ?>
     <script type="text/javascript">
 		jQuery(document).ready(function(e) {
@@ -177,15 +121,3 @@
  <!-- all pops of plugin under sfsi_pop_content.php file --> 
  <?php include(SFSI_DOCROOT.'/views/sfsi_pop_content.php'); ?>
 </div> <!-- START Admin view for plugin-->
-
-<?php
-function sfsi_getdomain($url)
-{
-	$pieces = parse_url($url);
-	$domain = isset($pieces['host']) ? $pieces['host'] : '';
-	if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
-		return $regs['domain'];
-	}
-	return false;
-}
-?>
