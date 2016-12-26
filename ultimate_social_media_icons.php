@@ -385,30 +385,62 @@ function sfsi_admin_notice()
 	
 	if(get_option("show_notification_plugin") == "yes")
 	{ 
-		$url = "?sfsi-dismiss-notice=true";
 		?>
+		<style type="text/css">
+			form.sfsi_noticeDismiss {
+			    display: inline-block;
+			    margin: 5px 0 0;
+			    vertical-align: middle;
+			}
+			.sfsi_noticeDismiss input[type='submit']{
+				background-color: transparent;
+			    border: medium none;
+			    margin: 0;
+			    padding: 0;
+			    cursor: pointer;
+			}
+		</style>
 		<div class="updated" style="<?php echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
 				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="<?php echo site_url();?>/wp-admin/admin.php?page=sfsi-options" style="color:#7AD03A; font-weight:bold;">Check it out</a>
 			</div>
-			<p class="alignright">
-				<a href="<?php echo $url; ?>">Dismiss</a>
-			</p>
+			<div class="alignright">
+				<form method="post" class="sfsi_noticeDismiss">
+					<input type="hidden" name="sfsi-dismiss-notice" value="true">
+					<input type="submit" name="dismiss" value="Dismiss" />
+				</form>
+			</div>
 		</div>
 	<?php }
 	
 	if(get_option("sfsi_curlErrorNotices") == "yes")
 	{ 
-		$url = "?sfsi-dismiss-curlNotice=true";
 		?>
+		<style type="text/css">
+			form.sfsi_curlNoticeDismiss {
+			    display: inline-block;
+			    margin: 5px 0 0;
+			    vertical-align: middle;
+			}
+			.sfsi_curlNoticeDismiss input[type='submit']{
+				background-color: transparent;
+			    border: medium none;
+			    margin: 0;
+			    padding: 0;
+			    cursor: pointer;
+			}
+		</style>
 		<div class="error" style="<?php echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
 				There seems to be an error on your website which prevents the plugin to work properly. Please contact us at <a href="mailto:support@ultimatelysocial.com">support@ultimatelysocial.com</a> and state the error code you see below.
                 <p style="text-align:left"><b>Error : <?php echo ucfirst(get_option("sfsi_curlErrorMessage")); ?></b></p>
 			</div>
-			<p class="alignright">
-				<a href="<?php echo $url; ?>">Dismiss</a>
-			</p>
+			<div class="alignright">
+				<form method="post" class="sfsi_curlNoticeDismiss">
+					<input type="hidden" name="sfsi-dismiss-curlNotice" value="true">
+					<input type="submit" name="dismiss" value="Dismiss" />
+				</form>
+			</div>
 		</div>
 	<?php }
 	
@@ -421,16 +453,32 @@ function sfsi_admin_notice()
 		$_GET['page'] == "sfsi-options" &&
 		get_option("sfsi_languageNotice") == "yes"
 	)
-	{ 
-		$url = "?sfsi-dismiss-languageNotice=true";
+	{
 		?>
+		<style type="text/css">
+			form.sfsi_languageNoticeDismiss{
+			    display: inline-block;
+			    margin: 5px 0 0;
+			    vertical-align: middle;
+			}
+			.sfsi_languageNoticeDismiss input[type='submit']{
+				background-color: transparent;
+			    border: medium none;
+			    margin: 0;
+			    padding: 0;
+			    cursor: pointer;
+			}
+		</style>
 		<div class="updated" style="<?php echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
 				We detected that you're using a language other than English in Wordpress. We created also the <a target="_blank" href="https://wordpress.org/plugins/ultimate-social-media-plus/">Ultimate Social Media PLUS</a> plugin (still FREE) which allows you to select buttons in non-English languages (under question 6).
 			</div>
-			<p class="alignright">
-				<a href="<?php echo $url; ?>">Dismiss</a>
-			</p>
+			<div class="alignright">
+				<form method="post" class="sfsi_languageNoticeDismiss">
+					<input type="hidden" name="sfsi-dismiss-languageNotice" value="true">
+					<input type="submit" name="dismiss" value="Dismiss" />
+				</form>
+			</div>
 		</div>
 		<?php 
 	}
@@ -454,20 +502,35 @@ function sfsi_admin_notice()
 
 	if(get_option("show_premium_notification") == "yes" && $siteMatch == true)
 	{
-		$url = "?sfsi-dismiss-premiumNotice=true";
 		?>
 		<style type="text/css">
 			.sfsi_show_premium_notification a{
-				color: #fff;
+			   	color: #fff;
+			}
+			form.sfsi_premiumNoticeDismiss {
+			    display: inline-block;
+			    margin: 5px 0 0;
+			    vertical-align: middle;
+			}
+			.sfsi_premiumNoticeDismiss input[type='submit']{
+				background-color: transparent;
+			    border: medium none;
+			    color: #fff;
+			    margin: 0;
+			    padding: 0;
+			    cursor: pointer;
 			}
 		</style>
 	    <div class="updated sfsi_show_premium_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
 			<div class="alignleft" style="margin: 9px 0;">
 				BIG NEWS : There is now <b><a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Check it out</a>
 			</div>
-			<p class="alignright">
-				<a href="<?php echo $url; ?>">Dismiss</a>
-			</p>
+			<div class="alignright">
+				<form method="post" class="sfsi_premiumNoticeDismiss">
+					<input type="hidden" name="sfsi-dismiss-premiumNotice" value="true">
+					<input type="submit" name="dismiss" value="Dismiss" />
+				</form>
+			</div>
 		</div>
 		<?php
 	} 
