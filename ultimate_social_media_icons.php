@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.5.8
+Version: 1.5.9
 License: GPLv2 or later
 */
 global $wpdb;
@@ -32,7 +32,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.58)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.59)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -478,25 +478,25 @@ function sfsi_dismiss_admin_notice()
 	if ( isset($_REQUEST['sfsi-dismiss-notice']) && $_REQUEST['sfsi-dismiss-notice'] == 'true' )
 	{
 		update_option( 'show_notification_plugin', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
+		//header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
 	}
 	
 	if ( isset($_REQUEST['sfsi-dismiss-curlNotice']) && $_REQUEST['sfsi-dismiss-curlNotice'] == 'true' )
 	{
 		update_option( 'sfsi_curlErrorNotices', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
+		//header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
 	}
 	
 	if ( isset($_REQUEST['sfsi-dismiss-languageNotice']) && $_REQUEST['sfsi-dismiss-languageNotice'] == 'true' )
 	{
 		update_option( 'sfsi_languageNotice', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options"); die;
+		//header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options"); die;
 	}
 
 	if ( isset($_REQUEST['sfsi-dismiss-premiumNotice']) && $_REQUEST['sfsi-dismiss-premiumNotice'] == 'true' )
 	{
 		update_option( 'show_premium_notification', "no" );
-		header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
+		//header("Location: ".site_url()."/wp-admin/admin.php?page=sfsi-options");die;
 	}
 }
 
