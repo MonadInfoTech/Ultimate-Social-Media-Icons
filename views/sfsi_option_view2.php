@@ -171,6 +171,9 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
                 <label>SpecificFeeds icon<span class="sfplsdesc"> (provider of the service)</span></label>
             </li>
           </ul>
+            <div class ="sfsi_new_prmium_follw">
+                <p><b>New:</b> In our Premium Plugin you can now give your email icon other functions too, e.g. <b>contact you </b>(email), <b>share by email,</b> and <b>link to a certain page </b>(e.g. your contact form or newsletter sign-up site). <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
+            </div>
         </div>
     </div>
     <!-- END EMAIL ICON -->
@@ -187,7 +190,9 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
             <p class="radio_section fb_url extra_sp"><input name="sfsi_facebookLike_option" <?php echo ($option2['sfsi_facebookLike_option']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Like my blog on Facebook (+1)</label></p>
             
             <p class="radio_section fb_url extra_sp"><input name="sfsi_facebookShare_option" <?php echo ($option2['sfsi_facebookShare_option']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  /><label>Share my blog with friends (on Facebook)</label></p>
-        
+            <div class="sfsi_new_prmium_follw">
+                <p ><b>New:</b> In our Premium Plugin you can also allow users to follow you on Facebook <b>directly from your site</b> (without leaving your page, increasing followers). <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
+            </div> 
         </div>
     </div>
     <!-- END FACEBOOK ICON -->
@@ -204,6 +209,9 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
          	<div class="radio_section fb_url twt_fld"><input name="sfsi_twitter_followme"  <?php echo ($option2['sfsi_twitter_followme']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Follow me on Twitter:</label><input name="sfsi_twitter_followUserName" type="text" value="<?php echo ($option2['sfsi_twitter_followUserName']!='') ?  $option2['sfsi_twitter_followUserName'] : '' ;?>" placeholder="my_twitter_name" class="add" /></div>
          	
             <div class="radio_section fb_url twt_fld_2"><input name="sfsi_twitter_aboutPage" <?php echo ($option2['sfsi_twitter_aboutPage']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Tweet about my page:</label><textarea name="sfsi_twitter_aboutPageText" id="sfsi_twitter_aboutPageText" type="text" class="add_txt" placeholder="Hey, check out this cool site I found: www.yourname.com #Topic via@my_twitter_name" /><?php echo ($option2['sfsi_twitter_aboutPageText']!='') ?  stripslashes($option2['sfsi_twitter_aboutPageText']) : 'Hey check out this cool site I found' ;?></textarea></div>
+            <div class= "sfsi_new_prmium_follw">
+				<p><b>New: </b>In our Premium Plugin you can also insert tags to automatically pull the title of the story, as well as the link to the story. <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
+			</div>
         </div>
     </div>
     <!-- END TWITTER ICON -->
@@ -221,6 +229,9 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
             <p class="radio_section fb_url"><input name="sfsi_googleLike_option" <?php echo ($option2['sfsi_googleLike_option']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Like my blog on Google+ (+1)</label></p> 
         	
             <p class="radio_section fb_url"><input name="sfsi_googleShare_option" <?php echo ($option2['sfsi_googleShare_option']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Share my blog with friends (on Google+)</label></p>
+            <div class ="sfsi_new_prmium_follw" >
+                <p class="radio_section fb_url"><b>New: </b>In our Premium Plugin you can also allow users to follow you on Google+ <b>directly from your site </b>(without leaving your page, increasing followers). <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
+            </div>
         </div>
     </div>
     <!-- END GOOGLE ICON -->

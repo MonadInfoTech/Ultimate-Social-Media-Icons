@@ -117,7 +117,9 @@ if(!isset($option6['sfsi_rectfbshare']))
 		<li>3. Google+ is becoming more popular, and also important for SEO reasons</li>
 		<li>4. The Tweet-button allows quick tweeting of your article</li>
         <li>5. The share-button covers all other platforms for sharing</li>
+        <li></li>
 	</ul>
+	<p class ="sfsi_prem_plu_desc"><b>New:</b> We also added a Linkedin share-icon in the Premium Plugin. <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">Check it out.</a></p>
 	<!-- icons display section -->
 	<h4 class="sfsi_dsplyatend">So: do you want to display those at the end of every post?</h4>
 	<ul class="enough_waffling sfsi_dsplyatend">
@@ -131,6 +133,9 @@ if(!isset($option6['sfsi_rectfbshare']))
 	<div class="options">
             <label class="first">Text to appear before the sharing icons:</label><input name="sfsi_textBefor_icons" type="text" value="<?php echo ($option6['sfsi_textBefor_icons']!='') ?  $option6['sfsi_textBefor_icons'] : '' ; ?>" />
 	</div>
+	<div class ="options">
+		<p class="sfsi_prem_plu_desc"><b>New:</b> In the Premium Plugin you can now also define the<b> font size, type</b>, and the <b>margins below/above the icons</b>. <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">Check it out.</a></p>
+	</div>	
 	<div class="options">
             <label>Alignment of share icons: </label><div class="field"><select name="sfsi_icons_alignment" id="sfsi_icons_alignment" class="styled"><option value="left" <?php echo ($option6['sfsi_icons_alignment']=='left') ?  'selected="selected"' : '' ;?>>Left</option><!--<option value="center" <?php //echo ($option6['sfsi_icons_alignment']=='center') ?  'selected="selected"' : '' ;?>>Center</option>--><option value="right" <?php echo ($option6['sfsi_icons_alignment']=='right') ?  'selected="selected"' : '' ;?>>Right</option></select></div>
 	</div>
@@ -140,15 +145,8 @@ if(!isset($option6['sfsi_rectfbshare']))
 	
   </div><!-- END icons position section -->
   
-	<div class="sfsinewplgndesc">
-        <p class="clear"> 
-            Note: If you want more placement options for the icons next to posts,  please check out our <a href="https://wordpress.org/plugins/ultimate-social-media-plus/">new plugin</a> (also free!) which will also allow you to place the icons...         
-        </p>
-        <ul class="usually">
-            <li>1. ...you selected under question 1</li>
-            <li>2. ...also on your homepage (instead of only on the posts’s pages)</li>
-            <li>3. ...before posts (instead of only after posts)</li>
-        </ul>
+    <div class= "sfsi_new_prmium_follw">
+		<p><b>New:</b> In our Premium Plugin you have many more placement options, e.g. place the icons you selected under question 1, place them also on your homepage (instead of only post’s pages), place them before posts (instead of only after posts) etc.  <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
     </div>
   
      <!-- SAVE BUTTON SECTION   --> 

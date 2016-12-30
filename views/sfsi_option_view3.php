@@ -71,6 +71,8 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
             <li><input name="sfsi_actvite_theme" <?php echo ( $option3['sfsi_actvite_theme']=='transparent') ?  'checked="true"' : '' ;?> type="radio" value="transparent" class="styled" /><label style="line-height:20px !important;margin-top:15px;  ">Transparent <br/><span style="font-size: 9px;" >(for dark backgrounds)</span></label> <div class="icns_tab_3 trans_bg" style="padding-left: 6px;"><span class="row_16_1 rss_section"></span><span class="row_16_2 email_section"></span><span class="row_16_3 facebook_section"></span><span class="row_16_4 google_section"></span><span class="row_16_5  twitter_section"></span><span class="row_16_6 share_section"></span><span class="row_16_7 youtube_section"></span><span class="row_16_8 pinterest_section"></span><span class="row_16_9 linkedin_section"></span><span class="row_16_10 instagram_section"></span><!--<span class="row_16_11 sf_section"></span>--></div></li>
             
             <!--Custom Icon Support {Monad}-->
+            
+            
             <li class="cstomskins_upload">
             	<input name="sfsi_actvite_theme" <?php echo ( $option3['sfsi_actvite_theme']=='custom_support') ?  'checked="true"' : '' ;?> type="radio" value="custom_support" class="styled" />
                 <label style="line-height:20px !important;margin-top:15px;  ">Custom Icons <br/></label>
@@ -178,7 +180,25 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                      ?>
                 </div>
            	</li>
-           
+           	<li>
+			<div class="sf_si_our_prmium_plugin-add">
+			    <div class="sf_si_prmium_head"><h2>New: <span>In our Premium Plugin we added:</span></h2></div>
+			    <div class="sf_si_default_design">
+					<ul>
+						<li><b>A) More default design styles</b>
+						<img src="<?php  echo SFSI_PLUGURL.'images/1_sf-wpplugin_v1 .png';?>"/>
+						</li>
+						
+						<li><b>B) Themed styles <span>(to match the content of your site)</span></b>
+						<img src="<?php  echo SFSI_PLUGURL.'images/1_sf-wpplugin_v2 .png';?>"/>
+						</li>
+					</ul>
+			    </div>
+				<div class="sf_si_all_features_premium">
+					<a  href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features Premium Plugin</a>
+				</div>
+		    </div>
+            </li>
            	<li>
             	<p style="font-weight: bold; margin: 12px 0 0;">
                 	Are you an icon designer? 

@@ -270,23 +270,32 @@ $hide="display:none;";
                 </ul>
             </div>
             <div class="listing">
-                <ul>
+                <ul class="sfsi_fb_popup_contain">
                     <li>
-                        <input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='likes') ?  'checked="true"' : '' ;?>  type="radio" value="likes" class="styled"  />Retrieve the number of likes <strong>of your blog</strong>				
+                        <input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='likes') ?  'checked="true"' : '' ;?>  type="radio" value="likes" class="styled"  />Retrieve the number of likes <strong>of your blog</strong>	
+                        <div class = "sfsi_prem_fbpgiddesc">
+                            <div class ="sfsi_prem_fbpgidwpr" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>"></div>
+                        
+                        </div>		
                     </li>
                     <li>
                         <input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='mypage') ?  'checked="true"' : '' ;?>  type="radio" value="mypage" class="styled"  />
                         Retrieve the number of likes <strong>of your facebook page</strong><br>
-                        <div class="sfsi_fbpgiddesc">	
-                            <div class="sfsi_fbpgidwpr" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>">Facebook page ID:</div>
+                        <div class="sfsi_fbpgiddesc sfsi_fbpaget">	
+                            <div class="sfsi_fbpgidwpr sfsi_count" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>">Facebook page ID:</div>
                             <input name="sfsi_facebook_mypageCounts" type="text" class="input mypginpt" value="<?php echo ($option4['sfsi_facebook_mypageCounts']!='') ?  $option4['sfsi_facebook_mypageCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>" />
+                            <div class="sfsi_fbpgidwpr sfsi_fbpgiddesc sfsi_facebook_count" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>">(You'll find it at the bottom of the <code><<</code>About<code>>></code>-tab on your facebook page)</div>
                         </div>
-                        <div class="sfsi_fbpgidwpr sfsi_fbpgiddesc" style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='manual') ?  'display:none;' : '' ;?>">(You'll find it at the bottom of the <code><<</code>About<code>>></code>-tab on your facebook page)</div>
                     </li>
                     <li>
                         <input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" />Enter the figure manually<input name="sfsi_facebook_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_facebook_manualCounts']!='') ?  $option4['sfsi_facebook_manualCounts'] : '' ;?>"  style="<?php echo ($option4['sfsi_facebook_countsFrom']=='likes' || $option4['sfsi_facebook_countsFrom']=='followers' || $option4['sfsi_facebook_countsFrom']=='mypage') ?  'display:none;' : '' ;?>" />
                     </li>
                 </ul>
+                <div class="sfsi_facebook_pagedeasc" style="<?php echo (isset($option4['sfsi_facebook_countsFrom']) && $option4['sfsi_facebook_countsFrom'] =='manual') ?  'display:none;' : '' ;?>">
+                    <p class="sfsi_shared_premium"><b>Note:</b> This plugin uses <u>one</u> API shared by all users of this plugin. There is a limit (set by Facebook) how often this API can get the counts per day, so it may happen that it returns “0 counts” later in the day.<br><br>Therefore we implemented a solution as part of our Premium Plugin where you can <b>easily</b> set up your own API in a few steps, which will fix this problem.<br><br><a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features of the premium plugin </a>
+                    </p>
+                </div>
+                    
             </div>    
         </div>
         <!-- END FACEBOOK ICON COUNT SECTION-->
@@ -340,12 +349,10 @@ $hide="display:none;";
                             <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">4: Go to "Keys and Access Tokens" tab and click on "Generate Token" in the "Token actions" section at the bottom</li>
                             <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'display:none;' : '' ;?>">5: Then click on "Test OAuth" at the top right and you will see the 4 token key</li>
                         </ul>
-                </li>
-                
+                    </li>
                     <li>
                         <input name="sfsi_twitter_countsFrom" <?php echo ($option4['sfsi_twitter_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" />Enter the figure manually<input name="sfsi_twitter_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_twitter_manualCounts']!='') ?  $option4['sfsi_twitter_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_twitter_countsFrom']=='source') ?  'display:none;' : '' ;?>" />
                     </li>
-                
                 </ul>
             </div>    
         </div>
@@ -450,7 +457,7 @@ $hide="display:none;";
         <div class="listing">
             <ul>
                 <li><input name="sfsi_youtube_countsFrom" type="radio" value="subscriber" <?php echo ($option4['sfsi_youtube_countsFrom']=='subscriber') ?  'checked="true"' : '' ;?>  class="styled"  />Retrieve the number of Subscribers</li>
-                    <li class="youtube_options" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'display:none;' : '' ;?>">
+                    <li class="youtube_options" style="<?php echo (!isset($option4['sfsi_youtube_countsFrom']) || empty($option4['sfsi_youtube_countsFrom']) || $option4['sfsi_youtube_countsFrom']=='manual') ?  'display:none;' : '' ;?>">
                         <div>
                             <label>Enter Youtube User name</label>
                             <input name="sfsi_youtube_user" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_youtube_user']) && $option4['sfsi_youtube_user']!='') ?  $option4['sfsi_youtube_user'] : '' ;?>"  />
@@ -462,7 +469,8 @@ $hide="display:none;";
                         
                     </li>
                     <li>
-                        <input name="sfsi_youtube_countsFrom" type="radio" value="manual" <?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  class="styled" />Enter the figure manually<input name="sfsi_youtube_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_youtube_manualCounts']!='') ?  $option4['sfsi_youtube_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='subscriber') ?  'display:none;' : '' ;?>" /></li>
+                        <input name="sfsi_youtube_countsFrom" type="radio" value="manual" <?php echo ($option4['sfsi_youtube_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  class="styled" />Enter the figure manually<input name="sfsi_youtube_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_youtube_manualCounts']!='') ?  $option4['sfsi_youtube_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_youtube_countsFrom']=='subscriber') ?  'display:none;' : '' ;?>" />
+                    </li>
             </ul>
         </div>    
     </div>
@@ -495,9 +503,18 @@ $hide="display:none;";
         </div>
    		<div class="listing">
         	<ul>
-            	<li><input name="sfsi_instagram_countsFrom" <?php echo ($option4['sfsi_instagram_countsFrom']=='followers') ?  'checked="true"' : '' ;?>  type="radio" value="followers" class="styled"  />Retrieve the number of Instagram followers</li>
-                <li class="instagram_userLi" style="<?php echo ($option4['sfsi_instagram_countsFrom']=='manual') ?  'display:none;' : '' ;?>"><label>Enter Instagram User name </label><input name="sfsi_instagram_User" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_instagram_User']) && $option4['sfsi_instagram_User']!='') ?  $option4['sfsi_instagram_User'] : '' ;?>"  /> </li>
-        		<li><input name="sfsi_instagram_countsFrom" <?php echo ($option4['sfsi_instagram_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" /><label class="high_prb">Enter the figure manually</label><input name="sfsi_instagram_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_instagram_manualCounts']!='') ?  $option4['sfsi_instagram_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_instagram_countsFrom']=='followers') ?  'display:none;' : '' ;?>" /></li>
+            	<li>
+                    <input name="sfsi_instagram_countsFrom" <?php echo ($option4['sfsi_instagram_countsFrom']=='followers') ?  'checked="true"' : '' ;?>  type="radio" value="followers" class="styled"  />Retrieve the number of Instagram followers
+                </li>
+                <li class="instagram_userLi" style="<?php echo ($option4['sfsi_instagram_countsFrom']=='manual') ?  'display:none;' : '' ;?>">
+                    <label>Enter Instagram User name </label>
+                    <input name="sfsi_instagram_User" class="input_facebook" type="text" value="<?php echo (isset($option4['sfsi_instagram_User']) && $option4['sfsi_instagram_User']!='') ?  $option4['sfsi_instagram_User'] : '' ;?>"/>
+                    <p class="sfsi_shared_premium" ><b>Note :</b>This plugin uses <u>one</u> API shared by all users of this plugin. There is a limit (set by Instagram) how often this API can get the counts per day, so it may happen that it returns “0 counts” later in the day.<br><br>Therefore we implemented a solution as part of our Premium Plugin where you can <b>easily</b> set up your own API in a few steps, which will fix this problem.<br><br><a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features of the premium plugin </a></p> 
+                </li>
+                <li>
+                    <input name="sfsi_instagram_countsFrom" <?php echo ($option4['sfsi_instagram_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" /><label class="high_prb">Enter the figure manually</label><input name="sfsi_instagram_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_instagram_manualCounts']!='') ?  $option4['sfsi_instagram_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_instagram_countsFrom']=='followers') ?  'display:none;' : '' ;?>" />
+        		</li>
+        		
         	</ul>
     	</div>    
     </div>

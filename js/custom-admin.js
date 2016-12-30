@@ -2083,25 +2083,35 @@ SFSI(document).ready(function(s) {
         "sfsi_email_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_email_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_email_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_email_countsFrom']:checked").val() ? SFSI("input[name='sfsi_email_manualCounts']").slideDown() :SFSI("input[name='sfsi_email_manualCounts']").slideUp()), 
+      
         "sfsi_facebook_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_facebook_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_facebook_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "mypage" == SFSI("input[name='sfsi_facebook_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_facebook_mypageCounts']").slideDown(),SFSI(".sfsi_fbpgidwpr").slideDown()) :(SFSI("input[name='sfsi_facebook_mypageCounts']").slideUp(),SFSI(".sfsi_fbpgidwpr").slideUp()), 
-		
-		"manual" == SFSI("input[name='sfsi_facebook_countsFrom']:checked").val() ? SFSI("input[name='sfsi_facebook_manualCounts']").slideDown() :SFSI("input[name='sfsi_facebook_manualCounts']").slideUp()), 
+        
+        "manual" == SFSI("input[name='sfsi_facebook_countsFrom']:checked").val() ? SFSI("input[name='sfsi_facebook_manualCounts']").slideDown() :SFSI("input[name='sfsi_facebook_manualCounts']").slideUp()),
+        
+        "sfsi_facebook_countsFrom" == s.attr("name") && (("mypage" == SFSI("input[name='sfsi_facebook_countsFrom']:checked").val() || "likes" == SFSI("input[name='sfsi_facebook_countsFrom']:checked").val()) ? (SFSI(".sfsi_facebook_pagedeasc").slideDown()) : (SFSI(".sfsi_facebook_pagedeasc").slideUp())),
+
         "sfsi_twitter_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_twitter_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_twitter_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_twitter_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_twitter_manualCounts']").slideDown(), 
         SFSI(".tw_follow_options").slideUp()) :(SFSI("input[name='sfsi_twitter_manualCounts']").slideUp(), 
-        SFSI(".tw_follow_options").slideDown())), "sfsi_google_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_google_countsDisplay"]').prop("checked", !0), 
+        SFSI(".tw_follow_options").slideDown())), 
+        
+        "sfsi_google_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_google_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_google_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_google_countsFrom']:checked").val() && (SFSI("input[name='sfsi_google_manualCounts']").slideDown(), 
         SFSI(".google_option").slideUp()), "likes" == SFSI("input[name='sfsi_google_countsFrom']:checked").val() && (SFSI("input[name='sfsi_google_manualCounts']").slideUp(), 
         SFSI(".google_option").slideUp()), "follower" == SFSI("input[name='sfsi_google_countsFrom']:checked").val() && (SFSI(".google_option").slideDown(), 
-        SFSI("input[name='sfsi_google_manualCounts']").slideUp())), "sfsi_linkedIn_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_linkedIn_countsDisplay"]').prop("checked", !0), 
+        SFSI("input[name='sfsi_google_manualCounts']").slideUp())), 
+        
+        "sfsi_linkedIn_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_linkedIn_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_linkedIn_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_linkedIn_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_linkedIn_manualCounts']").slideDown(), 
         SFSI(".linkedIn_options").slideUp()) :(SFSI("input[name='sfsi_linkedIn_manualCounts']").slideUp(), 
-        SFSI(".linkedIn_options").slideDown())), "sfsi_youtube_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_youtube_countsDisplay"]').prop("checked", !0), 
+        SFSI(".linkedIn_options").slideDown())), 
+        
+        "sfsi_youtube_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_youtube_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_youtube_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_youtube_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_youtube_manualCounts']").slideDown(), 
         SFSI(".youtube_options").slideUp()) :(SFSI("input[name='sfsi_youtube_manualCounts']").slideUp(), 
@@ -2109,11 +2119,14 @@ SFSI(document).ready(function(s) {
         SFSI('input[name="sfsi_pinterest_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_pinterest_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_pinterest_manualCounts']").slideDown(), 
         SFSI(".pin_options").slideUp()) :SFSI("input[name='sfsi_pinterest_manualCounts']").slideUp()), 
+      
         "sfsi_instagram_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_instagram_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_instagram_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_instagram_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_instagram_manualCounts']").slideDown(), 
         SFSI(".instagram_userLi").slideUp()) :(SFSI("input[name='sfsi_instagram_manualCounts']").slideUp(), 
-        SFSI(".instagram_userLi").slideDown())), "sfsi_shares_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_shares_countsDisplay"]').prop("checked", !0), 
+        SFSI(".instagram_userLi").slideDown())), 
+        
+        "sfsi_shares_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_shares_countsDisplay"]').prop("checked", !0), 
         SFSI('input[name="sfsi_shares_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_shares_countsFrom']:checked").val() ? SFSI("input[name='sfsi_shares_manualCounts']").slideDown() :SFSI("input[name='sfsi_shares_manualCounts']").slideUp());
     }),
