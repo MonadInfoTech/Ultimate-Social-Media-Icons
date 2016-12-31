@@ -37,6 +37,7 @@ body {
 }
 .sfsi_mainContainer img {
     border: 0;
+	vertical-align: middle;
 }
 .main_contant p, .ui-accordion .ui-accordion-header {
     /*font-family: helveticaregular;*/
@@ -1650,26 +1651,31 @@ ul.sfsi_floaticon_margin_sec li ins {
 }
 
 /*poonam */
-.sf_si_our_prmium_plugin-add, .sfsi_prem_icons_added, .sfsi_new_prmium_follw{background:#f3faf6;border:1px solid #12a252;padding:20px 65px 30px 65px;clear: both;}
+.sf_si_our_prmium_plugin-add, .sfsi_prem_icons_added, .sfsi_new_prmium_follw{background:#f3faf6;border:1px solid #12a252;padding: 28px 38px 35px 40px;clear: both;}
+.sf_si_our_prmium_plugin-add{padding: 25px 38px 45px 44px;}
 .sf_si_default_design ul{padding:0;margin:0;}
 .sf_si_default_design ul li{list-style:none;font-size:20px;color:#1a1d20;clear:both;}
 .sfsi_need_another_tell_us, .sfsi_need_another_one_link{clear:both;}
 .sf_si_all_features_premium a, .sfsi_need_another_tell_us a{color:#12a252 !important;font-size:18.9px;font-weight:bold;border-bottom: 1px solid #12a252;text-decoration: none;}
-.sf_si_default_design ul li b{float:left; width: 100%;}
-.sf_si_prmium_head h2{font-size:26px;color:#000;font-weight:bold;padding-bottom:20px;    margin-top: 10px;}
+.sf_si_default_design ul li b{font-weight: bold;}
+.sf_si_prmium_head h2{font-size:26px;color:#000;font-weight:bold;padding-bottom:20px;    margin-top: 0;}
+.sf_si_our_prmium_plugin-add .sf_si_prmium_head h2{padding-bottom:23px;}
 .sf_si_prmium_head span{font-weight:normal;}
-.sf_si_default_design ul li img{margin-top: 25px; clear: both;}
+.sf_si_default_design ul li img{vertical-align: middle;}
 .sfsi_need_another_one_link p{color: #c1c3c5;font-size: 18.9px !important;}
 .sfsi_need_another_one_link p a{color:#12a252 !important; text-decoration: none;}
 .sfsi_premium_brdr_box{box-sizing: border-box;}
 .sfsi_prem_cmn_rowlisting{width:225px;float:left;margin-top: 10px;}
 .sfsi_premium_row{clear:both;}
 .sfsi_prem_cmn_rowlisting span{color: #1a1d20;font-size:20px;display:table-cell;vertical-align: middle;padding-right:10px;}
-.sfsi_need_another_one_link{padding:20px 0; }
-.sfsi_new_prmium_follw {margin-top:20px;    display: inline-block;padding:20px 65px 30px 35px;}
+.sfsi_need_another_one_link{padding:25px 0; }
+.sfsi_new_prmium_follw {margin-top:20px;    display: inline-block;padding:20px 75px 20px 20px;}
+.sfsi_new_prmium_follw p{margin: 0 !important;}
 .sfsi_new_prmium_follw p{color: #1a1d20 !important;font-size: 20px !important;font-family: helveticaregular !important;}
 .sfsi_new_prmium_follw p a{color:#12a252 !important;border-bottom: 1px solid #12a252;    text-decoration: none;}
-.sfsi_new_prmium_follw p b{font-weight:bold;}
+.sfsi_new_prmium_follw p b{font-weight:bold;color:#1a1d20 !important;}
+.sf_si_default_design ul li h4{color:#1a1d20 !important;font-size:20px !important;font-weight:bold;padding-bottom:21px !important;}
+.sf_si_default_design ul li h4 span{font-weight:normal;}
 p.sfsi_shared_premium {color: #1a1d20 !important;font-family: helveticaregular !important;padding-top:0 !important;}
 p.sfsi_shared_premium a{text-decoration: none; color: #00a0d2 !important;}
 p.sfsi_shared_premium b{font-weight:bold;}
@@ -1680,3 +1686,12 @@ p.sfsi_shared_premium b{font-weight:bold;}
 .sf_si_default_design ul li b span{font-weight:normal !important;}
 p.sfsi_prem_plu_desc a{text-decoration: none; color: #00a0d2 !important;}
 .sfsi_fb_popup_contain{width:50%;display:inline-block;}
+.sfsi_row_table{clear:both;}
+.sfsi_first_icon_field, .sfsi_second_icon_img{display:table-cell;vertical-align:middle;padding: 5px 0;}
+.sfsi_first_icon_field{width:125px;}
+.sfsi_first_icon_field h2{font-size:18px !important;color:#1a1d20 !important;margin:0 !important; font-weight: bold;}
+.sfsi_first_icon_field p{color:#1a1d20 !important;font-size:12px !important;margin:0 !important;padding:0 !important; line-height: 18px !important;}
+.sfsi_first_icon_more h2 {font-size:18px !important;color:#1a1d20 !important;margin:0 !important;padding-top:17px;padding-bottom:22px;}
+.sfsi_cool_font_weight h2{font-weight:normal;}
+.sf_si_default_design ul li{margin:0 !important;}
+.sf_si_default_design ul li h4.sfsi_second_themedTitle{padding-bottom:16px !important;}

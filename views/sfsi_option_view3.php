@@ -185,14 +185,90 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
 			    <div class="sf_si_prmium_head"><h2>New: <span>In our Premium Plugin we added:</span></h2></div>
 			    <div class="sf_si_default_design">
 					<ul>
-						<li><b>A) More default design styles</b>
-						<img src="<?php  echo SFSI_PLUGURL.'images/1_sf-wpplugin_v1 .png';?>"/>
-						</li>
-						
-						<li><b>B) Themed styles <span>(to match the content of your site)</span></b>
-						<img src="<?php  echo SFSI_PLUGURL.'images/1_sf-wpplugin_v2 .png';?>"/>
-						</li>
-					</ul>
+                         <li>
+                             <h4>A) More default design styles</h4>
+                            </li>
+                         <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_field sfsi_cool_font_weight">
+                                     <h2>Cool style</h2>  
+                                    </div>
+                                    <div class="sfsi_second_icon_img">
+                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_cool_icon_spread.png" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_field sfsi_cool_font_weight">
+                                        <h2>Waxed Wood</h2>
+                                    </div>
+                                    <div class="sfsi_second_icon_img">
+                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_vaxwoodi_icon_spread.png" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_field sfsi_cool_font_weight">
+                                        <h2>Black Grunge</h2>
+                                    </div>
+                                    <div class="sfsi_second_icon_img">
+                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_black_icon_spread.png" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_more">
+                                        <h2>(and many more)</h2>
+                                    </div>
+                                </div>
+                            </li>
+                         <li>
+                             <h4 class="sfsi_second_themedTitle">B) Themed styles<span> (to match the content of your site)</span></h4>
+                            </li>
+                         <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_field">
+                                        <h2>Lovehearts</h2>
+                                        <p>(e.g. for girly sites or just sites with a heart)</p>
+                                    </div>
+                                    <div class="sfsi_second_icon_img">
+                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_loveheart_icon_spread.png" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_field">
+                                        <h2>Computers</h2>
+                                        <p>(e.g. for IT/tech sites)</p>
+                                    </div>
+                                    <div class="sfsi_second_icon_img">
+                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_computer_icon_spread.png" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_field">
+                                        <h2>Dogs</h2>
+                                        <p>(e.g. for dog/pet sites)</p>
+                                    </div>
+                                    <div class="sfsi_second_icon_img">
+                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_dogi_icon_spread.png" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sfsi_row_table">
+                                    <div class="sfsi_first_icon_more">
+                                        <h2>(and many more)</h2>
+                                    </div>
+                                </div>
+                            </li>
+                    </ul>
 			    </div>
 				<div class="sf_si_all_features_premium">
 					<a  href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features Premium Plugin</a>

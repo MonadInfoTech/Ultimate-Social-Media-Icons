@@ -230,7 +230,7 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
         	
             <p class="radio_section fb_url"><input name="sfsi_googleShare_option" <?php echo ($option2['sfsi_googleShare_option']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Share my blog with friends (on Google+)</label></p>
             <div class ="sfsi_new_prmium_follw" >
-                <p class="radio_section fb_url"><b>New: </b>In our Premium Plugin you can also allow users to follow you on Google+ <b>directly from your site </b>(without leaving your page, increasing followers). <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
+                <p><b>New: </b>In our Premium Plugin you can also allow users to follow you on Google+ <b>directly from your site </b>(without leaving your page, increasing followers). <a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features</a></p>
             </div>
         </div>
     </div>

@@ -523,7 +523,7 @@ function sfsi_admin_notice()
 		</style>
 	    <div class="updated sfsi_show_premium_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
 			<div class="alignleft" style="margin: 9px 0;">
-				BIG NEWS : There is now <b><a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Check it out</a>
+				BIG NEWS : There is now a <b><a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Check it out</a>
 			</div>
 			<div class="alignright">
 				<form method="post" class="sfsi_premiumNoticeDismiss">
