@@ -220,7 +220,9 @@
    		<?php endif; ?>
     	<!-- END Custom icon section here -->
     	
-    	<li class="sfsi_premium_brdr_box">
+	</ul>
+	<ul>
+	   <li class="sfsi_premium_brdr_box">
 			<div class="sfsi_prem_icons_added">
 				<div class="sf_si_prmium_head"><h2>New: <span> In our Premium Plugin we added icons for:</span></h2></div>
 				<div class="sfsi_premium_row">
@@ -293,12 +295,11 @@
 					<p>Need another one?<a href="https://www.ultimatelysocial.com/usm-premium#featureRequest" target="_blank"> Tell us</a></p>
 				</div>
 				<div class="sfsi_need_another_tell_us">
-					<a href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features Premium Plugin</a>
+					<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_platforms&utm_medium=banner" target="_blank">See all features Premium Plugin</a>
 				</div>
             </div>
         </li>
-    	
-	</ul>
+    </ul>
 	<input type="hidden" value="<?php echo SFSI_PLUGURL ?>" id="plugin_url" />
 	<input type="hidden" value=""  id="upload_id" />
  

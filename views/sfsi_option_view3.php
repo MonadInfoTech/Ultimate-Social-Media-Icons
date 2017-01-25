@@ -271,7 +271,7 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
                     </ul>
 			    </div>
 				<div class="sf_si_all_features_premium">
-					<a  href="https://www.ultimatelysocial.com/usm-premium" target="_blank">See all features Premium Plugin</a>
+					<a  href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_icons_designs&utm_medium=banner" target="_blank">See all features Premium Plugin</a>
 				</div>
 		    </div>
             </li>

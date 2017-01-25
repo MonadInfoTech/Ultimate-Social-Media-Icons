@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.6.3
+Version: 1.6.4
 License: GPLv2 or later
 */
 global $wpdb;
@@ -32,7 +32,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.63)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.64)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -523,7 +523,7 @@ function sfsi_admin_notice()
 		</style>
 	    <div class="updated sfsi_show_premium_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
 			<div class="alignleft" style="margin: 9px 0;">
-				BIG NEWS : There is now a <b><a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="http://www.ultimatelysocial.com/usm-premium/" target="_blank">Check it out</a>
+				BIG NEWS : There is now a <b><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Check it out</a>
 			</div>
 			<div class="alignright">
 				<form method="post" class="sfsi_premiumNoticeDismiss">

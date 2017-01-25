@@ -49,7 +49,7 @@ $connectFeedLgn	= "http://www.specificfeeds.com/?".base64_encode("userprofile=wo
 <div class="pop-overlay upload-overlay" >
      
 	<form id="customIconFrm" method="post" action="<?php echo admin_url( 'admin-ajax.php?action=UploadIcons' ); ?>" enctype="multipart/form-data" >
-        <div class="pop_up_box upload_pop_up" id="tab1" style="min-height: 100px;">
+        <div class="pop_up_box upload_pop_up" id="tab1" style="min-height: 155px;">
             <img src="<?php echo SFSI_PLUGURL; ?>images/close.jpg" id="close_Uploadpopup" class="sfsicloseBtn" />
             <div class="sfsi_uploader">
                 <div class="sfsi_popupcntnr">
@@ -274,7 +274,7 @@ $pin_url=($option2['sfsi_pinterest_pageUrl']!='') ?  $option2['sfsi_pinterest_pa
 <!-- email deactivate pop-ups -->
 
 <div class="pop-overlay read-overlay demail-1" >
-    <div class="pop_up_box sfsi_pop_up" >
+    <div class="pop_up_box sfsi_pop_up " >
        <h4>Note: Also if you already offer a newsletter it makes sense to offer this option too, because it will get you <span class="mediam_txt">more readers</span>, as explained <a href="http://www.specificfeeds.com/rss" target="_new" style="color:#5A6570;display: inline;text-decoration:underline">here</a>. </h4>
        <div class="button"><a href="javascript:;" class="hideemailpop" title="Ok, keep it active for the time being,I want to see how it works">Ok, keep it active for the time being, <br />
 I want to see how it works</a></div>
@@ -283,7 +283,7 @@ I want to see how it works</a></div>
 </div>
 
 <div class="pop-overlay read-overlay demail-2" >
-    <div class="pop_up_box sfsi_pop_up" >
+    <div class="pop_up_box sfsi_pop_up " >
        <h4 class="activate">Ok, fine, however for using this plugin for FREE, please support us by activating a link back to our site:</h4>
        <?php $nonce = wp_create_nonce("active_footer");?>
 	<div class="button"><a href="javascript:;" class="activate_footer activate" title="Ok, activate link" data-nonce="<?php echo $nonce;?>">Ok, activate link</a></div>
@@ -292,7 +292,7 @@ I want to see how it works</a></div>
 </div>
 
 <div class="pop-overlay read-overlay demail-3" >
-    <div class="pop_up_box sfsi_pop_up" >
+    <div class="pop_up_box sfsi_pop_up " >
        <h4>You’re a toughie. Last try: As a minimum, could you please review this plugin (with 5 stars)? It only takes a minute. Thank you! </h4>
 	<div class="button"><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons/reviews/" target="_new" class="hidePop activate" title="Ok, Review it" >Ok, Review it</a></div>
         <a href="javascript:;" class="hidePop" title="Don’t review and exit">Don’t review and exit</a>
