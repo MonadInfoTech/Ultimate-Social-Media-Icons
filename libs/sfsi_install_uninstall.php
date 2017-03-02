@@ -12,7 +12,7 @@ function sfsi_update_plugin()
 	}
 	
 	//Install version
-	update_option("sfsi_pluginVersion", "1.64");
+	update_option("sfsi_pluginVersion", "1.65");
 	
 	/* show notification premium plugin */
 	if(!get_option('show_premium_notification'))
@@ -25,6 +25,11 @@ function sfsi_update_plugin()
 	{
 		add_option("show_notification", "yes");
 	}
+	/* show mobile notification */
+	if(!get_option('show_mobile_notification'))
+    {
+        add_option("show_mobile_notification", "yes");
+    }
 	if(!get_option('show_notification_plugin'))
 	{
 		add_option("show_notification_plugin", "yes");

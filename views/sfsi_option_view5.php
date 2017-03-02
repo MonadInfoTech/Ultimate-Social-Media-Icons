@@ -195,9 +195,12 @@
     
     <div class="row">
 	<h4>Alignments</h4>
-	<div class="icons_size"><span>Alignment of icons:</span><div class="field"><select name="sfsi_icons_Alignment" id="sfsi_icons_Alignment" class="styled"><option value="center" <?php echo ($option5['sfsi_icons_Alignment']=='center') ?  'selected="selected"' : '' ;?>>Centered</option><option value="right" <?php echo ($option5['sfsi_icons_Alignment']=='right') ?  'selected="selected"' : '' ;?>>Right</option><option value="left" <?php echo ($option5['sfsi_icons_Alignment']=='left') ?  'selected="selected"' : '' ;?>>Left</option></select></div> <span>Icons per row:</span><input name="sfsi_icons_perRow" type="text" value="<?php echo ($option5['sfsi_icons_perRow']!='') ?  $option5['sfsi_icons_perRow'] : '' ;?>" /><ins class="leave_empty">Leave empty if you dont want to <br />
+	<div class="icons_size"><span>Alignment of icons:</span><div class="field"><select name="sfsi_icons_Alignment" id="sfsi_icons_Alignment" class="styled"><option value="center" <?php echo ($option5['sfsi_icons_Alignment']=='center') ?  'selected="selected"' : '' ;?>>Centered</option><option value="right" <?php echo ($option5['sfsi_icons_Alignment']=='right') ?  'selected="selected"' : '' ;?>>Right</option><option value="left" <?php echo ($option5['sfsi_icons_Alignment']=='left') ?  'selected="selected"' : '' ;?>>Left</option></select><p class="sfsi_icons_other_allign">(with respect to each other)</p></div> <span>Icons per row:</span><input name="sfsi_icons_perRow" type="text" value="<?php echo ($option5['sfsi_icons_perRow']!='') ?  $option5['sfsi_icons_perRow'] : '' ;?>" /><ins class="leave_empty">Leave empty if you dont want to <br />
     define this
     </ins></div>
+    <div class= "sfsi_new_prmium_follw">
+		<p><b>New: </b>The Premium Plugin gives several more alignment options: <br>- &nbsp;&nbsp; Show icons vertically<br>- &nbsp;&nbsp; Align icons within a widget (left, right, centered)<br>- &nbsp;&nbsp; Align icons within the «container» where you place them via shortcode (left, right, centered) <br><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_alignment_options&utm_medium=banner&utm_expid=92383224-1.3LePDLfOStifx6fliEmuWg.0" target="_blank">See all features</a></p>
+	</div>
     </div>
     
     <div class="row new_wind">
