@@ -56,7 +56,6 @@
     <!-- Top content area of plugin -->
     <div class="main_contant">
 	<h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
-	<p>This plugin is 100% FREE and will fulfill all your subscription/sharing/liking needs!</p>
 	<p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
     <p><b>New: </b>In our new Premium Plugin many other different placement options are supported, e.g. place the icons floating/statically on the place by defining margins, only show them on certain pages, show them only on mobile etc. etc. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>
     <p>If you face any issues please check out our <a href="https://www.ultimatelysocial.com/faq?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">FAQ</a>.</p>
