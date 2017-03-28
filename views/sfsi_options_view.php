@@ -11,52 +11,88 @@
 
 <!-- START Admin view for plugin-->
 <div class="wapper sfsi_mainContainer">
-	
-	<!-- Get notification bar-->
-	<?php if(get_option("show_notification") == "yes") { ?>
+    
+    <!-- Get notification bar-->
+    <?php if(get_option("show_notification") == "yes") { ?>
     <script type="text/javascript">
-		jQuery(document).ready(function(e) {
+        jQuery(document).ready(function(e) {
             jQuery(".sfsi_show_notification").click(function(){
-				SFSI.ajax({
-					url:ajax_object.ajax_url,
-					type:"post",
-					data: {action: "notification_read"},
-					success:function(msg){
-						if(jQuery.trim(msg) == 'success')
-						{
-							jQuery(".sfsi_show_notification").hide("fast");
-						}
-					}
-				});
-			});
+                SFSI.ajax({
+                    url:ajax_object.ajax_url,
+                    type:"post",
+                    data: {action: "notification_read"},
+                    success:function(msg){
+                        if(jQuery.trim(msg) == 'success')
+                        {
+                            jQuery(".sfsi_show_notification").hide("fast");
+                        }
+                    }
+                });
+            });
         });
-	</script>
+    </script>
     <style type="text/css">
-	.sfsi_show_notification {
-		float: left;
-		margin-bottom: 45px;
-		padding: 12px 13px;
-		width: 98%;
-		background-image: url(<?php echo SFSI_PLUGURL ?>images/notification-close.png);
-		background-position: right 20px center;
-    	background-repeat: no-repeat;
-		cursor: pointer;
-		text-align:center;
-	}
-	</style>	
-	<!-- <div class="sfsi_show_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
-    	New: You can now also show a subscription form on your site, increasing sign-ups! (Question 8)
+    .sfsi_show_notification {
+        float: left;
+        margin-bottom: 45px;
+        padding: 12px 13px;
+        width: 98%;
+        background-image: url(<?php echo SFSI_PLUGURL ?>images/notification-close.png);
+        background-position: right 20px center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        text-align:center;
+    }
+    </style>    
+    <!-- <div class="sfsi_show_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
+        New: You can now also show a subscription form on your site, increasing sign-ups! (Question 8)
         <p>
         (If question 8 gets displayed in a funny way then please reload the page by pressing Control+F5(PC) or Command+R(Mac))
-       	</p>
+        </p>
     </div> -->
-	<?php } ?>
+    <?php } ?>
     <!-- Get notification bar-->
+    
+    <?php if(get_option("show_new_notification") == "yes") { ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function(e) {
+            jQuery(".sfsi_new_notification_cross").click(function(){
+                SFSI.ajax({
+                    url:ajax_object.ajax_url,
+                    type:"post",
+                    data: {action: "new_notification_read"},
+                    success:function(msg){
+                        if(jQuery.trim(msg) == 'success')
+                        {
+                            jQuery(".sfsi_new_notification").hide("fast");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <div class="sfsi_new_notification">
+        <div class="sfsi_new_notification_header">
+            <h1>Time limited offer: We’ll create tailor-made icons which match your theme...</h1>
+            <div class="sfsi_new_notification_cross">X</div>
+        </div>
+        <div class="sfsi_new_notification_body">
+            <div class="sfsi_new_notification_image">
+                <img src="<?php  echo SFSI_PLUGURL.'images/WPPlugin_V3.png';?>" id="newImg" />
+            </div>
+            <div class="sfsi_new_notification_learnmore">
+                <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=tailored_icons&utm_medium=banner" target="_blank">Learn more</a>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+    <!-- Get new_notification bar-->
+    
      
     <!-- Top content area of plugin -->
     <div class="main_contant">
-	<h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
-	<p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
+    <h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
+    <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
     <p><b>New: </b>In our new Premium Plugin many other different placement options are supported, e.g. place the icons floating/statically on the place by defining margins, only show them on certain pages, show them only on mobile etc. etc. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>
     <p>If you face any issues please check out our <a href="https://www.ultimatelysocial.com/faq?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">FAQ</a>.</p>
     </div> <!-- END Top content area of plugin -->
@@ -74,10 +110,10 @@
     <!-- step 2 END here -->
     <!-- step 3 start here -->
     
-	</div>
-	<h2 class="optional">Optional</h2>
-	 <div id="accordion1">
-	<h3><span>3</span>What design &amp; animation do you want to give your icons?</h3>
+    </div>
+    <h2 class="optional">Optional</h2>
+     <div id="accordion1">
+    <h3><span>3</span>What design &amp; animation do you want to give your icons?</h3>
      <?php include(SFSI_DOCROOT.'/views/sfsi_option_view3.php'); ?>
     <!-- step 3 END here -->
 
@@ -110,12 +146,12 @@
     </div>
     <div class="tab9">
          <div class="save_button">
-		  <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
-		<a href="javascript:;" id="save_all_settings" title="Save All Settings">Save All Settings</a>
-	 </div>
+          <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
+        <a href="javascript:;" id="save_all_settings" title="Save All Settings">Save All Settings</a>
+     </div>
      <p class="red_txt errorMsg" style="display:none"> </p>
      <p class="green_txt sucMsg" style="display:none"> </p>
-	 <p class="bldtxtmsg">Need top-notch Wordpress development work at a competitive price? Visit us at <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit&utm_medium=banner">ultimatelysocial.com</a></p>
+     <p class="bldtxtmsg">Need top-notch Wordpress development work at a competitive price? Visit us at <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit&utm_medium=banner">ultimatelysocial.com</a></p>
     </div>
  <!-- all pops of plugin under sfsi_pop_content.php file --> 
  <?php include(SFSI_DOCROOT.'/views/sfsi_pop_content.php'); ?>

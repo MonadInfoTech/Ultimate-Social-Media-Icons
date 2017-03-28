@@ -383,35 +383,7 @@ function sfsi_admin_notice()
 		$style = "overflow: hidden;"; 
 	}
 	
-	if(get_option("show_notification_plugin") == "yes")
-	{ 
-		?>
-		<style type="text/css">
-			form.sfsi_noticeDismiss {
-			    display: inline-block;
-			    margin: 5px 0 0;
-			    vertical-align: middle;
-			}
-			.sfsi_noticeDismiss input[type='submit']{
-				background-color: transparent;
-			    border: medium none;
-			    margin: 0;
-			    padding: 0;
-			    cursor: pointer;
-			}
-		</style>
-		<div class="updated" style="<?php echo $style; ?>">
-			<div class="alignleft" style="margin: 9px 0;">
-				<b>New feature in the Ultimate Social Media Icons plugin:</b> You can now add a subscription form to increase sign-ups (under question 8). <a href="<?php echo site_url();?>/wp-admin/admin.php?page=sfsi-options" style="color:#7AD03A; font-weight:bold;">Check it out</a>
-			</div>
-			<div class="alignright">
-				<form method="post" class="sfsi_noticeDismiss">
-					<input type="hidden" name="sfsi-dismiss-notice" value="true">
-					<input type="submit" name="dismiss" value="Dismiss" />
-				</form>
-			</div>
-		</div>
-	<?php }
+
 	
 	if(get_option("sfsi_curlErrorNotices") == "yes")
 	{ 
