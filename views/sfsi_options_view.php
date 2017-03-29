@@ -71,20 +71,28 @@
             });
         });
     </script>
+     
     <div class="sfsi_new_notification">
         <div class="sfsi_new_notification_header">
-            <h1>Time limited offer: We’ll create tailor-made icons which match your theme...</h1>
+            <h1><a href="https://www.ultimatelysocial.com/tailor-made-icons/?utm_source=usmi_settings_page&utm_campaign=tailored_icons&utm_medium=banner" target="_blank">Time limited offer: We’ll create tailor-made icons which match your theme...</a></h1>
             <div class="sfsi_new_notification_cross">X</div>
         </div>
-        <div class="sfsi_new_notification_body">
-            <div class="sfsi_new_notification_image">
-                <img src="<?php  echo SFSI_PLUGURL.'images/WPPlugin_V3.png';?>" id="newImg" />
-            </div>
-            <div class="sfsi_new_notification_learnmore">
-                <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=tailored_icons&utm_medium=banner" target="_blank">Learn more</a>
-            </div>
+        
+        <div class="sfsi_new_notification_body_link">
+            <a href="https://www.ultimatelysocial.com/tailor-made-icons/?utm_source=usmi_settings_page&utm_campaign=tailored_icons&utm_medium=banner" target="_blank">
+                <div class="sfsi_new_notification_body">
+                    <div class="sfsi_new_notification_image">
+                           <img src="<?php  echo SFSI_PLUGURL.'images/WPPlugin_V3.png';?>" id="newImg" />
+                    </div>
+                    <div class="sfsi_new_notification_learnmore">
+                      Learn more
+                    </div>
+                </div>
+            </a>
         </div>
+    
     </div>
+
     <?php } ?>
     <!-- Get new_notification bar-->
     
