@@ -12,7 +12,7 @@ function sfsi_update_plugin()
     }
     
     //Install version
-    update_option("sfsi_pluginVersion", "1.66");
+    update_option("sfsi_pluginVersion", "1.67");
     
     /* show notification premium plugin */
     if(!get_option('show_premium_notification'))
@@ -398,6 +398,17 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_verificatiom_code');
     delete_option("sfsi_curlErrorNotices");
     delete_option("sfsi_curlErrorMessage");
+	delete_option("sfsi_RatingDiv");
+	delete_option("sfsi_languageNotice");
+	delete_option("sfsi_instagram_sf_count");
+	delete_option("sfsi_installDate");
+	
+	delete_option("adding_tags");
+	delete_option("show_notification_plugin");
+	delete_option("show_premium_notification");
+	delete_option("show_mobile_notification");
+	delete_option("show_notification");
+	delete_option("show_new_notification");
 }
 /* end function */
 

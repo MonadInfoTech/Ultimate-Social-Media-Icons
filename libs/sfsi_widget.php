@@ -186,7 +186,7 @@ function sfsi_check_visiblity($isFloter=0)
 		 }	
     }
 	  
-    $extra='';
+    $extra=0;
     if($sfsi_section3['sfsi_shuffle_icons']=="yes")
     {
        if($sfsi_section3['sfsi_shuffle_Firstload']=="yes" && $sfsi_section3['sfsi_shuffle_interval']=="yes")
