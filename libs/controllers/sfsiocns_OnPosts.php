@@ -382,7 +382,7 @@ function sfsi_footer_script()
 	{
 		if(!is_admin())
 		{
-			$footer_link='<div class="sfsi_footerLnk" style="margin: 0 auto;z-index:1000; absolute; text-align: center;">Social media & sharing icons powered by  <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=credit_link&utm_medium=banner" target="_new">UltimatelySocial</a> ';
+			$footer_link='<div class="sfsi_footerLnk" style="margin: 0 auto;z-index:1000; absolute; text-align: center;"><a href="https://www.ultimatelysocial.com/?utm_source=usmi_settings_page&utm_campaign=credit_link_to_homepage&utm_medium=banner" target="_new">Social media & sharing icons</a> powered by UltimatelySocial';
 			$footer_link.="</div>";
 			echo $footer_link;
 		}

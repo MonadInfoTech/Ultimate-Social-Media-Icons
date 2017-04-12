@@ -147,7 +147,7 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
         <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">
         <p>
-         	Allows people to subscribe to your site on <a href="http://www.specificfeeds.com/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a> and receive new posts automatically. The service is 100% FREE, you get full access to the emails & interesting statistics (please <a class="pop-up" href="javascript:" data-id="sfsi_feedClaimingOverlay">Get full access now</a> for that) and it also make sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>.
+         	Allows people to subscribe to your site on <a href="http://www.specificfeeds.com/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a> and receive new posts automatically. The service is FREE (up to 2,000 subscribers), you get full access to the emails & interesting statistics (please <a class="pop-up" href="javascript:" data-id="sfsi_feedClaimingOverlay">Get full access now</a> for that) and it also make sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>.
         </p>
         
         <p>Please pick which icon type you want to use:</p>
@@ -242,7 +242,7 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
         <div class="inr_cont utube_inn">
         	<p>The Youtube icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do  <a class="rit_link pop-up" href="javascript:;"  data-id="ytex-s2">(see an example)</a>.</p> 
         
-        	<p>The youtube icon should allow users to... </p> 
+        	<p>The youtube icon should allow users to... </p>
         
         	<p class="radio_section fb_url"><input name="sfsi_youtube_page" <?php echo ($option2['sfsi_youtube_page']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Visit my Youtube page at:</label><input name="sfsi_youtube_pageUrl" type="url" placeholder="http://" value="<?php echo ($option2['sfsi_youtube_pageUrl']!='') ?  $option2['sfsi_youtube_pageUrl'] : '' ;?>" class="add" /></p>
         	
