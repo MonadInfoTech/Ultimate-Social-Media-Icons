@@ -1715,3 +1715,52 @@ p.sfsi_prem_plu_desc a{text-decoration: none; color: #00a0d2 !important;}
 .sfsi_new_notification_body_link a{
     display: block;text-decoration: none;text-align: center;font-size: 20px;font-family: Arial, Helvetica, sans-serif;color: #fff;
 }
+.tab4 .sfsi_tokenGenerateButton {
+    margin: 25px 0;
+}
+.tab4 .sfsi_tokenGenerateButton p {
+    display: inline-block;
+    margin-bottom: 11px;
+    vertical-align: middle;
+    width: 100%;
+}
+.tab4 .sfsi_tokenGenerateButton a {
+    background-color: #12a252;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.tab4 .sfsi_instagramFields {
+    float: left;
+    margin-bottom: 12px;
+    width: 550px;
+}
+.tab4 .sfsi_instagramInstruction {
+    float: left;
+    margin-bottom: 12px;
+    width: 450px;
+}
+#accordion1 p {
+    color: #5a6570;
+    text-align: left;
+    font-family: 'helveticaneue-light';
+    font-size: 17px;
+    line-height: 26px;
+    padding-top: 19px;
+}
+.specify_counts .listing .sfsi_instagramInstruction ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+.specify_counts .listing .sfsi_instagramInstruction ul {
+    padding-left: 14px !important;
+}
+.specify_counts .listing .sfsi_instagramInstruction li {
+    font-size: 13px !important;
+    line-height: 20px !important;
+    list-style: outside none bullets !important;
+    margin-top: 5px !important;
+    padding: 0 !important;
+}

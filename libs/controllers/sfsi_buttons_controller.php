@@ -267,7 +267,9 @@ function sfsi_options_updater4()
     $sfsi_instagram_countsFrom       = isset($_POST["sfsi_instagram_countsFrom"]) ? $_POST["sfsi_instagram_countsFrom"] : 'manual';
     $sfsi_instagram_manualCounts     = isset($_POST["sfsi_instagram_manualCounts"]) ? trim($_POST["sfsi_instagram_manualCounts"]) : '';
     $sfsi_instagram_User             = isset($_POST["sfsi_instagram_User"]) ? $_POST["sfsi_instagram_User"] : '';
-    
+    $sfsi_instagram_clientid         = isset($_POST["sfsi_instagram_clientid"]) ? $_POST["sfsi_instagram_clientid"] : '';
+    $sfsi_instagram_appurl           = isset($_POST["sfsi_instagram_appurl"]) ? $_POST["sfsi_instagram_appurl"] : '';
+    $sfsi_instagram_token             = isset($_POST["sfsi_instagram_token"]) ? $_POST["sfsi_instagram_token"] : '';    
     $sfsi_shares_countsDisplay       = isset($_POST["sfsi_shares_countsDisplay"]) ? $_POST["sfsi_shares_countsDisplay"] : 'no';
     $sfsi_shares_countsFrom          = isset($_POST["sfsi_shares_countsFrom"]) ? $_POST["sfsi_shares_countsFrom"] : 'manual';
     $sfsi_shares_manualCounts        = isset($_POST["sfsi_shares_manualCounts"]) ? trim($_POST["sfsi_shares_manualCounts"]) : '';
@@ -327,7 +329,9 @@ function sfsi_options_updater4()
         'sfsi_instagram_countsDisplay'=> sanitize_text_field($sfsi_instagram_countsDisplay),
         'sfsi_instagram_manualCounts'=> intval($sfsi_instagram_manualCounts),
         'sfsi_instagram_User'       => sanitize_text_field($sfsi_instagram_User),
-        
+        'sfsi_instagram_clientid'    => sanitize_text_field($sfsi_instagram_clientid),
+        'sfsi_instagram_appurl'      => sanitize_text_field($sfsi_instagram_appurl),
+        'sfsi_instagram_token'       => sanitize_text_field($sfsi_instagram_token),
         'sfsi_shares_countsDisplay' => sanitize_text_field($sfsi_shares_countsDisplay),
         'sfsi_shares_countsFrom'    => sanitize_text_field($sfsi_shares_countsFrom),
         'sfsi_shares_manualCounts'  => intval($sfsi_shares_manualCounts),

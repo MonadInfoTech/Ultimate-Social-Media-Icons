@@ -12,7 +12,7 @@ function sfsi_update_plugin()
     }
     
     //Install version
-    update_option("sfsi_pluginVersion", "1.68");
+    update_option("sfsi_pluginVersion", "1.69");
 
     
     if(!get_option('sfsi_footer_sec'))
@@ -120,6 +120,14 @@ function sfsi_update_plugin()
         "sfsi_instagram_count" => ""
     );
     add_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
+    $option4 = unserialize(get_option('sfsi_section4_options',false));
+    if(isset($option4) && !empty($option4) && !isset($option4['sfsi_instagram_clientid']))
+    {
+        $option4['sfsi_instagram_clientid'] = '';
+        $option4['sfsi_instagram_appurl']   = '';
+        $option4['sfsi_instagram_token']    = '';
+        update_option('sfsi_section4_options', serialize($option4));
+    }
 }
 function sfsi_activate_plugin()
 {
