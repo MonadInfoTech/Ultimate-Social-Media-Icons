@@ -544,16 +544,15 @@ $hide="display:none;";
                         <p>To see how this process works please watch the video <a href="http://screencast.com/t/DX0xcSue8" target="_blank">http://screencast.com/t/DX0xcSue8</a> or follow these steps:</p>
                         <ul>
                             <li>Go to <a href="https://www.instagram.com/developer" target="_blank">https://www.instagram.com/developer</a></li>
-                            <li><?php _e('Login and then click on “Register Your Application” to get to the “Manage Clients” section. On there click on the “Register a new client” button', SFSI_PLUS_DOMAIN ); ?>.</li>
-                            <li><?php _e('Fill out the form and make sure that the “Redirect url” is valid and uncheck the “Disable Implicit oAuth” under the security tab', SFSI_PLUS_DOMAIN ); ?>.</li> 
-                            <li><?php _e('Then click on “Register” button', SFSI_PLUS_DOMAIN ); ?>.</li>
-                            <li><?php _e('Copy the “Client id” and “Redirect url” you entered into the plugin. Also enter your Instagram User name. After that click on the “Generate token” button', SFSI_PLUS_DOMAIN ); ?>.</li>
-                            <li><?php _e('Authorize your app to access your account info by clicking the “Authorize” button', SFSI_PLUS_DOMAIN ); ?>.</li>
-                            <li><?php _e('Now you will be redirected to the redirect url (which you entered during app creation) and find your access token at the end of this url', SFSI_PLUS_DOMAIN ); ?> (For example: http://your-website.com/#access_token=< your access token >)</li>
-                            <li><?php _e('Copy the access token, paste it into the plugin and click on “Save”', SFSI_PLUS_DOMAIN ); ?>.</li>
+                            <li>Login and then click on “Register Your Application” to get to the “Manage Clients” section. On there click on the “Register a new client” button</li>
+                            <li>Fill out the form and make sure that the “Redirect url” is valid and uncheck the “Disable Implicit oAuth” under the security tab.</li> 
+                            <li>Then click on “Register” button.</li>
+                            <li>Copy the “Client id” and “Redirect url” you entered into the plugin. Also enter your Instagram User name. After that click on the “Generate token” button.</li>
+                            <li>Authorize your app to access your account info by clicking the “Authorize” button'.</li>
+                            <li>Now you will be redirected to the redirect url (which you entered during app creation) and find your access token at the end of this url(For example: http://your-website.com/#access_token=< your access token >)</li>
+                            <li>Copy the access token, paste it into the plugin and click on “Save”.</li>
                         </ul>
-                    </div> 
-                    <!-- <p class="sfsi_shared_premium" ><b>Note :</b>This plugin uses <u>one</u> API shared by all users of this plugin. There is a limit (set by Instagram) how often this API can get the counts per day, so it may happen that it returns “0 counts” later in the day.<br><br>Therefore we implemented a solution as part of our Premium Plugin where you can <b>easily</b> set up your own API in a few steps, which will fix this problem.<br><br><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=instagram_counts&utm_medium=banner" target="_blank">See all features of the premium plugin </a></p>  -->
+                    </div>
                 </li>
                 <li>
                     <input name="sfsi_instagram_countsFrom" <?php echo ($option4['sfsi_instagram_countsFrom']=='manual') ?  'checked="true"' : '' ;?>  type="radio" value="manual" class="styled" /><label class="high_prb">Enter the figure manually</label><input name="sfsi_instagram_manualCounts" type="text" class="input" value="<?php echo ($option4['sfsi_instagram_manualCounts']!='') ?  $option4['sfsi_instagram_manualCounts'] : '' ;?>" style="<?php echo ($option4['sfsi_instagram_countsFrom']=='followers') ?  'display:none;' : '' ;?>" />
