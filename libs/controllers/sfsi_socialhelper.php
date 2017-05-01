@@ -409,7 +409,7 @@ class sfsi_SocialHelper
 				date_create(
 					date("Y-m-d")
 				));
-			 if($diff->format("%a") < 1)
+			 if($diff->format("%a") < 1 ||  1 == 1)
 			 {
 				 $sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
 				 $counts = $this->sfsi_get_instagramFollowersCount($user_name);
