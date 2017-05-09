@@ -147,9 +147,8 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
         <h2 class="sfsicls_email">Email</h2>
         <div class="inr_cont">
         <p>
-         	Allows people to subscribe to your site on <a href="http://www.specificfeeds.com/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a> and receive new posts automatically. The service is FREE (up to 2,000 subscribers), you get full access to the emails & interesting statistics (please <a class="pop-up" href="javascript:" data-id="sfsi_feedClaimingOverlay">Get full access now</a> for that) and it also make sense if you already offer an email newsletter <a href="http://specificfeeds.com/rss" target="_new">(learn more)</a>.
+         	Allows your visitors to subscribe to your site (on  <a href="http://www.specificfeeds.com/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a>) and receive new posts automatically by email.
         </p>
-        
         <p>Please pick which icon type you want to use:</p>
            <ul class="tab_2_email_sec">
             <li>
@@ -171,6 +170,45 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
                 <label>SpecificFeeds icon<span class="sfplsdesc"> (provider of the service)</span></label>
             </li>
           </ul>
+           <p>The service offers many (more) advantages: </p>
+            <div class='sfsi_service_row'>
+                <div class='sfsi_service_column'>
+                    <ul>
+                        <li><span>More people come back</span> to your site</li>
+                        <li>See your<span> subscribers’ emails</span> & <span>interesting statistics</span></li>
+                        <li>Automatically post on<span> Facebook & Twitter</span></li>
+                    </ul>
+                </div>
+                <div class='sfsi_service_column'>
+                    <ul>
+                        <li><span>Get more traffic</span> by being listed in the SF directory</li>
+                        <li><span>Get alerts</span> when people subscribe or unsubscribe</li>
+                        <li><span>Tailor the sender name & subject line</span> of the emails </li>
+                    </ul> 
+                </div>
+            </div>
+
+            <form id="calimingOptimizationForm" method="get" action="https://www.specificfeeds.com/wpclaimfeeds/getFullAccess" target="_blank">
+                <div class="sfsi_inputbtn">
+                    <input type="hidden" name="feed_id" value="<?php echo sanitize_text_field(get_option('sfsi_feed_id',false)); ?>" />
+                    <input name="sfsi_admin_email" type="email" value="<?php echo bloginfo('admin_email'); ?>"  />
+                </div>
+                <div class='sfsi_more_services_link'>
+                    <a href="javascript:;" id="sfsi_getMeFullAccess" title="Give me access">
+                        Click here to benefit from all advantages >
+                    </a> 
+                </div>
+            </form>
+
+            <p class='sfsi_email_last_paragraph'>
+                This will create your FREE account on SpecificFeeds, using above email. <br>
+                All data will be treated highly confidentially, see the
+                <a href="https://www.specificfeeds.com/page/privacy-policy" target="_new">
+                   Privacy Policy.
+                </a>
+            </p>
+
+
             <div class ="sfsi_new_prmium_follw">
                 <p><b>New:</b> In our Premium Plugin you can now give your email icon other functions too, e.g. <b>contact you </b>(email), <b>share by email,</b> and <b>link to a certain page </b>(e.g. your contact form or newsletter sign-up site). <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_functions_email_icon&utm_medium=banner" target="_blank">See all features</a></p>
             </div>

@@ -76,7 +76,7 @@ function sfsi_get_subscriberForm()
 {
 	$option8 = unserialize(get_option('sfsi_section8_options',false));
 	$sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
-	$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
+	$url = "https://www.specificfeeds.com/widgets/subscribeWidget/";
 	$return = '';
 	$url = $url.$sfsi_feediid.'/8/';	
 	$return .= '<div class="sfsi_subscribe_Popinner">

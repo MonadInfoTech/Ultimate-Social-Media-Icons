@@ -43,10 +43,14 @@ $option8['sfsi_form_button_background'] = (isset($option8['sfsi_form_button_back
 		$connectToFeed = "http://www.specificfeeds.com/?".base64_encode("userprofile=wordpress&feed_id=".$feedId);
 	?>
     <p>
-		In addition to the email- or follow-icon you can also show a subscription form which maximizes chances that people subscribe to your site. To get access to the emails who subscribe, please
-		<a class="pop-up" href="javascript:" data-id="sfsi_feedClaimingOverlay">click here</a>
+		In addition to the email- and follow-icon you can also show a subscription form which maximizes chances that people subscribe to your site.
     </p>
-	
+	<p class='sfsi_subscribe_popbox_link'>
+        To get access to the emails who subscribe, interesting statistics about your subscribers, alerts when people subscribe or unsubscribe and to tailor the sender name & the subject line of the emails, please 
+        <a class="pop-up" href="javascript:" data-id="sfsi_feedClaimingOverlay">
+            click here.
+        </a>
+    </p>
 	
     <div class="sfsi_tab8_container">
     	<!--Section 1-->
@@ -70,7 +74,7 @@ $option8['sfsi_form_button_background'] = (isset($option8['sfsi_form_button_back
             <div class="sfsi_html" style="display: none;">
             	<?php
 				$sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
-				$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
+				$url = "https://www.specificfeeds.com/widgets/subscribeWidget/";
 				$url = $url.$sfsi_feediid.'/8/';
 				?>
                 <div class="sfsi_subscribe_Popinner" style="padding: 18px 0px;">

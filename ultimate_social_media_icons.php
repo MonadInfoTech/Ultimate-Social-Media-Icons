@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.6.9
+Version: 1.7.1
 License: GPLv2 or later
 */
 global $wpdb;
@@ -32,7 +32,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.69)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.71)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -228,7 +228,7 @@ function addStyleFunction()
 {
 	$option8 = unserialize(get_option('sfsi_section8_options',false));
 	$sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
-	$url = "http://www.specificfeeds.com/widgets/subscribeWidget/";
+	$url = "https://www.specificfeeds.com/widgets/subscribeWidget/";
 	echo $return = '';
 	?>
     	<script>
@@ -242,7 +242,7 @@ function addStyleFunction()
 				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 				if ((email != "Enter your email") && (filter.test(email))) {
 					if (feedtype == "8") {
-						var url = "'.$url.'"+feed_id+"/"+feedtype;
+						var url ="<?php echo $url; ?>"+feed_id+"/"+feedtype;
 						window.open(url, "popupwindow", "scrollbars=yes,width=1080,height=760");
 						return true;
 					}

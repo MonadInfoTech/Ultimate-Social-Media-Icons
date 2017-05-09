@@ -1585,7 +1585,7 @@ ul.sfsi_floaticon_margin_sec li ins {
 }
 .sfsi_feedClaimingOverlay p {text-align:center !important; font-size: 12px !important;line-height: 23px !important;padding: 18px 0 0 !important; color:#bebebe !important; }
 .sfsi_feedClaimingOverlay p a {display: inline-block;font-size: 12px;margin: 0;padding: 0;width: auto; color:#274da3 !important; }
-.sfsi_feedClaimingOverlay .pop_up_box{padding: 25px 30px !important; width: 435px !important;}
+.sfsi_feedClaimingOverlay .pop_up_box{padding: 25px 30px !important; width: 435px !important;min-height: 220px;}
 
 @media (max-width:1160px) {
 .sfsi_subscription_html xmp {
@@ -1764,3 +1764,22 @@ p.sfsi_prem_plu_desc a{text-decoration: none; color: #00a0d2 !important;}
     margin-top: 5px !important;
     padding: 0 !important;
 }
+/* tab2 email section */
+.sfsi_service_row{margin-right: -15px;margin-left: -15px;}
+.sfsi_service_column{float: left;margin-bottom: 40px;margin-top: 15px;padding-left: 30px;width: 47%;}
+.sfsi_service_column ul{margin-left: 11% !important;}
+.sfsi_service_column ul li{padding-bottom:10px;font-size:16px;line-height: 25px; }
+.sfsi_service_column ul li span{color:#12a252;}
+.sfsi_service_column ul li::before {content: url(../images/tick-icon.png); position: relative; top: 0px; right: 10px; text-indent: -22px; float: left; }
+.sfsi_inputbtn{clear: both;display: block;}
+.sfsi_inputbtn input{width: 100%; padding: 15px 0px; text-align: center; margin-bottom: 10px; }
+ .sfsi_email_services_text{clear: both;}
+ .sfsi_email_services_paragraph{ width: 600px; float: left; margin-top: 10px; margin-bottom:40px;}
+ .sfsi_more_services_link a{ background-color: #12a252;color: #fff !important; padding:20px 0px;text-decoration: none;text-align: center;font-size: 20px;display: block;clear: both; font-weight: bold;}
+.sfsi_subscribe_popbox_link a{color: #00a0d2 !important;}
+.sfsi_email_services_paragraph ul{margin-left: 11% !important;}
+.sfsi_email_services_paragraph ul li{padding-bottom:10px;font-size:16px; }
+.sfsi_email_services_paragraph ul li span{color:#12a252;}
+.sfsi_email_services_paragraph ul li::before {content: url(../images/tick-icon.png); position: relative; top: 5px; right: 10px; text-indent: -22px; float: left; }
+.sfsi_email_last_paragraph {width: 60%; text-align: center !important; margin: 20px auto ! important; font-size: 16px !important; color: #a4a9ad !important;    padding-top: 0 !important; }
+.sfsi_email_last_paragraph a{color:#12a252 !important;font-family: 'helveticaneue-light' !important;}

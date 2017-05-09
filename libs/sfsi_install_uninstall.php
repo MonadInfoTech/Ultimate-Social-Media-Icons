@@ -12,7 +12,7 @@ function sfsi_update_plugin()
     }
     
     //Install version
-    update_option("sfsi_pluginVersion", "1.69");
+    update_option("sfsi_pluginVersion", "1.71");
 
     
     if(!get_option('sfsi_footer_sec'))
