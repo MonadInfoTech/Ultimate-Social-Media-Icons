@@ -191,7 +191,7 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
             <form id="calimingOptimizationForm" method="get" action="https://www.specificfeeds.com/wpclaimfeeds/getFullAccess" target="_blank">
                 <div class="sfsi_inputbtn">
                     <input type="hidden" name="feed_id" value="<?php echo sanitize_text_field(get_option('sfsi_feed_id',false)); ?>" />
-                    <input name="sfsi_admin_email" type="email" value="<?php echo bloginfo('admin_email'); ?>"  />
+                    <input type="email" name="email" value="<?php echo bloginfo('admin_email'); ?>"  />
                 </div>
                 <div class='sfsi_more_services_link'>
                     <a href="javascript:;" id="sfsi_getMeFullAccess" title="Give me access">

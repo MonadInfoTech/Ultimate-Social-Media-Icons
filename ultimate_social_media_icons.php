@@ -608,8 +608,9 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLi
 function sfsi_actionLinks($links)
 {
 	$links[] = '<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Check out pro version</b></a>';
-	$links[] = $links["deactivate"];
-	$links[] = $links["edit"];
+	$links[] = @$links["deactivate"];
+	$links[] = @$links["edit"];
+	$links[] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
 	unset($links['deactivate']);
 	unset($links['edit']);
 	return $links;
