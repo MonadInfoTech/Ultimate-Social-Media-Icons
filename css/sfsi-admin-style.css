@@ -1783,3 +1783,125 @@ p.sfsi_prem_plu_desc a{text-decoration: none; color: #00a0d2 !important;}
 .sfsi_email_services_paragraph ul li::before {content: url(../images/tick-icon.png); position: relative; top: 5px; right: 10px; text-indent: -22px; float: left; }
 .sfsi_email_last_paragraph {width: 60%; text-align: center !important; margin: 20px auto ! important; font-size: 16px !important; color: #a4a9ad !important;    padding-top: 0 !important; }
 .sfsi_email_last_paragraph a{color:#12a252 !important;font-family: 'helveticaneue-light' !important;}
+/*new banner styles*/
+.sfsi_new_notification_cat{
+        width: 100%;
+    min-height: 300px;
+    max-width: 700px;
+}
+.sfsi_new_notification_cat {
+    background-color: #fff;
+    margin: 30px auto;
+    width: 100%;
+}
+.sfsi_new_notification_header_cat {
+    background-color: #e8faef;
+    /*display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;*/
+    padding: 21px 0 21px 0;
+    text-align: center;
+}
+.sfsi_new_notification_header_cat h1 {
+    margin: 0;
+    color: #000000;
+    font-size: 24px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.sfsi_new_notification_header_cat h3{
+margin-top: 10px;
+font-size: 16px;
+color: #000000;
+}
+.sfsi_new_notification_header_cat h3 a{
+text-decoration: none;
+color: #38B54A
+}
+.sfsi_new_notification_header_cat h1 a {
+    margin: 0;
+    color: #00c853;
+    font-size: 18px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+.sfsi_new_notification_cross_cat {
+    float: right;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 15px;
+    cursor: pointer;
+    margin-top: -50px;
+}
+.sfsi_new_notification_body_link_cat a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+.sfsi_new_notification_body_cat {
+    width: 100%;
+    background-color: #fff;
+    /*display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;*/
+}
+.sfsi_new_notification_image_cat {
+    /* margin: 0 20px 0px 20px; */
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    /*padding: 10px 0px;*/
+}
+.sfsi_new_notification_image_cat img {
+    width: auto;
+        border: 0;
+    vertical-align: middle;
+}
+.bottom_text{
+    background: #38B54A;
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+.sfsi_new_notification_image_cat p{
+    color: #000000;
+    padding: 10px;
+    font-size: 16px;
+}
+.sfsi_new_notification_body_link_cat .tailored_icons_img{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    margin: 28px 0px;
+}
