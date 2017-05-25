@@ -184,7 +184,7 @@ function sfsi_googlePlus($permalink,$show_count)
 /* create pinit button */
 function sfsi_pinterest($permalink,$show_count)
 {
-	$pinit_html = '<script async defer src="//assets.pinterest.com/js/pinit.js"></script><a href="https://www.pinterest.com/pin/create/button/?url=&media=&description=" data-pin-do="buttonPin" data-pin-save="true"';
+	$pinit_html = '<a href="https://www.pinterest.com/pin/create/button/?url=&media=&description=" data-pin-do="buttonPin" data-pin-save="true"';
 	if($show_count)
 	{
 		$pinit_html .= 'data-pin-count="beside"';
@@ -298,7 +298,7 @@ function sfsi_footer_script()
 		$sfsi_section6['sfsi_rectfbshare'] = 'no';
 	}
 	
-	if($sfsi_section1['sfsi_facebook_display']=="yes" || $sfsi_section6['sfsi_rectfb'] == "yes" || $sfsi_section6['sfsi_rectfbshare'] == "yes")
+	if($sfsi_section1['sfsi_facebook_display']=="yes" || ($sfsi_section6['sfsi_rectfb'] == "yes" && $sfsi_section6['sfsi_show_Onposts'] == "yes") || ($sfsi_section6['sfsi_rectfbshare'] == "yes" && $sfsi_section6['sfsi_show_Onposts'] == "yes"))
 	{
 		?>
         <!--facebook like and share js -->
@@ -324,7 +324,7 @@ function sfsi_footer_script()
 	if(
 		$sfsi_section1['sfsi_google_display']=="yes" ||
 		$sfsi_section1['sfsi_youtube_display']=="yes" ||
-		$sfsi_section6['sfsi_rectgp'] == "yes"
+		($sfsi_section6['sfsi_rectgp'] == "yes" && $sfsi_section6['sfsi_show_Onposts'] == "yes")
 	)
 	{ ?>
          <!--google share and  like and e js -->
@@ -364,7 +364,7 @@ function sfsi_footer_script()
        	</script>
 	<?php
 	}
-	if($sfsi_section1['sfsi_pinterest_display']=="yes" || $sfsi_section6['sfsi_rectpinit'] == "yes")
+	if($sfsi_section1['sfsi_pinterest_display']=="yes" || ($sfsi_section6['sfsi_rectpinit'] == "yes" && $sfsi_section6['sfsi_show_Onposts'] == "yes"))
 	{?>
 		<!--pinit js -->
 		<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>

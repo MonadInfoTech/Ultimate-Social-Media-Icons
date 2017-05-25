@@ -383,7 +383,7 @@ class sfsi_SocialHelper
 	/* create on page pinit button icon */      
 	public function sfsi_PinIt($url='')
 	{       
-		$pin_it_html = '<script async defer src="//assets.pinterest.com/js/pinit.js"></script><a data-pin-do="buttonPin" data-pin-save="true" href="https://www.pinterest.com/pin/create/button/?url=&media=&description="></a>';
+		$pin_it_html = '<a data-pin-do="buttonPin" data-pin-save="true" href="https://www.pinterest.com/pin/create/button/?url=&media=&description="></a>';
 		return $pin_it_html;
 	}
 	
