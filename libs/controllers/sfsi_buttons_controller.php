@@ -845,6 +845,13 @@ function new_notification_read()
     echo "success";
     die;
 }
+add_action("wp_ajax_sfsicurlerrornotification", "sfsicurlerrornotification");
+function sfsicurlerrornotification()
+{
+    update_option("sfsi_curlErrorNotices", "no");
+    echo "success";
+    die;
+}
 
 function sfsi_sanitize_field($value)
 {
@@ -863,6 +870,7 @@ if(@!function_exists("sfsi_sanitize_hex_color"))
             return $color;
     }
 }
+function sfsi_returningElement($element) {return $element[0];}
 
 add_action('wp_ajax_bannerOption','sfsi_bannerOption');
 function sfsi_bannerOption()
@@ -874,8 +882,8 @@ function sfsi_bannerOption()
         $keywordEnglish = array_map("str_getcsv", explode("\n", $keywordData));
 
         $keywordEnglish = array_map('array_filter', $keywordEnglish);
-        $keywordEnglish = array_filter(array_map(function($element) {return $element[0];}, $keywordEnglish));
-
+        $keywordEnglish = array_filter(array_map(sfsi_returningElement($element), $keywordEnglish)); 
+        
         $domainname     = sfsi_getdomain(site_url());
         
         if(preg_match("/(cat|cattery|catrescue|recuedcat|kitten|kitty|meow)/im", $domainname))
@@ -3043,6 +3051,1164 @@ function sfsi_bannerOption()
                 }                
             } 
         }
+        elseif (preg_match("/(travel|journey|trekking|voyage|trek|trip|hike|hiking)/im", $domainname))
+        {
+            if(!empty($domainname))
+            {
+                $domainname = preg_replace('/startrek|trekstar|strip|stripper|trippy|stripping|tripwire/i', '', $domainname);
+                $explode    = explode(".", $domainname);
+                $domainname = @$explode[0];
+            }
+
+            $travelflag = false;
+
+            if(preg_match("/(travel|journey|trekking|voyage)/im", $domainname))
+            {
+                $travelflag = true;
+            }
+            elseif(preg_match("/(treks)/im", $domainname))
+            {
+                $explode    = explode("treks", $domainname);
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $lefttravelflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $righttravelflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $travelflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($righttravelflag && $lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($righttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                }
+            }
+            elseif(preg_match("/(trek)/im", $domainname))
+            {
+                $explode    = explode("trek", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $lefttravelflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $righttravelflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $travelflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($righttravelflag && $lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($righttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                }                
+            }
+            elseif(preg_match("/(trips)/im", $domainname))
+            {
+                $explode    = explode("trips", $domainname);
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $lefttravelflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $righttravelflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $travelflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($righttravelflag && $lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($righttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                }
+            }
+            elseif(preg_match("/(trip)/im", $domainname))
+            {
+                $explode    = explode("trip", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $lefttravelflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $righttravelflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $travelflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($righttravelflag && $lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($righttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                }                
+            }
+            elseif(preg_match("/(hike)/im", $domainname))
+            {
+                $explode    = explode("hike", $domainname);
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $lefttravelflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $righttravelflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $travelflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($righttravelflag && $lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($righttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                }
+            }
+            elseif(preg_match("/(hiking)/im", $domainname))
+            {
+                $explode    = explode("hiking", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $lefttravelflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $lefttravelflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $righttravelflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $righttravelflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $travelflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($righttravelflag && $lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($righttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($lefttravelflag)
+                        {
+                            $travelflag = true;           
+                        }
+                    }
+                }                
+            }
+        }
+        elseif (preg_match("/(music|sound|rhythm|guitar|singing|audio|piano|violin|cello|song|drums)/im", $domainname))
+        {
+            if(!empty($domainname))
+            {
+                $domainname = preg_replace('/eardrums|balisong|thaisong/i', '', $domainname);
+                $explode    = explode(".", $domainname);
+                $domainname = @$explode[0];
+            }
+
+            $musicflag = false;
+
+            if(preg_match("/(music|sound|rhythm|guitar|singing|audio|piano|violin)/im", $domainname))
+            {
+                $musicflag = true;
+            }
+            elseif(preg_match("/(drums)/im", $domainname))
+            {
+                $explode    = explode("drums", $domainname);
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $leftmusicflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $rightmusicflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $musicflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag && $leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                }
+            }
+            elseif(preg_match("/(celloes)/im", $domainname))
+            {
+                $explode    = explode("celloes", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $leftmusicflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $rightmusicflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $musicflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag && $leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                }                
+            }
+            elseif(preg_match("/(cello)/im", $domainname))
+            {
+                $explode    = explode("cello", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $leftmusicflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $rightmusicflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $musicflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag && $leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                }                
+            }
+            elseif(preg_match("/(songs)/im", $domainname))
+            {
+                $explode    = explode("songs", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $leftmusicflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $rightmusicflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $musicflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag && $leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                }                
+            }
+            elseif(preg_match("/(song)/im", $domainname))
+            {
+                $explode    = explode("song", $domainname);   
+                $left       = $explode[0];
+                $right      = $explode[1];
+
+                $leftmusicflag = false;
+                if(!empty($left))
+                {
+                    $left = str_split($left);
+                   
+                    $matchKeyword = ''; $j = 0;
+                    for($i = (count($left)-1); $i >= 0; $i--)
+                    {
+                        $matchKeyword = $left[$i].$matchKeyword;
+                        
+                        if($j > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $leftmusicflag = true;
+                                break;
+                            } 
+                        }
+
+                        $j++;
+                    }       
+                }
+
+                $rightmusicflag = false;
+                if(!empty($right))
+                {
+                    $right = str_split($right);
+                    
+                    $matchKeyword = '';
+                    for($i = 0; $i < count($right); $i++)
+                    {
+                        $matchKeyword .= $right[$i];
+                        if($i > 0)
+                        {
+                            if(in_array($matchKeyword, $keywordEnglish))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if(preg_match("/\.|\-|[0-9]/im", $matchKeyword))
+                            {
+                                $rightmusicflag = true;
+                                break;
+                            } 
+                        }
+                    }       
+                }
+
+                if(empty($left) && empty($right))
+                {
+                    $musicflag = true;
+                }
+                else
+                {
+                    if(!empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag && $leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(empty($left) && !empty($right))
+                    {
+                        if($rightmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                    elseif(!empty($left) && empty($right))
+                    {
+                        if($leftmusicflag)
+                        {
+                            $musicflag = true;           
+                        }
+                    }
+                }                
+            }
+        }
  
         if($catflag)
         {
@@ -3239,6 +4405,56 @@ function sfsi_bannerOption()
                         <div class="bottom_text">
                             <a href="https://www.ultimatelysocial.com/Drinking-themed-icons/?utm_source=any_settings_page&utm_campaign=Drinking_icons&utm_medium=banner">
                                 See all drinking-themed-icons >
+                            </a>
+                        </div>    
+                    </div>
+                </div>';
+        }
+        elseif($travelflag)
+        {
+            echo '<div class="sfsi_new_notification_cat">
+                    <div class="sfsi_new_notification_header_cat">
+                        <h1>You like travelling?</h1>
+                        <h3>The <a href="https://www.ultimatelysocial.com/Travel-themed-icons/?utm_source=any_settings_page&utm_campaign=Travel_icons&utm_medium=banner" target="_blank">Premium Plugin</a> Includes these icons...</h3>
+                        <div class="sfsi_new_notification_cross_cat">X</div>
+                    </div>
+                    
+                    <div class="sfsi_new_notification_body_link_cat">
+                        <a href="https://www.ultimatelysocial.com/Travel-themed-icons/?utm_source=any_settings_page&utm_campaign=Travel_icons&utm_medium=banner" target="_blank">
+                            <div class="sfsi_new_notification_body_cat">
+                                <div class="sfsi_new_notification_image_cat">
+                                       <img src="'.SFSI_PLUGURL.'images/travel.png" id="newImg" />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="bottom_text">
+                            <a href="https://www.ultimatelysocial.com/Travel-themed-icons/?utm_source=any_settings_page&utm_campaign=Travel_icons&utm_medium=banner">
+                                See all travel-themed-icons >
+                            </a>
+                        </div>    
+                    </div>
+                </div>';
+        }
+        elseif($musicflag)
+        {
+            echo '<div class="sfsi_new_notification_cat">
+                    <div class="sfsi_new_notification_header_cat">
+                        <h1>You like music?</h1>
+                        <h3>The <a href="https://www.ultimatelysocial.com/Music-themed-icons/?utm_source=any_settings_page&utm_campaign=Music_icons&utm_medium=banner" target="_blank">Premium Plugin</a> Includes these icons...</h3>
+                        <div class="sfsi_new_notification_cross_cat">X</div>
+                    </div>
+                    
+                    <div class="sfsi_new_notification_body_link_cat">
+                        <a href="https://www.ultimatelysocial.com/Music-themed-icons/?utm_source=any_settings_page&utm_campaign=Music_icons&utm_medium=banner" target="_blank">
+                            <div class="sfsi_new_notification_body_cat">
+                                <div class="sfsi_new_notification_image_cat">
+                                       <img src="'.SFSI_PLUGURL.'images/music.png" id="newImg" />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="bottom_text">
+                            <a href="https://www.ultimatelysocial.com/Music-themed-icons/?utm_source=any_settings_page&utm_campaign=Music_icons&utm_medium=banner">
+                                See all music-themed-icons >
                             </a>
                         </div>    
                     </div>

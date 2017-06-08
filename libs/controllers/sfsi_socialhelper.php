@@ -401,25 +401,29 @@ class sfsi_SocialHelper
 			update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
 		}
 		else
-		{
-			 $diff = date_diff(
-			 	date_create(
-					date("Y-m-d", $sfsi_instagram_sf_count["date"])
-				),
-				date_create(
-					date("Y-m-d")
+		{   
+			$phpVersion = phpVersion();
+			if($phpVersion >= '5.3')
+			{
+				$diff = date_diff(
+				 	date_create(
+						date("Y-m-d", $sfsi_instagram_sf_count["date"])
+					),
+					date_create(
+						date("Y-m-d")
 				));
-			 if($diff->format("%a") < 1 ||  1 == 1)
-			 {
-				 $sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
-				 $counts = $this->sfsi_get_instagramFollowersCount($user_name);
-				 $sfsi_instagram_sf_count["sfsi_instagram_count"] = $counts;
-				 update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
-			 }
-			 else
-			 {
-				 $counts = $sfsi_instagram_sf_count["sfsi_instagram_count"];
-			 }
+			}	
+			if((isset($diff) && $diff->format("%a") < 1) || 1 == 1)	
+			{
+				$sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
+				$counts = $this->sfsi_get_instagramFollowersCount($user_name);
+				$sfsi_instagram_sf_count["sfsi_instagram_count"] = $counts;
+				update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
+			}
+			else
+			{
+				$counts = $sfsi_instagram_sf_count["sfsi_instagram_count"];
+			}
 		}
 		return $counts;
 	}
@@ -475,26 +479,29 @@ class sfsi_SocialHelper
 			update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
 		}
 		else
-		{
-			 $diff = date_diff(
-			 	date_create(
-					date("Y-m-d", $sfsi_instagram_sf_count["date"])
-				),
-				date_create(
-					date("Y-m-d")
+		{   
+			$phpVersion = phpVersion();
+			if($phpVersion >= '5.3')
+			{
+				$diff = date_diff(
+				 	date_create(
+						date("Y-m-d", $sfsi_instagram_sf_count["date"])
+					),
+					date_create(
+						date("Y-m-d")
 				));
-			
-			 if($diff->format("%a") >= 1)
-			 {
-				 $sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
-				 $counts = $this->SFSI_getFeedSubscriberCount($feedid);
-				 $sfsi_instagram_sf_count["sfsi_sf_count"] = $counts;
-				 update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
-			 }
-			 else
-			 {
-				 $counts = $sfsi_instagram_sf_count["sfsi_sf_count"];
-			 }
+			}
+			if((isset($diff) && $diff->format("%a") >= 1))
+			{
+				$sfsi_instagram_sf_count["date"] = strtotime(date("Y-m-d"));
+				$counts = $this->SFSI_getFeedSubscriberCount($feedid);
+				$sfsi_instagram_sf_count["sfsi_sf_count"] = $counts;
+				update_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
+			}
+			else
+			{
+				$counts = $sfsi_instagram_sf_count["sfsi_sf_count"];
+			}
 		}
 		
 		if(empty($counts) || $counts == "O")

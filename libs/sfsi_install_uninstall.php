@@ -14,7 +14,10 @@ function sfsi_update_plugin()
     //Install version
     update_option("sfsi_pluginVersion", "1.73");
 
-    
+    if(!get_option('sfsi_serverphpVersionnotification'))
+    {
+        add_option("sfsi_serverphpVersionnotification", "yes");
+    }
     if(!get_option('sfsi_footer_sec'))
     {
         add_option('sfsi_footer_sec','no');
@@ -422,6 +425,7 @@ function sfsi_Unistall_plugin()
 	delete_option("show_mobile_notification");
 	delete_option("show_notification");
 	delete_option("show_new_notification");
+    delete_option('sfsi_serverphpVersionnotification');
 }
 /* end function */
 

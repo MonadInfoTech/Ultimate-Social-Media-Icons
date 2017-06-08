@@ -1905,3 +1905,9 @@ color: #38B54A
     color: #fff;
     margin: 28px 0px;
 }
+/**curl error box*/
+.sfsi_curlerror{margin: 0px 0px 10px 94px;background: rgba(244, 67, 54, 0.08);padding: 20px;    line-height: 20px;}
+.sfsi_curlerrorNotification .sfsi_curlerror{background:rgba(244, 67, 54, 0.08);padding: 20px; line-height: 20px;margin: 0px 0px 10px 0px;}
+.sfsi_curlerror_cross{float: right;text-decoration: underline;margin-top: 10px;}
+.sfsi_curlerrortab4 a{color: #0073aa !important;}
+.sfsi_curlerror a{color: #0073aa !important;}

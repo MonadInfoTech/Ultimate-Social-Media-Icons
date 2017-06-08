@@ -145,6 +145,8 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
 	?>
     <div class="row email_section">
         <h2 class="sfsicls_email">Email</h2>
+        <?php sfsi_curl_error_notification(); ?>
+        
         <div class="inr_cont">
         <p>
          	Allows your visitors to subscribe to your site (on  <a href="http://www.specificfeeds.com/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="_new">this screen</a>) and receive new posts automatically by email.

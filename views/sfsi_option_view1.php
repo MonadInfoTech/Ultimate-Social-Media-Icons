@@ -51,7 +51,7 @@
             </div>
             <span class="sfsicls_rs_s">RSS</span> 
             <div class="right_info">
-                <p><span>"Mandatory":</span> RSS is still popular, esp. among the tech-savvy crowd.
+                <p><span>Strongly recommended:</span> RSS is still popular, esp. among the tech-savvy crowd.
                 <label class="expanded-area" >RSS stands for Really Simply Syndication and is an easy way for people to read your content. You can learn more about it <a href="http://en.wikipedia.org/wiki/RSS" target="_new" title="Syndication">here</a>. </label></p>
                 <a href="javascript:;" class="expand-area" >Read more</a>
             </div>
@@ -65,7 +65,7 @@
             </div>
             <span class="sfsicls_email">Email</span> 
             <div class="right_info">
-                <p><span>"Mandatory":</span> Email is the most effective tool to build up a followership.
+                <p><span>Strongly recommended:</span> Email is the most effective tool to build up a followership.
                     <span style="float: right;margin-right: 13px; margin-top: -3px;">
 						<?php if(get_option('sfsi_footer_sec')=="yes") { $nonce = wp_create_nonce("remove_footer"); ?>
                     		<a style="font-size:13px;margin-left:30px;color:#777777;" href="javascript:;" class="sfsi_removeFooter" data-nonce="<?php echo $nonce;?>">Remove credit link</a>

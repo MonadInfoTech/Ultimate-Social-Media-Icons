@@ -53,7 +53,6 @@
     <?php } ?>
     <!-- Get notification bar-->
     
-
     <div class="sfsi_notificationBannner"></div>
     <!-- Get new_notification bar-->
 
