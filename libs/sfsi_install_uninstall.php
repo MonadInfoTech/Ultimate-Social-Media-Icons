@@ -426,6 +426,9 @@ function sfsi_Unistall_plugin()
 	delete_option("show_notification");
 	delete_option("show_new_notification");
     delete_option('sfsi_serverphpVersionnotification');
+
+    delete_option('widget_sfsi_widget');
+    delete_option('widget_subscriber_widget');    
 }
 /* end function */
 
