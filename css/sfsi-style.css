@@ -49,7 +49,7 @@ body {
     color: #12a252;
 }
 .sfsibeforpstwpr iframe, .sfsiaftrpstwpr iframe{max-width: none;}
-.sfwp_fivestar_ul li { display: inline-block; padding-right: 20px; }
+.sfwp_fivestar_ul li { display: block; padding-right: 20px; }
 .shwthmbfraftr { margin-top: 5px !important}
 label.toglpstpgsbttl { float: left; margin-top: 5px !important}
 .tab_3_icns.shwthmbfraftr .cstmdisplaysharingtxt
@@ -1247,7 +1247,7 @@ ul.tab_3_list li span {
     opacity: 1;
     position: fixed;
     top: 0;
-    width: 89%;
+    width: 92%;
     z-index: 9999;
 }
 .sfsi_tool_tip_2, .tool_tip {

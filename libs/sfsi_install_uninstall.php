@@ -597,7 +597,7 @@ function sfsi_rating_msg()
     $diff_inrval = round(($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
     if($diff_inrval >= 30 && get_option('sfsi_RatingDiv')=="no")
     {
-     echo '<div class="sfwp_fivestar">
+     echo '<div class="sfwp_fivestar notice notice-success is-dismissible">
                 <p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. If you\'re happy with it, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
                 <ul>
                     <li><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons/reviews/" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
