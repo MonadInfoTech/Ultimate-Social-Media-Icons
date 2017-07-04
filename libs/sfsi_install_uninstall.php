@@ -546,10 +546,15 @@ function sfsi_check_wp_head() {
         }
         
         $path=pathinfo($_SERVER['REQUEST_URI']);
-        if($path['basename']=="themes.php" || $path['basename']=="theme-editor.php" || $path['basename']=="admin.php?page=sfsi-options")
+        if($path['basename']=="themes.php" || $path['basename']=="theme-editor.php" || $path['basename']=="admin.php?page=sfsi-plus-options")
         {
-            echo "<div class=\"error\" >" . "<p> Error : Please fix your theme to make plugins work correctly: Go to the <a href=\"theme-editor.php\">Theme Editor</a> and insert <code>&lt;?php wp_head(); ?&gt;</code> just before the <code>&lt;/head&gt;</code> line of your theme's <code>header.php</code> file." . "</p></div>";
-        }   
+            $currentTheme = wp_get_theme();
+                        
+            if(isset($currentTheme) && !empty($currentTheme) && $currentTheme->get( 'Name' ) != "Customizr"){
+
+                echo "<div class=\"error\" ><p>". __( 'Error : Please fix your theme to make plugins work correctly. Go to the Theme Editor and insert the following string:', SFSI_PLUS_DOMAIN )." &lt;?php wp_head(); ?&gt; ".__('Please enter it just before the following line of your header.php file:',SFSI_PLUS_DOMAIN)." &lt;/head&gt; ".__('Go to your theme editor: ',SFSI_PLUS_DOMAIN)."<a href=\"theme-editor.php\">".__('click here', SFSI_PLUS_DOMAIN )."</a>.</p></div>";                
+            }
+        }  
     }
 }
 /* admin notice if wp_footer is missing in active theme */
