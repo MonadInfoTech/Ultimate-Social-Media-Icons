@@ -37,6 +37,16 @@ if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.75)
 	add_action("init", "sfsi_update_plugin");
 }
 
+/* redirect setting page hook */
+add_action('admin_init', 'sfsi_plugin_redirect');
+function sfsi_plugin_redirect()
+{
+    if (get_option('sfsi_plugin_do_activation_redirect', false))
+    {
+        delete_option('sfsi_plugin_do_activation_redirect');
+        wp_redirect(admin_url('admin.php?page=sfsi-options'));
+    }
+}
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)

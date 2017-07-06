@@ -134,6 +134,7 @@ function sfsi_update_plugin()
 }
 function sfsi_activate_plugin()
 {
+    add_option('sfsi_plugin_do_activation_redirect', true);
     /* check for CURL enable at server */
    curl_enable_notice();
     if(!get_option('show_new_notification'))
