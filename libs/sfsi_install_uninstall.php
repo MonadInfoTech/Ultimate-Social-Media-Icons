@@ -135,7 +135,7 @@ function sfsi_update_plugin()
     $option5 = unserialize(get_option('sfsi_section5_options',false));
     if(isset($option5) && !empty($option5) && !isset($option5['sfsi_custom_social_hide']))
     {
-        $option4['sfsi_custom_social_hide']    = 'no';
+        $option5['sfsi_custom_social_hide']    = 'no';
         update_option('sfsi_section5_options', serialize($option5));
     }
 }
