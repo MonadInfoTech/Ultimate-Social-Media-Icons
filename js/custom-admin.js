@@ -2089,12 +2089,15 @@ SFSI(document).ready(function(s) {
 
     SFSI(document).on("click", '.checkbox', function () {
 
-    var backgroundPos = jQuery(this).css('background-position').split(" ");
+    var s = SFSI(this).parent().find("input:checkbox:first");
 
-    var xPos = backgroundPos[0],
-        yPos = backgroundPos[1];
-        var val = (yPos=="0px") ? "no":"yes";
-        SFSI('input[name="sfsi_custom_social_hide"]').val(val);        
+        if(s.attr('name')== "sfsi_custom_social_hide"){
+            var backgroundPos = jQuery(this).css('background-position').split(" ");
+            var xPos = backgroundPos[0],
+                yPos = backgroundPos[1];
+                var val = (yPos=="0px") ? "no":"yes";
+                SFSI('input[name="sfsi_custom_social_hide"]').val(val);        
+        }
     });
 
 //*------------------------------- Sharing text & pcitures checkbox for showing section in Page, Post CLOSES -------------------------------------//
