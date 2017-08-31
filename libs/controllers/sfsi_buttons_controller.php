@@ -881,6 +881,7 @@ add_action('wp_ajax_bannerOption','sfsi_bannerOption');
 function sfsi_bannerOption(){
     error_reporting(0);
 
+
     if(get_option("show_new_notification") == "yes"){
 
       $objThemeCheck = new sfsi_ThemeCheck();
@@ -891,6 +892,7 @@ function sfsi_bannerOption(){
 
       $matchFound = false;
 
+
       foreach ($themeDataArr as $themeDataObj) {
 
             if(isset($themeDataObj->themeName) && strlen($themeDataObj->themeName)>0){
@@ -900,7 +902,8 @@ function sfsi_bannerOption(){
                 $separateKeywords   = $themeDataObj->separateKeywords;
                 $negativeKeywords   = $themeDataObj->negativeKeywords;
                 $noBrainerAndSeparateKeywords = array_merge($noBrainerKeywords,$separateKeywords);
-                                            
+
+
                 if($objThemeCheck->sfsi_plus_check_type_of_websiteWithNoBrainerAndSeparateAndNegativeKeywords($themeName,$noBrainerKeywords,$separateKeywords,$noBrainerAndSeparateKeywords,$negativeKeywords,$domainname)==$themeName)
             {
                 $matchFound = true;         
@@ -924,11 +927,12 @@ function sfsi_bannerOption(){
             echo '<div class="sfsi_new_notification_cat">
                     <div class="sfsi_new_notification_header_cat">
                         <h1>New feature: Tailored icons</h1>
-                        <h3>The <a href="https://www.ultimatelysocial.com/tailor-made-icons/?utm_source=usmplus_settings_page&utm_campaign=tailored_icons&utm_medium=banner" target="_blank">Premium Plugin</a> Includes these icons...</h3>
+                        <h3>The <a href="https://www.ultimatelysocial.com/themed-icons/?utm_source=any_settings_page&utm_campaign=Themed_icons&utm_medium=banner" target="_blank">Premium Plugin</a> Includes these icons...</h3>
                         <div class="sfsi_new_notification_cross_cat">X</div>
                     </div>
+                    
                     <div class="sfsi_new_notification_body_link_cat">
-                        <a class ="tailored_icons_img" href="https://www.ultimatelysocial.com/tailor-made-icons/?utm_source=usmplus_settings_page&utm_campaign=tailored_icons&utm_medium=banner" target="_blank">
+                        <a class ="tailored_icons_img" href="https://www.ultimatelysocial.com/themed-icons/?utm_source=any_settings_page&utm_campaign=Themed_icons&utm_medium=banner" target="_blank">
                             <div class="sfsi_new_notification_body_cat">
                                 <div class="sfsi_new_notification_image_cat">
                                        <img src="'.SFSI_PLUGURL.'images/WPPlugin_V3.png" id="newImg" />
@@ -936,12 +940,12 @@ function sfsi_bannerOption(){
                             </div>
                         </a>
                         <div class="bottom_text">
-                            <a href="https://www.ultimatelysocial.com/tailor-made-icons/?utm_source=usmplus_settings_page&utm_campaign=tailored_icons&utm_medium=banner">
+                            <a href="https://www.ultimatelysocial.com/themed-icons/?utm_source=any_settings_page&utm_campaign=Themed_icons&utm_medium=banner">
                                 See more-themed-icons >
                             </a>
                         </div>    
                     </div>
-                </div>';        
+                </div>';   
       }
         
         echo '<script type="text/javascript">

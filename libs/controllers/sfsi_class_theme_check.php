@@ -26,14 +26,14 @@ class sfsi_ThemeCheck
 
 	public function sfsi_plus_get_themeData(){
 	    
-	    $keywordFile    = SFSI_PLUS_DOCROOT."/themedata.csv";
+	    $keywordFile    = SFSI_DOCROOT."/themedata.csv";
 	    $keywordData    = @file_get_contents($keywordFile);
 	    $keywordEnglish = array_map("str_getcsv", explode("\n", $keywordData));
 	    $themeDataArr = array();
 
 	    if(isset($keywordEnglish) && count($keywordEnglish)>0){
 
-		    unset($keywordEnglish[0]);
+	    	unset($keywordEnglish[0]);
 
 		    $finalArr = array_filter(array_values($keywordEnglish));
 
@@ -64,11 +64,10 @@ class sfsi_ThemeCheck
 	}
 
 	public function sfsi_plus_get_keywordEnglish(){
-	    $keywordFile    = SFSI_PLUS_DOCROOT."/All_english_words_better_list.csv";
+	    $keywordFile    = SFSI_DOCROOT."/All_english_words_better_list.csv";
 	    $keywordData    = @file_get_contents($keywordFile);
 	    $keywordEnglish = array_map("str_getcsv", explode("\n", $keywordData));
 	    $keywordEnglish = array_map('array_filter', $keywordEnglish);
-	    $keywordEnglish = array_filter(array_map(sfsi_plus_returningElement($element), $keywordEnglish));
 	    return $keywordEnglish;
 	}
 
@@ -329,28 +328,29 @@ class sfsi_ThemeCheck
 
  	public function sfsi_plus_bannereHtml($title, $siteLink, $bannerImage, $buttonTitle)
 	{
-		echo '<div class="sfsi_plus_new_notification_cat">
-	        <div class="sfsi_plus_new_notification_header_cat">
+		echo '<div class="sfsi_new_notification_cat">
+	        <div class="sfsi_new_notification_header_cat">
 	            <h1>'.$title.'</h1>
 	            <h3>The <a href="'.$siteLink.'" target="_blank">Premium Plugin</a> Includes these icons...</h3>
-	            <div class="sfsi_plus_new_notification_cross_cat">X</div>
+	            <div class="sfsi_new_notification_cross_cat">X</div>
 	        </div>
 	        
-	        <div class="sfsi_plus_new_notification_body_link_cat">
+	        <div class="sfsi_new_notification_body_link_cat">
 	            <a href="'.$siteLink.'" target="_blank">
-	                <div class="sfsi_plus_new_notification_body_cat">
-	                    <div class="sfsi_plus_new_notification_image_cat">
+	                <div class="sfsi_new_notification_body_cat">
+	                    <div class="sfsi_new_notification_image_cat">
 	                        <img src="'.$bannerImage.'" id="newImg" />
 	                    </div>
 	                </div>
 	            </a>
-	            <div class="sfsiplus_bottom_text">
+	            <div class="bottom_text">
 	                <a href="'.$siteLink.'">
 	                    '.$buttonTitle.' >
 	                </a>
 	            </div>    
 	        </div>
 	    </div>';
-	}		
+	}
+		
 }
 ?>

@@ -13,7 +13,7 @@
 <div class="wapper sfsi_mainContainer">
     
     <!-- Get notification bar-->
-    <?php if(get_option("show_notification") == "yes") { ?>
+    <?php if(get_option("show_new_notification") == "yes") { ?>
     <script type="text/javascript">
         jQuery(document).ready(function(e) {
             jQuery(".sfsi_show_notification").click(function(){
@@ -132,8 +132,8 @@
         url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
         type:"post",
         data:e,
-        success:function(e) {
-            jQuery(".sfsi_notificationBannner").html(e);
+        success:function(s) {
+            jQuery(".sfsi_notificationBannner").html(s);
         }
     });
 </script>
