@@ -68,6 +68,7 @@ class sfsi_ThemeCheck
 	    $keywordData    = @file_get_contents($keywordFile);
 	    $keywordEnglish = array_map("str_getcsv", explode("\n", $keywordData));
 	    $keywordEnglish = array_map('array_filter', $keywordEnglish);
+		$keywordEnglish = array_filter(array_map(sfsi_returningElement($element), $keywordEnglish)); 	    
 	    return $keywordEnglish;
 	}
 
