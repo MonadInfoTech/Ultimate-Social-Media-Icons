@@ -269,6 +269,7 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
             <p class="radio_section fb_url"><input name="sfsi_googleLike_option" <?php echo ($option2['sfsi_googleLike_option']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Like my blog on Google+ (+1)</label></p> 
         	
             <p class="radio_section fb_url"><input name="sfsi_googleShare_option" <?php echo ($option2['sfsi_googleShare_option']=='yes') ?  'checked="true"' : '' ;?> type="checkbox" value="yes" class="styled"  /><label>Share my blog with friends (on Google+)</label></p>
+            
             <div class ="sfsi_new_prmium_follw" >
                 <p><b>New: </b>In our Premium Plugin you can also allow users to follow you on Google+ <b>directly from your site </b>(without leaving your page, increasing followers). <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=direct_follow_google&utm_medium=banner" target="_blank">See all features</a></p>
             </div>
@@ -394,7 +395,11 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
                 </p>
 	   		</div>
        	</div>
-	<?php $count++; endif; endfor; ?>
+	<?php $count++; endif; endfor; ?>  
+
+        <div class ="notice_custom_icons_premium sfsi_new_prmium_follw" >
+                <p><b>New: </b>In the Premium Plugin you can also give custom icons the feature that when people click on it, they can call you, or send you an SMS. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=call_or_sms_feature_custom_icons&utm_medium=banner" target="_blank">See all features</a></p>
+        </div>
     </div>
     <!-- END Custom icon section here -->
       

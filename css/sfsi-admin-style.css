@@ -1652,6 +1652,7 @@ ul.sfsi_floaticon_margin_sec li ins {
 
 /*poonam */
 .sf_si_our_prmium_plugin-add, .sfsi_prem_icons_added, .sfsi_new_prmium_follw{background:#f3faf6;border:1px solid #12a252;padding: 25px 38px 35px 40px;clear: both;}
+.notice_custom_icons_premium.sfsi_new_prmium_follw {margin-left: 94px;}
 .sf_si_our_prmium_plugin-add{padding: 25px 38px 45px 44px;}
 .sf_si_default_design ul{padding:0;margin:0;}
 .sf_si_default_design ul li{list-style:none;font-size:20px;color:#1a1d20;clear:both;}
