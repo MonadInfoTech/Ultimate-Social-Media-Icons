@@ -119,7 +119,13 @@ if(!isset($option6['sfsi_rectfbshare']))
         <li>5. The share-button covers all other platforms for sharing</li>
         <li></li>
 	</ul>
-	<p class ="sfsi_prem_plu_desc"><b>New:</b> We also added a Linkedin share-icon in the Premium Plugin. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=linkedin_icon&utm_medium=banner" target="_blank">Check it out.</a></p>
+	
+  <p class ="sfsi_prem_plu_desc"><b>New:</b> We also added a Linkedin share-icon in the Premium Plugin, also you can place those icons via shortcode. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=linkedin_icon&utm_medium=banner" target="_blank">Check it out.</a></p>
+
+<!--     <div class= "sfsi_new_prmium_follw">
+    <p><b>New:</b> We also added a Linkedin share-icon in the Premium Plugin. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=linkedin_icon&utm_medium=banner" target="_blank">See all features</a></p>
+    </div> -->
+    
 	<!-- icons display section -->
 	<h4 class="sfsi_dsplyatend">So: do you want to display those at the end of every post?</h4>
 	<ul class="enough_waffling sfsi_dsplyatend">
@@ -133,9 +139,11 @@ if(!isset($option6['sfsi_rectfbshare']))
 	<div class="options">
             <label class="first">Text to appear before the sharing icons:</label><input name="sfsi_textBefor_icons" type="text" value="<?php echo ($option6['sfsi_textBefor_icons']!='') ?  $option6['sfsi_textBefor_icons'] : '' ; ?>" />
 	</div>
-	<div class ="options">
-		<p class="sfsi_prem_plu_desc"><b>New:</b> In the Premium Plugin you can now also define the<b> font size, type</b>, and the <b>margins below/above the icons</b>. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_placement_options&utm_medium=banner" target="_blank">Check it out.</a></p>
-	</div>	
+	
+    <div class="options">
+    <p><b>New:</b> In the Premium Plugin you can now also define the<b> font size, type</b>, and the <b>margins below/above the icons</b>.  <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_placement_options&utm_medium=banner" target="_blank" style="color:#00a0d2 !important; text-decoration: none !important;">Check it out.</a></p>
+    </div>
+
 	<div class="options">
             <label>Alignment of share icons: </label><div class="field"><select name="sfsi_icons_alignment" id="sfsi_icons_alignment" class="styled"><option value="left" <?php echo ($option6['sfsi_icons_alignment']=='left') ?  'selected="selected"' : '' ;?>>Left</option><!--<option value="center" <?php //echo ($option6['sfsi_icons_alignment']=='center') ?  'selected="selected"' : '' ;?>>Center</option>--><option value="right" <?php echo ($option6['sfsi_icons_alignment']=='right') ?  'selected="selected"' : '' ;?>>Right</option></select></div>
 	</div>

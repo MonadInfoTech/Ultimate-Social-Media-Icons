@@ -223,9 +223,11 @@ class sfsi_SocialHelper
 	/* send curl request   */
 	private function file_get_contents_curl($url)
 	{
+		$user_Agent = (isset($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] :'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)';
+		
 		$ch=curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		curl_setopt($ch, CURLOPT_USERAGENT, $user_Agent);
 		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);

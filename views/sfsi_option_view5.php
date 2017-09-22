@@ -188,9 +188,11 @@
     <div class="row">
 	<h4>Size &amp; spacing of your icons</h4>
 	<div class="icons_size"><span>Size:</span><input name="sfsi_icons_size" value="<?php echo ($option5['sfsi_icons_size']!='') ?  $option5['sfsi_icons_size'] : '' ;?>" type="text" /><ins>pixels wide &amp; tall</ins> <span class="last">Spacing between icons:</span><input name="sfsi_icons_spacing" type="text" value="<?php echo ($option5['sfsi_icons_spacing']!='') ?  $option5['sfsi_icons_spacing'] : '' ;?>" /><ins>Pixels</ins></div>
+
     <div class="icons_prem_disc">
         <p class="sfsi_prem_plu_desc"><b>New: </b>The Premium Plugin also allows you to define the vertical distance between the icons (and set this differently for mobile vs. desktop): <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_spacings&utm_medium=banner" target="_blank">Check it out</a></p>
     </div>
+    
     </div>
     
     <div class="row">
@@ -217,6 +219,7 @@
     <div class= "sfsi_new_prmium_follw" style="margin-top: 38px;">
 		<p><b>New: </b>The Premium Plugin gives several more alignment options: <br>- &nbsp;&nbsp; Show icons vertically<br>- &nbsp;&nbsp; Align icons within a widget (left, right, centered)<br>- &nbsp;&nbsp; Align icons within the «container» where you place them via shortcode (left, right, centered) <br><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_alignment_options&utm_medium=banner" target="_blank">See all features</a></p>
 	</div>
+
     </div>
     
     <div class="row new_wind">

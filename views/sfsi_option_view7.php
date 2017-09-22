@@ -230,9 +230,15 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
         <div class="pop_up_show">
             <input name="sfsi_Shown_pop" <?php echo ($option7['sfsi_Shown_pop']=='ETscroll') ?  'checked="true"' : '' ;?> type="radio" value="ETscroll" class="styled"/><label>Every time user scrolls to the end of the page</label>
          </div>
-        <div class="sfsi_prem_show">
+        
+        <!-- <div class="sfsi_prem_show">
             <p class=sfsi_prem_plu_desc><b>New :</b> The Premium Plugin also allows you to show the pop-up when a user tries to <b>leave your page</b>. Also, you can <b>limit how often the pop-up is shown </b>to the same user (e.g. only once per day) <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_popup_options&utm_medium=banner" target="_blank">Check it out</a></p>
-        </div> 
+        </div> -->
+
+       <div class="bannerPopupQue6 sfsi_new_prmium_follw" style="margin-top: 38px;">
+        <p><b>New: </b>The Premium Plugin allows you to do much more with the pop-up, e.g. you can: <br>- &nbsp;&nbsp; Show it when users try to leave your page<br>- &nbsp;&nbsp; Limit how often the pop-up is shown to the same user (e.g. only once per day)<br>- &nbsp;&nbsp; Select to show the subscription form in the pop-up (which you designed in question 8) <br><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_popup_options&utm_medium=banner" target="_blank">See all features</a></p>
+        </div>         
+    
     </div>
      <!-- SAVE BUTTON SECTION   --> 
 	<div class="save_button">

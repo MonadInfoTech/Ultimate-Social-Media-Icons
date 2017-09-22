@@ -377,9 +377,12 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
 	<?php 
 	  $costom_links	=	unserialize($option2['sfsi_CustomIcon_links']);
 	  $count		=	1;
+      $bannerDisplay=   "display:none;";
 	  for($i = $first_key; $i <= $endkey; $i++) :
 	?> 
-	<?php if(!empty( $icons[$i])) : ?>
+	<?php if(!empty( $icons[$i])) : 
+        $bannerDisplay=   "display:block;";
+    ?>
     	<div class="row  sfsiICON_<?php echo $i; ?> cm_lnk">
        		<h2 class="custom">
             	<span class="customstep2-img">
@@ -397,9 +400,9 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
        	</div>
 	<?php $count++; endif; endfor; ?>  
 
-        <div class ="notice_custom_icons_premium sfsi_new_prmium_follw" >
+        <div class ="notice_custom_icons_premium sfsi_new_prmium_follw" style="<?php echo $bannerDisplay; ?>">
                 <p><b>New: </b>In the Premium Plugin you can also give custom icons the feature that when people click on it, they can call you, or send you an SMS. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=call_or_sms_feature_custom_icons&utm_medium=banner" target="_blank">See all features</a></p>
-        </div>
+        </div>  
     </div>
     <!-- END Custom icon section here -->
       
