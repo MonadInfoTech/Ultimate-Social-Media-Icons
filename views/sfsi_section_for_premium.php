@@ -168,8 +168,7 @@
 		cursor: pointer;
 	}
 
-	@media screen and (min-width: 360px){
-		#sfpageLoad {left:0px;}
+	@media screen and (min-width: 360px) and (max-width: 360px){
 		.wapper { width: 95%; padding: 0px;}
 
 		#sectionPremium { width: 90%;margin: 50px 5px;}
@@ -194,20 +193,119 @@
 	}
 
 
-	/*Iphone 5*/
-	@media screen and (min-width: 320px){
-
+	@media only screen and (min-width: 414px) and (max-width: 736px) and (orientation : landscape) {
+		#sectionPremium {   
+			width: 90%;
+    		margin: 50px 5px;
+    	}
+		.premiumButtonsContainer {
+    		float: left;
+    		width: 48%;
+		}
+		.premiumSection1 {
+			width: 53%;
+		}
+		.premiumSection1 .premiumTxt{
+			font-size: 24px;
+    		line-height: 39px;
+		}
+		#premiumSlide1 .premiumSection1 .premiumTxt:nth-child(1) {
+		    font-size: 24px;
+		}
+		#premiumSlide1 .premFrTxt .premiumTxt:nth-child(2) {
+		    width: 81%;
+		    line-height: 24px;
+		}				
+		.premiumSection2,.premiumSection3{
+			width: 40%;
+		}
+		.wapper {padding: 15px;}
+		
+		#premiumSlide1 .premiumSection1, #premiumSlide2 .premiumSection1{
+			width: 47%;
+		}
+		.premiumFeatures{
+			margin-left: 6px;
+    		width: 58%;
+		}
+		.premiumFeatures ul{
+			width: 49%;font-size: 18px;margin-right: 0px;
+		}
+		#premiumSlide3 .premiumSection1 .premiumTxt{
+			font-size: 34px;
+		}
+		.priceTxt{
+			width: 85%;
+    		margin: 0 auto;
+    		line-height: 23px;
+    		font-size: 14px;			
+		}
 	}
-	/*Iphone 6*/
-	@media screen and (min-width: 375px){
 
+	@media only screen and (min-width: 414px) and (max-width: 736px) and (orientation : portrait){
+		#sectionPremium {   
+			width: 90%;
+    		margin: 50px 5px;
+    	}
+		.premiumButtonsContainer {
+    		float: left;
+    		width: 100%;
+		}
+		.premiumSection1 {
+			width: 53%;
+		}
+		#premiumSlide1 .premiumSection1 {
+			margin-bottom: 10px;
+		}
+		#premiumSlide3 .premiumSection1{
+			width: 86%;
+		}
+		.premiumSection1 .premiumTxt{
+			font-size: 24px;
+    		line-height: 39px;
+		}
+		#premiumSlide1 .premiumSection1 .premiumTxt:nth-child(1) {
+		    font-size: 24px;
+		}
+		#premiumSlide1 .premFrTxt .premiumTxt:nth-child(2) {
+		    width: 81%;
+		    line-height: 24px;
+		}				
+		.premiumSection2,.premiumSection3{
+			width: 40%;
+		}
+		.wapper {padding: 15px;}
+		
+		#premiumSlide1 .premiumSection1, #premiumSlide2 .premiumSection1{
+			width: 100%;
+		}
+		.premiumFeatures{
+		    width: 66%;
+		    margin: 0px auto;
+		    text-align: center;
+		    float: none;
+		}
+		.premiumFeatures ul {
+		    width: 100%;
+		    font-size: 20px;
+		    margin-bottom: 12px;
+		    float: left;
+		    margin-left: 7px;
+		    margin-top: 16px;
+		}
+		#premiumSlide3 .premiumSection1 .premiumTxt{
+			font-size: 29px;
+		}
+		.priceTxt{
+			width: 85%;
+    		margin: 0 auto;
+    		line-height: 23px;
+    		font-size: 14px;			
+		}
 	}
-	/*Iphone 6 Plus*/
-	@media screen and (min-width: 414px){
 
-	}
 	/*iPad*/
-	@media screen and (min-width: 768px){
+	@media screen and (min-width: 768px) and (max-width: 1024px){
 		#sectionPremium { width: 95%;margin: 50px 5px;}
 		.premiumComponent{ width: 50%;}
 		.premiumButtonsContainer { float: left;width: 46%;}
@@ -230,14 +328,35 @@
 		.priceTxt {margin: 0 auto;width: 79%;}
 		#premiumSlide3 .premiumButtonsContainer {width: 97% !important;}
 
-		#sfpageLoad {left:0px;}
 		.wapper { padding: 28px; }	
 	}
+
+	@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation : landscape) {
+		#sectionPremium {
+		    width: 90% !important;
+		}
+		.premiumButtonsContainer {
+			width: 40%;
+		}
+		#premiumSlide1  .premiumSection1 {
+			width: 53% !important;
+		}
+		.premiumFeatures {
+		    width: 62% !important;
+		}
+		#premiumSlide3 .premiumButtonsContainer {
+		    width: 100% !important;
+		}
+		#premiumSlide3 .premiumSection1 {
+		    width: 100%;
+		}								
+	}
+
 	/*iPad Pro*/
-	@media screen and (min-width: 1024px){
-		#sectionPremium { width: 90%;}
+	@media screen and (min-width: 1024px) and (max-width: 1366px){
+		#sectionPremium { width: 85%;margin: 50px auto;}
 		.premiumComponent{ width: 48%;}
-		.premiumButtonsContainer { float: left;width: 47%;}
+		.premiumButtonsContainer { float: left;}
 		.premiumSection2,.premiumSection3{ width: 40%;}
 		.premiumFeatures { margin-left: 6px;width: 58%;}
 		.premiumFeatures ul {width: 50%;float: left;margin-right: 0px;font-size: 19px;}
@@ -246,6 +365,31 @@
 		.priceTxtwidth { width:79%;text-align: center;margin: 0px auto; }
 		.chkbutton {width:95%;}
 		.priceTxt {margin: 0 auto;width: 79%;}
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation : landscape) {
+		#sectionPremium {
+		    width: 80%;
+		}
+		.premiumButtonsContainer {
+		    float: right;
+		}
+		.premiumComponent {
+		    width: 56%;
+		}
+		#premiumSlide3 .premiumSection1 {
+			width: 95%;
+		}
+		.premiumFeatures{
+			width: 69%;
+		}
+		.premiumSection2,.premiumSection3{ width: 38%;}
+		.premiumFeatures ul {
+		    width: 50%;
+		    float: left;
+		    margin-right: 0px;
+		    font-size: 23px;
+		    line-height: 40px;
+		}				
 	}				
 </style>
 

@@ -27,7 +27,12 @@ function sfsi_update_plugin()
     {
         add_option("show_premium_notification", "yes");
     }
-    
+
+    if(!get_option('show_premium_cumulative_count_notification'))
+    {
+        add_option("show_premium_cumulative_count_notification", "yes");
+    }    
+
     /*show notification*/
     if(!get_option('show_notification'))
     {
@@ -144,10 +149,17 @@ function sfsi_activate_plugin()
     add_option('sfsi_plugin_do_activation_redirect', true);
     /* check for CURL enable at server */
    curl_enable_notice();
+    
     if(!get_option('show_new_notification'))
     {
         add_option("show_new_notification", "yes");
     }
+
+    if(!get_option('show_premium_cumulative_count_notification'))
+    {
+        add_option("show_premium_cumulative_count_notification", "yes");
+    }
+
 
     $options1=array('sfsi_rss_display'=>'yes',
             'sfsi_email_display'=>'yes',
@@ -435,14 +447,10 @@ function sfsi_Unistall_plugin()
 	delete_option("show_notification");
 	delete_option("show_new_notification");
     delete_option('sfsi_serverphpVersionnotification');
+    delete_option("show_premium_cumulative_count_notification");
 
     delete_option('widget_sfsi_widget');
     delete_option('widget_subscriber_widget');
-
-    delete_option('fs_active_plugins');
-    delete_option('fs_accounts');
-    delete_option('fs_api_cache');
-    delete_option('fs_debug_mode');        
 }
 /* end function */
 

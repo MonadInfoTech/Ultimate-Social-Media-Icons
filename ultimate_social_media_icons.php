@@ -404,15 +404,17 @@ function sfsi_admin_notice()
 {
 	$language = get_option("WPLANG");
 	
-	if(isset($_GET['page']) && $_GET['page'] == "sfsi-options")
-	{
-		$style = "overflow: hidden; margin:12px 3px 0px;";
-	}
-	else
-	{
-		$style = "overflow: hidden;"; 
-	}
+	// if(isset($_GET['page']) && $_GET['page'] == "sfsi-options")
+	// {
+	// 	$style = "overflow: hidden; margin:12px 3px 0px;";
+	// }
+	// else
+	// {
+	// 	$style = "overflow: hidden;"; 
+	// }
 	
+	$style = "overflow: hidden;"; 
+
 	/**
 	 * if wordpress uses other language
 	 */
@@ -504,6 +506,46 @@ function sfsi_admin_notice()
 		<?php
 	} 
 	
+
+	if(is_ssl()){
+		
+		if(get_option("show_premium_cumulative_count_notification") == "yes")
+		{
+			?>
+			<style type="text/css">
+				.sfsi_show_premium_cumulative_count_notification a{
+				   	color: #fff;
+				}
+				form.sfsi_premiumCumulativeCountNoticeDismiss {
+				    display: inline-block;
+				    margin: 5px 0 0;
+				    vertical-align: middle;
+				}
+				.sfsi_premiumCumulativeCountNoticeDismiss input[type='submit']{
+					background-color: transparent;
+				    border: medium none;
+				    color: #fff;
+				    margin: 0;
+				    padding: 0;
+				    cursor: pointer;
+				}
+			</style>
+		    <div class="updated sfsi_show_premium_cumulative_count_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
+				<div class="alignleft" style="margin: 9px 0;">
+					<b>Recently switched to https?</b> If you don’t want to lose the Facebook share & like counts <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=https_share_counts&utm_medium=banner" target="_blank">have a look at our Premium Plugin</a>, we found a fix for that: <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=https_share_counts&utm_medium=banner" target="_blank">Check it out</a>
+				</div>
+				<div class="alignright">
+					<form method="post" class="sfsi_premiumCumulativeCountNoticeDismiss">
+						<input type="hidden" name="sfsi-dismiss-premiumCumulativeCountNoticeDismiss" value="true">
+						<input type="submit" name="dismiss" value="Dismiss" />
+					</form>
+				</div>
+			</div>
+			<?php
+		} 
+	}
+
+
 	/* show mobile notification */
 	if(get_option("show_mobile_notification") == "yes"){
 		$sfsi_install_date = strtotime(get_option( 'sfsi_installDate' ));
@@ -628,6 +670,11 @@ function sfsi_dismiss_admin_notice()
 	{
 		update_option( 'sfsi_serverphpVersionnotification', "no" );
 	}
+	if ( isset($_REQUEST['sfsi-dismiss-premiumCumulativeCountNoticeDismiss']) && $_REQUEST['sfsi-dismiss-premiumCumulativeCountNoticeDismiss'] == 'true' )
+	{
+		update_option( 'show_premium_cumulative_count_notification', "no" );
+	}
+
 }
 
 function sfsi_get_bloginfo($url)
