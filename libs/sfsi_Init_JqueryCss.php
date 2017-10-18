@@ -83,7 +83,7 @@ function theme_front_enqueue_script()
 		wp_localize_script( 'SFSICustomJs', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'plugin_url'=> SFSI_PLUGURL) );
 		
 		/* include CSS for front-end and backend  */
-		wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css' );
+		wp_enqueue_style("SFSImainCss", SFSI_PLUGURL . 'css/sfsi-style.css', true);
 		
 		//including floating option css
 		$option5=  unserialize(get_option('sfsi_section5_options',false));
