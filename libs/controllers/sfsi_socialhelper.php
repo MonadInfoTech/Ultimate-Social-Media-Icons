@@ -475,7 +475,7 @@ class sfsi_SocialHelper
 	}
 	
 	/* get no of subscribers from specificfeeds for current blog */
-	public function  SFSI_getFeedSubscriber($feedid)
+	public function SFSI_getFeedSubscriber($feedid)
 	{
 		$sfsi_instagram_sf_count = unserialize(get_option('sfsi_instagram_sf_count',false));
 		
@@ -525,25 +525,40 @@ class sfsi_SocialHelper
 	public function  SFSI_getFeedSubscriberCount($feedid)
 	{
 		$curl = curl_init();  
+		
 		curl_setopt_array($curl, array(
-			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/wpCountSubscriber',
-			CURLOPT_USERAGENT => 'sf rss request',
-			CURLOPT_POST => 1,
-			CURLOPT_POSTFIELDS => array('feed_id' => $feedid, 'v' => "newplugincount")
+
+			CURLOPT_RETURNTRANSFER 	=> 1,
+			CURLOPT_URL 			=> 'http://www.specificfeeds.com/wordpress/wpCountSubscriber',
+			CURLOPT_USERAGENT 		=> 'sf rss request',
+			CURLOPT_POST 			=> 1,
+			CURLOPT_TIMEOUT 	    => 30,
+			CURLOPT_POSTFIELDS 		=> array('feed_id' => $feedid, 'v' => "newplugincount")
 		));
 		
 		/* Send the request & save response to $resp */
 		$resp = curl_exec($curl);
-		if(!empty($resp))
-		{
-			$resp=json_decode($resp);
-			curl_close($curl);
-			$feeddata = stripslashes_deep($resp->subscriber_count);
+
+		$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+		if($httpcode == 200){
+			
+			if(!empty($resp))
+			{
+				$resp     = json_decode($resp);
+				
+				curl_close($curl);
+
+				$feeddata = stripslashes_deep($resp->subscriber_count);
+			}
+			else{
+				$sfsi_premium_instagram_sf_count = unserialize(get_option('sfsi_sf_count',false));
+				$feeddata = $sfsi_premium_instagram_sf_count["sfsi_sf_count"];
+			}
 		}
-		else
-		{
-			$feeddata = 0;
+		else{
+			$sfsi_premium_instagram_sf_count = unserialize(get_option('sfsi_sf_count',false));
+			$feeddata = $sfsi_premium_instagram_sf_count["sfsi_sf_count"];
 		}
 		return $this->format_num($feeddata);exit;
 	}
