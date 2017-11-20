@@ -65,7 +65,6 @@ Note: This plugin requires CURL to be activated/installed on your server (which 
 
 9. ...or even display a pop-up (designed to your liking) which asks users to like & share your site
 
-
 == Changelog ==
 
 = 1.1.1.8 =

@@ -211,6 +211,7 @@ if(is_admin())
 		add_action("init", "sfsi_getverification_code");
 	}
 }
+
 function sfsi_getverification_code()
 {
 	$feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
