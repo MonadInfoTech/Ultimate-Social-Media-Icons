@@ -881,17 +881,16 @@ add_action('wp_ajax_bannerOption','sfsi_bannerOption');
 function sfsi_bannerOption(){
     error_reporting(0);
 
-
     if(get_option("show_new_notification") == "yes"){
 
       $objThemeCheck = new sfsi_ThemeCheck();
         
       $domainname     = $objThemeCheck->sfsi_plus_getdomain(get_bloginfo('url'));
+
       // Get all themes data which incudes nobrainer 
       $themeDataArr = $objThemeCheck->sfsi_plus_get_themeData();
 
       $matchFound = false;
-
 
       foreach ($themeDataArr as $themeDataObj) {
 
@@ -924,15 +923,16 @@ function sfsi_bannerOption(){
 
 
       if(!$matchFound){
+            
             echo '<div class="sfsi_new_notification_cat">
                     <div class="sfsi_new_notification_header_cat">
                         <h1>New feature: Tailored icons</h1>
-                        <h3>The <a href="https://www.ultimatelysocial.com/themed-icons/?utm_source=any_settings_page&utm_campaign=Themed_icons&utm_medium=banner" target="_blank">Premium Plugin</a> Includes these icons...</h3>
+                        <h3>The <a href="https://www.ultimatelysocial.com/themed-icons-search/?utm_source=usmi_settings_page&utm_campaign=themed_icons_search&utm_medium=banner" target="_blank">Premium Plugin</a> Includes these icons...</h3>
                         <div class="sfsi_new_notification_cross_cat">X</div>
                     </div>
                     
                     <div class="sfsi_new_notification_body_link_cat">
-                        <a class ="tailored_icons_img" href="https://www.ultimatelysocial.com/themed-icons/?utm_source=any_settings_page&utm_campaign=Themed_icons&utm_medium=banner" target="_blank">
+                        <a class ="tailored_icons_img" href="https://www.ultimatelysocial.com/themed-icons-search/?utm_source=usmi_settings_page&utm_campaign=themed_icons_search&utm_medium=banner" target="_blank">
                             <div class="sfsi_new_notification_body_cat">
                                 <div class="sfsi_new_notification_image_cat">
                                        <img src="'.SFSI_PLUGURL.'images/WPPlugin_V3.png" id="newImg" />
@@ -940,7 +940,7 @@ function sfsi_bannerOption(){
                             </div>
                         </a>
                         <div class="bottom_text">
-                            <a href="https://www.ultimatelysocial.com/themed-icons/?utm_source=any_settings_page&utm_campaign=Themed_icons&utm_medium=banner">
+                            <a target="_blank" href="https://www.ultimatelysocial.com/themed-icons-search/?utm_source=usmi_settings_page&utm_campaign=themed_icons_search&utm_medium=banner" >
                                 See more-themed-icons >
                             </a>
                         </div>    

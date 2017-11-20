@@ -351,7 +351,6 @@ class sfsi_ThemeCheck
 	            </div>    
 	        </div>
 	    </div>';
-	}
-		
+	}		
 }
 ?>
