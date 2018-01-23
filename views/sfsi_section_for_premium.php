@@ -390,7 +390,18 @@
 		    font-size: 23px;
 		    line-height: 40px;
 		}				
-	}				
+	}
+
+	@media screen and (min-width: 900) and (max-width: 1600px){
+		#premiumSlide1 .premiumButtonsContainer{ width: 46% !important;}
+		#premiumSlide1 .premiumSection1 { width: 49% !important; }
+	}
+
+	@media screen and (min-width: 900px) and (max-width: 1600px) and (orientation : landscape) {
+		#premiumSlide1 .premiumButtonsContainer{ width: 51% !important;}
+		#premiumSlide1 .premiumSection1 { width: 45% !important; }
+	}
+
 </style>
 
 <script type="text/javascript">

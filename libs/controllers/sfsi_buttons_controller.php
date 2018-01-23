@@ -96,17 +96,18 @@ function sfsi_options_updater2()
     {
         $esacpedUrls = array();
         $sfsi_customIconsUrl = $_POST["sfsi_custom_links"];
-        foreach($sfsi_customIconsUrl as $sfsi_customIconUrl)
+
+        foreach($sfsi_customIconsUrl as $key => $sfsi_customIconUrl)
         {
-            $esacpedUrls[] = esc_url($sfsi_customIconUrl);
-        }
+            $esacpedUrls[$key] = esc_url($sfsi_customIconUrl);
+        }        
     }
     else
     {
         $esacpedUrls = '';
     }
     $sfsi_CustomIcon_links    = isset($_POST["sfsi_custom_links"]) ? serialize($esacpedUrls) : '';
-   
+          
     $option2 = unserialize(get_option('sfsi_section2_options',false)); 
     $up_option2=array(
         'sfsi_rss_url'              => esc_url($sfsi_rss_url),
