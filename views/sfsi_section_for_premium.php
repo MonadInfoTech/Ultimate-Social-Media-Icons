@@ -401,7 +401,6 @@
 		#premiumSlide1 .premiumButtonsContainer{ width: 51% !important;}
 		#premiumSlide1 .premiumSection1 { width: 45% !important; }
 	}
-
 </style>
 
 <script type="text/javascript">
