@@ -67,6 +67,9 @@ Note: This plugin requires CURL to be activated/installed on your server (which 
 
 == Changelog ==
 
+= 1.8.4 =
+* Affiliate banner added pointing to premium plugin
+
 = 1.1.1.8 =
 *
 
