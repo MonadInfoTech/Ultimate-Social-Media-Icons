@@ -120,6 +120,8 @@
      <p class="red_txt errorMsg" style="display:none"> </p>
      <p class="green_txt sucMsg" style="display:none"> </p>
 
+    <?php include(SFSI_DOCROOT.'/views/sfsi_affiliate_banner.php'); ?>
+
      <?php include(SFSI_DOCROOT.'/views/sfsi_section_for_premium.php'); ?>
              
      <!--<p class="bldtxtmsg">Need top-notch Wordpress development work at a competitive price? Visit us at <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit&utm_medium=banner">ultimatelysocial.com</a></p>-->

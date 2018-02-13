@@ -1813,6 +1813,20 @@ SFSI(document).ready(function(s) {
             t.toggleClass("accordion-content-active", !n), n ? t.slideUp() :t.slideDown(), !1;
         }
     }),
+
+    SFSI("#accordion2").accordion({
+        collapsible:!0,
+        active:!1,
+        heightStyle:"content",
+        event:"click",
+        beforeActivate:function(s, i) {
+            if (i.newHeader[0]) var e = i.newHeader, t = e.next(".ui-accordion-content"); else var e = i.oldHeader, t = e.next(".ui-accordion-content");
+            var n = "true" == e.attr("aria-selected");
+            return e.toggleClass("ui-corner-all", n).toggleClass("accordion-header-active ui-state-active ui-corner-top", !n).attr("aria-selected", (!n).toString()), 
+            e.children(".ui-icon").toggleClass("ui-icon-triangle-1-e", n).toggleClass("ui-icon-triangle-1-s", !n), 
+            t.toggleClass("accordion-content-active", !n), n ? t.slideUp() :t.slideDown(), !1;
+        }
+    }),    
 	SFSI(".closeSec").on("click", function() {
         var s = !0, i = SFSI(this).closest("div.ui-accordion-content").prev("h3.ui-accordion-header").first(), e = SFSI(this).closest("div.ui-accordion-content").first();
         i.toggleClass("ui-corner-all", s).toggleClass("accordion-header-active ui-state-active ui-corner-top", !s).attr("aria-selected", (!s).toString()), 
