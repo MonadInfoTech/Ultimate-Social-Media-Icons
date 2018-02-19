@@ -950,6 +950,7 @@ ul.tab_3_icns li .icns_tab_3, ul.tab_3_icns li .radio {
 {
 	width: 65px;
 	float: left;
+    	height: 20px !important;
 }
 .sfsi_Sicons .sf_fb {
     position: relative;
