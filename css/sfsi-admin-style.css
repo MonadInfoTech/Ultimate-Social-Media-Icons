@@ -16,8 +16,8 @@
 @font-face {
     font-family: helveticaneue-light;
     src: url(fonts/helveticaneue-light.eot);
-    src: url(fonts/helveticaneue-light.eot?#iefix) format('embedded-opentype'), 
-		 url(fonts/helveticaneue-light.woff) format('woff'), 
+    src: url(fonts/helveticaneue-light.eot?#iefix) format('embedded-opentype'),
+		 url(fonts/helveticaneue-light.woff) format('woff'),
 		 url(fonts/helveticaneue-light.ttf) format('truetype'),
 		 url(fonts/helveticaneue-light.svg#helveticaneue-light) format('svg');
     font-weight: 400;
@@ -54,6 +54,8 @@ body {
 .main_contant {
     margin: 0;
     padding: 0;
+    width: 100%;
+    float: left;
 }
 .main_contant h1 {
     padding: 0;
@@ -1464,7 +1466,7 @@ ul.tab_2_email_sec li .radio {
 	-webkit-appearance:none;
 	background-image: url(images/select-arrow.png);
 	background-repeat:no-repeat;
-	background-position:right 15px center; 
+	background-position:right 15px center;
 }
 .sfsi_mainContainer .tab8 .sfsi_same_width {
     display: inline-block;
@@ -1567,7 +1569,7 @@ ul.sfsi_floaticon_margin_sec li ins {
 .sfsi_feedClaimingOverlay input[type="email"]::-moz-placeholder {  /* Firefox 19+ */
 	color: #bebebe !important;
 }
-.sfsi_feedClaimingOverlay input[type="email"]:-ms-input-placeholder {  
+.sfsi_feedClaimingOverlay input[type="email"]:-ms-input-placeholder {
 	color: #bebebe !important;
 }
 .sfsi_feedClaimingOverlay .save_button {
@@ -1630,7 +1632,7 @@ ul.sfsi_floaticon_margin_sec li ins {
     padding: 4px 0 0 60px;
     width: 42%;
     float: right;
-    line-height: 22px; 
+    line-height: 22px;
     color: #080808;
 }
 .instagram_userLi p.sfsi_shared_premium{
@@ -1651,7 +1653,7 @@ ul.sfsi_floaticon_margin_sec li ins {
 }
 
 /*poonam */
-.sf_si_our_prmium_plugin-add, .sfsi_prem_icons_added {background:#f3faf6;border:1px solid #12a252;padding: 25px 38px 35px 40px;clear: both;} 
+.sf_si_our_prmium_plugin-add, .sfsi_prem_icons_added {background:#f3faf6;border:1px solid #12a252;padding: 25px 38px 35px 40px;clear: both;}
 .sfsi_new_prmium_follw{background:#f3faf6;border:1px solid #12a252;padding: 25px 38px 35px 40px;float:left;clear: both;}
 .notice_custom_icons_premium.sfsi_new_prmium_follw {margin-left: 96px;}
 .sf_si_our_prmium_plugin-add{padding: 25px 38px 45px 44px;}
@@ -1927,9 +1929,35 @@ ul.sfsi_show_hide_section {float: right;width: 14%;}
 
 .sfsi_social_sharing{margin-bottom: 15px;float: left;width: 51%;}
 .socialPostTypesUl span {pointer-events: none}
-.bannerPopupQue6 {    
+.bannerPopupQue6 {
     width: 98% !important;
     float: left!important;
     padding: 15px!important;
 }
 .pinterest_section .sfsi_new_prmium_follw a{ font-weight: bold !important; }
+#accordion, #accordion1 { float: left; clear:both; width: 100%; }
+h2.optional { float: left;clear: both;margin-top: 25px !important; }
+
+/*support forum*/
+.welcometext {float: left;width: 72%;}
+.welcometext p{margin-bottom: 8px !important;margin-top: 15px !important;}
+.supportforum {float: right;width: auto;background: #fff;text-align: center;padding: 0 20px 3px 7px;}
+.support-container p{font-family: helveticaregular !important;}
+.support-container{ padding: 7px 4px;}
+.have-questions{text-align: center;font-size: 20px;}
+.have-questions img{width: 45px;display: inline-block;}
+.have-questions .have-quest{display: inline-block;font-size: 20px;font-weight: 700;margin: 0;vertical-align: sub;}
+.have-questions .ask-question{margin-bottom: 3px !important;margin-top: 2px !important;}
+.support-forum-green-bg{ margin-top: 5px;margin-left: 20px;background: #26B654;width: 145px;border-radius: 5px;padding: 10px 16px 8px 15px;}
+.support-forum-green-bg img{display: inline-block;padding-right: 5px;}
+.support-forum-green-div p.support-forum{display: inline-block;color: #fff;font-weight: 700;margin: 0 !important;}
+.support-forum-green-div a{text-decoration: none !important;}
+.respond-text p{margin: 10px 0 0 0px !important}
+.respond-text {margin-left: 20px;float: left;margin-bottom: 8px;}
+
+@media (min-width: 1631px) and (max-width: 1631px){
+    .premiumComponent{width: 52% !important;}
+    .premiumButtonsContainer{width: 44% !important;}
+    .premiumButtonsContainer .premiumSection2{width: 41% !important;}
+    .premiumButtonsContainer .premiumSection3{width: 41% !important;}
+}

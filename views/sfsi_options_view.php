@@ -1,11 +1,11 @@
 <!-- Loader Image section  -->
-<div id="sfpageLoad" >  
+<div id="sfpageLoad" >
     
 </div>
 <!-- END Loader Image section  -->
 
 <!-- javascript error loader  -->
-<div class="error" id="sfsi_onload_errors" style="margin-left: 60px;display: none;">  
+<div class="error" id="sfsi_onload_errors" style="margin-left: 60px;display: none;">
     <p>We found errors in your javascript which may cause the plugin to not work properly. Please fix the error:</p><p id="sfsi_jerrors"></p>
 </div> <!-- END javascript error loader  -->
 
@@ -43,7 +43,7 @@
         cursor: pointer;
         text-align:center;
     }
-    </style>    
+    </style>
     <!-- <div class="sfsi_show_notification" style="background-color: #38B54A; color: #fff; font-size: 18px;">
         New: You can now also show a subscription form on your site, increasing sign-ups! (Question 8)
         <p>
@@ -59,19 +59,43 @@
 
     <!-- Top content area of plugin -->
     <div class="main_contant">
-    <h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
-    <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
-    <p><b>New: </b>In our new Premium Plugin many other different placement options are supported, e.g. place the icons floating/statically on the place by defining margins, only show them on certain pages, show them only on mobile etc. etc. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>    
-    <p>Have questions? Please issue a <a href="https://wordpress.org/support/plugin/ultimate-social-media-icons" target="_blank">support ticket</a> in the support forum, we'll try to respond quickly!</p>
+
+        <h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
+        <div class="welcometext">
+            <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
+            <p><b>New: </b>Our new Premium Plugin allows many more placement options, better sharing features (e.g. define which text & images will get shared), optimization for mobile, more icon design styles, themed icons, and much more. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>
+        </div>
+        
+        <div class="supportforum">
+            <div class="support-container">
+                <div class="have-questions">
+                    <img src="<?php echo SFSI_PLUGURL ?>images/question.png">
+                    <p class="have-quest">Have questions?</p>
+                    <p class="ask-question">Ask them in the...</p>
+                </div>
+                <div class="support-forum-green-div">
+                    <a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons" class="support-forum-green-bg">
+                        <img src="<?php echo SFSI_PLUGURL ?>images/support.png">
+                        <p class="support-forum">Support Forum</p>
+                    </a>
+                </div>
+                <div class="respond-text">
+                    <p>We'll try to respond ASAP!</p>
+                </div>
+            </div>
+        </div>
+
 
     </div> <!-- END Top content area of plugin -->
-      
+
+
+
     <!-- step 1 end  here -->
      <div id="accordion">
     <h3><span>1</span>Which icons do you want to show on your site? </h3>
     <!-- step 1 end  here -->
     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view1.php'); ?>
-    <!-- step 1 end here --> 
+    <!-- step 1 end here -->
     
     <!-- step 2 start here -->
     <h3><span>2</span>What do you want the icons to do? </h3>
@@ -127,7 +151,7 @@
              
      <!--<p class="bldtxtmsg">Need top-notch Wordpress development work at a competitive price? Visit us at <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=footer_credit&utm_medium=banner">ultimatelysocial.com</a></p>-->
     </div>
- <!-- all pops of plugin under sfsi_pop_content.php file --> 
+ <!-- all pops of plugin under sfsi_pop_content.php file -->
  <?php include(SFSI_DOCROOT.'/views/sfsi_pop_content.php'); ?>
 </div> <!-- START Admin view for plugin-->
 <script type="text/javascript">
