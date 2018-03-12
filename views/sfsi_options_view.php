@@ -57,12 +57,31 @@
     <!-- Get new_notification bar-->
 
 
+    <script type="text/javascript">
+
+        jQuery(document).ready(function(){
+
+            jQuery("#floating").click(function(){
+                jQuery("#ui-id-9").trigger("click");
+                jQuery('html, body').animate({scrollTop: jQuery("#ui-id-9").offset().top - jQuery("#ui-id-9").height()}, 2000);
+            });
+
+            jQuery("#afterposts").click(function(){
+                if("none" == jQuery("#ui-id-12").css('display')){
+                    jQuery("#ui-id-11").trigger("click");                    
+                } 
+                jQuery('html, body').animate({scrollTop: jQuery("#ui-id-11").offset().top - jQuery("#ui-id-11").height()}, 2000);
+            });
+
+        });
+    </script>
+
     <!-- Top content area of plugin -->
     <div class="main_contant">
 
         <h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
         <div class="welcometext">
-            <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
+            <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed. You can also show the icons <a id="floating" href="javascript:void(0)">floating on your page</a> (see question 5 below), or place them <a id="afterposts" href="javascript:void(0)">after posts</a> (question 6), or via the <a style="text-decoration: none;" id="shortcode" href="javascript:void(0)">shortcode</a> [DISPLAY_ULTIMATE_SOCIAL_ICONS].</p>
             <p><b>New: </b>Our new Premium Plugin allows many more placement options, better sharing features (e.g. define which text & images will get shared), optimization for mobile, more icon design styles, themed icons, and much more. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>
         </div>
         
@@ -74,7 +93,7 @@
                     <p class="ask-question">Ask them in the...</p>
                 </div>
                 <div class="support-forum-green-div">
-                    <a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons" class="support-forum-green-bg">
+                    <a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons#no-topic-0" class="support-forum-green-bg">
                         <img src="<?php echo SFSI_PLUGURL ?>images/support.png">
                         <p class="support-forum">Support Forum</p>
                     </a>

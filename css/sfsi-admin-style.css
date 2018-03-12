@@ -1940,7 +1940,7 @@ h2.optional { float: left;clear: both;margin-top: 25px !important; }
 
 /*support forum*/
 .welcometext {float: left;width: 72%;}
-.welcometext p{margin-bottom: 8px !important;margin-top: 15px !important;}
+.welcometext p{margin-bottom: 8px !important;margin-top: 15px !important;font-size: 16px;}
 .supportforum {float: right;width: auto;background: #fff;text-align: center;padding: 0 20px 3px 7px;}
 .support-container p{font-family: helveticaregular !important;}
 .support-container{ padding: 7px 4px;}
