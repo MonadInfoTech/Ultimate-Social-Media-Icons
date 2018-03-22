@@ -52,7 +52,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.86)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.87)
 {
 	add_action("init", "sfsi_update_plugin");
 }
