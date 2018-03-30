@@ -223,8 +223,8 @@
 	</ul>
 	<ul>
 	   <li class="sfsi_premium_brdr_box">
-            <div class="sfsi_plus_prem_icons_added" style="padding: 12px 38px 6px 40px;">
-                <div class="sf_si_prmium_head sfsi_need_another_tell_us"><h2>New: <span>Need an icon for another platform? Let us know in the <a style="font-size: 26px;" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0" target="_blank" href="">Support Forum</a></span></h2></div>
+            <div class="sfsi_prem_icons_added" style="padding: 12px 38px 6px 40px;">
+                <div class="sf_si_prmium_head sfsi_need_another_tell_us"><h2><span>Need an icon for another platform? Let us know in the <a style="font-size: 26px;" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0" target="_blank" href="">Support Forum</a></span></h2></div>
             </div>        
         </li>
     </ul>
