@@ -287,8 +287,8 @@ I want to see how it works</a></div>
         Ok, fine, however for using this plugin for FREE, please tell us what you think about it (and what can be improved). It only takes a minute. Thank you!'
       </h4>
        <?php $nonce = wp_create_nonce("active_footer");?>
-	<div class="button"><a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0" class="" title="Ok, activate link" data-nonce="<?php echo $nonce;?>">Ok, give feedback</a></div>
-<a href="javascript:;" id="deac_email3" title="Don’t activate link">Don’t give feedback</a>
+	<div class="button"><a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0" class="" title="Ok, give feedback">Ok, give feedback</a></div>
+<a href="javascript:;" id="deac_email3" title="Don’t give feedback">Don’t give feedback</a>
   </div>
 </div>
 
@@ -297,7 +297,7 @@ I want to see how it works</a></div>
        
        <h4>You’re a toughie. Last try: as a minimum, could you please support us by activating a link back to our site?</h4>
 
-	<div class="button"><a href="javascript:;" target="_new" class="hideemailpop" title="Ok, activate link it" >Ok, activate link</a></div>
+	<div class="button"><a href="javascript:;" target="_new" class="activate_footer activate" data-nonce="<?php echo $nonce;?>" title="Ok, activate link" >Ok, activate link</a></div>
         <a href="javascript:;" class="hidePop" title="Don’t activate and exit">Don’t activate and exit</a>
   </div>
 </div> <!-- END email deactivate pop-ups -->
