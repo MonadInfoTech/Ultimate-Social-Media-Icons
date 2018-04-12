@@ -700,7 +700,7 @@ function sfsi_getdomain($url)
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLinks", -10 );
 function sfsi_actionLinks($links)
 {
-	$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help</b></a>';	
+	$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
 	$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
 	$links[] = @$links["deactivate"];
 	$links[] = @$links["edit"];
