@@ -8,31 +8,8 @@ class sfsi_SocialHelper
 	/* get twitter followers */
 	function sfsi_get_tweets($username,$tw_settings)
 	{
-		require_once(SFSI_DOCROOT.'/helpers/twitter-api/twitteroauth.php');
-		$settings = array(
-			'oauth_access_token' => "335692958-JuqG7ArGrblrccHl3veVRFOdg64BUQZ7XpIs8x3Q",
-			'oauth_access_token_secret' => "A1l0LMrAVb3UeBbkpgigQr8O1EgfPcfG5USWg8cTcQyvg",
-			'consumer_key' => "d8OCu7GokBpy7DT17L5X1Q",
-			'consumer_secret' => "HUUEHS5rVSzaY57tICF9dVIaJ3bC5vwSZR9gWqq8QQ"
-		);
-		// Replace the four parameters below with the information from your Twitter developer application.
-		$twitterConnection = new TwitterOAuth(
-			$tw_settings['tw_consumer_key'],
-			$tw_settings['tw_consumer_secret'],
-			$tw_settings['tw_oauth_access_token_secret']
-		);
-		// Send the API request
-		$twitterData = $twitterConnection->get('users/show', array('screen_name' =>$username));
-		// Extract the follower and tweet counts
-		if(isset($twitterData->followers_count))
-		{
-			$followerCount = $twitterData->followers_count;
-			return $followerCount;
-		}
-		else
-		{
-			return 0;
-		}
+		require_once(SFSI_DOCROOT.'/helpers/twitteroauth/twiiterCount.php');
+		return sfsi_twitter_followers();
 	}
 	
 	/* get linkedIn counts */
@@ -70,9 +47,7 @@ class sfsi_SocialHelper
 	/* get facebook likes */
 	function sfsi_get_fb($url)
 	{
-		$json_string = $this->file_get_contents_curl(
-			'http://api.facebook.com/restserver.php?method=links.getStats&format=json&urls='.$url
-		);
+		$json_string = $this->file_get_contents_curl('https://graph.facebook.com/?id='.$url);
 		$json = json_decode($json_string, true);
 		return isset($json[0])? $json[0]:0;
 	}
