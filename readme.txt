@@ -265,6 +265,7 @@ You cannot use the same plugin twice, however you can install both the USM as we
 9. ...or even display a pop-up (designed to your liking) which asks users to like & share your site
 
 
+
 == Changelog ==
 
 = 1.9.2 =
