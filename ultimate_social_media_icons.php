@@ -60,6 +60,7 @@ if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.92)
 	add_action("init", "sfsi_update_plugin");
 }
 
+
 /* redirect setting page hook */
 add_action('admin_init', 'sfsi_plugin_redirect');
 function sfsi_plugin_redirect()

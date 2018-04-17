@@ -47,9 +47,14 @@ class sfsi_SocialHelper
 	/* get facebook likes */
 	function sfsi_get_fb($url)
 	{
+		$count 		 = 0; 
 		$json_string = $this->file_get_contents_curl('https://graph.facebook.com/?id='.$url);
-		$json = json_decode($json_string, true);
-		return isset($json[0])? $json[0]:0;
+		$json 		 = json_decode($json_string);
+
+		if(isset($json) && isset($json->share) && isset($json->share->share_count)){
+			$count  = $json->share->share_count;
+		}
+		return $count;
 	}
 	
 	/* get facebook page likes */
