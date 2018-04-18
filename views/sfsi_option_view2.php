@@ -302,13 +302,13 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
                     <div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
                         <p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option2['sfsi_ytube_user']) && $option2['sfsi_ytube_user']!='') ?  $option2['sfsi_ytube_user'] : '' ;?>" placeholder="Youtube username" class="add" /></p>
                         <div class="utbe_instruction">
-                            To find your Username go to "My channel" in Youtube menu bar on the left & Select the "About" tab and take your user name from URL there (e.g. https://www.youtube.com/user/<b>Myusername</b>/about).
+                            To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information".
                         </div>
                     </div>
                     <div class="cstmutbchnlidwpr" <?php if($sfsi_youtubeusernameorid == 'id'){echo 'style="display: block;"';}?>>
                         <p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option4['sfsi_ytube_chnlid']) && $option4['sfsi_ytube_chnlid']!='') ?  $option4['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
                         <div class="utbe_instruction">
-                            To find your Channel name go to "My Channel" in Youtube menu bar on the left and take your channel name from there.
+                            To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information".
                         </div>
                     </div>
                 </div>
