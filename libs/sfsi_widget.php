@@ -550,16 +550,22 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			 {
 				 if($sfsi_section4_options['sfsi_facebook_countsFrom']=="manual")
 				 {    
-				 	$counts = $socialObj->format_num($sfsi_section4_options['sfsi_facebook_manualCounts']);
+				 	$counts=$socialObj->format_num($sfsi_section4_options['sfsi_facebook_manualCounts']);
 				 }
 				 else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="likes")
 				 {
-					 $fb_data= $socialObj->sfsi_get_fb($current_url);   
-					 $counts = $socialObj->format_num($fb_data);
+					 $fb_data=$socialObj->sfsi_get_fb($current_url);   
+					 $counts=$socialObj->format_num($fb_data['like_count']);
 					 if(empty($counts))
 					 {
 					   $counts=(string) "0";
 					 }
+				 }
+				 else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="followers")
+				 {
+					 $fb_data=$socialObj->sfsi_get_fb($current_url);
+					 $counts=$socialObj->format_num($fb_data['share_count']);
+					
 				 }
 				 else if($sfsi_section4_options['sfsi_facebook_countsFrom']=="mypage")
 				 {
