@@ -315,7 +315,7 @@ if("id"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeus
                         </div>
                     </div>
                     <div class="cstmutbchnlidwpr" <?php if($sfsi_youtubeusernameorid == 'id'){echo 'style="display: block;"';}?>>
-                        <p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option4['sfsi_ytube_chnlid']) && $option4['sfsi_ytube_chnlid']!='') ?  $option4['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
+                        <p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option2['sfsi_ytube_chnlid']) && $option2['sfsi_ytube_chnlid']!='') ?  $option2['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
                         <div class="utbe_instruction">
                             To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information".
                         </div>

@@ -268,6 +268,8 @@ You cannot use the same plugin twice, however you can install both the USM as we
 == Changelog ==
 
 = 1.9.3 =
+* Facebook like count issue fixed
+* Youtube saving issue when clicked on "Save all settings" - fixed now
 
 = 1.9.2 =
 * Instagram followers count issue fixed
