@@ -62,10 +62,10 @@ class sfsi_SocialHelper
 	{
 		$appid = '959456867427268';
 		$appsecret = '7cc27f382c47fd5cc3a7203e40d70bf1';
-		$json_url ='https://graph.facebook.com/'.$url.'?access_token='.$appid.'|'.$appsecret;
+		$json_url ='https://graph.facebook.com/'.$url.'?fields=fan_count&access_token='.$appid.'|'.$appsecret;
 		$json_string = $this->file_get_contents_curl($json_url);
 		$json = json_decode($json_string, true);
-		return isset($json['likes'])? $json['likes']:0;
+		return isset($json['fan_count'])? $json['fan_count']:0;
 	}
 	
 	/* get google+ follwers  */
