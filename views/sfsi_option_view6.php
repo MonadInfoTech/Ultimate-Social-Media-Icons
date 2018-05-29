@@ -5,7 +5,7 @@ $option6 =  unserialize(get_option('sfsi_section6_options',false));
 /**
  * Sanitize, escape and validate values
  */
-$option6['sfsi_show_Onposts'] 		= (isset($option6['sfsi_show_Onposts'])) ? sanitize_text_field($option6['sfsi_show_Onposts']) : '';
+$option6['sfsi_show_Onposts'] 		= (isset($option6['sfsi_show_Onposts'])) ? sanitize_text_field($option6['sfsi_show_Onposts']) : 'no';
 $option6['sfsi_show_Onbottom'] 		= (isset($option6['sfsi_show_Onbottom'])) ? sanitize_text_field($option6['sfsi_show_Onbottom']) : '';
 $option6['sfsi_icons_postPositon'] 	= (isset($option6['sfsi_icons_postPositon'])) ? sanitize_text_field($option6['sfsi_icons_postPositon']) : '';
 $option6['sfsi_icons_alignment'] 	= (isset($option6['sfsi_icons_alignment'])) ? sanitize_text_field($option6['sfsi_icons_alignment']) : '';
@@ -127,7 +127,7 @@ if(!isset($option6['sfsi_rectfbshare']))
     </div> -->
     
 	<!-- icons display section -->
-	<h4 class="sfsi_dsplyatend">So: do you want to display those at the end of every post?</h4>
+	<h4 class="sfsi_dsplyatend" id="sfsi_dsplyafterposts">So: do you want to display those at the end of every post?</h4>
 	<ul class="enough_waffling sfsi_dsplyatend">
 		<li><input name="sfsi_show_Onposts" <?php echo ($option6['sfsi_show_Onposts']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
 		<li><input name="sfsi_show_Onposts" <?php echo ($option6['sfsi_show_Onposts']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" /><label>No</label></li>
@@ -157,6 +157,8 @@ if(!isset($option6['sfsi_rectfbshare']))
 		<p><b>New:</b> In our Premium Plugin you have many more placement options, e.g. place the icons you selected under question 1, place them also on your homepage (instead of only post’s pages), place them before posts (instead of only after posts) etc.  <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_placement_options&utm_medium=banner" target="_blank">See all features</a></p>
     </div>
   
+  <?php sfsi_ask_for_help(6); ?>
+
      <!-- SAVE BUTTON SECTION   --> 
   <div class="save_button">
        <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />
