@@ -701,7 +701,6 @@ You cannot use the same plugin twice, however you can install both the USM as we
 = 1.0 =
 * First release
 
-
 == Upgrade Notice ==
 
 = 2.0.2 =

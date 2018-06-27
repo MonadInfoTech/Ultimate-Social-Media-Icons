@@ -10,7 +10,6 @@
 		$option5['sfsi_facebookIcon_order']	=> 'facebook',
 		$option5['sfsi_googleIcon_order']	=> 'google',
 		$option5['sfsi_twitterIcon_order']	=> 'twitter',
-		$option5['sfsi_shareIcon_order']	=> 'share',
 		$option5['sfsi_youtubeIcon_order']	=> 'youtube',
 		$option5['sfsi_pinterestIcon_order']=> 'pinterest',
 		$option5['sfsi_linkedinIcon_order']	=> 'linkedin',
@@ -83,9 +82,6 @@
 	$option5['sfsi_youtube_MouseOverText'] 		= 	(isset($option5['sfsi_youtube_MouseOverText']))
 														? sanitize_text_field($option5['sfsi_youtube_MouseOverText'])
 														: '';
-	$option5['sfsi_share_MouseOverText'] 		= 	(isset($option5['sfsi_share_MouseOverText']))
-														? sanitize_text_field($option5['sfsi_share_MouseOverText'])
-														: '';
 	$option5['sfsi_instagram_MouseOverText']	= 	(isset($option5['sfsi_instagram_MouseOverText']))
 														? sanitize_text_field($option5['sfsi_instagram_MouseOverText'])
 														: '';
@@ -137,12 +133,6 @@
           <?php case 'twitter' :?>
           		<li class="twitter_section " data-index="<?php echo $index; ?>" id="sfsi_twitterIcon_order">
                 	<a href="#" title="Twitter" ><img src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" alt="Twitter" /></a>
-                </li>
-          <?php break; ?>
-          
-          <?php case 'share' : ?>
-          		<li class="share_section " data-index="<?php echo $index; ?>"  id="sfsi_shareIcon_order">
-                	<a href="#" title="Share" ><img src="<?php echo SFSI_PLUGURL; ?>images/share.png" alt="Share" /></a>
                 </li>
           <?php break; ?>
           
@@ -424,12 +414,6 @@ here what text will be displayed if a user moves his mouse over the icon:
 			<input name="sfsi_instagram_MouseOverText" value="<?php echo ($option5['sfsi_instagram_MouseOverText']!='') ?  $option5['sfsi_instagram_MouseOverText'] : '' ;?>" type="text" />
 		    </div>
 		</div>
-		<!--<div class="clear">
-		<div class="mouseover_field share_section">
-			<label>Share:</label>
-			<input name="sfsi_share_MouseOverText" value="<?php //echo ($option5['sfsi_share_MouseOverText']!='') ?  $option5['sfsi_share_MouseOverText'] : '' ;?>" type="text" />
-		</div>
-		</div> -->
         <div class="clear"> </div>  
 		<div class="custom_m">
         	<?php 

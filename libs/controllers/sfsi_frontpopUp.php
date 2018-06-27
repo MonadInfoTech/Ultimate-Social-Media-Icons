@@ -133,7 +133,7 @@ function sfsi_FrontPopupDiv()
     /* get all settings for icons saved in admin */
     $sfsi_section1_options=  unserialize(get_option('sfsi_section1_options',false));
     $custom_i=unserialize($sfsi_section1_options['sfsi_custom_files']);
-    if($sfsi_section1_options['sfsi_rss_display']=='no' &&  $sfsi_section1_options['sfsi_email_display']=='no' && $sfsi_section1_options['sfsi_facebook_display']=='no' && $sfsi_section1_options['sfsi_twitter_display']=='no' &&  $sfsi_section1_options['sfsi_google_display']=='no' && $sfsi_section1_options['sfsi_share_display']=='no' && $sfsi_section1_options['sfsi_youtube_display']=='no' && $sfsi_section1_options['sfsi_pinterest_display']=='no' && $sfsi_section1_options['sfsi_linkedin_display']=='no' && empty($custom_i)) 
+    if($sfsi_section1_options['sfsi_rss_display']=='no' &&  $sfsi_section1_options['sfsi_email_display']=='no' && $sfsi_section1_options['sfsi_facebook_display']=='no' && $sfsi_section1_options['sfsi_twitter_display']=='no' &&  $sfsi_section1_options['sfsi_google_display']=='no' && $sfsi_section1_options['sfsi_youtube_display']=='no' && $sfsi_section1_options['sfsi_pinterest_display']=='no' && $sfsi_section1_options['sfsi_linkedin_display']=='no' && empty($custom_i)) 
     {
      $icons='';return $icons;exit;
     }
@@ -164,7 +164,6 @@ function sfsi_FrontPopupDiv()
                      $sfsi_section5['sfsi_facebookIcon_order']=>'facebook',
                      $sfsi_section5['sfsi_googleIcon_order']=>'google',
                      $sfsi_section5['sfsi_twitterIcon_order']=>'twitter',
-                     $sfsi_section5['sfsi_shareIcon_order']=>'share',
                      $sfsi_section5['sfsi_youtubeIcon_order']=>'youtube',
                      $sfsi_section5['sfsi_pinterestIcon_order']=>'pinterest',
                      $sfsi_section5['sfsi_linkedinIcon_order']=>'linkedin',
@@ -226,8 +225,6 @@ function sfsi_FrontPopupDiv()
     case 'google' :  if($sfsi_section1_options['sfsi_google_display']=='yes')    $icons.= "<li>".sfsi_prepairIcons('google',1)."</li>";
     break;
     case 'twitter' :  if($sfsi_section1_options['sfsi_twitter_display']=='yes')    $icons.= "<li>".sfsi_prepairIcons('twitter',1)."</li>"; 
-    break;
-    case 'share' :  if($sfsi_section1_options['sfsi_share_display']=='yes')    $icons.= "<li id='SFshareIcon'>".sfsi_prepairIcons('share',1)."</li>";                                                                                                                                                                                                    
     break;
     case 'youtube' :  if($sfsi_section1_options['sfsi_youtube_display']=='yes')     $icons.= "<li>".sfsi_prepairIcons('youtube',1)."</li>"; 
     break;

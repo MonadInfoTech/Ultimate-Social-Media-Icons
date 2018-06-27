@@ -13,6 +13,8 @@
 <div class="wapper sfsi_mainContainer">
     
     <?php sfsi_language_notice(); ?>
+    
+    <?php sfsi_addThis_removal_notice(); ?>
 
     <!-- Get notification bar-->
     <?php if(get_option("show_new_notification") == "yes") { ?>

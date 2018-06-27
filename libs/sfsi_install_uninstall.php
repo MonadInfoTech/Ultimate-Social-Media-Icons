@@ -265,13 +265,17 @@ function sfsi_update_plugin()
     if(!isset($option9['sfsi_disable_floaticons']))      { $option9['sfsi_disable_floaticons']       = $sfsi_disable_floaticons;}
 
     update_option('sfsi_section9_options', serialize($option9));
+
+    // Add this removed in version 2.0.2, removing values from section 1 & section 6 & setting notice display value
+    sfsi_was_displaying_addthis();    
 }
 
 function sfsi_activate_plugin()
 {
     add_option('sfsi_plugin_do_activation_redirect', true);
+    
     /* check for CURL enable at server */
-   curl_enable_notice();
+    curl_enable_notice();
     
     if(!get_option('show_new_notification'))
     {
@@ -290,7 +294,6 @@ function sfsi_activate_plugin()
                 'sfsi_facebook_display'=>'yes',
                 'sfsi_twitter_display'=>'yes',
                 'sfsi_google_display'=>'yes',
-                'sfsi_share_display'=>'no',
                 'sfsi_pinterest_display'=>'no',
                 'sfsi_instagram_display'=>'no',
                 'sfsi_linkedin_display'=>'no',
@@ -312,6 +315,12 @@ function sfsi_activate_plugin()
         $sffeeds = SFSI_getFeedUrl();
     }
     
+    $addThisDismissed = get_option('sfsi_addThis_icon_removal_notice_dismissed',false);
+
+    if(!isset($addThisDismissed)){
+        update_option('sfsi_addThis_icon_removal_notice_dismissed',true);
+    }
+
     if(!get_option('sfsi_section2_options')){
 
         /* Links and icons  options */   
@@ -413,10 +422,7 @@ function sfsi_activate_plugin()
             'sfsi_instagram_manualCounts'=>'20',
 
             'sfsi_instagram_User'=>'',
-        
-            'sfsi_shares_countsDisplay'=>'no',
-            'sfsi_shares_countsFrom'=>'manual',
-            'sfsi_shares_manualCounts'=>'20'
+            
         );
         add_option('sfsi_section4_options',  serialize($options4));
     }
@@ -442,7 +448,6 @@ function sfsi_activate_plugin()
             'sfsi_facebookIcon_order'=>'3',
             'sfsi_googleIcon_order'=>'4',
             'sfsi_twitterIcon_order'=>'5',
-            'sfsi_shareIcon_order'=>'6',
             'sfsi_youtubeIcon_order'=>'7',
             'sfsi_pinterestIcon_order'=>'8',
             'sfsi_linkedinIcon_order'=>'9',
@@ -457,7 +462,6 @@ function sfsi_activate_plugin()
             'sfsi_pinterest_MouseOverText'=>'Pinterest',
             'sfsi_instagram_MouseOverText'=>'Instagram',
             'sfsi_youtube_MouseOverText'=>'YouTube',
-            'sfsi_share_MouseOverText'=>'Share',
             'sfsi_custom_MouseOverTexts'=>'',
             'sfsi_custom_social_hide' => 'no'
             );
@@ -658,6 +662,7 @@ function sfsi_Unistall_plugin()
     delete_option('sfsi_serverphpVersionnotification');
     delete_option("show_premium_cumulative_count_notification");
 
+    delete_option("sfsi_addThis_icon_removal_notice_dismissed");
     delete_option('widget_sfsi_widget');
     delete_option('widget_subscriber_widget');
 }
@@ -806,19 +811,22 @@ function sfsi_check_wp_footer() {
     }
 }
 /* admin notice for first time installation */
-function sfsi_activation_msg()
-{
-      global $wp_version;
+function sfsi_activation_msg(){
+
+    global $wp_version;
      
     if(get_option('sfsi_activate',false)==1)
      {
-    echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Ultimate Social Media Icons</b> Plugin. Please go to the <a href=\"admin.php?page=sfsi-options\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfsi_activate',0);
+        echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Ultimate Social Media Icons</b> Plugin. Please go to the <a href=\"admin.php?page=sfsi-options\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfsi_activate',0);
      }
+     
      $path=pathinfo($_SERVER['REQUEST_URI']);
+     
      update_option('sfsi_activate',0);      
+     
      if($wp_version<3.5 &&  $path['basename']=="admin.php?page=sfsi-options")
      {
-    echo "<div class=\"update-nag\" >" . "<p ><b>You're using an old Wordpress version, which may cause several of your plugins to not work correctly. Please upgrade</b></p></div>"; 
+        echo "<div class=\"update-nag\" >" . "<p ><b>You're using an old Wordpress version, which may cause several of your plugins to not work correctly. Please upgrade</b></p></div>"; 
      }
 }
 /* admin notice for first time installation */
@@ -862,6 +870,7 @@ function sfsi_rating_msg()
     ';
    }
 }
+
 add_action('wp_ajax_sfsi_hideRating','sfsi_HideRatingDiv', 0);
 function sfsi_HideRatingDiv()
 {
@@ -873,6 +882,7 @@ add_action('admin_notices', 'sfsi_activation_msg');
 add_action('admin_notices', 'sfsi_rating_msg');
 add_action('admin_notices', 'sfsi_check_wp_head');
 add_action('admin_notices', 'sfsi_check_wp_footer');
+
 function sfsi_pingVendor( $post_id )
 {
     global $wp,$wpdb;
@@ -925,5 +935,34 @@ function sfsi_pingVendor( $post_id )
        return true;
     endif;
 }
-add_action( 'save_post', 'sfsi_pingVendor' );   
+add_action( 'save_post', 'sfsi_pingVendor' );
+
+function sfsi_was_displaying_addthis(){
+
+    $isDismissed   =  true;
+
+    $sfsi_section1 =  unserialize(get_option('sfsi_section1_options',false));
+    $sfsi_section6 =  unserialize(get_option('sfsi_section6_options',false));
+
+    $sfsi_addThiswasDisplayed_section1 = isset($sfsi_section1['sfsi_share_display']) && 'yes'== sanitize_text_field($sfsi_section1['sfsi_share_display']);
+
+    $sfsi_addThiswasDisplayed_section6 = isset($sfsi_section6['sfsi_rectshr']) && 'yes'== sanitize_text_field($sfsi_section6['sfsi_rectshr']);
+
+    $isDisplayed = $sfsi_addThiswasDisplayed_section1 || $sfsi_addThiswasDisplayed_section6;
+
+    // If icon was displayed 
+    $isDismissed = false != $isDisplayed ? false : true;
+
+    update_option('sfsi_addThis_icon_removal_notice_dismissed',$isDismissed);
+
+    if($sfsi_addThiswasDisplayed_section1){
+        unset($sfsi_section1['sfsi_share_display']);
+        update_option('sfsi_section1_options', serialize($sfsi_section1) );
+    }
+
+    if($sfsi_addThiswasDisplayed_section6){
+        unset($sfsi_section6['sfsi_rectshr']);
+        update_option('sfsi_section6_options', serialize($sfsi_section6) );     
+    }
+}  
 ?>

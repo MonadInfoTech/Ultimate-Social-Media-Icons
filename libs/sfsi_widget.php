@@ -243,7 +243,6 @@ function sfsi_check_visiblity($isFloter=0)
                      $sfsi_section5['sfsi_facebookIcon_order']=>'facebook',
                      $sfsi_section5['sfsi_googleIcon_order']=>'google',
                      $sfsi_section5['sfsi_twitterIcon_order']=>'twitter',
-                     $sfsi_section5['sfsi_shareIcon_order']=>'share',
                      $sfsi_section5['sfsi_youtubeIcon_order']=>'youtube',
                      $sfsi_section5['sfsi_pinterestIcon_order']=>'pinterest',
                      $sfsi_section5['sfsi_linkedinIcon_order']=>'linkedin',
@@ -287,7 +286,6 @@ function sfsi_check_visiblity($isFloter=0)
     break;
     case 'twitter' :  if($sfsi_section1_options['sfsi_twitter_display']=='yes')    $icons.= sfsi_prepairIcons('twitter'); 
     break;
-    case 'share' :  if($sfsi_section1_options['sfsi_share_display']=='yes')    $icons.= sfsi_prepairIcons('share');    break;
     case 'youtube' :  if($sfsi_section1_options['sfsi_youtube_display']=='yes')     $icons.= sfsi_prepairIcons('youtube'); 
     break;
     case 'pinterest' :   if($sfsi_section1_options['sfsi_pinterest_display']=='yes')     $icons.= sfsi_prepairIcons('pinterest');
@@ -810,59 +808,6 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 					$icon=$icons_baseUrl.$active_theme."_twitter.png";
 				}
         break;
-        
-		case "share" :
-				$socialObj = new sfsi_SocialHelper();
-				$url = "http://www.addthis.com/bookmark.php?v=250";
-				$class = "addthis_button";
-				
-				/*fecth no of counts if active in admin section */
-		      	if($sfsi_section4_options['sfsi_shares_countsDisplay']=="yes" && $sfsi_section4_options['sfsi_display_counts']=="yes")
-                {
-					  if($sfsi_section4_options['sfsi_shares_countsFrom']=="manual")
-					  {    
-						 $counts = $socialObj->format_num($sfsi_section4_options['sfsi_shares_manualCounts']);
-					  }
-					  else if($sfsi_section4_options['sfsi_shares_countsFrom']=="shares")
-					  {
-						 $shares=$socialObj->sfsi_get_atthis();
-						 $counts=$socialObj->format_num($shares);
-						 if(empty($counts))
-						 {
-							$counts=(string) "0";
-						 }
-					   } 
-                 }  
-                 
-				 //Giving alternative text to image
-				 if(!empty($sfsi_section5_options['sfsi_share_MouseOverText']))
-				 {	
-				 	$alt_text = $sfsi_section5_options['sfsi_share_MouseOverText'];
-				 }
-				 else
-				 {
-					 $alt_text = "SHARE";
-				 }
-				 
-				//Custom Skin Support {Monad}	 
-				if($active_theme == 'custom_support')
-				{
-					 if(get_option("share_skin"))
-					 {
-						$icon = get_option("share_skin");
-					 }
-					 else
-					 {
-						$active_theme = 'default';
-						$icons_baseUrl = SFSI_PLUGURL."images/icons_theme/default/";
-						$icon=$icons_baseUrl.$active_theme."_share.png";
-					 }
-				}
-				else
-				{
-					$icon=$icons_baseUrl.$active_theme."_share.png";
-				}	  
-		break;
         
 		case "youtube" :
 				$socialObj = new sfsi_SocialHelper();

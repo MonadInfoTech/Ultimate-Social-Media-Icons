@@ -106,24 +106,30 @@ function sfsi_checkmetas()
 	{
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 	}
+
+	$adding_tags = "yes";
+
 	$all_plugins = get_plugins();
-	foreach($all_plugins as $key => $plugin)
-	{
+	
+	foreach($all_plugins as $key => $plugin):
+
 		if(is_plugin_active($key))
 		{
-			if(preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Description']))
-			{
-				update_option("adding_tags", "no");
+			if(preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Description'])):
+
+				$adding_tags= "no";
+
 				break;
-			}
-			else
-			{
-				update_option("adding_tags", "yes");
-			}
+
+			endif;
 		}
-	}	
+
+	endforeach;
+
+	update_option("adding_tags", $adding_tags);
+
 }
-if ( ! is_admin() )
+if ( is_admin() )
 {
 	sfsi_checkmetas();
 }
@@ -965,13 +971,48 @@ add_action( 'wp_ajax_sfsi_dismiss_lang_notice', 'sfsi_dismiss_lang_notice' );
 // ********************************* Link to support forum for different languages CLOSES *******************************//
 
 
+
+// ********************************* Notice for removal of AddThis option STARTS *******************************//
+function sfsi_addThis_removal_notice(){
+
+    if (isset($_GET['page']) && "sfsi-options" == $_GET['page']) : 
+        
+        $sfsi_addThis_removalText    = "We removed Addthis from the plugin due to issues with GDPR, the new EU data protection regulation.";
+
+        $isDismissed   =  get_option('sfsi_addThis_icon_removal_notice_dismissed',false);
+
+        if( false == $isDismissed) { ?>
+                    
+            <div id="sfsi_plus_addThis_removal_notice" class="notice notice-info">
+
+                <p><?php echo $sfsi_addThis_removalText; ?></p>
+
+                <button type="button" class="sfsi-AddThis-notice-dismiss notice-dismiss"></button>
+
+            </div>
+
+        <?php } ?>
+
+    <?php endif;
+}
+
+function sfsi_dismiss_addthhis_removal_notice(){
+	echo update_option('sfsi_addThis_icon_removal_notice_dismissed',true) ? get_option('sfsi_addThis_icon_removal_notice_dismissed',false) : "false";
+	die;
+}
+
+add_action( 'wp_ajax_sfsi_dismiss_addThis_icon_notice', 'sfsi_dismiss_addthhis_removal_notice' );
+
+// ********************************* Notice for removal of AddThis option CLOSES *******************************//
+
+
 // ********************************* Link to support forum left of every Save button STARTS *******************************//
 
 function sfsi_ask_for_help($viewNumber){ ?>
 
     <div class="sfsi_askforhelp askhelpInview<?php echo $viewNumber; ?>">
 	
-		<img src="<?php echo SFSI_PLUGURL."images/questionmark.png"?>"/>
+		<img src="<?php echo SFSI_PLUGURL."images/questionmark.png";?>"/>
 		
 		<span>Questions? <a target="_blank" href="https://goo.gl/ctiyJM"><b>Ask us</b></a> — we will respond asap!</span>
 
