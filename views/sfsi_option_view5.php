@@ -33,28 +33,7 @@
 														: '';
 	$option5['sfsi_icons_ClickPageOpen']		= 	(isset($option5['sfsi_icons_ClickPageOpen']))
 														? sanitize_text_field($option5['sfsi_icons_ClickPageOpen'])
-														:'';
-	// $option5['sfsi_icons_float'] 				= 	(isset($option5['sfsi_icons_float']))
-	// 													? sanitize_text_field($option5['sfsi_icons_float'])
-	// 													: '';
-	// $option5['sfsi_disable_floaticons'] 		= 	(isset($option5['sfsi_disable_floaticons']))
-	// 													? sanitize_text_field($option5['sfsi_disable_floaticons'])
-	// 													: '';
-	// $option5['sfsi_icons_floatPosition'] 		= 	(isset($option5['sfsi_icons_floatPosition']))
-	// 													? sanitize_text_field($option5['sfsi_icons_floatPosition'])
-	// 													:'';
-	// $option5['sfsi_icons_floatMargin_top'] 		= 	(isset($option5['sfsi_icons_floatMargin_top']))
-	// 													? intval($option5['sfsi_icons_floatMargin_top'])
-	// 													: '';
-	// $option5['sfsi_icons_floatMargin_bottom']	= 	(isset($option5['sfsi_icons_floatMargin_bottom']))
-	// 													? intval($option5['sfsi_icons_floatMargin_bottom'])
-	// 													: '';
-	// $option5['sfsi_icons_floatMargin_left']		= 	(isset($option5['sfsi_icons_floatMargin_left']))
-	// 													? intval($option5['sfsi_icons_floatMargin_left'])
-	// 													: '';
-	// $option5['sfsi_icons_floatMargin_right']	= 	(isset($option5['sfsi_icons_floatMargin_right']))
-	// 													? intval($option5['sfsi_icons_floatMargin_right']): '';
-	
+														:'';	
 	$option5['sfsi_icons_stick'] 				= 	(isset($option5['sfsi_icons_stick']))
 														? sanitize_text_field($option5['sfsi_icons_stick'])
 														: '';
@@ -85,7 +64,9 @@
 	$option5['sfsi_instagram_MouseOverText']	= 	(isset($option5['sfsi_instagram_MouseOverText']))
 														? sanitize_text_field($option5['sfsi_instagram_MouseOverText'])
 														: '';
-	
+	$sfsi_icons_suppress_errors 				=   (isset($option5['sfsi_icons_suppress_errors']))
+														? sanitize_text_field($option5['sfsi_icons_suppress_errors'])
+														: 'no';
 	if(is_array($custom_icons_order) ) 
 	{
 		foreach($custom_icons_order as $data)
@@ -101,7 +82,7 @@
 	<h4>Order of your icons</h4>
     <!-- icon drag drop  section start here -->	
     <ul class="share_icon_order" >
-            <?php 
+        <?php 
 	 	$ctn = 0;
 	 	foreach($icons_order as $index=>$icn) :
           
@@ -212,68 +193,29 @@
     </div>
     
     <div class="row new_wind">
-	<h4>New window</h4>
-	<div class="row_onl"><p>If user clicks on your icons, do you want to open the page in a new window?</p>
-	<ul class="enough_waffling">
-	    <li><input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
-	<li><input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" /><label>No</label></li>
-      </ul></div>
+		<h4>New window</h4>
+		<div class="row_onl"><p>If user clicks on your icons, do you want to open the page in a new window?</p>
+			<ul class="enough_waffling">
+		    	<li>
+		    		<input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  />
+		    		<label>Yes</label>
+		    	</li>
+				<li>
+					<input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" />
+					<label>No</label>
+				</li>
+	      	</ul>
+      	</div>
     </div>
-   <!-- END icon's size and spacing section -->
+
    
      <!-- icon's floating and stick section start here -->	
     <div class="row sticking">
 	
 	<h4>Sticky icons</h4>
 	
-<!-- 	<div class="space">
-	
-		<p class="list">Make icons float?</p>	
-		<ul class="enough_waffling">
-		    <li><input name="sfsi_icons_float" <?php //echo ($option5['sfsi_icons_float']=='yes') ?  'checked="true"' : '' ;?>  type="radio" value="yes" class="styled"  /><label>Yes</label></li>
-		    <li><input name="sfsi_icons_float" <?php //echo ($option5['sfsi_icons_float']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
-		</ul>
-
-    </div> -->
-
     <div class="clear float_options" <?php if($option5['sfsi_icons_stick']=='yes') :?> style="display:none" <?php endif;?>>
-    <!--<div class="clear float_options" <?php //if($option5['sfsi_icons_stick']=='yes' || $option5['sfsi_icons_float']=='no') :?> style="display:none" <?php //endif;?>>-->
 
-<!-- 		<div style="width: 100%; float: left;">
-	        <div class="float">Where shall they float?</div>
-	        <div class="field " >
-	            <select name="sfsi_icons_floatPosition" id="sfsi_icons_floatPosition" class="styled">
-	            <option value="top-left" <?php //echo ($option5['sfsi_icons_floatPosition']=='top-left') ?  'selected="selected"' : '' ;?> >Top - Left</option>
-	            <option value="top-right" <?php //echo ($option5['sfsi_icons_floatPosition']=='top-right') ?  'selected="selected"' : '' ;?> >Top - Right</option>
-	            <option value="center-left" <?php //echo ($option5['sfsi_icons_floatPosition']=='center-left') ?  'selected="selected"' : '' ;?> >Center - Left</option>
-	            <option value="center-right" <?php //echo ($option5['sfsi_icons_floatPosition']=='center-right') ?  'selected="selected"' : '' ;?> >Center - Right</option>
-	            <option value="bottom-left" <?php //echo ($option5['sfsi_icons_floatPosition']=='bottom-left') ?  'selected="selected"' : '' ;?> >Bottom - Left</option>
-	            <option value="bottom-right" <?php //echo ($option5['sfsi_icons_floatPosition']=='bottom-right') ?  'selected="selected"' : '' ;?> >Bottom - Right</option>
-	            </select>
-	        </div>
-	    </div> -->
-
-<!-- 	    <div style="width: 88%; float: left; margin:25px 0 0 187px">
-	    	<h4>Margin From :</h4>
-	        <ul class="sfsi_floaticon_margin_sec">
-	        	<li>
-	            	<label>Top :</label>
-	                <input name="sfsi_icons_floatMargin_top" type="text" value="<?php //echo ($option5['sfsi_icons_floatMargin_top']!='') ?  $option5['sfsi_icons_floatMargin_top'] : '' ;?>" /><ins>Pixels</ins>
-	            </li>
-	            <li>
-	            	<label>Bottom :</label>
-	                <input name="sfsi_icons_floatMargin_bottom" type="text" value="<?php //echo ($option5['sfsi_icons_floatMargin_bottom'] != '') ?  $option5['sfsi_icons_floatMargin_bottom'] : '' ;?>" /><ins>Pixels</ins>
-	            </li>
-	            <li>
-	            	<label>Left :</label>
-	                <input name="sfsi_icons_floatMargin_left" type="text" value="<?php //echo ($option5['sfsi_icons_floatMargin_left']!='') ?  $option5['sfsi_icons_floatMargin_left'] : '' ;?>" /><ins>Pixels</ins>
-	            </li>
-	            <li>
-	            	<label>Right :</label>
-	                <input name="sfsi_icons_floatMargin_right" type="text" value="<?php //echo ($option5['sfsi_icons_floatMargin_right']!='') ?  $option5['sfsi_icons_floatMargin_right'] : '' ;?>" /><ins>Pixels</ins>
-	            </li>
-	        </ul>
-	    </div> -->
   
   	</div> 
   
@@ -304,19 +246,10 @@
 
   </div>
   
-  <!--disable float icons-->
-<!--   <div class="space disblfltonmbl">
-    <p class="list">Disable float icons on mobile devices</p>	
-    <ul class="enough_waffling">
-    <li><input name="sfsi_disable_floaticons" <?php //echo ($option5['sfsi_disable_floaticons']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
-	<li><input name="sfsi_disable_floaticons" <?php //echo ($option5['sfsi_disable_floaticons']=='no') ?  'checked="true"' : '' ;?>  type="radio" value="no" class="styled" /><label>No</label></li>
-  </ul>
-  </div> -->
-  <!--disable float icons-->
 
 </div><!-- END icon's floating and stick section -->
 
-<!--*******************************************************  Sharing texts & pictures section STARTS *********************************************************************-->
+<!--*************  Sharing texts & pictures section STARTS *****************************-->
 
 <div class="row sfsi_custom_social_data_setting" id="custom_social_data_setting">
 
@@ -360,7 +293,7 @@
 		</div> 		
 </div>
 
-<!--*******************************************************  Sharing texts & pictures section CLOSES *********************************************************************-->
+<!--********************  Sharing texts & pictures section CLOSES ************************************************-->
 
  <!-- mouse over text section start here -->
  <div class="row mouse_txt">
@@ -438,6 +371,22 @@ here what text will be displayed if a user moves his mouse over the icon:
 
 	</div>
 	<!-- END mouse over text section -->
+
+    <div class="row new_wind">
+		<h4>Error reporting</h4>
+		<div class="row_onl"><p>Suppress error messages?</p>
+			<ul class="enough_waffling">
+		    	<li>
+		    		<input name="sfsi_icons_suppress_errors" <?php echo ($sfsi_icons_suppress_errors=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  />
+		    		<label>Yes</label>
+		    	</li>
+				<li>
+					<input name="sfsi_icons_suppress_errors" <?php echo ($sfsi_icons_suppress_errors=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" />
+					<label>No</label>
+				</li>
+	      	</ul>
+      	</div>
+    </div>
 
 	<?php sfsi_ask_for_help(5); ?>
 

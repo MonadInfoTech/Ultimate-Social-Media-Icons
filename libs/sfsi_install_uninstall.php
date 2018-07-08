@@ -12,7 +12,7 @@ function sfsi_update_plugin()
     }
     
     //Install version
-    update_option("sfsi_pluginVersion", "2.02");
+    update_option("sfsi_pluginVersion", "2.03");
 
     if(!get_option('sfsi_serverphpVersionnotification'))
     {
@@ -217,9 +217,24 @@ function sfsi_update_plugin()
             unset($option5['sfsi_disable_floaticons']); 
         }
 
-        if(isset($option5['sfsi_custom_social_hide'])){
+        if(isset($option5['sfsi_custom_social_hide'])){        	        	
             $option5['sfsi_custom_social_hide']    = 'no';
         }
+
+
+        if(!isset($option5['sfsi_pplus_icons_suppress_errors'])){
+        	
+        	$sup_errors = "no";
+        	$sup_errors_banner_dismissed = true;
+
+        	if(defined('WP_DEBUG') && false != WP_DEBUG){
+            	$sup_errors = 'yes';
+            	$sup_errors_banner_dismissed = false;
+        	}
+
+            $option5['sfsi_pplus_icons_suppress_errors'] = $sup_errors;
+            update_option('sfsi_pplus_error_reporting_notice_dismissed',$sup_errors_banner_dismissed);            
+        }		        
     }
 
     update_option('sfsi_section5_options', serialize($option5));  
@@ -287,7 +302,9 @@ function sfsi_activate_plugin()
         add_option("show_premium_cumulative_count_notification", "yes");
     }
 
-    if(!get_option('sfsi_section1_options')){
+	$option1 = unserialize(get_option('sfsi_section1_options',false));
+
+    if(!isset($option1) || empty($option1)){
 
         $options1=array('sfsi_rss_display'=>'yes',
                 'sfsi_email_display'=>'yes',
@@ -321,7 +338,9 @@ function sfsi_activate_plugin()
         update_option('sfsi_addThis_icon_removal_notice_dismissed',true);
     }
 
-    if(!get_option('sfsi_section2_options')){
+	$option2 = unserialize(get_option('sfsi_section2_options',false));
+
+    if(!isset($option2) || empty($option2)){
 
         /* Links and icons  options */   
         $options2=array('sfsi_rss_url'=>sfsi_get_bloginfo('rss2_url'),
@@ -364,7 +383,9 @@ function sfsi_activate_plugin()
         add_option('sfsi_section2_options',  serialize($options2));
     }
     
-    if(!get_option('sfsi_section3_options')){
+	$option3 = unserialize(get_option('sfsi_section3_options',false));
+
+	if(!isset($option3) || empty($option3)){
 
         /* Design and animation option  */
         $options3=array('sfsi_mouseOver'=>'no',
@@ -377,7 +398,9 @@ function sfsi_activate_plugin()
         add_option('sfsi_section3_options',  serialize($options3));
     }
     
-    if(!get_option('sfsi_section4_options')){
+	$option4 = unserialize(get_option('sfsi_section4_options',false));
+
+    if(!isset($option4) || empty($option4)){
 
         /* display counts options */         
         $options4=array('sfsi_display_counts'=>'no',
@@ -427,48 +450,53 @@ function sfsi_activate_plugin()
         add_option('sfsi_section4_options',  serialize($options4));
     }
     
-    if(!get_option('sfsi_section5_options')){
+	$option5 = unserialize(get_option('sfsi_section5_options',false));
+
+    if(!isset($option5) || empty($option5)){
 
         $options5=array(
-            'sfsi_icons_size'=>'40',
-            'sfsi_icons_spacing'=>'5',
-            'sfsi_icons_Alignment'=>'left',
-            'sfsi_icons_perRow'=>'5',
-            'sfsi_icons_ClickPageOpen'=>'yes',
-            'sfsi_icons_float'=>'no',
-            'sfsi_disable_floaticons'=>'no',
-            'sfsi_icons_floatPosition'=>'center-right',
+            'sfsi_icons_size'			=>'40',
+            'sfsi_icons_spacing'		=>'5',
+            'sfsi_icons_Alignment'		=>'left',
+            'sfsi_icons_perRow'			=>'5',
+            'sfsi_icons_ClickPageOpen'	=>'yes',
+            'sfsi_icons_suppress_errors'=>'no',
+            'sfsi_icons_float'			=>'no',
+            'sfsi_disable_floaticons'	=>'no',
+            'sfsi_icons_floatPosition'	=>'center-right',
             'sfsi_icons_floatMargin_top'=>'',
             'sfsi_icons_floatMargin_bottom'=>'',
             'sfsi_icons_floatMargin_left'=>'',
             'sfsi_icons_floatMargin_right'=>'',
-            'sfsi_icons_stick'=>'no',
-            'sfsi_rssIcon_order'=>'1',
-            'sfsi_emailIcon_order'=>'2',
-            'sfsi_facebookIcon_order'=>'3',
-            'sfsi_googleIcon_order'=>'4',
-            'sfsi_twitterIcon_order'=>'5',
-            'sfsi_youtubeIcon_order'=>'7',
-            'sfsi_pinterestIcon_order'=>'8',
-            'sfsi_linkedinIcon_order'=>'9',
-            'sfsi_instagramIcon_order'=>'10',
-            'sfsi_CustomIcons_order'=>'',
-            'sfsi_rss_MouseOverText'=>'RSS',
-            'sfsi_email_MouseOverText'=>'Follow by Email',
+            'sfsi_icons_stick'			=>'no',
+            'sfsi_rssIcon_order'		=>'1',
+            'sfsi_emailIcon_order'		=>'2',	
+            'sfsi_facebookIcon_order'	=>'3',
+            'sfsi_googleIcon_order'		=>'4',
+            'sfsi_twitterIcon_order'	=>'5',
+            'sfsi_youtubeIcon_order'	=>'7',
+            'sfsi_pinterestIcon_order'	=>'8',
+            'sfsi_linkedinIcon_order'	=>'9',
+            'sfsi_instagramIcon_order'	=>'10',
+            'sfsi_CustomIcons_order'	=>'',
+            'sfsi_rss_MouseOverText'	=>'RSS',
+            'sfsi_email_MouseOverText'	=>'Follow by Email',
             'sfsi_twitter_MouseOverText'=>'Twitter',
-            'sfsi_facebook_MouseOverText'=>'Facebook',
-            'sfsi_google_MouseOverText'=>'Google+',
-            'sfsi_linkedIn_MouseOverText'=>'LinkedIn',
+            'sfsi_facebook_MouseOverText' =>'Facebook',
+            'sfsi_google_MouseOverText'	  =>'Google+',
+            'sfsi_linkedIn_MouseOverText' =>'LinkedIn',
             'sfsi_pinterest_MouseOverText'=>'Pinterest',
             'sfsi_instagram_MouseOverText'=>'Instagram',
-            'sfsi_youtube_MouseOverText'=>'YouTube',
-            'sfsi_custom_MouseOverTexts'=>'',
-            'sfsi_custom_social_hide' => 'no'
+            'sfsi_youtube_MouseOverText'  =>'YouTube',
+            'sfsi_custom_MouseOverTexts'  =>'',
+            'sfsi_custom_social_hide' 	  =>'no'
             );
-            add_option('sfsi_section5_options',  serialize($options5));
+            update_option('sfsi_section5_options',  serialize($options5));
     }
     
-    if(!get_option('sfsi_section6_options')){
+ 	$option6 = unserialize(get_option('sfsi_section6_options',false));
+    
+    if(!isset($option6) || empty($option6)){
 
         /* post options */                  
         $options6=array('sfsi_show_Onposts'=>'no',
@@ -489,7 +517,9 @@ function sfsi_activate_plugin()
         add_option('sfsi_section6_options',  serialize($options6));
     }       
     
-    if(!get_option('sfsi_section7_options')){
+ 	$option7 = unserialize(get_option('sfsi_section7_options',false));
+    
+    if(!isset($option7) || empty($option7)){
 
         /* icons pop options */
         $options7=array('sfsi_show_popup'=>'no',
@@ -511,7 +541,9 @@ function sfsi_activate_plugin()
         add_option('sfsi_section7_options',  serialize($options7));
     }
        
-    if(!get_option('sfsi_section8_options')){
+ 	$option8 = unserialize(get_option('sfsi_section8_options',false));
+    
+    if(!isset($option8) || empty($option8)){
 
         /* Question 8 */
         $options8=array(
@@ -548,7 +580,9 @@ function sfsi_activate_plugin()
         add_option('sfsi_section8_options',  serialize($options8));
     }
 
-    if(!get_option('sfsi_section9_options')){
+ 	$option9 = unserialize(get_option('sfsi_section9_options',false));
+    
+    if(!isset($option9) || empty($option9)){
 
         /* Question 3->Where shall they be displayed?    */
         $options9 =array(
@@ -595,6 +629,12 @@ function sfsi_activate_plugin()
         "sfsi_instagram_count" => ""
     );
     add_option('sfsi_instagram_sf_count',  serialize($sfsi_instagram_sf_count));
+
+    $error_banner = get_option('sfsi_error_reporting_notice_dismissed',false);
+
+    if(!$error_banner){
+    	update_option('sfsi_error_reporting_notice_dismissed',true);
+    }
 }
 /* end function  */
 
@@ -663,6 +703,7 @@ function sfsi_Unistall_plugin()
     delete_option("show_premium_cumulative_count_notification");
 
     delete_option("sfsi_addThis_icon_removal_notice_dismissed");
+    delete_option("sfsi_error_reporting_notice_dismissed");
     delete_option('widget_sfsi_widget');
     delete_option('widget_subscriber_widget');
 }

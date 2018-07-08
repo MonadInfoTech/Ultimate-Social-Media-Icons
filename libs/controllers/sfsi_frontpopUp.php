@@ -9,121 +9,132 @@ function sfsi_frontPopUp () {
 /* check where to be pop-shown */
 function sfsi_check_PopUp($content)
 {
-     global $post; global $wpdb; 
-     $sfsi_section7_options=  unserialize(get_option('sfsi_section7_options',false));
+     global $post; 
+     global $wpdb; 
+
+     $content = '';
+
+     $sfsi_section7_options =  unserialize(get_option('sfsi_section7_options',false));
 	 
-     if($sfsi_section7_options['sfsi_Show_popupOn']=="blogpage")
-     {   
-	   if(!is_feed() && !is_home() && !is_page())
-	   {
-		     $content=  sfsi_frontPopUp ().$content;
-	   }
-     }
-	 else if($sfsi_section7_options['sfsi_Show_popupOn']=="selectedpage")
-     {
-	 	if(!empty($post->ID) && !empty($sfsi_section7_options['sfsi_Show_popupOn_PageIDs']))
-		{
-			if(is_page() && in_array($post->ID,  unserialize($sfsi_section7_options['sfsi_Show_popupOn_PageIDs'])))
-			{
-				$content=  sfsi_frontPopUp ().$content;
-			}
-		}
-     }
-     else if($sfsi_section7_options['sfsi_Show_popupOn']=="everypage")
-	 {
-	 	$content= sfsi_frontPopUp ().$content;
+     if(isset($sfsi_section7_options['sfsi_Show_popupOn']) && !empty($sfsi_section7_options['sfsi_Show_popupOn'])){
+         
+         if($sfsi_section7_options['sfsi_Show_popupOn']=="blogpage")
+         {   
+           if(!is_feed() && !is_home() && !is_page())
+           {
+                 $content=  sfsi_frontPopUp().$content;
+           }
+         }
+         else if($sfsi_section7_options['sfsi_Show_popupOn']=="selectedpage")
+         {
+            if(!empty($post->ID) && !empty($sfsi_section7_options['sfsi_Show_popupOn_PageIDs']))
+            {
+                if(is_page() && in_array($post->ID,  unserialize($sfsi_section7_options['sfsi_Show_popupOn_PageIDs'])))
+                {
+                    $content=  sfsi_frontPopUp().$content;
+                }
+            }
+         }
+         else if($sfsi_section7_options['sfsi_Show_popupOn']=="everypage")
+         {
+            $content= sfsi_frontPopUp().$content;
+         }        
      }
 
      /* check for pop times */
-     if($sfsi_section7_options['sfsi_Shown_pop']=="once")
-     {
-		$time_popUp= (int) $sfsi_section7_options['sfsi_Shown_popupOnceTime'];
-		$time_popUp= $time_popUp*1000;
-		ob_start();
-	 ?>
-     <script>
-	    jQuery( document ).ready(function( $ )
-		{
-	    	setTimeout(function()
-			{
-				jQuery('.sfsi_outr_div').css({'z-index':'1000000',opacity:1});
-				jQuery('.sfsi_outr_div').fadeIn(200);
-				jQuery('.sfsi_FrntInner_chg').fadeIn(200);
-			}
-			,<?php echo $time_popUp; ?>);
-		});
-	 </script>
-     <?php 
-     echo ob_get_clean();
-     return $content;
-     }
-     if($sfsi_section7_options['sfsi_Shown_pop']=="ETscroll")
+     if(isset($sfsi_section7_options['sfsi_Shown_pop']) && !empty($sfsi_section7_options['sfsi_Shown_pop']) && $sfsi_section7_options['sfsi_Shown_pop']=="once")
      {
 		$time_popUp = (int) $sfsi_section7_options['sfsi_Shown_popupOnceTime'];
 		$time_popUp = $time_popUp*1000;
-	    ob_start();
-	     
-         ?>
+		ob_start();
+	 ?>
          <script>
-    	    jQuery( document ).scroll(function( $ )
+    	    jQuery( document ).ready(function( $ )
     		{
-    	    	var y = jQuery(this).scrollTop();
-    	
-              	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-    			{	 
-    			   if(jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height()-100)
-    			   {
-    				  jQuery('.sfsi_outr_div').css({'z-index':'9996',opacity:1,top:jQuery(window).scrollTop()+"px",position:"absolute"});
-    				  jQuery('.sfsi_outr_div').fadeIn(200);
-    				  jQuery('.sfsi_FrntInner_chg').fadeIn(200);
-    			   }
-    			   else{
-    				   jQuery('.sfsi_outr_div').fadeOut();
-    				   jQuery('.sfsi_FrntInner_chg').fadeOut();
-    			   }
-    		  }
-    		  else
-    		  {
-    			   if(jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height()-3)
-    			   {
-    					jQuery('.sfsi_outr_div').css({'z-index':'9996',opacity:1,top:jQuery(window).scrollTop()+200+"px",position:"absolute"});
-    					jQuery('.sfsi_outr_div').fadeIn(200);
-    					jQuery('.sfsi_FrntInner_chg').fadeIn(200);
-    		  	   }
-    	 		   else
-    			   {
-    				 jQuery('.sfsi_outr_div').fadeOut();
-    				 jQuery('.sfsi_FrntInner_chg').fadeOut();
-    			   }
-    	 	  } 
+    	    	setTimeout(function()
+    			{
+    				jQuery('.sfsi_outr_div').css({'z-index':'1000000',opacity:1});
+    				jQuery('.sfsi_outr_div').fadeIn(200);
+    				jQuery('.sfsi_FrntInner_chg').fadeIn(200);
+    			}
+    			,<?php echo $time_popUp; ?>);
     		});
-         </script>
-        <?php 
+    	 </script>
+     <?php 
         echo ob_get_clean();
-     }
-     if($sfsi_section7_options['sfsi_Shown_pop']=="LimitPopUp")
-     {
-		$time_popUp   = (int) $sfsi_section7_options['sfsi_Shown_popuplimitPerUserTime'];
-		$end_time     = (int) $_COOKIE['sfsi_socialPopUp'] + ($time_popUp*60); 
-		$time_popUp   = $time_popUp*1000;
-     
-	 if(!empty($end_time))
-	 {
-	 	if($end_time<time())
-		{     
-		 ?>
-		 <script>
-			jQuery( document ).ready(function( $ ) {
-			//jQuery('.sfsi_outr_div').fadeIn();
-			sfsi_setCookie('sfsi_socialPopUp',<?php echo time(); ?>,32);
-			setTimeout(function(){jQuery('.sfsi_outr_div').css({'z-index':'1000000',opacity:1});jQuery('.sfsi_outr_div').fadeIn();},<?php echo $time_popUp;?>);
-			});
-		 </script>
-		 <?php
-		 }
-     }
-     echo ob_get_clean();
-     }    
+        return $content;
+    }
+    
+    if(isset($sfsi_section7_options['sfsi_Shown_pop']) && !empty($sfsi_section7_options['sfsi_Shown_pop'])){
+
+         if($sfsi_section7_options['sfsi_Shown_pop']=="ETscroll")
+         {
+            $time_popUp = (int) $sfsi_section7_options['sfsi_Shown_popupOnceTime'];
+            $time_popUp = $time_popUp*1000;
+            ob_start();
+             
+             ?>
+             <script>
+                jQuery( document ).scroll(function( $ )
+                {
+                    var y = jQuery(this).scrollTop();
+            
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+                    {    
+                       if(jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height()-100)
+                       {
+                          jQuery('.sfsi_outr_div').css({'z-index':'9996',opacity:1,top:jQuery(window).scrollTop()+"px",position:"absolute"});
+                          jQuery('.sfsi_outr_div').fadeIn(200);
+                          jQuery('.sfsi_FrntInner_chg').fadeIn(200);
+                       }
+                       else{
+                           jQuery('.sfsi_outr_div').fadeOut();
+                           jQuery('.sfsi_FrntInner_chg').fadeOut();
+                       }
+                  }
+                  else
+                  {
+                       if(jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height()-3)
+                       {
+                            jQuery('.sfsi_outr_div').css({'z-index':'9996',opacity:1,top:jQuery(window).scrollTop()+200+"px",position:"absolute"});
+                            jQuery('.sfsi_outr_div').fadeIn(200);
+                            jQuery('.sfsi_FrntInner_chg').fadeIn(200);
+                       }
+                       else
+                       {
+                         jQuery('.sfsi_outr_div').fadeOut();
+                         jQuery('.sfsi_FrntInner_chg').fadeOut();
+                       }
+                  } 
+                });
+             </script>
+            <?php 
+            echo ob_get_clean();
+         }
+         if($sfsi_section7_options['sfsi_Shown_pop']=="LimitPopUp")
+         {
+            $time_popUp   = (int) $sfsi_section7_options['sfsi_Shown_popuplimitPerUserTime'];
+            $end_time     = (int) $_COOKIE['sfsi_socialPopUp'] + ($time_popUp*60); 
+            $time_popUp   = $time_popUp*1000;
+         
+             if(!empty($end_time))
+             {
+                if($end_time<time())
+                {     
+                 ?>
+                 <script>
+                    jQuery( document ).ready(function( $ ) {
+                    //jQuery('.sfsi_outr_div').fadeIn();
+                    sfsi_setCookie('sfsi_socialPopUp',<?php echo time(); ?>,32);
+                    setTimeout(function(){jQuery('.sfsi_outr_div').css({'z-index':'1000000',opacity:1});jQuery('.sfsi_outr_div').fadeIn();},<?php echo $time_popUp;?>);
+                    });
+                 </script>
+                 <?php
+                 }
+             }
+            echo ob_get_clean();
+         }  
+    }  
 	return $content;
 }
 /* make front end pop div */

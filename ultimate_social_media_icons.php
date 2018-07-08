@@ -5,11 +5,11 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.0.2
+Version: 2.0.3
 License: GPLv2 or later
 */
 
-error_reporting(0);
+sfsi_error_reporting();
 
 global $wpdb;
 
@@ -17,6 +17,8 @@ global $wpdb;
 define('SFSI_DOCROOT',    dirname(__FILE__));
 define('SFSI_PLUGURL',    plugin_dir_url(__FILE__));
 define('SFSI_WEBROOT',    str_replace(getcwd(), home_url(), dirname(__FILE__)));
+define('SFSI_SUPPORT_FORM','https://goo.gl/wgrtUV');
+define('SFSI_DOMAIN','ultimate-social-media-icons');
 
 function sfsi_get_current_page_url()
 {
@@ -55,11 +57,10 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.02)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.03)
 {
 	add_action("init", "sfsi_update_plugin");
 }
-
 
 /* redirect setting page hook */
 add_action('admin_init', 'sfsi_plugin_redirect');
@@ -71,6 +72,25 @@ function sfsi_plugin_redirect()
         wp_redirect(admin_url('admin.php?page=sfsi-options'));
     }
 }
+
+//************************************** Setting error reporting STARTS ****************************************//
+
+function sfsi_error_reporting(){
+
+	$option5 = unserialize(get_option('sfsi_section5_options',false));
+
+	if(isset($option5['sfsi_icons_suppress_errors']) 
+
+		&& !empty($option5['sfsi_icons_suppress_errors'])
+
+		&& "yes" == $option5['sfsi_icons_suppress_errors']){
+		
+		error_reporting(0);			
+	}	
+}
+
+//************************************** Setting error reporting CLOSES ****************************************//
+
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
@@ -257,6 +277,13 @@ function check_sfsfiupdatedoptions()
 		$option4['sfsi_youtubeusernameorid'] = 'name';
 		update_option('sfsi_section4_options',serialize($option4));
 	}
+}
+
+add_action('plugins_loaded', 'sfsi_load_domain');
+function sfsi_load_domain() 
+{
+	$plugin_dir = basename(dirname(__FILE__)).'/languages';
+	load_plugin_textdomain( SFSI_DOMAIN, false, $plugin_dir );
 }
 
 //sanitizing values
@@ -650,6 +677,12 @@ function sfsi_admin_notice()
 		<?php
 		}
 	}
+
+    sfsi_language_notice();
+    
+    sfsi_addThis_removal_notice();
+
+	sfsi_error_reporting_notice();
 }
 add_action('admin_init', 'sfsi_dismiss_admin_notice');
 function sfsi_dismiss_admin_notice()
@@ -714,15 +747,79 @@ function sfsi_actionLinks($links)
 {
 	$links[] = '<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
 	$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
-	$links[] = @$links["deactivate"];
+	
+	$slug = plugin_basename(dirname(__FILE__));
 
-	if(isset($links["edit"]) && empty($links["edit"])){
+	if(isset($links["edit"]) && !empty($links["edit"])){
 		$links[] = @$links["edit"];		
 	}
+
+	$links[$slug] = @$links["deactivate"].'<i class="sfsi-deactivate-slug"></i>';
+
 	$links[] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
-	unset($links['deactivate']);
+
+	unset($links["deactivate"]);
 	unset($links['edit']);
 	return $links;
+}
+
+global $pagenow;
+
+if( 'plugins.php' === $pagenow ){
+
+	add_action( 'admin_footer', '_sfsi_add_deactivation_feedback_dialog_box');
+
+	function _sfsi_add_deactivation_feedback_dialog_box(){ 
+		
+		include_once(SFSI_DOCROOT.'/views/deactivation/sfsi_deactivation_popup.php'); ?>
+
+		<script type="text/javascript">
+		    
+		    jQuery(document).ready(function($){
+
+		    	var _deactivationLink = $('.sfsi-deactivate-slug').prev();
+
+		    	$('.sfsi-deactivation-reason-link').find('a').attr('href',_deactivationLink.attr('href'));
+
+		        _deactivationLink.on('click',function(e){
+		            e.preventDefault();
+		            $('[data-popup="popup-1"]').fadeIn(350);
+		        });
+
+		        //----- CLOSE
+		        $('[data-popup-close]').on('click', function(e) {
+		            e.preventDefault();
+		            var targeted_popup_class = jQuery(this).attr('data-popup-close');
+		            $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+		        });
+
+		        //----- OPEN
+		        $('[data-popup-open]').on('click', function(e) {
+		            e.preventDefault();
+		            var targeted_popup_class = jQuery(this).attr('data-popup-open');
+		            $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+		        });
+
+		        $('.sfsi-deactivate-radio').on('click', function(e) {
+
+		            $('.sfsi-deactivate-radio').attr('checked',false);
+		            $(this).attr('checked',true);
+
+		            var val = $(this).val();
+
+		            $('.sfsi-reason-section').removeClass('show').addClass('hide');
+		            $(this).parent().find('.sfsi-reason-section').addClass('show').removeClass('hide');
+		        });
+
+		        $('.sfsi-deactivate-radio-text').on('click',function(e){
+		            $(this).prev().trigger('click');
+		        });
+
+		    });
+
+		</script>
+		<?php
+	}
 }
 
 /* redirect setting page hook */
@@ -997,7 +1094,7 @@ function sfsi_addThis_removal_notice(){
 }
 
 function sfsi_dismiss_addthhis_removal_notice(){
-	echo update_option('sfsi_addThis_icon_removal_notice_dismissed',true) ? get_option('sfsi_addThis_icon_removal_notice_dismissed',false) : "false";
+	echo (string) update_option('sfsi_addThis_icon_removal_notice_dismissed',true);
 	die;
 }
 
@@ -1021,3 +1118,70 @@ function sfsi_ask_for_help($viewNumber){ ?>
 <?php }
 
 // ********************************* Link to support forum left of every Save button CLOSES *******************************//
+
+
+// ********************************* Notice for error reporting STARTS *******************************//
+
+function sfsi_error_reporting_notice(){
+
+    if (is_admin()) : 
+        
+        $sfsi_error_reporting_notice_txt    = 'We noticed that you have set error reporting to "yes" in wp-config. Our plugin (Ultimate Social Media Icons) switches this to "off" so that no errors are displayed (which may also impact error messages from your theme or other plugins). If you don\'t want that, please select the respective option under question 6 (at the bottom).';
+
+        $isDismissed   =  get_option('sfsi_error_reporting_notice_dismissed',false);
+
+        $option5 = unserialize(get_option('sfsi_section5_options',false));
+
+		$sfsi_icons_suppress_errors = isset($option5['sfsi_icons_suppress_errors']) && !empty($option5['sfsi_icons_suppress_errors']) ? $option5['sfsi_icons_suppress_errors']:  false;
+
+        if(isset($isDismissed) && false == $isDismissed && defined('WP_DEBUG') && false != WP_DEBUG && "yes"== $sfsi_icons_suppress_errors) { ?>
+                    
+            <div style="padding: 10px;margin-left: 0px;position: relative;" id="sfsi_error_reporting_notice" class="error notice">
+
+                <p><?php echo $sfsi_error_reporting_notice_txt; ?></p>
+
+                <button type="button" class="sfsi_error_reporting_notice-dismiss notice-dismiss"></button>
+
+            </div>
+
+            <script type="text/javascript">
+
+				if(typeof jQuery != 'undefined'){
+
+				    (function sfsi_dismiss_notice(btnClass,ajaxAction){
+				        
+				        var btnClass = "."+btnClass;
+
+						var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+
+				        jQuery(document).on("click", btnClass, function(){
+				            
+				            jQuery.ajax({
+				                url:ajaxurl,
+				                type:"post",
+				                data:{action: ajaxAction},
+				                success:function(e) {
+				                    if(false != e){
+				                        jQuery(btnClass).parent().remove();
+				                    }
+				                }
+				            });
+
+				        });
+
+				    }("sfsi_error_reporting_notice-dismiss","sfsi_dismiss_error_reporting_notice"));
+				}            	
+            </script>
+
+        <?php } ?>
+
+    <?php endif;	
+}
+
+function sfsi_dismiss_error_reporting_notice(){
+	echo (string) update_option('sfsi_error_reporting_notice_dismissed',true);
+	die;
+}
+add_action( 'wp_ajax_sfsi_dismiss_error_reporting_notice', 'sfsi_dismiss_error_reporting_notice' );
+
+// ********************************* Notice for error reporting CLOSE *******************************//

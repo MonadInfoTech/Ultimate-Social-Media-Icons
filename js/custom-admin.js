@@ -515,10 +515,7 @@ function sfsi_update_step5() {
        n = SFSI("#sfsi_icons_Alignment").val(),
         o = SFSI("input[name='sfsi_icons_ClickPageOpen']:checked").val(),
          
-         //a = SFSI("input[name='sfsi_icons_float']:checked").val(),
-          //dsb = SFSI("input[name='sfsi_disable_floaticons']:checked").val(),           
-           //r = SFSI("#sfsi_icons_floatPosition").val(),
-            
+         se = SFSI("input[name='sfsi_icons_suppress_errors']:checked").val(),          
             c = SFSI("input[name='sfsi_icons_stick']:checked").val(),
              p = SFSI("#sfsi_rssIcon_order").attr("data-index"),
               _ = SFSI("#sfsi_emailIcon_order").attr("data-index"),
@@ -538,12 +535,7 @@ function sfsi_update_step5() {
             ele:SFSI(this).attr("element-id")
         });
     });
-	
-    // var mst = SFSI("input[name='sfsi_icons_floatMargin_top']").val(),
-    //  msb = SFSI("input[name='sfsi_icons_floatMargin_bottom']").val(),
-    //   msl = SFSI("input[name='sfsi_icons_floatMargin_left']").val(),
-    //    msr = SFSI("input[name='sfsi_icons_floatMargin_right']").val();
-	
+		
     var v = 1 == SFSI("input[name='sfsi_rss_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_rss_MouseOverText']").val(), g = 1 == SFSI("input[name='sfsi_email_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_MouseOverText']").val(), k = 1 == SFSI("input[name='sfsi_twitter_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_MouseOverText']").val(), y = 1 == SFSI("input[name='sfsi_facebook_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_MouseOverText']").val(), b = 1 == SFSI("input[name='sfsi_google_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_MouseOverText']").val(), w = 1 == SFSI("input[name='sfsi_linkedIn_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_MouseOverText']").val(), x = 1 == SFSI("input[name='sfsi_youtube_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_MouseOverText']").val(), C = 1 == SFSI("input[name='sfsi_pinterest_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_MouseOverText']").val(), D = 1 == SFSI("input[name='sfsi_instagram_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_MouseOverText']").val(), O = {};
     SFSI("input[name='sfsi_custom_MouseOverTexts[]']").each(function() {
         O[SFSI(this).attr("file-id")] = this.value;
@@ -558,15 +550,7 @@ function sfsi_update_step5() {
         sfsi_icons_perRow:e,
         sfsi_icons_spacing:t,
         sfsi_icons_ClickPageOpen:o,
-
-  //       sfsi_icons_float:a,
-		// sfsi_disable_floaticons:dsb,
-  //       sfsi_icons_floatPosition:r,
-		// sfsi_icons_floatMargin_top:mst,
-		// sfsi_icons_floatMargin_bottom:msb,
-		// sfsi_icons_floatMargin_left:msl,
-		// sfsi_icons_floatMargin_right:msr,
-
+        sfsi_icons_suppress_errors:se,
 		sfsi_icons_stick:c,
         sfsi_rss_MouseOverText:v,
         sfsi_email_MouseOverText:g,
@@ -1644,34 +1628,41 @@ function create_suscriber_form()
 
 var global_error = 0;
 
+if(typeof SFSI != 'undefined'){
+
+    function sfsi_dismiss_notice(btnClass,ajaxAction){
+        
+        var btnClass = "."+btnClass;
+
+        SFSI(document).on("click", btnClass, function(){
+            
+            SFSI.ajax({
+                url:ajax_object.ajax_url,
+                type:"post",
+                data:{action: ajaxAction},
+                success:function(e) {
+                    if(false != e){
+                        SFSI(btnClass).parent().remove();
+                    }
+                }
+            });
+        });
+    }
+}
+
 SFSI(document).ready(function(s) {
 
-    SFSI(document).on("click", ".sfsi-notice-dismiss", function(){
-        
-        SFSI.ajax({
-            url:ajax_object.ajax_url,
-            type:"post",
-            data:{action: "sfsi_dismiss_lang_notice"},
-            success:function(e) {
-                if(false != e){
-                    SFSI(".sfsi-notice-dismiss").parent().remove();
-                }
-            }
-        });
-    });
+    var arrDismiss = [
 
-    SFSI(document).on("click", ".sfsi-AddThis-notice-dismiss", function(){
-        
-        SFSI.ajax({
-            url:ajax_object.ajax_url,
-            type:"post",
-            data:{action: "sfsi_dismiss_addThis_icon_notice"},
-            success:function(e) {
-                if(false != e){
-                    SFSI(".sfsi-AddThis-notice-dismiss").parent().remove();
-                }
-            }
-        });
+        {"btnClass":"sfsi-notice-dismiss","action":"sfsi_dismiss_lang_notice"},
+
+        {"btnClass":"sfsi-AddThis-notice-dismiss","action":"sfsi_dismiss_addThis_icon_notice"},
+
+        {"btnClass":"sfsi_error_reporting_notice-dismiss","action":"sfsi_dismiss_error_reporting_notice"} 
+    ];
+
+    SFSI.each( arrDismiss, function( key, valueObj ) {
+        sfsi_dismiss_notice(valueObj.btnClass,valueObj.action);
     });
 
     //changes done {Monad}
@@ -1712,6 +1703,15 @@ SFSI(document).ready(function(s) {
 					s.parents(".row_tab").next(".row_tab").hide("fast");
 				create_suscriber_form()
 				break;
+            case 'sfsi_icons_suppress_errors':
+
+                SFSI('input[name="sfsi_icons_suppress_errors"]').removeAttr('checked');
+
+                if(s.val() == 'yes')
+                    SFSI('input[name="sfsi_icons_suppress_errors"][value="yes"]').attr('checked','true');
+                else
+                    SFSI('input[name="sfsi_icons_suppress_errors"][value="no"]').attr('checked','true');
+                break;                
 			default:
 		}	
 	});
