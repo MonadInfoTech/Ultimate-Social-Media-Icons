@@ -1304,7 +1304,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 			
 			$icons.= "<div class='".$innrselector."'>";
 				
-				$icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' $new_window  ".((isset($url) && $url!=="")?"href='".$url:'')."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
+				$icons.= "<a class='".$class." sficn' effect='".$mouse_hover_effect."' $new_window  href='".$url."' id='sfsiid_".$icon_name."' alt='".$alt_text."' style='opacity:".$icon_opacity."' >";     
 					$icons.= "<img alt='".$alt_text."' title='".$alt_text."' src='".$icon."' width='".$icons_size."' height='".$icons_size."' style='".$border_radius.$padding_top."' class='sfcm sfsi_wicon' effect='".$mouse_hover_effect."'   />"; 
 				$icons.= '</a>';
 	   
