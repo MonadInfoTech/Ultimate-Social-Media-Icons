@@ -276,6 +276,7 @@ You cannot use the same plugin twice, however you can install both the USM as we
 == Changelog ==
 
 = 2.0.5 =
+* Fixed issue with click on icons when on mobile device
 
 = 2.0.4 =
 
