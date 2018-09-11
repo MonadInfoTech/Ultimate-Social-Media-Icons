@@ -939,11 +939,11 @@ add_action('wp_ajax_bannerOption','sfsi_bannerOption');
 function sfsi_bannerOption(){
     error_reporting(0);
 
-    if(get_option("show_new_notification") == "yes"){
+    // if(get_option("show_new_notification") == "yes"){
 
       $objThemeCheck = new sfsi_ThemeCheck();
         
-      $domainname     = $objThemeCheck->sfsi_plus_getdomain(get_bloginfo('url'));
+      $domainname     = isset($_POST['domain'])?$_POST['domain']:$objThemeCheck->sfsi_plus_getdomain(get_bloginfo('url'));
 
       // Get all themes data which incudes nobrainer 
       $themeDataArr = $objThemeCheck->sfsi_plus_get_themeData();
@@ -1034,7 +1034,7 @@ function sfsi_bannerOption(){
                     });
                 });
         </script>';
-    }   
-    die;
+    // }   
+    die();
 }
 ?>
