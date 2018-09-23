@@ -939,7 +939,7 @@ add_action('wp_ajax_bannerOption','sfsi_bannerOption');
 function sfsi_bannerOption(){
     error_reporting(0);
 
-    // if(get_option("show_new_notification") == "yes"){
+    if(get_option("show_new_notification") == "yes"){
 
       $objThemeCheck = new sfsi_ThemeCheck();
         
@@ -1034,7 +1034,7 @@ function sfsi_bannerOption(){
                     });
                 });
         </script>';
-    // }   
+    }   
     die();
 }
 ?>
