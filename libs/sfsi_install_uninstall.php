@@ -880,7 +880,7 @@ function sfsi_rating_msg()
     $datetime2 = new DateTime($display_date);
     $diff_inrval = round(($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
     
-    if($diff_inrval >= 30 && get_option('sfsi_RatingDiv')=="no")
+    if($diff_inrval >= 30 && "no" == get_option('sfsi_RatingDiv'))
     {
       ?>
       <style type="text/css">
@@ -910,10 +910,11 @@ function sfsi_rating_msg()
         }
       </style>
       <div class="sfwp_fivestar notice notice-success">
-                <p>We noticed you've been using the Ultimate Social Media Plugin for more than 30 days. If you're happy with it, could you please do us a BIG favor and let us know what you think about it & what we can improve? It only takes a minute!?</p>
+                <p>You've been using the Ultimate Social Media Plugin for more than 30 days. Great! If you're happy, could you please do us a BIG favor and let us know ONE thing we can improve in it?</p>
                 <ul>
-                    <li><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons#new-topic-0" target="_new" title="Yes, that's fair, let me give feedback!">Yes, that's fair, let me give feedback!</a></li>
-                    <li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
+                    <li><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons#new-topic-0" target="_new" title="Yes, that's fair, let me give feedback!">Yes, let me give feedback!</a></li>
+                    <li><a target="_new" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/reviews/?filter=5">No clue, let me give a 5-star rating instead</a></li>
+                    <li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did (don't show this again)</a></li>
                 </ul>
                 <button type="button" class="plg-rating-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>                
             </div>
