@@ -607,7 +607,7 @@ function sfsi_admin_notice()
 					cursor: pointer;
 				}
 			</style>
-		<!-- <div class="updated sfsi_show_mobile_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
+		<!-- <div class="updated sfsi_show_mobile_notification" style="<?php //echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
 				<div class="alignleft" style="margin: 9px 0;line-height: 24px;width: 95%;">
 					<b>Over 50% of visitors are mobile visitors.</b> Make sure your social media icons look good on mobile too, so that people like & share your site. With the premium plugin you can define the location of the icons separately on mobile:<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=check_mobile&utm_medium=banner" target="_blank">Check it out</a>
 				</div>
@@ -702,7 +702,7 @@ function sfsi_get_language_detection_notice(){
         // Chinese - simplified
         case 'zh-Hans':
             
-            $text = "似乎你的WordPress仪表盘使用的是法语。你知道 终极社交媒体插件 也支持法语吗？ <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'><b>请点击此处</b></a>";
+            $text = "似乎你的WordPress仪表盘使用的是法语。你知道 终极社交媒体插件 也支持法语吗？ <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'><b>请点击此处</b></a>";
             break;
 
         // Chinese - traditional
@@ -719,13 +719,13 @@ function sfsi_get_language_detection_notice(){
         // French (Belgium), French (France)
         case 'fr_BE': case 'fr_FR':
             
-            $text = "Il semblerait que votre tableau de bord Wordpress soit en Français. Saviez-vous que l'extension Ultimate  Social Media est aussi disponible en Français? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Cliquez ici</a>";
+            $text = "Il semblerait que votre tableau de bord Wordpress soit en Français. Saviez-vous que l'extension Ultimate  Social Media est aussi disponible en Français? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Cliquez ici</a>";
             break;
 
         // German, German (Switzerland)
         case 'de': case 'de_CH':
 
-            $text = "Dein Wordpress-Dashboard scheint auf deutsch zu sein. Wusstest Du dass das Ultimate Social Media Plugin auch auf deutsch verfügbar ist? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Klicke hier</a>"; 
+            $text = "Dein Wordpress-Dashboard scheint auf deutsch zu sein. Wusstest Du dass das Ultimate Social Media Plugin auch auf deutsch verfügbar ist? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Klicke hier</a>"; 
             break;
 
         // Greek
@@ -737,7 +737,7 @@ function sfsi_get_language_detection_notice(){
         // Hebrew
         case 'he_IL':
 
-            $text = "נדמה שלוח הבקרה שלך הוא בעברית. האם ידעת שהתוסף זמין גם בשפה העברית? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>לחץ כאן</a>";
+            $text = "נדמה שלוח הבקרה שלך הוא בעברית. האם ידעת שהתוסף זמין גם בשפה העברית? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>לחץ כאן</a>";
             break;
 
         // Hindi
@@ -756,7 +756,7 @@ function sfsi_get_language_detection_notice(){
         // Italian
         case 'it_IT':
             
-           $text = "Semberebbe che la tua bacheca di WordPress sia in Italiano.Lo sapevi che il plugin Ultimate Social Media è anche dispoinibile in Italiano? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Fai click qui</a>";
+           $text = "Semberebbe che la tua bacheca di WordPress sia in Italiano.Lo sapevi che il plugin Ultimate Social Media è anche dispoinibile in Italiano? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Fai click qui</a>";
             
             break;                   
 
@@ -791,14 +791,14 @@ function sfsi_get_language_detection_notice(){
 
         case 'pt_BR': case 'pt_PT':
 
-            $text = "Parece que seu painel Wordpress está em português. Você sabia que o plugin Ultimate Social Media também está disponível em português? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Clique aqui</a>";
+            $text = "Parece que seu painel Wordpress está em português. Você sabia que o plugin Ultimate Social Media também está disponível em português? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Clique aqui</a>";
 
             break;                       
 
         // Russian, Russian (Ukraine)
         case 'ru_RU': case 'ru_UA': 
 
-            $text = "Ты говоришь по-русски? Если у вас есть вопросы о плагине Ultimate Social Media, задайте свой вопрос в форуме поддержки, мы постараемся ответить на русский: <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Нажмите здесь</a>";
+            $text = "Ты говоришь по-русски? Если у вас есть вопросы о плагине Ultimate Social Media, задайте свой вопрос в форуме поддержки, мы постараемся ответить на русский: <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Нажмите здесь</a>";
             
             break;                       
         
@@ -808,7 +808,7 @@ function sfsi_get_language_detection_notice(){
         case 'es_AR': case 'es_CL': case 'es_CO': case 'es_MX':case 'es_PE':case 'es_PR':
         case 'es_ES': case 'es_VE':
 
-            $text = "Al parecer, tu dashboard en Wordpress está en Francés/ ¿Sabías que el complemento Ultimate Social Media está también disponible en Francés? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Haz clic aquí</a>";
+            $text = "Al parecer, tu dashboard en Wordpress está en Francés/ ¿Sabías que el complemento Ultimate Social Media está también disponible en Francés? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Haz clic aquí</a>";
             break;                       
 
         //  Swedish
@@ -821,7 +821,7 @@ function sfsi_get_language_detection_notice(){
         //  Turkish
 
         case 'tr_TR':
-            $text = "Wordpress gösterge panelinizin dili Türkçe olarak görünüyor. Ultimate Social Media eklentisinin Türkçe için de mevcut olduğunu biliyor musunuz? <a target='_blank' href='https://goo.gl/ZiFsAF#no-topic-0'>Buraya tıklayın</a>";
+            $text = "Wordpress gösterge panelinizin dili Türkçe olarak görünüyor. Ultimate Social Media eklentisinin Türkçe için de mevcut olduğunu biliyor musunuz? <a target='_blank' href='https://wordpress.org/plugins/ultimate-social-media-plus/'>Buraya tıklayın</a>";
             break;                       
 
         //  Ukrainian
@@ -833,7 +833,7 @@ function sfsi_get_language_detection_notice(){
         //  Vietnamese
 
         case 'vi':
-            $text = 'Có vẻ như bảng điều khiển Wordpress của bạn đang hiển thị "tiếng Việt". Bạn có biết rằng Ultimate Social Media plugin cũng hỗ trợ tiếng Việt? <a target="_blank" href="https://goo.gl/ZiFsAF#no-topic-0">Hãy nhấn vào đây</a>';
+            $text = 'Có vẻ như bảng điều khiển Wordpress của bạn đang hiển thị "tiếng Việt". Bạn có biết rằng Ultimate Social Media plugin cũng hỗ trợ tiếng Việt? <a target="_blank" href="https://wordpress.org/plugins/ultimate-social-media-plus/">Hãy nhấn vào đây</a>';
             break;    
     }
 
