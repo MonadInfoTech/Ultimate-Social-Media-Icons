@@ -293,7 +293,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="so-much-more">...and <a href="#">so much more</a></p>
+                        <p class="so-much-more">...and <a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=new_bottom_banner_to_checkout&utm_medium=banner">so much more</a></p>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,7 @@
                 <span class="sfsi-right-video">
                     <iframe src="https://player.vimeo.com/video/269140798" width="100%" height="230" frameborder="0" allowfullscreen=""></iframe>
                 </span>
-                <a class="sfsi-checkout-premium-plugin-button">Check out the Premium Plugin >></a>
+                <a  target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=new_bottom_banner_to_checkout&utm_medium=banner" class="sfsi-checkout-premium-plugin-button">Check out the Premium Plugin >></a>
             </div>
         </div>
     </div>
