@@ -576,6 +576,7 @@ function sfsi_admin_notice()
 						<input type="submit" name="dismiss" value="Dismiss" />
 					</form>
 				</div>
+				<div style=”clear:both”></div>
 			</div>
 			<?php
 		} 
