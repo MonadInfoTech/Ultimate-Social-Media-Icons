@@ -1,8 +1,8 @@
 === Social Media Share Buttons & Social Sharing Icons ===
 Contributors: socialdude
 Tags: social media, share, buttons, social widget, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
-Requires at least: 2.8
-Tested up to: 4.9.8
+Requires at least: 3.0
+Tested up to: 4.9.9
 Stable tag: 2.0.7
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -274,6 +274,7 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+= 2.0.8 =
 
 = 2.0.7 =
 * Round green follow button doesn't show - fixed
