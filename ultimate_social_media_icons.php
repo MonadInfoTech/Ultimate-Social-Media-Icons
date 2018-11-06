@@ -512,7 +512,7 @@ function sfsi_admin_notice()
 		?>
 		<style type="text/css">
 			
-			.sfsi_show_premium_notification{
+			div.sfsi_show_premium_notification{
 				float: left;
     			width: 94.2%;
     			margin-left: 37px;
@@ -539,7 +539,7 @@ function sfsi_admin_notice()
 			    cursor: pointer;
 			}
 		</style>
-	    <div class="updated sfsi_show_premium_notification" style="<?php echo $style; ?>">
+	    <div class="updated sfsi_show_premium_notification" style="<?php //echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
 				BIG NEWS : There is now a <b><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Check it out</a>
 			</div>
@@ -560,8 +560,20 @@ function sfsi_admin_notice()
 		{
 			?>
 			<style type="text/css">
+				div.sfsi_show_premium_cumulative_count_notification{
+				   	color: #fff;
+				   	float: left;
+	    			width: 94.2%;
+	    			margin-left: 37px;
+	    			margin-top: 15px;
+	    			padding: 8px;
+					background-color: #38B54A;
+					color: #fff;
+					font-size: 18px;
+				}
 				.sfsi_show_premium_cumulative_count_notification a{
 				   	color: #fff;
+
 				}
 				form.sfsi_premiumCumulativeCountNoticeDismiss {
 				    display: inline-block;
@@ -577,7 +589,7 @@ function sfsi_admin_notice()
 				    cursor: pointer;
 				}
 			</style>
-		    <div class="updated sfsi_show_premium_cumulative_count_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
+		    <div class="updated sfsi_show_premium_cumulative_count_notification">
 				<div class="alignleft" style="margin: 9px 0;">
 					<b>Recently switched to https?</b> If you don’t want to lose the Facebook share & like counts <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=https_share_counts&utm_medium=banner" target="_blank">have a look at our Premium Plugin</a>, we found a fix for that: <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=https_share_counts&utm_medium=banner" target="_blank">Check it out</a>
 				</div>
