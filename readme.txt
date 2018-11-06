@@ -276,7 +276,8 @@ You cannot use the same plugin twice, however you can install both the USM as we
 == Changelog ==
 
 = 2.0.8 =
-* Notification bar cannot be seen anymore
+* Solved: Notification bar cannot be seen anymore
+* Solved: cleared the float elements after notice.
 
 = 2.0.7 =
 * Round green follow button doesn't show - fixed
