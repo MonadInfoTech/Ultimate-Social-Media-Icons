@@ -948,20 +948,22 @@ function sfsi_getdomain($url)
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLinks", -10 );
 function sfsi_actionLinks($links)
 {
-	$links[] = '<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
-	$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
+	unset($links['edit']);    
+	$links['a'] = '<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
+	//$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
 	
-	if(isset($links["edit"]) && !empty($links["edit"])){
+	/*if(isset($links["edit"]) && !empty($links["edit"])){
 		$links[] = @$links["edit"];		
-	}
+	}*/
 
-	$slug = plugin_basename(dirname(__FILE__));
-	$links[$slug] = @$links["deactivate"].'<i class="sfsi-deactivate-slug"></i>';
+	//$slug = plugin_basename(dirname(__FILE__));
+	//$links[$slug] = @$links["deactivate"].'<i class="sfsi-deactivate-slug"></i>';
 
-	$links[] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
+	$links['e'] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
 
-	unset($links["deactivate"]);
-	unset($links['edit']);
+    	ksort($links);
+
+	//unset($links["deactivate"]);
 	return $links;
 }
 
