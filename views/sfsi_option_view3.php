@@ -1,6 +1,7 @@
 <?php
 /* unserialize all saved option for second section options */
 $option3 =  unserialize(get_option('sfsi_section3_options',false));
+$option1 =  unserialize(get_option('sfsi_section1_options',false));
 
 /*
  * Sanitize, escape and validate values
@@ -13,6 +14,9 @@ $option3['sfsi_shuffle_Firstload'] 		= (isset($option3['sfsi_shuffle_Firstload']
 $option3['sfsi_shuffle_interval'] 		= (isset($option3['sfsi_shuffle_interval'])) ? sanitize_text_field($option3['sfsi_shuffle_interval']) : '';
 $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalTime'])) ? intval($option3['sfsi_shuffle_intervalTime']) : '';
 
+$option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_type'])) ? sanitize_text_field($option3['sfsi_mouseOver_effect_type']) : 'same_icons';
+
+$mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icons_transition_effect'])) ? sanitize_text_field($option3['mouseover_other_icons_transition_effect']) : 'noeffect';
 ?>
 
 <!-- Section 3 "What design & animation do you want to give your icons?" main div Start -->
@@ -287,38 +291,8 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
 		</ul>
 		<!--icon themes section start -->
       
-		<!--icon Animation section start -->
-		<div class="sub_row stand sec_new" style="margin-left: 0px;">
-			<h3>Animate them</h3>
-			<p class="radio_section tab_3_option">
-        		<input name="sfsi_mouseOver" <?php echo ( $option3['sfsi_mouseOver']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  />
-            	<label>Mouse-Over effects</label>
-            
-                <div class="drop_lsts">
-                    <select name="sfsi_mouseOver_effect"  id="sfsi_mouseOver_effect" class="styled">
-                        <option value="fade_in" <?php echo ( $option3['sfsi_mouseOver_effect']=='fade_in') ? 'selected="true"' :'' ;?>>Fade In</option>
-                        <option value="scale" <?php echo ( $option3['sfsi_mouseOver_effect']=='scale') ?  'selected="true"' : '' ;?>>Scale</option>
-                        <option value="combo" <?php echo ( $option3['sfsi_mouseOver_effect']=='combo') ?  'selected="true"' : '' ;?>>Combo</option>
-                    </select>
-                </div>
-            </p>
-            <div class="Shuffle_auto"><p class="radio_section tab_3_option">
-                <input name="sfsi_shuffle_icons" <?php echo ( $option3['sfsi_shuffle_icons']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  />
-                <label>Shuffle them automatically</label>
-                <div class="sub_sub_box shuffle_sub"  >
-                    <p class="radio_section tab_3_option">
-                        <input name="sfsi_shuffle_Firstload" <?php echo ( $option3['sfsi_shuffle_Firstload']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  />
-                        <label>When site is first loaded</label>
-                    </p>
-                    <p class="radio_section tab_3_option">
-                        <input name="sfsi_shuffle_interval" <?php echo ( $option3['sfsi_shuffle_interval']=='yes') ?  'checked="true"' : '' ;?>  type="checkbox" value="yes" class="styled"  />
-                        <label>Every</label>
-                        <input class="smal_inpt" type="text" name="sfsi_shuffle_intervalTime" value="<?php echo ( $option3['sfsi_shuffle_intervalTime']!='') ?   $option3['sfsi_shuffle_intervalTime'] : '' ;?>"><label>seconds</label>
-                    </p>
-                </div>
-    	   	</div>
-		</div>
-        <!--END icon Animation section   start -->
+        <?php include_once(SFSI_DOCROOT.'/views/subviews/que4/animatethem.php'); ?>
+
     </div>
     
     <?php sfsi_ask_for_help(3); ?>

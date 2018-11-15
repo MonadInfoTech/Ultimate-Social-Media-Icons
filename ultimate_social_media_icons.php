@@ -20,6 +20,11 @@ define('SFSI_WEBROOT',    str_replace(getcwd(), home_url(), dirname(__FILE__)));
 define('SFSI_SUPPORT_FORM','https://goo.gl/wgrtUV');
 define('SFSI_DOMAIN','ultimate-social-media-icons');
 
+$wp_upload_dir = wp_upload_dir();
+define('SFSI_UPLOAD_DIR_BASEURL', trailingslashit($wp_upload_dir['baseurl']));
+
+define('SFSI_ALLICONS',serialize(array("rss","email","facebook","twitter","google","share","youtube","pinterest","instagram")));
+
 function sfsi_get_current_page_url()
 {
 	global $post, $wp;
@@ -38,15 +43,18 @@ function sfsi_get_current_page_url()
 }
 
 /* load all files  */
+include(SFSI_DOCROOT.'/libs/sfsi_install_uninstall.php');
+
+include(SFSI_DOCROOT.'/helpers/common_helper.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_socialhelper.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_class_theme_check.php');
-include(SFSI_DOCROOT.'/libs/sfsi_install_uninstall.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_buttons_controller.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_iconsUpload_contoller.php');
-include(SFSI_DOCROOT.'/libs/sfsi_Init_JqueryCss.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_floater_icons.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_frontpopUp.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsiocns_OnPosts.php');
+
+include(SFSI_DOCROOT.'/libs/sfsi_Init_JqueryCss.php');
 include(SFSI_DOCROOT.'/libs/sfsi_widget.php');
 include(SFSI_DOCROOT.'/libs/sfsi_subscribe_widget.php');
 include(SFSI_DOCROOT.'/libs/sfsi_custom_social_sharing_data.php');

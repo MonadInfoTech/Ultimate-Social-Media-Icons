@@ -1687,8 +1687,13 @@ SFSI(document).ready(function(s) {
 	
 	/*SFSI(".radio").live("click", function() {*/
 	SFSI(document).on("click", '.radio', function () {
+
         var s = SFSI(this).parent().find("input:radio:first");
-		switch(s.attr("name")) {
+
+         var inputName   = s.attr("name");
+         var inputChecked = s.attr("checked");
+
+		switch(inputName) {
 			case 'sfsi_form_adjustment':
 				if(s.val() == 'no')
 					s.parents(".row_tab").next(".row_tab").show("fast");
@@ -1711,7 +1716,8 @@ SFSI(document).ready(function(s) {
                     SFSI('input[name="sfsi_icons_suppress_errors"][value="yes"]').attr('checked','true');
                 else
                     SFSI('input[name="sfsi_icons_suppress_errors"][value="no"]').attr('checked','true');
-                break;                
+                break; 
+                                          
 			default:
 		}	
 	});
@@ -1751,127 +1757,6 @@ SFSI(document).ready(function(s) {
 		hide: true,
 		palettes: true
 	});
-	/*SFSI("#sfsiFormBorderColor").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_form_border_color").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_form_border_color").val("#" + i), SFSI("#sfsiFormBorderColor").css("background", "#" + i);
-			create_suscriber_form();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_popup_background_color").val("#" + i), SFSI("#sfsiFormBorderColor").css("background", "#" + i);
-			create_suscriber_form();
-        }
-    }),
-	SFSI("#sfsiFormBackground").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_form_background").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_form_background").val("#" + i), SFSI("#sfsiFormBackground").css("background", "#" + i);
-			create_suscriber_form();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_form_background").val("#" + i), SFSI("#sfsiFormBackground").css("background", "#" + i);
-			create_suscriber_form();
-        }
-    }),
-	SFSI("#sfsiFormHeadingFontcolor").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_form_heading_fontcolor").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_form_heading_fontcolor").val("#" + i), SFSI("#sfsiFormHeadingFontcolor").css("background", "#" + i);
-			create_suscriber_form();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_form_heading_fontcolor").val("#" + i), SFSI("#sfsiFormHeadingFontcolor").css("background", "#" + i);
-			create_suscriber_form();
-        }
-    }),
-	SFSI("#sfsiFormFieldFontcolor").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_form_field_fontcolor").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_form_field_fontcolor").val("#" + i), SFSI("#sfsiFormFieldFontcolor").css("background", "#" + i);
-			create_suscriber_form();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_form_field_fontcolor").val("#" + i), SFSI("#sfsiFormFieldFontcolor").css("background", "#" + i);
-			create_suscriber_form();
-        }
-    }),
-	SFSI("#sfsiFormButtonFontcolor").ColorPicker({
-
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_form_button_fontcolor").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_form_button_fontcolor").val("#" + i), SFSI("#sfsiFormButtonFontcolor").css("background", "#" + i);
-			create_suscriber_form();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_form_button_fontcolor").val("#" + i), SFSI("#sfsiFormButtonFontcolor").css("background", "#" + i);
-			create_suscriber_form();
-        }
-    }),
-	SFSI("#sfsiFormButtonBackground").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_form_button_background").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_form_button_background").val("#" + i), SFSI("#sfsiFormButtonBackground").css("background", "#" + i);
-			create_suscriber_form();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_form_button_background").val("#" + i), SFSI("#sfsiFormButtonBackground").css("background", "#" + i);
-			create_suscriber_form();
-        }
-    });*/
 	//changes done {Monad}
 	
 	function i() {
@@ -1954,26 +1839,6 @@ SFSI(document).ready(function(s) {
 		hide: true,
 		palettes: true
 	}),
-	/*SFSI("#sfsifontCloroPicker").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_popup_fontColor").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), sfsi_make_popBox(), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_popup_fontColor").val("#" + i), SFSI("#sfsifontCloroPicker").css("background", "#" + i), 
-            sfsi_make_popBox();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_popup_fontColor").val("#" + i), SFSI("#sfsifontCloroPicker").css("background", "#" + i), 
-            sfsi_make_popBox();
-        }
-    }),*/
 	SFSI("div#sfsiid_linkedin").find(".icon4").find("a").find("img").mouseover(function() {
         SFSI(this).attr("src", ajax_object.plugin_url + "images/visit_icons/linkedIn_hover.svg");
     }),
@@ -1998,47 +1863,6 @@ SFSI(document).ready(function(s) {
 	SFSI("div#sfsiid_twitter").find(".cstmicon1").find("a").find("img").mouseleave(function() {
         SFSI(this).css("opacity", "1");
     }),
-	/*SFSI("#sfsiBackgroundColorPicker").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_popup_background_color").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_popup_background_color").val("#" + i), SFSI("#sfsiBackgroundColorPicker").css("background", "#" + i), 
-            sfsi_make_popBox();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_popup_background_color").val("#" + i), SFSI("#sfsiBackgroundColorPicker").css("background", "#" + i), 
-            sfsi_make_popBox();
-        }
-    }),
-	
-	SFSI("#sfsiBorderColorPicker").ColorPicker({
-        color:"#f80000",
-        onBeforeShow:function() {
-            s(this).ColorPickerSetColor(SFSI("#sfsi_popup_border_color").val());
-        },
-        onShow:function(s) {
-            return SFSI(s).fadeIn(500), !1;
-        },
-        onHide:function(s) {
-            return SFSI(s).fadeOut(500), !1;
-        },
-        onChange:function(s, i) {
-            SFSI("#sfsi_popup_border_color").val("#" + i), SFSI("#sfsiBorderColorPicker").css("background", "#" + i), 
-            sfsi_make_popBox();
-        },
-        onClick:function(s, i) {
-            SFSI("#sfsi_popup_border_color").val("#" + i), SFSI("#sfsiBorderColorPicker").css("background", "#" + i), 
-            sfsi_make_popBox();
-        }
-    }),*/
 	SFSI("#sfsi_save1").on("click", function() {
         sfsi_update_step1() && sfsicollapse(this);
     }),
@@ -2208,26 +2032,71 @@ SFSI(document).ready(function(s) {
         var backgroundPos = jQuery(this).css('background-position').split(" ");
         var xPos          = backgroundPos[0],yPos = backgroundPos[1];
 
-        if(s.attr('name')== "sfsi_custom_social_hide"){
-            var val = (yPos=="0px") ? "no":"yes";
-            SFSI('input[name="sfsi_custom_social_hide"]').val(val);        
-        }
+        var inputName = s.attr('name');
+        var inputChecked = s.attr("checked");
 
-        if("sfsi_show_via_widget" == s.attr('name') 
-            || "sfsi_show_via_shortcode"  == s.attr('name') 
-            || "sfsi_show_via_afterposts" == s.attr('name')
-            || "sfsi_custom_social_hide"  == s.attr('name')
-            )
-        {
-            var val = (yPos=="0px") ? "no":"yes";
-            SFSI('input[name="'+s.attr('name')+'"]').val(val);        
-        }        
+        switch(inputName){
+
+            case "sfsi_custom_social_hide":
+
+                var val = (yPos=="0px") ? "no":"yes";
+                SFSI('input[name="sfsi_custom_social_hide"]').val(val);
+
+            break;
+
+            case "sfsi_show_via_widget": case "sfsi_show_via_widget":
+            case "sfsi_show_via_afterposts": case "sfsi_custom_social_hide":
+
+                var val = (yPos=="0px") ? "no":"yes";
+                SFSI('input[name="'+s.attr('name')+'"]').val(val);        
+
+            break;
+
+             case 'sfsi_mouseOver':
+
+                var elem = SFSI('input[name="'+inputName+'"]');
+
+                var togglelem = SFSI('.mouse-over-effects');
+                
+                if(inputChecked){
+                    togglelem.removeClass('hide').addClass('show');
+                }
+                else{
+                    togglelem.removeClass('show').addClass('hide');
+                }
+
+            break;
+        }
 
     });
 
 //*------------------------------- Sharing text & pcitures checkbox for showing section in Page, Post CLOSES -------------------------------------//
 
-	/*SFSI(".radio").live("click", function() {*/
+    SFSI(document).on("click", '.radio', function () {
+
+        var s = SFSI(this).parent().find("input:radio:first");
+
+        switch(s.attr("name")){
+
+            case 'sfsi_mouseOver_effect_type':
+
+                var _val  = s.val();
+                var _name = s.attr("name");
+
+                if('same_icons' == _val){
+                    SFSI('.same_icons_effects').removeClass('hide').addClass('show');
+                    SFSI('.other_icons_effects_options').removeClass('show').addClass('hide');
+                }
+                else if('other_icons' == _val){
+                    SFSI('.same_icons_effects').removeClass('show').addClass('hide');
+                    SFSI('.other_icons_effects_options').removeClass('hide').addClass('show');
+                }
+
+            break;
+        }
+
+    });
+
 	SFSI(document).on("click", '.radio', function () {
 
         var s = SFSI(this).parent().find("input:radio:first");
@@ -2276,6 +2145,7 @@ SFSI(document).ready(function(s) {
         "manual" == SFSI("input[name='sfsi_instagram_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_instagram_manualCounts']").slideDown(), 
         SFSI(".instagram_userLi").slideUp()) :(SFSI("input[name='sfsi_instagram_manualCounts']").slideUp(), 
         SFSI(".instagram_userLi").slideDown()));
+
     }),
 	
     sfsi_make_popBox(),
