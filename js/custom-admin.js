@@ -359,13 +359,18 @@ function sfsi_update_step3() {
     var s = sfsi_validationStep3();
     if (!s) return global_error = 1, !1;
     beForeLoad();
-    var i = SFSI("input[name='sfsi_actvite_theme']:checked").val(), e = SFSI("input[name='sfsi_mouseOver']:checked").val(), t = SFSI("input[name='sfsi_shuffle_icons']:checked").val(), n = SFSI("input[name='sfsi_shuffle_Firstload']:checked").val(), o = SFSI("#sfsi_mouseOver_effect option:selected").val(), a = SFSI("input[name='sfsi_shuffle_interval']:checked").val(), r = SFSI("input[name='sfsi_shuffle_intervalTime']").val(), c = SFSI("input[name='sfsi_specialIcon_animation']:checked").val(), p = SFSI("input[name='sfsi_specialIcon_MouseOver']:checked").val(), _ = SFSI("input[name='sfsi_specialIcon_Firstload']:checked").val(), l = SFSI("#sfsi_specialIcon_Firstload_Icons option:selected").val(), S = SFSI("input[name='sfsi_specialIcon_interval']:checked").val(), u = SFSI("input[name='sfsi_specialIcon_intervalTime']").val(), f = SFSI("#sfsi_specialIcon_intervalIcons option:selected").val(), d = {
+    var i = SFSI("input[name='sfsi_actvite_theme']:checked").val(), e = SFSI("input[name='sfsi_mouseOver']:checked").val(), t = SFSI("input[name='sfsi_shuffle_icons']:checked").val(), n = SFSI("input[name='sfsi_shuffle_Firstload']:checked").val(), o = SFSI("input[name='sfsi_same_icons_mouseOver_effect']:checked").val(), a = SFSI("input[name='sfsi_shuffle_interval']:checked").val(), r = SFSI("input[name='sfsi_shuffle_intervalTime']").val(), c = SFSI("input[name='sfsi_specialIcon_animation']:checked").val(), p = SFSI("input[name='sfsi_specialIcon_MouseOver']:checked").val(), _ = SFSI("input[name='sfsi_specialIcon_Firstload']:checked").val(), l = SFSI("#sfsi_specialIcon_Firstload_Icons option:selected").val(), S = SFSI("input[name='sfsi_specialIcon_interval']:checked").val(), u = SFSI("input[name='sfsi_specialIcon_intervalTime']").val(), f = SFSI("#sfsi_specialIcon_intervalIcons option:selected").val();
+
+    var mouseover_effect_type = 'same_icons';//SFSI("input[name='sfsi_mouseOver_effect_type']:checked").val();
+
+    d = {
         action:"updateSrcn3",
         sfsi_actvite_theme:i,
         sfsi_mouseOver:e,
         sfsi_shuffle_icons:t,
         sfsi_shuffle_Firstload:n,
         sfsi_mouseOver_effect:o,
+        sfsi_mouseover_effect_type:mouseover_effect_type,
         sfsi_shuffle_interval:a,
         sfsi_shuffle_intervalTime:r,
         sfsi_specialIcon_animation:c,

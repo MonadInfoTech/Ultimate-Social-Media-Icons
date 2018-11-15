@@ -22,15 +22,15 @@
 
                     <div class="row rowpadding10 same_icons_effects <?php echo ( $option3['sfsi_mouseOver_effect_type']=='same_icons') ?  'show' : 'hide' ;?>">
 
-                        <div class="effectContainer">
+                        <div class="effectContainer bottommargin30">
 
                             <div class="effectName">
                                 
                                 <input class="styled" type="radio" name="sfsi_same_icons_mouseOver_effect" value="fade_in" <?php echo ( $option3['sfsi_mouseOver_effect']=='fade_in') ?  'checked="true"' : '' ;?>>
                                 
                                 <label>
-                                    <span><?php  _e( 'Fade In', SFSI_PLUS_DOMAIN ); ?></span>
-                                    <span><?php  _e( '(Icons turn from shadow to full color)', SFSI_PLUS_DOMAIN ); ?></span>
+                                    <span>Fade In</span>
+                                    <span>(Icons turn from shadow to full color)</span>
                                 </label>
 
                             </div>
@@ -40,8 +40,8 @@
                                 <input class="styled" type="radio" name="sfsi_same_icons_mouseOver_effect" value="scale" <?php echo ( $option3['sfsi_mouseOver_effect']=='scale') ?  'checked="true"' : '' ;?>>
 
                                 <label>
-                                    <span> <?php  _e( 'Scale', SFSI_PLUS_DOMAIN ); ?></span>
-                                    <span><?php  _e( '(Icons become bigger)', SFSI_PLUS_DOMAIN ); ?></span>
+                                    <span> Scale</span>
+                                    <span>(Icons become bigger)</span>
                                 </label>
 
                             </div>
@@ -55,8 +55,8 @@
                                 <input class="styled" type="radio" name="sfsi_same_icons_mouseOver_effect" value="combo" <?php echo ( $option3['sfsi_mouseOver_effect']=='combo') ?  'checked="true"' : '' ;?>>
                                 
                                 <label>
-                                    <span><?php  _e( 'Combo', SFSI_PLUS_DOMAIN ); ?></span>
-                                    <span><?php  _e( '(Both fade in and scale effects)', SFSI_PLUS_DOMAIN ); ?></span>
+                                    <span>Combo</span>
+                                    <span>(Both fade in and scale effects)</span>
                                 </label>
 
                             </div>
@@ -66,15 +66,15 @@
                                 <input class="styled" type="radio" name="sfsi_same_icons_mouseOver_effect" value="fade_out" <?php echo ( $option3['sfsi_mouseOver_effect']=='fade_out') ?  'checked="true"' : '' ;?>>
                                 
                                 <label> 
-                                    <span><?php  _e( 'Fade Out', SFSI_PLUS_DOMAIN ); ?></span>
-                                    <span><?php  _e( '(Icons turn from full color to shadow)', SFSI_PLUS_DOMAIN ); ?></span>
+                                    <span>Fade Out</span>
+                                    <span>(Icons turn from full color to shadow)</span>
                                 </label>
 
                             </div>
 
                         </div>
                         
-                        <div class="row mouseover-premium-notice rowmarginleft45">
+                        <div class="row rowmarginleft45 mouseover-premium-notice">
                             <label>Greyed-out options are available in the</label>
                             <a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=same_icon_effects&utm_medium=link">Premium Plugin</a>
                         </div>
@@ -89,7 +89,7 @@
 
                     </div><!-- row closes -->
 
-                    <div class="row rowpadding10 rowmarginleft45 other_icons_effects_options <?php echo ( $option3['sfsi_mouseOver_effect_type']=='other_icons') ?  'show' : 'hide' ;?>">
+                    <div class="row rowpadding10 rowmarginleft35 other_icons_effects_options <?php echo ( $option3['sfsi_mouseOver_effect_type']=='other_icons') ?  'show' : 'hide' ;?>">
                         
                         <div disabled class="col-md-12 inactiveSection other_icons_effects_options_container">
                                                                     

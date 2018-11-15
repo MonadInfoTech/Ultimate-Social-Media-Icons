@@ -2097,14 +2097,21 @@ div#sfsi_plus_langnotice,div#sfsi_plus_addThis_removal_notice,div#sfsi_error_rep
 .clear{clear: both;}
 .show{display: block;}
 .hide{display: none;}
+
+.zerotoppadding{padding-top:0px !important;}
+.zerobottompadding{padding-bottom:0px !important;}
+.zerotopmargin{margin-top:0px !important;}
+
+.rowpadding10{padding: 10px 0 !important; }
 .rowmarginleft15 {margin-left: 15px !important;}
 .rowmarginleft25 {margin-left: 25px !important;}
 .rowmarginleft45 {margin-left: 45px !important;}
+
 .bottommargin20 {margin-bottom: 20px !important;}
-.inactiveSection{
-    opacity: 0.2;
-    pointer-events: none;
-}
+.bottommargin30 {margin-bottom: 30px !important;}
+.bottommargin40 {margin-bottom: 40px !important;}
+.inactiveSection{opacity: 0.2;pointer-events: none;}
+
 /*  */
 .tab3 .sub_row{
     float: left;
@@ -2186,7 +2193,48 @@ div#sfsi_plus_langnotice,div#sfsi_plus_addThis_removal_notice,div#sfsi_error_rep
     font-size: 18px;
 }
 
-@media (min-width:768px) {
+@media (min-width:414px) and (max-width: 736px) and (orientation:portrait) {
+    .tab3 .sub_row{
+        width: 100%;
+    }
+    .tab3 .sub_row .effectContainer{
+        margin-left: 25px;        
+        margin-bottom: 0px;
+        clear: both;
+    }    
+    .tab3 .sub_row .effectName{
+        width: 100%;
+        margin-bottom: 25px        
+    }
+    .rowmarginleft45{
+        margin-left: 0px !important;
+    }
+    .bottommargin40{
+        margin-bottom:0px !important;
+    }    
+}
+
+@media (min-width:414px) and (max-width: 736px) and (orientation:landscape) {
+    .tab3 .sub_row{
+        width: 100%;
+    }
+    .tab3 .sub_row .effectContainer{
+        margin-left: 25px;        
+        margin-bottom: 0px;
+        clear: both;
+    }    
+    .tab3 .sub_row .effectName{
+        width: 50%;
+        margin-bottom: 25px        
+    }
+    .rowmarginleft45{
+        margin-left: 25px !important;
+    }
+    .bottommargin40{
+        margin-bottom:0px !important;
+    }    
+}
+@media (min-width:768px) and (max-width: 1024px){
     .tab3 .sub_row{
         width: 100%;
     }
@@ -2198,6 +2246,7 @@ div#sfsi_plus_langnotice,div#sfsi_plus_addThis_removal_notice,div#sfsi_error_rep
         width: 50%;
     }
 }
+
 
 /*  */
 

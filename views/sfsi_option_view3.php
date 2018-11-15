@@ -16,7 +16,7 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
 
 $option3['sfsi_mouseOver_effect_type'] = (isset($option3['sfsi_mouseOver_effect_type'])) ? sanitize_text_field($option3['sfsi_mouseOver_effect_type']) : 'same_icons';
 
-$mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icons_transition_effect'])) ? sanitize_text_field($option3['mouseover_other_icons_transition_effect']) : 'noeffect';
+$mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icons_transition_effect'])) ? sanitize_text_field($option3['mouseover_other_icons_transition_effect']) : 'flip';
 ?>
 
 <!-- Section 3 "What design & animation do you want to give your icons?" main div Start -->

@@ -91,7 +91,7 @@ function sfsi_update_plugin()
         }
 
         if(!isset($option3['mouseover_other_icons_transition_effect'])){
-            $option3['mouseover_other_icons_transition_effect'] = 'noeffect';
+            $option3['mouseover_other_icons_transition_effect'] = 'flip';
         }
     }
 
@@ -406,7 +406,7 @@ function sfsi_activate_plugin()
             'sfsi_mouseOver'             =>'no',
             'sfsi_mouseOver_effect'      =>'fade_in',
             'sfsi_mouseOver_effect_type' => 'same_icons',
-            'mouseover_other_icons_transition_effect' => 'noeffect',
+            'mouseover_other_icons_transition_effect' => 'flip',
             'sfsi_shuffle_icons'         =>'no',
             'sfsi_shuffle_Firstload'     =>'no',
             'sfsi_shuffle_interval'      =>'no',
