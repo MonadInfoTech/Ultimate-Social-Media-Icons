@@ -131,17 +131,6 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                          {
                              echo '<span class="row_17_5 twitter_section" style="background-position:-235px 0;"></span>';
                          }
-                         
-       //                   if(get_option("share_skin"))
-       //                   {
-       //                      $icon = get_option("share_skin");
-       //                      echo '<span class="row_17_6 share_section sfsi-bgimage" style="background: url('.$icon.') no-repeat;"></span>';
-       //                   }
-						 // else
-       //                   {
-       //                       echo '<span class="row_17_6 share_section" style="background-position:-293px 0;"></span>';
-       //                   }
-                         
                          if(get_option("youtube_skin"))
                          {
                             $icon = get_option("youtube_skin");
@@ -184,101 +173,13 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                      ?>
                 </div>
            	</li>
+
            	<li>
-			<div class="sf_si_our_prmium_plugin-add">
-			    <div class="sf_si_prmium_head"><h2>New: <span>In our Premium Plugin we added:</span></h2></div>
-			    <div class="sf_si_default_design">
-					<ul>
-                         <li>
-                             <h4>A) More default design styles</h4>
-                            </li>
-                         <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_field sfsi_cool_font_weight">
-                                     <h2>Cool style</h2>  
-                                    </div>
-                                    <div class="sfsi_second_icon_img">
-                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_cool_icon_spread.png" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_field sfsi_cool_font_weight">
-                                        <h2>Waxed Wood</h2>
-                                    </div>
-                                    <div class="sfsi_second_icon_img">
-                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_vaxwoodi_icon_spread.png" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_field sfsi_cool_font_weight">
-                                        <h2>Black Grunge</h2>
-                                    </div>
-                                    <div class="sfsi_second_icon_img">
-                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_black_icon_spread.png" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_more">
-                                        <h2>(and many more)</h2>
-                                    </div>
-                                </div>
-                            </li>
-                         <li>
-                             <h4 class="sfsi_second_themedTitle">B) Themed styles<span> (to match the content of your site)</span></h4>
-                            </li>
-                         <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_field">
-                                        <h2>Lovehearts</h2>
-                                        <p>(e.g. for girly sites or just sites with a heart)</p>
-                                    </div>
-                                    <div class="sfsi_second_icon_img">
-                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_loveheart_icon_spread.png" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_field">
-                                        <h2>Computers</h2>
-                                        <p>(e.g. for IT/tech sites)</p>
-                                    </div>
-                                    <div class="sfsi_second_icon_img">
-                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_computer_icon_spread.png" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_field">
-                                        <h2>Dogs</h2>
-                                        <p>(e.g. for dog/pet sites)</p>
-                                    </div>
-                                    <div class="sfsi_second_icon_img">
-                                        <img src="<?php  echo SFSI_PLUGURL; ?>images/sfsi_dogi_icon_spread.png" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sfsi_row_table">
-                                    <div class="sfsi_first_icon_more">
-                                        <h2>(and many more)</h2>
-                                    </div>
-                                </div>
-                            </li>
-                    </ul>
-			    </div>
-				<div class="sf_si_all_features_premium">
-					<a  href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_icons_designs&utm_medium=banner" target="_blank">See all features Premium Plugin</a>
-				</div>
-		    </div>
+
+                <?php include_once(SFSI_DOCROOT.'/views/subviews/que4/banner.php'); ?>
+
             </li>
+
            	<li>
             	<p style="font-weight: bold; margin: 12px 0 0;">
                         Need icons for another theme? Let us know in the
