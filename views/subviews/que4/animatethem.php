@@ -129,12 +129,12 @@
 
                         <div disabled class="col-md-12 inactiveSection rowmarginleft15 topmargin10">
                             
-                            <label><?php _e('Transition effect to those icons',SFSI_PLUS_DOMAIN); ?></label>
+                            <label>Transition effect to those icons</label>
 
                             <select name="mouseover_other_icons_transition_effect">
                                 
-                                <option <?php echo 'noeffect'== $mouseover_other_icons_transition_effect? "selected=selected" : ""; ?> value="noeffect"><?php _e('No effect')?></option>
-                                <option <?php echo 'flip'== $mouseover_other_icons_transition_effect? "selected=selected" : ""; ?> value="flip"><?php _e('Flip')?></option>
+                                <option <?php echo 'noeffect'== $mouseover_other_icons_transition_effect? "selected=selected" : ""; ?> value="noeffect">No effect</option>
+                                <option <?php echo 'flip'== $mouseover_other_icons_transition_effect? "selected=selected" : ""; ?> value="flip">Flip</option>
 
                             </select>
 

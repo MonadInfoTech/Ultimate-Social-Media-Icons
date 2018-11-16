@@ -191,9 +191,9 @@ if(!function_exists('sfsi_icon_generate_other_icon_effect_admin_html')){
 
                 <input <?php echo $attrCustomIconIndex; ?> <?php echo $attrIconName; ?> type="hidden" value="<?php echo $iconImgVal; ?>" name="mouseover_other_icon_<?php echo $iconName; ?>">
 
-                <a <?php echo $attrCustomIconIndex; ?> <?php echo $attrIconName; ?> id="btn_mouseover_other_icon_<?php echo $iconName; ?>" class="mouseover_other_icon_change_link" href="javascript:void(0)" class="mouseover_other_icon"><?php _e('Change',SFSI_PLUS_DOMAIN); ?></a>
+                <a <?php echo $attrCustomIconIndex; ?> <?php echo $attrIconName; ?> id="btn_mouseover_other_icon_<?php echo $iconName; ?>" class="mouseover_other_icon_change_link" href="javascript:void(0)" class="mouseover_other_icon">Change</a>
 
-                <a <?php echo $attrCustomIconIndex; ?> <?php echo $attrIconName; ?> class="<?php echo $classForRevertLink; ?> mouseover_other_icon_revert_link" href="javascript:void(0)" class="mouseover_other_icon"><?php _e('Revert',SFSI_PLUS_DOMAIN); ?></a>
+                <a <?php echo $attrCustomIconIndex; ?> <?php echo $attrIconName; ?> class="<?php echo $classForRevertLink; ?> mouseover_other_icon_revert_link" href="javascript:void(0)" class="mouseover_other_icon">Revert</a>
 
             </div>
 
