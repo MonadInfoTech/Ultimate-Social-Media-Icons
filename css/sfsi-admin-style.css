@@ -2191,6 +2191,10 @@ div#sfsi_plus_langnotice,div#sfsi_plus_addThis_removal_notice,div#sfsi_error_rep
 }
 .mouseover-premium-notice{
 }
+.mouseover-premium-notice label{
+    width: auto !important;
+    margin: 0 !important; 
+}
 .mouseover-premium-notice a{
     float: left;
     color: #12a252 !important;
