@@ -16,7 +16,7 @@
 
         <div class="sfsi-popup-content">
             <div class="sfsi-text">
-                <p class="sfsi-please">PLEASE'</p>
+                <p class="sfsi-please">PLEASE</p>
                 <p class="sfsi-please-other-text">let us know in the Support Forum what was the issue, <br>so that we can fix it. We‘ll respond quickly!</p>
             </div>
             <div class="sfsi-go-to-support">
