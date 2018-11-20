@@ -939,6 +939,7 @@ function sfsi_returningElement($element) {return $element[0];}
 add_action('wp_ajax_bannerOption','sfsi_bannerOption');
 
 function sfsi_bannerOption(){
+
     error_reporting(0);
 
     if(get_option("show_new_notification") == "yes"){
