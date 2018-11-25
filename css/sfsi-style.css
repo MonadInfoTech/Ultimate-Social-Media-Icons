@@ -2257,3 +2257,12 @@ ul.cstmskin_iconlist {
 }
 .sfsi_wicons a{box-shadow:none !important;}
 a.sficn{ cursor: pointer; }
+.sfsi_Sicons .fb_iframe_widget>span{
+        vertical-align:top!important;
+}
+.sfsi_Sicons .sf_fb{
+    margin:0 0 0 5px !important;
+}
+.sfsi_Sicons .sf_google{
+    margin:-1px 10px !important;
+}
