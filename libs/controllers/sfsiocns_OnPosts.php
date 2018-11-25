@@ -119,7 +119,7 @@ function sfsi_Subscribelike($permalink, $show_count)
 	$sfsi_section2_options=  unserialize(get_option('sfsi_section2_options',false));
 	$sfsi_section4_options = unserialize(get_option('sfsi_section4_options',false));
 	$sfsi_section6_options=  unserialize(get_option('sfsi_section6_options',false));
-	$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'javascript:void(0);';
+	$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : '';
 	
 	if($sfsi_section4_options['sfsi_email_countsFrom']=="source" )
 	{

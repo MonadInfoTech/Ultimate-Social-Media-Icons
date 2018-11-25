@@ -164,7 +164,16 @@ var global_error = 0;
 SFSI(document).ready(function(s) {
 
 	//changes done {Monad}
-	
+	//putting it before to make sure it registers before the mobile click function
+    SFSI(document).on('click','.inerCnt a[href=""]',function(event){
+        //check if not mobile
+        if(!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+            //execute
+            // console.log('abc');
+            event.preventDefault();
+        }
+    });
+
     SFSI("head").append('<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />'), 
     SFSI("head").append('<meta http-equiv="Pragma" content="no-cache" />'), SFSI("head").append('<meta http-equiv="Expires" content="0" />'), 
     SFSI(document).click(function(s) {
@@ -203,6 +212,10 @@ SFSI(document).ready(function(s) {
         var s = SFSI(this).parent().find("input:radio:first");
         "sfsi_popup_border_shadow" == s.attr("name") && sfsi_make_popBox();
     }), /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? SFSI("img.sfsi_wicon").on("click", function(s) {
+        if(SFSI(s.target).parent().attr('href')==""){
+            s.preventDefault();
+        }
+
         s.stopPropagation();
         var i = SFSI("#sfsi_floater_sec").val();
         SFSI("div.sfsi_wicons").css("z-index", "0"), SFSI(this).parent().parent().parent().siblings("div.sfsi_wicons").find(".inerCnt").find("div.sfsi_tool_tip_2").hide(), 
