@@ -863,11 +863,10 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 				 
 				/* check for icons to display */
 				$hoverdiv="";
-				
-				$follow = isset($sfsi_section2_options['sfsi_youtube_pageUrl']) && !empty($sfsi_section2_options['sfsi_youtube_pageUrl']) ? $sfsi_section2_options['sfsi_youtube_pageUrl'] : false;
+
+				$follow = isset($sfsi_section2_options['sfsi_youtube_follow']) && !empty($sfsi_section2_options['sfsi_youtube_follow']) ? $sfsi_section2_options['sfsi_youtube_follow'] : false;
 
 				$ypage  = isset($sfsi_section2_options['sfsi_youtube_page']) && !empty($sfsi_section2_options['sfsi_youtube_page']) ? $sfsi_section2_options['sfsi_youtube_page'] : false;
-
 
 				if(false != $follow && $follow=="yes")
 				{
