@@ -1509,7 +1509,7 @@ function sfsfi_getCookie(s) {
 
 function sfsi_hideFooter() {}
 window.onerror = function() {},
-SFSI = jQuery.noConflict(),
+SFSI = jQuery,
 SFSI(window).load(function() {
     SFSI("#sfpageLoad").fadeOut(2e3);
 });

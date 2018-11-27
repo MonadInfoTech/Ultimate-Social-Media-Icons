@@ -71,9 +71,14 @@ function sfsi_float_widget(s) {
     
     function i() {
         r = "Microsoft Internet Explorer" === navigator.appName ? a - document.documentElement.scrollTop :a - window.pageYOffset, 
-        Math.abs(r) > 0 ? (window.removeEventListener("scroll", i), a -= r * o, SFSI("#sfsi_floater").css({
+        Math.abs(r) > 0 ?
+         (window.removeEventListener("scroll", i), 
+          a -= r * o, 
+          SFSI("#sfsi_floater").css({
             top:(a + t).toString() + "px"
-        }), setTimeout(i, n)) :window.addEventListener("scroll", i, !1);
+          }), 
+          setTimeout(i, n)) :
+        window.addEventListener("scroll", i, !1);
 	}
     
     function e() {
@@ -91,14 +96,13 @@ function sfsi_float_widget(s) {
 			SFSI("#sfsi_floater").css("top",documentheight+"px");
 		}
 	}
-
     if ("center" == s)
 	{
 		var t = ( SFSI(window).height() - SFSI("#sfsi_floater").height() ) / 2;
 	}
 	else if ("bottom" == s)
 	{
-		var t = window.innerHeight - SFSI("#sfsi_floater").height();
+		var t = window.innerHeight - (SFSI("#sfsi_floater").height() + parseInt(SFSI('#sfsi_floater').css('margin-bottom')));
 	}
 	else
 	{
@@ -155,7 +159,7 @@ function sfsfi_getCookie(s) {
 
 function sfsi_hideFooter() {}
 
-window.onerror = function() {}, SFSI = jQuery.noConflict(), SFSI(window).load(function() {
+window.onerror = function() {}, SFSI = jQuery, SFSI(window).load(function() {
     SFSI("#sfpageLoad").fadeOut(2e3);
 });
 
