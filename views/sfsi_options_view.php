@@ -241,3 +241,5 @@
     });
 
 </script>
+?>
+<?php include(SFSI_PLUS_DOCROOT.'/views/sfsi_chat_on_admin_pannel.php'); ?>
