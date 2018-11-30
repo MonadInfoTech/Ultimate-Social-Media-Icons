@@ -2266,3 +2266,15 @@ a.sficn{ cursor: pointer; }
 .sfsi_Sicons .sf_google{
     margin:-1px 10px !important;
 }
+
+.disabled_checkbox .sfsi_right_info:before {
+    position: absolute;
+    content: "";
+    width: 45%;
+    height: 60px;
+    display: inline-block;
+    z-index: 99;
+    margin-left: -40px;
+    margin-top: -14px;
+    background: rgba(255,255,255,.8);
+}
