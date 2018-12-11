@@ -1323,7 +1323,7 @@ function sfsi_ask_for_help($viewNumber){ ?>
 	
 		<img src="<?php echo SFSI_PLUGURL."images/questionmark.png";?>"/>
 		
-		<span>Questions? <a target="_blank" href="https://goo.gl/ctiyJM"><b>Ask us</b></a> — we will respond asap!</span>
+		<span>Questions? <a target="_blank" href="#" onclick="event.preventDefault();sfsi_open_chat(event)"><b>Ask us</b></a></span>
 
 	</div>
 
