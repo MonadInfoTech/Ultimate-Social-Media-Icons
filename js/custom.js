@@ -96,6 +96,7 @@ function sfsi_float_widget(s) {
 			SFSI("#sfsi_floater").css("top",documentheight+"px");
 		}
 	}
+
     if ("center" == s)
 	{
 		var t = ( SFSI(window).height() - SFSI("#sfsi_floater").height() ) / 2;
@@ -172,8 +173,6 @@ SFSI(document).ready(function(s) {
     SFSI(document).on('click','.inerCnt a[href=""]',function(event){
         //check if not mobile
         if(!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
-            //execute
-            // console.log('abc');
             event.preventDefault();
         }
     });

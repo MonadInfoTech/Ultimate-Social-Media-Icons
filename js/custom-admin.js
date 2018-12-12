@@ -2467,8 +2467,7 @@ SFSI(document).ready(function(){
         }        
     });
     SFSI('#sfsi_jivo_offline_chat #sfsi_sales form').submit(function(event){
-        event&event.preventDefault();
-        // console.log(event);
+        event & event.preventDefault();
         var target=SFSI(this).parents('.tab-content');
         SFSI.ajax({
             url:ajax_object.ajax_url,
@@ -2485,7 +2484,7 @@ SFSI(document).ready(function(){
     })
 });
 function sfsi_close_offline_chat(e){
-    e&&e.preventDefault();
+    e && e.preventDefault();
 
     SFSI('#sfsi_jivo_offline_chat').hide();
     SFSI('#sfsi_dummy_chat_icon').show();
