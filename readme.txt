@@ -3,7 +3,7 @@ Contributors: socialdude
 Tags: social media, share, buttons, social widget, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
 Requires at least: 3.0
 Tested up to: 5.0
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -274,6 +274,9 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+= 2.1.1 =
+
+
 = 2.1.0 =
 * New Feature: Chat for site admin on our settings page.
 * Solved: removed deprecated jQuery functions.
@@ -736,5 +739,5 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Upgrade Notice ==
 
-= 2.1.0 =
+= 2.1.1 =
 Please upgrade
