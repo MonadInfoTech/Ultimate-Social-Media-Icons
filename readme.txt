@@ -275,6 +275,9 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Changelog ==
 = 2.1.0 =
+* New Feature: Chat for site admin on our settings page.
+* Solved: removed deprecated jQuery functions.
+* Solved: Rectangle icon alignemnt problem on some themes solved.
 
 = 2.0.9 =
 * Banner for animation section in Question 4 added
