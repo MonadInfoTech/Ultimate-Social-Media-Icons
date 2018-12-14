@@ -519,7 +519,7 @@ class sfsi_SocialHelper
 			curl_setopt_array($curl, array(
 
 				CURLOPT_RETURNTRANSFER 	=> 1,
-				CURLOPT_URL 			=> 'http://www.specificfeeds.com/wordpress/wpCountSubscriber',
+				CURLOPT_URL 			=> 'https://www.specificfeeds.com/wordpress/wpCountSubscriber',
 				CURLOPT_USERAGENT 		=> 'sf rss request',
 				CURLOPT_POST 			=> 1,
 				CURLOPT_TIMEOUT 	    => 30,

@@ -258,7 +258,7 @@ function sfsi_getverification_code()
 	$curl = curl_init();  
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/getVerifiedCode_plugin',
+        CURLOPT_URL => 'https://www.specificfeeds.com/wordpress/getVerifiedCode_plugin',
         CURLOPT_USERAGENT => 'sf get verification',
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => array(
