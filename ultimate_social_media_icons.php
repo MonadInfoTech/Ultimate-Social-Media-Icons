@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.1.1
+Version: 2.1.3
 License: GPLv2 or later
 */
 
