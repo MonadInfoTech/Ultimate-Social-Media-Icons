@@ -2470,13 +2470,31 @@ SFSI(document).ready(function(){
         event&event.preventDefault();
         // console.log(event);
         var target=SFSI(this).parents('.tab-content');
+        var message= SFSI(this).find('textarea[name="question"]').val();
+        var email=SFSI(this).find('input[name="email"]').val();
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        if(""===email || false===re.test(String(email).toLowerCase())){
+            // console.log(SFSI(this).find('input[name="email"]'));
+            SFSI(this).find('input[name="email"]').css('background-color','red');
+            SFSI(this).find('input[name="email"]').on('keyup',function(){
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var email = SFSI(this).val();
+                // console.log(email,re.test(String(email).toLowerCase()) );
+                if(""!==email && true===re.test(String(email).toLowerCase())){
+                    SFSI(this).css('background-color','#fff');
+                }
+            })
+            return false;
+
+        }
         SFSI.ajax({
             url:ajax_object.ajax_url,
             type:"post",
             data:{
                 action: "sfsiOfflineChatMessage",
-                message: SFSI(this).find('textarea[name="question"]').val(),
-                email:   SFSI(this).find('input[name="email"]').val(),
+                message: message,
+                email:   email,
             }
         }).done(function(){
             target.find('.before_message_sent').hide();
