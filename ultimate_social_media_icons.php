@@ -521,8 +521,9 @@ function sfsi_admin_notice()
 		<style type="text/css">
 			
 			div.sfsi_show_premium_notification{
-				float: left;
-    			width: 94.2%;
+				float: none;
+				display:inline-block;
+    			width: 98.2%;
     			margin-left: 37px;
     			margin-top: 15px;
     			padding: 8px;
